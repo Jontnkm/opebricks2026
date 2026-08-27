@@ -1,0 +1,196 @@
+
+<style>
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.guideBox {margin-top:40px;}
+.guideTitle {font-size:18px; font-weight:500;}
+.guideCont {margin-top:10px;}
+.gGroup {margin-top:20px;}
+.gText {font-size:14px;}
+.gView {padding:10px; border:1px solid #bbbbbb; background:#fff;}
+</style>
+
+<div class="cptPubGuide">
+<div class="guideArea">
+    
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">Form 조합 - 아직 정의되지 않았습니다.</div>
+<div class="guideCont">
+<div class="gText">
+    - 각종 폼의 조합의 예제입니다.
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<!-- 그리드/테이블 하단 버튼 양측 -->  
+<div class="frmGroup">
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+</div>
+<div class="frmGroup">
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+    <div class="textBox">~</div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+    <div class="textBox">~</div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+</div>
+
+<div class="frmGroup">
+    <div class="frmBox frmSm">
+        <select class="iptSlt">
+            <option value="">01 선택하세요</option>
+            <option value="">02 선택하세요</option>
+            <option value="">03 선택하세요</option>
+            <option value="">04 선택하세요</option>
+            <option value="">05 선택하세요</option>
+            <option value="">06 선택하세요</option>
+            <option value="">07 선택하세요</option>
+        </select>
+    </div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+</div>
+
+<div class="frmGroup">
+    <div class="frmBox frmSm">
+        <select class="iptSlt">
+            <option value="">01 선택하세요</option>
+            <option value="">02 선택하세요</option>
+            <option value="">03 선택하세요</option>
+            <option value="">04 선택하세요</option>
+            <option value="">05 선택하세요</option>
+            <option value="">06 선택하세요</option>
+            <option value="">07 선택하세요</option>
+        </select>
+    </div>
+    <div class="frmBox">
+        <select class="iptSlt">
+            <option value="">01 선택하세요</option>
+            <option value="">02 선택하세요</option>
+            <option value="">03 선택하세요</option>
+            <option value="">04 선택하세요</option>
+            <option value="">05 선택하세요</option>
+            <option value="">06 선택하세요</option>
+            <option value="">07 선택하세요</option>
+        </select>
+    </div>
+</div>
+
+<div class="frmGroup">
+    <div class="frmBox frmXs">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+    <div class="frmBox frmMd">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+    <div class="frmBox maxCont">
+        <button type="button" class="btn dkLine">버튼</button>
+    </div>
+</div>
+
+<div class="frmGroup">
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+    <div class="frmBox maxCont">
+        <button type="button" class="btn dkLine">버튼</button>
+    </div>
+</div>
+
+<div class="frmGroup">
+    <div class="frmGroup">
+        <div class="frmBox frmSm">
+            <select class="iptSlt">
+                <option value="">01 선택하세요</option>
+                <option value="">02 선택하세요</option>
+                <option value="">03 선택하세요</option>
+                <option value="">04 선택하세요</option>
+                <option value="">05 선택하세요</option>
+                <option value="">06 선택하세요</option>
+                <option value="">07 선택하세요</option>
+            </select>
+        </div>
+        <div class="tui-datepicker-input tui-datetime-input tui-has-focus frmLg">
+            <input type="text" id="datepicker-input" aria-label="Date-Time">
+            <div id="datepicker-container" style="margin-top: -1px;"></div>
+        </div>
+        <div class="frmBox maxCont">
+            <button type="button" class="btn dkLine">버튼</button>
+        </div>
+    </div>
+</div>
+
+<div class="frmGroup">
+    <div class="frmBox maxCont">
+        <button type="button" class="btn dkLine">초기화</button>
+    </div>
+    <div class="tui-datepicker-input tui-datetime-input tui-has-focus frmSm">
+        <input id="startpicker-input" type="text" aria-label="Date">
+        <div id="startpicker-container" style="margin-left: -1px;"></div>
+    </div>
+    <div class="textBox">~</div>
+    <div class="tui-datepicker-input tui-datetime-input tui-has-focus frmSm">
+        <input id="endpicker-input" type="text" aria-label="Date">
+        <div id="endpicker-container" style="margin-left: -1px;"></div>
+    </div>
+    <div class="frmBox maxCont">
+        <button type="button" class="btn dkLine">일주일</button>
+    </div>
+    <div class="frmBox maxCont">
+        <button type="button" class="btn dkLine">한달</button>
+    </div>
+    <div class="frmBox maxCont">
+        <button type="button" class="btn dkLine">일년</button>
+    </div>
+</div>
+
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<script>
+setTimeout(function(){
+    //단일
+    datePicker("datepicker-input","datepicker-container");
+
+    //기간
+    datePickerTo("startpicker-input", "startpicker-container", "endpicker-input", "endpicker-container");
+},500);
+</script>
+<!-- //가이드 그룹 -->
+    
+</div>
+</div>
+
+    
+<script>
+    run();
+</script>
+    
+        

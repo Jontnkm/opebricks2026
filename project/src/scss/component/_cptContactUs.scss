@@ -1,0 +1,264 @@
+/* --------------------------- 연락 --------------------------- */
+.cptContactUs {
+
+    .contactArea {
+        display: flex; justify-content: space-between; width: 100%; max-width: 1600px; margin: 0 auto; padding-bottom: 80px; border-bottom: 1px solid #E8E8E8;
+
+        .subLeftBox {
+            width: 412px;
+
+            @include media('mobile') {
+                width: auto;
+            }
+
+            .leftArea {
+                .leftHead {
+                    width: 100%;
+                    .title {
+                        width: 100%; color: #000; font-size: 60px; font-style: normal; font-weight: 700; line-height: 150%;
+                        
+                        @include media('mobile') {
+                            font-size: 30px;
+                        }
+
+                    }
+                }
+                .leftBody {
+                    width: 100%; margin-top: 40px; color: #A0A0A0; font-size: 30px; font-style: normal; font-weight: 700; line-height: 170%;
+                    b {
+                        color: #EC1C24; font-weight: 700;
+                    }
+
+                    @include media('tablet') {
+                        font-size: 26px;
+                    }
+
+                    @include media('mobile') {
+                        margin-top: 20px; font-size: 16px; 
+                    }
+
+                }
+
+            }
+
+            @include media('mobile') {
+                padding-bottom: 40px; flex-wrap: wrap;
+            }
+
+        }
+
+        .subRightBox {
+            width: calc(100% - 45%);
+
+            .contactInfo {
+                
+                .infoArea {
+                    display: flex; flex-direction: column; gap: 80px; 
+
+                    .infoItem {
+
+                        &:first-child {
+                            display: grid; align-items: flex-start; justify-content: center; row-gap: 83px; column-gap: 80px; grid-template-columns: repeat(2, 1fr);   
+
+                            @include media('tablet') {
+                                row-gap: 40px; column-gap: 40px;
+                            } 
+
+                            @include media('mobile') {
+                                row-gap: 40px; column-gap: 0; width: 100%; grid-template-columns: none; justify-content: stretch;
+                            }
+
+                        }
+
+                        input {
+                            border: none; display: flex; padding: 16px 0px; align-items: center; gap: 10px; align-self: stretch; border-bottom: 3px solid #000; width: 100%; font-size: 18px; font-weight: 500;
+
+                            @include media('mobile') {
+                                font-size: 16px; padding: 12px 0;
+                            }
+                        }
+
+                        label {
+                            font-size: 22px; font-weight: 700;
+                        }
+
+                        .required {
+                            display: inline-block; padding-left: 3px; color: #EC1C24; font-weight: 700; 
+                        }
+
+                        .item {
+                            width: 100%; 
+
+                            > p {
+                                width: 100%;
+
+                                &:first-child {
+                                    margin-bottom: 8px;
+                                }
+                            }
+
+                            input {
+                                transition: all 0.3s 0s ease-in-out;
+
+                                &:focus {
+                                    border-bottom: 3px solid #EC1C24; outline: none;
+                                }
+
+                                &.add {
+                                    border-bottom: 3px solid #EC1C24;
+                                }
+
+                            }
+
+                        }
+                        
+                        .labelTitle {
+                            font-size: 22px; font-weight: 700; margin-bottom: 8px;
+
+                            @include media('mobile') {
+                                font-size: 17px;
+                            }
+
+                        }
+
+                        .askTxtArea {
+                            width: 100%;
+
+                            textarea {
+                                width: 100%; display: flex; height: 250px; padding: 32px; align-items: flex-start; gap: 10px; align-self: stretch; border: 3px solid #000; font-size: 18px; font-weight: 500;
+
+                                &::placeholder {
+                                    color: #A0A0A0;
+                                }
+
+                                &::-webkit-scrollbar {
+                                    width: 5px;
+                                }
+
+                                &::-webkit-scrollbar-thumb {
+                                    background: #aaa; border-radius:10px;
+                                }
+
+                                &::-webkit-scrollbar-track {
+                                    background: #fff;
+                                }
+
+                                @include media('mobile') {
+                                    font-size: 16px; padding: 20px;
+                                }
+                                
+                            }
+                        }
+
+                        .policy {
+                            background: #F8F8F8; padding: 32px 16px 32px 32px;
+
+                            .policyArea {
+                                overflow-y: scroll; font-size: 16px; height: 186px; display: flex; flex-direction: column; align-items: flex-start; align-self: stretch; padding-right: 16px; font-weight: 400;
+
+                                > b {
+                                    font-weight: 700;
+                                }
+
+                                &::-webkit-scrollbar {
+                                    width: 5px;
+                                }
+
+                                &::-webkit-scrollbar-thumb {
+                                    background: #aaa; border-radius: 10px;
+                                }
+
+                                &::-webkit-scrollbar-track {
+                                    background: transparent;
+                                }
+
+                                @include media('mobile') {
+                                    padding-right: 10px; font-size: 15px;
+                                }
+
+                            }
+
+                            @include media('mobile') {
+                                padding: 20px;
+                            }
+
+                        }
+
+                        .chkBox {
+                            position: relative; display: flex; flex-flow: row nowrap; align-items: center; justify-content: flex-start; margin-top: 20px;
+
+                            input {
+                                position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; appearance: none; -moz-appearance: none; -webkit-appearance: none; cursor: pointer; border-bottom: 0px solid transparent;
+
+                                &:checked:not(:disabled) + label {
+                                    &::after {
+                                        width: 30px; height: 30px; background: url("../../images/common/chk.svg") #C8C8C8 center center no-repeat; background-size: 100% 100%;
+                                    }
+                                }
+
+                                + label {
+                                    position: relative; padding-left: 38px; cursor: pointer;
+
+                                    > span {
+                                        display: inline-block; font-size: 18px; color:#000; font-weight: 400; 
+
+                                        @include media('mobile') {
+                                            font-size: 16px;
+                                        }
+
+                                    }
+
+                                    &::after {
+                                        content: ""; display: block; position: absolute; top: 50%; left: 0; width: 30px; height: 30px; background: url("../../images/common/chk.svg") #EC1C24 center center no-repeat; background-size: 100% 100%; border-radius: 50%; transform: translateY(-50%); box-sizing: border-box;
+                                    }
+
+                                }
+
+                            }
+
+                            .chkBoxTxt {
+                                color: #000; font-size: 18px; font-weight: 400; line-height: 160%;
+                            }
+
+                        }
+
+                        .btnSubmit {
+                            display: flex; padding: 16px 40px; justify-content: center; align-items: center; gap: 10px; border-radius: 160px; background: #333; color: #FFF; font-size: 20px; font-weight: 700; line-height: 150%; margin: 0 auto;
+
+                            &.isDisabled {
+                                background: #C8C8C8; color: #fff; pointer-events: none;
+                            }
+
+                            @include media('mobile') {
+                                font-size: 17px; padding: 12px 32px;
+                            }
+
+                        }
+
+                    }
+
+                    @include media('mobile') {
+                        gap: 40px; 
+                    }
+
+                }
+
+            }
+
+            @include media('mobile') {
+                margin-top: 46px; width: 100%;
+            }
+
+        }
+
+        @include media('mobile') {
+            flex-direction: column;
+        }
+
+    }
+
+    @include media('mobile') {
+        margin-top: 40px; padding: 0 16px; 
+    }
+
+}

@@ -1,0 +1,173 @@
+
+<style>
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.guideBox {margin-top:40px;}
+.guideTitle {font-size:18px; font-weight:500;}
+.guideCont {margin-top:10px;}
+.gGroup {margin-top:20px;}
+.gText {font-size:14px;}
+.gView {padding:10px; border:1px solid #bbbbbb; background:#fff;}
+</style>
+
+<div class="cptPubGuide">
+<div class="guideArea">
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">댓글 - 아직 정의되지 않았습니다.</div>
+<div class="guideCont">
+<div class="gText">
+    댓글 콤포넌트 입니다.
+    <br>css는 _cptComment.scss를 참고바랍니다.
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<!-- 댓글 영역 -->
+<div class="cptComment">
+    <div class="cmtArea">
+        <div class="cmtTop">
+            <b class="cmtTitle">댓글</b>
+            <i class="number">1000건</i>
+        </div>
+        <div class="cmtBody">
+
+            <!-- 댓글 단위 -->
+            <div class="cmtUnit">
+                <b class="cmtName">공정불법대응센터</b>
+                <div class="cmtBox">
+                    <div class="cmtCont">
+                        <p class="cmtText">지난 광명 경주 진행 시 A선수와 B선수가 담합하는 것을 보았습니다.</p>
+                        <!-- <span class="cmtBtnBox">
+                            <button class="btn bGray">수정</button>
+                            <button class="btn oGray">삭제</button>
+                        </span> -->
+                        <i class="cmtDate">2004.05.20</i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 댓글 단위 -->
+            <div class="cmtUnit">
+                <b class="cmtName">홍길동</b>
+                <div class="cmtBox">
+                    <div class="cmtCont">
+                        <p class="cmtText">여러분은 어렸을 적 선생님이나 부모님,
+                            할머니 할아버지께서 들려주시는
+                            재미있는 옛날이야기나 구연동화에
+                            귀를 기울여보신 적 있으신가요?</p>
+                        <!-- <span class="cmtBtnBox">
+                            <button class="btn bGray">수정</button>
+                            <button class="btn oGray">삭제</button>
+                        </span> -->
+                        <i class="cmtDate">2004.05.20</i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 댓글 단위 -->
+            <div class="cmtUnit">
+                <b class="cmtName">소문난곱창맛집</b>
+                <div class="cmtBox">
+                    <div class="cmtCont">
+                        <p class="cmtText">할머니 할아버지께서 들려주시는 재미있는 옛날이야기나 구연동화에 귀를 귀울여보신 적 있으신가요? 할머니 할아버지께서 들려주시는 재미있는 옛날이야기나 구연동화에 귀를 귀울여보신 적 있으신가요? 할머니 할아버지께서 들려주시는 재미있는 옛날이야기나 구연동화에 귀를 귀울여보신 적 있으신가요? 할머니 할아버지께서 들려주시는 재미있는 옛날이야기나 구연동화에 귀를 귀울여보신 적 있으신가요? 할머니 할아버지께서 들려주시는 재미있는 옛날이야기나 구연동화에 귀를 귀울여보신 적 있으신가요?</p>
+                        <span class="cmtBtnBox">
+                            <button class="btn bGray">수정</button>
+                            <button class="btn oGray">삭제</button>
+                        </span>
+                        <i class="cmtDate">2004.05.20</i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 댓글 단위 -->
+            <div class="cmtUnit">
+                <b class="cmtName">소문난곱창맛집</b>
+                <div class="cmtBox">
+                    <div class="cmtCont">
+                        <p class="cmtText">할머니 할아버지께서 들려주시는 재미있는 옛날이야기나 구연동화에 귀를 귀울여보신 적 있으신가요?</p>
+                        <!-- <span class="cmtBtnBox">
+                            <button class="btn bGray">수정</button>
+                            <button class="btn oGray">삭제</button>
+                        </span> -->
+                        <i class="cmtDate">2004.05.20</i>
+                    </div>
+                    
+                    <!-- 댓글 입력 영역 (수정) -->
+                    <div class="cmtWriteBox">
+                        <div class="writeText">
+                            <!-- <text area></text area> -->
+                            <div style="width: 100%; min-height: 120px; padding: 40px; color: #000; font-size: 16px; font-style: normal; font-weight: 300; line-height: 1.5; border: 0; border-radius: 12px; background: #F7F9FB; resize: vertical;">텍스트영역</div>
+                            <span class="byte">56/5000 byte</span>
+                        </div>
+                        <div class="writeBtm">
+                            <div class="btmL">
+                                <div class="frmGroup">
+                                    <div class="frmChoBox">
+                                        <input id="chk101" type="checkbox" class="iptChk"><label for="chk101" class="iptLbl">비밀댓글</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btmR">
+                                <button class="btn basic">취소</button>
+                                <button class="btn basic">댓글 등록</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 댓글 입력 영역 -->
+            <div class="cmtWriteBox">
+                <div class="writeText">
+                    <!-- <text area placeholder="댓글을 입력해주세요"></text area> -->
+                    <div style="width: 100%; min-height: 200px; padding: 40px; color: #000; font-size: 16px; font-style: normal; font-weight: 300; line-height: 1.5; border: 0; border-radius: 12px; background: #F7F9FB; resize: vertical;">텍스트영역</div>
+                    <span class="byte">56/5000 byte</span>
+                </div>
+                <div class="writeBtm">
+                    <div class="btmL">
+                        <div class="frmGroup">
+                            <div class="frmChoBox">
+                                <input id="chk101" type="checkbox" class="iptChk"><label for="chk101" class="iptLbl">비밀댓글</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btmR">
+                        <button class="btn basic">취소</button>
+                        <button class="btn basic" disabled>댓글 등록</button>
+                        <button class="btn basic">댓글 등록</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- //가이드 그룹 -->
+
+</div>
+</div>
+
+    
+<script>
+    run();
+</script>
+    
+        

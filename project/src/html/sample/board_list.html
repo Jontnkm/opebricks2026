@@ -1,0 +1,192 @@
+<!-- Header -->
+<%- include('../_ejs/top.ejs', {
+    title: "경륜 커뮤니티",
+    url: "../../"
+}) %>
+
+<!-- 레이아웃 -->
+<div class="lytLayout">
+    <div class="layoutArea">
+
+        <!-- 상단영역 -->
+        <div class="layoutTop">
+            <!-- Top -->
+            <%- include('../_ejs/gnb.ejs', {
+                url: "../../"
+            }) %>
+        </div>
+        <!-- //상단영역 -->
+
+        <!-- 중단영역 -->
+        <div class="layoutContainer" id="container">
+
+            <!-- 서브 콘텐츠 영역 -->
+            <div class="layoutSubCont">
+
+                <!-- 서브 컨텐츠 내용이 들어오는 영역-->
+                <!-- 서브 탑 (타이틀) -->
+                <%- include('../_ejs/sub_top.ejs', {
+                    subTitle: "선수 자유게시판",
+                    url: "../../",
+                }) %>
+
+                <div class="comGroupTop">
+                    <div class="alignL">
+                        <div class="unit"><span class="text">전체 <span class="total">1000</span>건</span></div>
+                    </div>
+                    <div class="alignR">
+                        <ul class="comSideOpt">
+                            <li class="sideItem">
+                                <div class="frmSearch">
+                                    <input type="text" placeholder="검색어를 입력해주세요">
+                                    <button class="btnSearch">검색</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cptBoardList">
+                    <table>
+                        <caption></caption>
+                        <colgroup>
+                            <col style="width:8%;">
+                            <col style="width:auto;">
+                            <col style="width:10%;">
+                            <col style="width:8%;">
+                            <col style="width:8%;">
+                            <col style="width:9%;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <td class="bdType left"><span class="listType">기타문의</span></td>
+                                <td class="bdTitle left">
+                                    <div class="link">
+                                        <div class="title">
+                                            <a href="#">경륜선수와 함께하는 자전거 안전교실 재능기부 활동 경륜선수와 함께하는 자전거 안전교실 재능기부 활동 경륜선수와 함께하는 자전거 안전교실 재능기부 활동</a>
+                                            <span class="num">[2]</span>
+                                            <span class="icons">
+                                                <span class="icon new">새로운 글</span>
+                                                <span class="icon file">첨부파일</span>
+                                                <span class="icon secret">비밀글</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bdState"><span class="state pink">접수완료</span></td> <!-- blue : 진행중, pink : 접수완료, gray : 답변완료 -->
+                                <td>홍길동</td>
+                                <td>35125</td>
+                                <td class="right">0000.00.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bdType left"><span class="listType">기타문의</span></td>
+                                <td class="bdTitle left">
+                                    <div class="link">
+                                        <div class="title">
+                                            <a href="#"><b>경륜선수와 함께하는 자전거 안전교실 재능기부 활동</b></a>
+                                            <span class="num">[2]</span>
+                                            <span class="icons">
+                                                <span class="icon new">새로운 글</span>
+                                                <span class="icon file">첨부파일</span>
+                                                <span class="icon secret">비밀글</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bdState"><span class="state blue">진행중</span></td> <!-- blue : 진행중, pink : 접수완료, gray : 답변완료 -->
+                                <td>홍길동</td>
+                                <td>35125</td>
+                                <td class="right">0000.00.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bdTitle left" colspan="2">
+                                    <div class="link">
+                                        <span class="reply">답글</span>
+                                        <div class="title">
+                                            <a href="#"><b>경륜선수와 함께하는 자전거 안전교실 재능기부 활동</b></a>
+                                            <span class="num">[2]</span>
+                                            <span class="icons">
+                                                <span class="icon new">새로운 글</span>
+                                                <span class="icon file">첨부파일</span>
+                                                <span class="icon secret">비밀글</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bdState"><span class="state blue">진행중</span></td> <!-- blue : 진행중, pink : 접수완료, gray : 답변완료 -->
+                                <td>홍길동</td>
+                                <td>35125</td>
+                                <td class="right">0000.00.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bdTitle left" colspan="2">
+                                    <div class="link">
+                                        <span class="reply">답글<span class="reply">답글</span></span>
+                                        <div class="title">
+                                            <a href="#">경륜선수와 함께하는 자전거 안전교실 재능기부 활동 경륜선수와 함께하는 자전거 안전교실 재능기부 활동 경륜선수와 함께하는 자전거 안전교실 재능기부 활동</a>
+                                            <span class="num">[2]</span>
+                                            <span class="icons">
+                                                <span class="icon new">새로운 글</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bdState"><span class="state blue">진행중</span></td>
+                                <td>홍길동</td>
+                                <td>35125</td>
+                                <td class="right">0000.00.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="comGroupBtm">
+                    <div class="alignR">
+                        <button class="btn basic">등록</button>
+                        <button class="btn basic">답글</button>
+                        <button class="btn basic">목록</button>
+                        <button class="btn basic">문의하기</button>
+                        <button class="btn basic">글쓰기</button>
+                    </div>
+                </div>
+                <div class="comPaging">
+                    <a class="start" href="#"></a>
+                    <a class="prev" href="#"></a>
+                    <ul class="numList">
+                        <li><a href="#">1</a></li>
+                        <li class="on"><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">7</a></li>
+                        <li><a href="#">8</a></li>
+                        <li><a href="#">9</a></li>
+                        <li><a href="#">10</a></li>
+                    </ul>
+                    <a class="next" href="#"></a>
+                    <a class="end" href="#"></a>
+                </div>
+                
+                
+                <!-- //서브 컨텐츠 내용이 들어오는 영역-->
+                
+            </div>
+            <!-- //서브 콘텐츠 영역 -->
+
+        </div>
+        <!-- //중단영역 -->
+
+        <!-- 하단영역 -->
+        <div class="layoutFooter">
+            <!-- Footer -->
+            <%- include('../_ejs/footer.ejs', {
+                url: "../../"
+            }) %>
+        </div>
+        <!-- //하단영역 -->
+
+    </div>
+</div>
+
+
+<!-- Bottom -->
+<%- include('../_ejs/bottom.ejs', { }) %>

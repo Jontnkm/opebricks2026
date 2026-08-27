@@ -1,0 +1,124 @@
+
+<style>
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.guideBox {margin-top:40px;}
+.guideTitle {font-size:18px; font-weight:500;}
+.guideCont {margin-top:10px;}
+.gGroup {margin-top:20px;}
+.gText {font-size:14px;}
+.gView {padding:10px; border:1px solid #bbbbbb; background:#fff;}
+</style>
+
+<div class="cptPubGuide">
+<div class="guideArea">
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">탭 메뉴 - 아직 정의되지 않았습니다.</div>
+<div class="guideCont">
+<div class="gText">
+     - 탭메뉴는 디자인이 현재는 없습니다.
+    <br> - tabMenuInit(); 함수로 기능을 활성화 합니다.
+    <br> - 한 페이지 안에 탭이 여러번 중복 될 수 있으나 탭 안에 탭은 불가능합니다.
+    <br> - script는 common.js에 있습니다. (//모드 탭 함수)
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+
+<style>
+/* ----------------------------------- 모드 탭 ----------------------------------- */
+.modTab {}
+.modTab .tabMenu {}
+.modTab .tabMenu .tabItem {}
+.modTab .tabMenu .tabItem .tabName {background:gray;}
+.modTab .tabMenu .tabItem .tabName.on {background:blue;}
+.modTab .tabContianer {}
+.modTab .tabContianer .tabCont {display:none;}
+.modTab .tabContianer .tabCont.on {display:block;}
+
+</style>
+
+<div class="modTab">
+    <ul class="tabMenu">
+        <li class="tabItem"><button class="tabName on" title="선택 된 탭메뉴">Menu Name 01</button></li> <!-- addClass - on : 메뉴 선택됨 -->
+        <li class="tabItem"><button class="tabName" title="탭메뉴">Menu Name 02</button></li>
+    </ul>
+    <div class="tabContianer">
+        <div class="tabCont on"> <!-- addClass - on : 컨텐츠 노출 -->
+            contents 0-0
+        </div>
+        <div class="tabCont">
+            contents 0-1
+        </div>
+    </div>
+</div>
+
+<div class="modTab">
+    <ul class="tabMenu">
+        <li class="tabItem"><button class="tabName on" title="선택 된 탭메뉴">Menu Name 11</button></li> <!-- addClass - on : 메뉴 선택됨 -->
+        <li class="tabItem"><button class="tabName" title="탭메뉴">Menu Name 12</button></li>
+        <li class="tabItem"><button class="tabName" title="탭메뉴">Menu Name 13</button></li>
+    </ul>
+    <div class="tabContianer">
+        <div class="tabCont on"> <!-- addClass - on : 컨텐츠 노출 -->
+            contents 1-0
+        </div>
+        <div class="tabCont">
+            contents 1-1
+        </div>
+        <div class="tabCont">
+            contents 1-2
+        </div>
+    </div>
+</div>
+
+<script>
+tabMenuInit(); //모드 탭 함수
+</script>
+        
+</textarea>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+setTimeout(function(){
+    tabMenuInit(); //모드 탭 함수
+},500)
+</script>
+<!-- //가이드 그룹 -->
+    
+</div>
+</div>
+
+    
+<script>
+    run();
+</script>
+    
+        
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+

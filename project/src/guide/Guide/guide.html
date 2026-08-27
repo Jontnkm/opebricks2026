@@ -1,0 +1,95 @@
+
+<style>
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.guideBox {margin-top:40px;}
+.guideTitle {font-size:18px; font-weight:500;}
+.guideCont {margin-top:10px;}
+.gGroup {margin-top:20px;}
+.gText {font-size:14px;}
+.gView {padding:10px; border:1px solid #bbbbbb; background:#fff;}
+</style>
+
+<div class="cptPubGuide">
+<div class="guideArea">
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">CSS Name 가이드</div>
+<div class="guideCont">
+<div class="gText">
+    접두사는 lyt, mod, cpt, com, frm, ipt, btn등이 있습니다.
+    <br>종속 : 접두사는 상위 개념이 있으며 상위는 하위를 포함할 수 있지만 하위에 상위를 포함할 수 없습니다.
+    <br>예>  lyt > mod > cpt > com > frm > ipt = btn
+    <br>com을 제외하고는 접두사 속에 같은 접두사를 포함 할 수 없습니다.
+    <br>예>&nbsp;&nbsp; &lt;div class="lytName"&gt;&lt;div class="lytName2"&gt;&lt;/div&gt;&lt;/div&gt; => 불가능
+    <br>예>&nbsp;&nbsp; &lt;div class="cptName"&gt;&lt;div class="cptName2"&gt;&lt;/div&gt;&lt;/div&gt; => 불가능
+    <br>예>&nbsp;&nbsp; &lt;div class="comName"&gt;&lt;div class="comName2"&gt;&lt;/div&gt;&lt;/div&gt; => 가능
+    <br> 
+    <br> #접두사 및 용도
+    <br> - lyt : 레이아웃을 정하는데 사용
+    <br> - mod : cpt를 포함 할 수 있는 기능이 있는 모듈 (팝업, 아코디언, 탭 등)
+    <br> - cpt : 콤포넌트 하나의 콘텐츠 덩어리
+    <br> - com : 사이트 전반에 자유 사용하며 다른 종류의 cpt안에도 공통으로 들어갈 가능성이 높은 콘텐츠 덩어리
+    <br> - frm : 폼 혹은 폼덩어리
+    <br> - ipt, slt : input, select
+    <br> - btn : 버튼
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+    <div class="lytName">
+        <div class="modName">
+            <div class="cptName">
+                <div class="comName">
+                    <div class="frmName">
+                        <div class="iptName"></div>
+                        <div class="btn"></div>
+                    </div>
+                </div>  
+            </div> 
+            <div class="cptName">
+                <div class="comName">
+        
+                </div>  
+            </div>
+            <div class="comName">
+        
+            </div>   
+            <div class="comName">
+                <div class="frmName">
+                    <div class="iptName"></div>
+                    <div class="btn"></div>
+                </div>
+            </div>  
+            <div class="cptName">
+                <div class="comName">
+        
+                </div>  
+            </div> 
+        </div>  
+    </div>    
+
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- //가이드 그룹 -->
+
+</div>
+</div>
+
+    
+<script>
+    run();
+</script>
+    
+        

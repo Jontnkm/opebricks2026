@@ -1,0 +1,23 @@
+/* --------------------------- 하단 버튼 그룹 --------------------------- */
+.comBtnGroup {
+    width: 100%; margin-top: 40px; display: flex; justify-content: space-between; gap: 12px;
+    &:first-child {margin-top: 0;}
+
+    .alignL {width: 100%; display: flex; justify-content: flex-start;}
+    .alignC {width: 100%; display: flex; justify-content: center;}
+    .alignR {width: 100%; display: flex; justify-content: flex-end;}
+    @include media('mobile'){
+        //모바일에서 순서가 바뀌는 경우
+        .moL {justify-content: flex-start;}
+        .moR {justify-content: flex-end;}
+    }
+
+    .btnBox {
+        display: flex; gap: 12px;
+        @include media('mobile'){
+            //.reverse : 버튼 순서가 바뀌는 경우
+            //.min : 버튼 크기가 [고정=>최소]로 바뀌는 경우
+            //.m30~m70 : 버튼 크기가 비율로 바뀌는 경우
+        }
+    }
+}

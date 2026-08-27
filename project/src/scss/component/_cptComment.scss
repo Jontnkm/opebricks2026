@@ -1,0 +1,114 @@
+/* --------------------------- 게시판 댓글 --------------------------- */
+.cptComment{
+    width:100%; max-width: 1340px; padding:0 20px; margin-top:180px;
+    @include media('mobile'){margin-top:80px;}
+    .cmtArea{
+        width:100%; 
+        .cmtTop{
+            width:100%; display:flex;
+            .cmtTitle{color: #000; font-size: rem(30px); font-style: normal; font-weight: 300; line-height: normal;}
+            .number{margin-left:12px; color: rgba(0,0,0,0.5); font-size: rem(14px); font-style: normal; font-weight: 300; line-height: normal; align-self:center;}
+        }
+        .cmtBody{
+            width:100%; margin-top:14px; border-top:1px solid #eee;
+        }
+    }
+    .cmtUnit{
+        width:100%; border-bottom:1px solid #eee; display:flex;
+        @include media('mobile'){padding-top:30px; flex-wrap: wrap;}
+        .cmtName{
+            width:150px; height:80px; color: #000; text-align: left; font-size: rem(14px); font-style: normal; font-weight: 500; line-height: normal; display:flex; 
+            align-items: center; flex-shrink: 0;
+            @include media('mobile'){width:100%; height:auto; font-size: rem(12px);}
+        }
+        .cmtBox{
+            width:100%;
+            .cmtCont{
+                width:100%; min-height:80px; padding: 25px 0; display:flex; align-items: flex-start; justify-content: space-between;
+                @include media('mobile'){width:100%; height:auto; margin-top:8px; padding:0 0 40px; flex-wrap: wrap; position:relative;}
+                .cmtText{
+                    width:100%; padding:3px 0; color: #000; font-size: rem(16px); font-style: normal; font-weight: 300; line-height: 1.5;
+                    @include media('mobile'){padding:0; font-size: rem(15px);}
+                }
+                .cmtBtnBox{
+                    width:128px; display:flex; justify-content: flex-end; flex-shrink: 0;
+                    @include media('mobile'){width: 100%; margin-top:8px;}
+                    .btn{
+                        width:max-content; min-width:50px; height:30px; margin-right:4px; padding:0 15px; font-size: rem(12px); font-weight: 600; border-radius:8px;
+                        display: flex; justify-content: center; align-items: center;
+                        @include media('mobile'){min-width:60px;}
+                        &:last-child {margin-right:0;}
+                        &.basic {
+                            color: #FFF; background: #4D5DF2;
+                            &:disabled {background:#BBC1F6;}
+                        }
+                        &.bGray {
+                            color: #4053FF; background: #F4F6F8;
+                        }
+                        &.oGray {
+                            color: #FF9900; background: #F4F6F8;
+                        }
+                    }
+                }
+                .cmtDate{
+                    width:96px; color: #000; text-align: right; font-size: rem(14px); font-style: normal; font-weight: 300; line-height: normal; flex-shrink: 0;
+                    @include media('mobile'){font-size: rem(12px); position:absolute; top:-22px; right:0;}
+                }
+            }
+
+            .cmtWriteBox{
+                width:100%; margin:10px 0 48px;
+                @include media('mobile'){margin:0 0 30px;}
+                .writeText{
+                    textarea {
+                        min-height: 130px;
+                        @include media('mobile'){min-height:165px;}
+                    }
+                }
+            }
+        }
+    }
+    .cmtWriteBox{
+        width:100%; margin-top:60px;
+        @include media('mobile'){margin-top:17px;}
+        .writeText{
+            width:100%; position:relative;
+            textarea {
+                width:100%; min-height:200px; padding:40px; color: #000; font-size: rem(16px); font-style: normal; font-weight: 300; line-height: 1.5; border:0; 
+                border-radius: 12px; background:#F7F9FB; resize:vertical;
+                &::placeholder {color:rgba(0,0,0,0.3);}
+                @include media('mobile'){min-height:165px; padding:45px 15px 35px; font-size: rem(15px);}
+            }
+            .byte {
+                color: rgba(0,0,0,0.3); font-size: rem(14px); font-style: normal; font-weight: 300; line-height: normal; display:block; position:absolute; right:11px; top:11px;
+                @include media('mobile'){font-size: rem(12px); top:19px;}
+            }
+        }
+        .writeBtm{
+            width:100%; margin-top:10px; display:flex; justify-content: space-between;
+            @include media('mobile'){margin-top:15px;}
+            .btmL{
+                width:100%; padding-left:10px; display:flex; justify-content: flex-start;
+                @include media('mobile'){padding-left:0;}
+            }
+            .btmR{
+                width:100%; display:flex; justify-content: flex-end;
+                .btn{
+                    width:max-content; min-width:70px; height:30px; margin-right:4px; padding:0 15px; font-size: rem(12px); font-weight: 600; border-radius:8px;
+                    display: flex; justify-content: center; align-items: center;
+                    &:last-child {margin-right:0;}
+                    &.basic {
+                        color: #FFF; background: #4D5DF2;
+                        &:disabled {background:#BBC1F6;}
+                    }
+                    &.bGray {
+                        color: #4053FF; background: #F4F6F8;
+                    }
+                    &.oGray {
+                        color: #FF9900; background: #F4F6F8;
+                    }
+                }
+            }
+        }
+    }
+}

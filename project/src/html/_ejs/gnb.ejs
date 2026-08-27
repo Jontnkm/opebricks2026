@@ -1,0 +1,165 @@
+<%
+var url = locals.url ? locals.url : '../';
+%>
+
+            <div class="cptGnb">
+                <div class="gnbArea">
+                    <div class="logoBox">
+                        <a href="<%= url %>index.html" class="logo">OPENBRICKS</a>
+                    </div>
+                    <div class="gnbBox">
+                        <div class="menuArea">
+                            <ul class="depth1Group">
+                                <li class="depth1List">
+                                    <a href="<%= url %>service/cloud_infra.html" class="depth1Name">Services</a>
+                                </li>
+                                <li class="depth1List">
+                                    <a href="<%= url %>product/sbm.html" class="depth1Name">Products</a>
+                                </li>
+                                <li class="depth1List">
+                                    <a href="<%= url %>ai/ai.html" class="depth1Name">AI Use Cases</a>
+                                </li>
+                                <li class="depth1List">
+                                    <a href="<%= url %>reference/reference.html" class="depth1Name">References</a>
+                                </li>
+                                <li class="depth1List">
+                                    <a href="<%= url %>company/introduce.html" class="depth1Name">Company</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="quickBox">
+                        <div class="quickArea">
+                            <ul class="quickGroup">
+                                <!-- <li class="item"><a href="#" class="link">Info IWI</a></li>
+                                <li class="item"><a href="#" class="link">개발자센터</a></li> -->
+                                <li class="item"><a href="<%= url %>sub/contact_us.html" class="link">문의하기</a></li>
+                            </ul>
+                            
+                            <button class="menuBtn">
+                                <span>메</span>
+                                <span>뉴</span>
+                                <span>열</span>
+                                <span>기</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!--pc-->
+                    <div class="allMenuBox pc">
+                        <div class="inner">
+                            <ul>
+                                <li>
+                                    <div class="depth02">
+                                        <ul>
+                                            <li><a href="<%= url %>service/cloud_infra.html">Cloud 플랫폼<br/>인프라</a></li>
+                                            <li><a href="<%= url %>service/system_build.html">시스템 구축 SI</a></li>
+                                            <li><a href="<%= url %>service/serviceSbm.html">서비스연계 SBM</a></li>
+                                            <li><a href="<%= url %>service/devops.html">DevOps 및<br/>서비스 운영</a></li>
+                                            <li><a href="<%= url %>service/cloude_base.html">Cloud 기반<br/>최적화</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="depth02">
+                                        <ul>
+                                            <li><a href="<%= url %>product/sbm.html">i-SBM</a></li>
+                                            <li><a href="<%= url %>product/wms.html">i-WMS</a></li>
+                                            <li><a href="<%= url %>product/tms.html">i-TMS</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li></li>
+                                <li></li>
+                                <li>
+                                    <div class="depth02">
+                                        <ul>
+                                            <li><a href="<%= url %>company/introduce.html">회사소개</a></li>
+                                            <li><a href="<%= url %>company/org_strength.html">조직 및 보유역량</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--mo-->
+                    <div class="allMenuBox mo">
+                        <ul class="depth1Group">
+                            <li class="depth1List">
+                                <a href="<%= url %>service/cloud_infra.html" class="depth1Name"><span>Services</span></a>
+                                <div class="depth2Cov">
+                                    <ul class="depth2Box">
+                                        <li class="depth2List">
+                                            <a href="<%= url %>service/cloud_infra.html">Cloud 플랫폼 인프라</a>
+                                        </li>
+                                        <li class="depth2List">
+                                            <a href="<%= url %>service/system_build.html">시스템 구축 SI</a>
+                                        </li>
+                                        <li class="depth2List">
+                                            <a href="<%= url %>service/serviceSbm.html">서비스연계 SBM</a>
+                                        </li>
+                                        <li class="depth2List">
+                                            <a href="<%= url %>service/devops.html">DevOps 및 서비스 운영</a>
+                                        </li>
+                                        <li class="depth2List">
+                                            <a href="<%= url %>service/cloude_base.html">Cloud 기반 최적화</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="depth1List">
+                                <a href="<%= url %>product/sbm.html" class="depth1Name"><span>Products</span></a>
+                                <div class="depth2Cov">
+                                    <ul class="depth2Box">
+                                        <li class="depth2List">
+                                            <a href="<%= url %>product/sbm.html">i-SBM</a>
+                                        </li>
+                                        <li class="depth2List">
+                                            <a href="<%= url %>product/wms.html">i-WMS</a>
+                                        </li>
+                                        <li class="depth2List">
+                                            <a href="<%= url %>product/tms.html">i-TMS</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="depth1List">
+                                <a href="<%= url %>ai/ai.html" class="depth1Name"><span>AI Use Cases</span></a>
+                            </li>
+                            <li class="depth1List">
+                                <a href="<%= url %>reference/reference.html" class="depth1Name"><span>References</span></a>
+                            </li>
+                            <li class="depth1List">
+                                <a href="<%= url %>company/introduce.html" class="depth1Name"><span>Company</span></a>
+                                <div class="depth2Cov">
+                                    <ul class="depth2Box">
+                                        <li class="depth2List">
+                                            <a href="<%= url %>company/introduce.html">회사소개</a>
+                                        </li>
+                                        <li class="depth2List">
+                                            <a href="<%= url %>company/org_strength.html">조직 및 보유역량</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="quickGroup">
+                            <!-- <li class="item"><a href="#" class="link">Info IWI</a></li>
+                            <li class="item"><a href="#" class="link">개발자센터</a></li> -->
+                            <li class="item"><a href="#none" class="link">문의하기</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);" title="문의하기"></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" title="상단으로 이동" id="quickTop"></a>
+                    </li>
+                </ul>
+            </div>

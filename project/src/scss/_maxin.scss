@@ -1,0 +1,60 @@
+
+//반응형
+@mixin media($breakpoint, $breakpoints:$breakpointText){
+    @if map-has-key($breakpoints, $breakpoint){
+        $breakpoint:map-get($breakpoints, $breakpoint);
+    }
+
+    @media screen and (max-width: #{$breakpoint}) {
+        @content;
+    }
+}
+
+$breakpointText: (
+    mobile:767px,
+    tablet:1023px,
+    pc:1280px,
+    gnb:1420px,
+);
+
+//태블릿 이상 스크롤
+@mixin minWidth($minWidth, $minWidths:$minWidthText){
+    @if map-has-key($minWidths, $minWidth){
+        $minWidth:map-get($minWidths, $minWidth);
+    }
+
+    @media screen and (min-width: #{$minWidth}) {
+        @content;
+    }
+}
+$minWidthText: (
+    mobile:768px,
+    tablet:1024px,
+    pcs:1281px,
+    pcl:1481px,
+);
+
+//한줄 말줄임
+@mixin line1() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+//여러줄 말줄임
+@mixin line($line) {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+//rem공식
+//$basicFontSize:16px; default.scss 최상단에 있음
+$basicFontSize:16px;
+@function rem($pixels, $base: $basicFontSize) {
+    @return calc($pixels / $base)+rem;
+}

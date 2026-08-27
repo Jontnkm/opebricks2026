@@ -1,0 +1,236 @@
+<!-- Header -->
+<%- include('../_ejs/top.ejs', {
+    title: "경륜 커뮤니티",
+    url: "../../"
+}) %>
+
+<!-- 레이아웃 -->
+<div class="lytLayout">
+    <div class="layoutArea">
+
+        <!-- 상단영역 -->
+        <div class="layoutTop">
+            <!-- Top -->
+            <%- include('../_ejs/gnb.ejs', {
+                url: "../../"
+            }) %>
+        </div>
+        <!-- //상단영역 -->
+
+        <!-- 중단영역 -->
+        <div class="layoutContainer" id="container">
+
+            <!-- 서브 콘텐츠 영역 -->
+            <div class="layoutSubCont">
+
+                <!-- 서브 컨텐츠 내용이 들어오는 영역-->
+                <!-- 서브 탑 (타이틀) -->
+                <%- include('../_ejs/sub_top.ejs', {
+                    subTitle: "선수 자유게시판",
+                    url: "../../",
+                }) %>
+
+                <!-- 그룹 상단 -->
+                <div class="cptBoardView">
+                    <div class="boardArea">
+                        <div class="boardTop">
+                            <div class="boardType">고충상담</div>
+                            <h2 class="boardTitle">게시글 제목 사랑이 가득한 물까지 가족 여섯 식구 오월의 마지막 월요일을 산뜩하게 열어봅니다. 여섯 식구 오월의 마지막 월요일을 산뜩하게 열어봅니다.</h2>
+                            <ul class="boardState">
+                                <li class="item state blue">진행중</li>
+                                <li class="item">경륜경정촐괄본부</li>
+                                <li class="item">6485</li>
+                                <li class="item">0000.00.00</li>
+                            </ul>
+                        </div>
+                        <div class="boardBody">
+                            <div class="boardCont">
+
+                            </div>
+                            <div class="comFileList">
+                                <ul class="fileGroup">
+                                    <li class="file download">
+                                        <dl>
+                                            <dt>첨부파일</dt>
+                                            <dd><a href="#">재능기부 훈련지 모집공고.png</a></dd>
+                                        </dl>
+                                    </li>
+                                    <li class="file download">
+                                        <dl>
+                                            <dt>첨부파일</dt>
+                                            <dd><a href="#">재능기부 훈련지 모집공고.png</a></dd>
+                                        </dl>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 그룹하단 -->
+                <div class="comGroupBtm">
+                    <div class="alignL">
+                        <button class="btn bGray">수정</button>
+                        <button class="btn oGray">삭제</button>
+                    </div>
+                    <div class="alignR">
+                        <button class="btn basic">답글</button>
+                        <button class="btn basic">등록</button>
+                    </div>
+                </div>
+
+                <!-- 이전글/다음글 -->
+                <div class="comOtherPage">
+                    <ul class="otherGroup">
+                        <li class="otherItem">
+                            <b class="otherTitle">이전글</b>
+                            <p class="otherCont"><a href="#" class="link">지난 광명 경주 진행 시 A선수와 B선수가 담합하는 것을 보았습니다.</a></p>
+                            <i class="otherDate">2004.05.20</i>
+                        </li>
+                        <li class="otherItem">
+                            <b class="otherTitle">다음글</b>
+                            <p class="otherCont"><a href="#" class="link">할머니 할아버지께서 들려주시는 재미있는 옛날이야기나 구연동화에 귀를 귀울여보신 적 있으신가요?</a></p>
+                            <i class="otherDate">2004.05.20</i>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 댓글 영역 -->
+                <div class="cptComment">
+                    <div class="cmtArea">
+                        <div class="cmtTop">
+                            <b class="cmtTitle">댓글</b>
+                            <i class="number">1000건</i>
+                        </div>
+                        <div class="cmtBody">
+
+                            <!-- 댓글 단위 -->
+                            <div class="cmtUnit">
+                                <b class="cmtName">공정불법대응센터</b>
+                                <div class="cmtBox">
+                                    <div class="cmtCont">
+                                        <p class="cmtText">지난 광명 경주 진행 시 A선수와 B선수가 담합하는 것을 보았습니다.</p>
+                                        <!-- <span class="cmtBtnBox">
+                                            <button class="btn bGray">수정</button>
+                                            <button class="btn oGray">삭제</button>
+                                        </span> -->
+                                        <i class="cmtDate">2004.05.20</i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 댓글 단위 -->
+                            <div class="cmtUnit">
+                                <b class="cmtName">홍길동</b>
+                                <div class="cmtBox">
+                                    <div class="cmtCont">
+                                        <p class="cmtText">B선수의 도움으로 A선수가 순위 내 들었습니다.</p>
+                                        <!-- <span class="cmtBtnBox">
+                                            <button class="btn bGray">수정</button>
+                                            <button class="btn oGray">삭제</button>
+                                        </span> -->
+                                        <i class="cmtDate">2004.05.20</i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 댓글 단위 -->
+                            <div class="cmtUnit">
+                                <b class="cmtName">소문난곱창맛집</b>
+                                <div class="cmtBox">
+                                    <div class="cmtCont">
+                                        <p class="cmtText">할머니 할아버지께서 들려주시는 재미있는 옛날이야기나 구연동화에 귀를 귀울여보신 적 있으신가요?</p>
+                                        <span class="cmtBtnBox">
+                                            <button class="btn bGray">수정</button>
+                                            <button class="btn oGray">삭제</button>
+                                        </span>
+                                        <i class="cmtDate">2004.05.20</i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 댓글 단위 -->
+                            <div class="cmtUnit">
+                                <b class="cmtName">소문난곱창맛집</b>
+                                <div class="cmtBox">
+                                    <div class="cmtCont">
+                                        <p class="cmtText">할머니 할아버지께서 들려주시는 재미있는 옛날이야기나 구연동화에 귀를 귀울여보신 적 있으신가요?</p>
+                                        <!-- <span class="cmtBtnBox">
+                                            <button class="btn bGray">수정</button>
+                                            <button class="btn oGray">삭제</button>
+                                        </span> -->
+                                        <i class="cmtDate">2004.05.20</i>
+                                    </div>
+                                    
+                                    <!-- 댓글 입력 영역 (수정) -->
+                                    <div class="cmtWriteBox">
+                                        <div class="writeText">
+                                            <textarea></textarea>
+                                            <span class="byte">56/5000 byte</span>
+                                        </div>
+                                        <div class="writeBtm">
+                                            <div class="btmL">
+                                                <div class="frmGroup">
+                                                    <div class="frmChoBox">
+                                                        <input id="chk101" type="checkbox" class="iptChk"><label for="chk101" class="iptLbl">비밀댓글</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="btmR">
+                                                <button class="btn basic">취소</button>
+                                                <button class="btn basic">댓글 등록</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- 댓글 입력 영역 -->
+                            <div class="cmtWriteBox">
+                                <div class="writeText">
+                                    <textarea></textarea>
+                                    <span class="byte">56/5000 byte</span>
+                                </div>
+                                <div class="writeBtm">
+                                    <div class="btmL">
+                                        <div class="frmGroup">
+                                            <div class="frmChoBox">
+                                                <input id="chk101" type="checkbox" class="iptChk"><label for="chk101" class="iptLbl">비밀댓글</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btmR">
+                                        <button class="btn basic">취소</button>
+                                        <button class="btn basic">댓글 등록</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- //서브 컨텐츠 내용이 들어오는 영역-->
+                
+            </div>
+            <!-- //서브 콘텐츠 영역 -->
+
+        </div>
+        <!-- //중단영역 -->
+
+        <!-- 하단영역 -->
+        <div class="layoutFooter">
+            <!-- Footer -->
+            <%- include('../_ejs/footer.ejs', {
+                url: "../../"
+            }) %>
+        </div>
+        <!-- //하단영역 -->
+
+    </div>
+</div>
+
+
+<!-- Bottom -->
+<%- include('../_ejs/bottom.ejs', { }) %>

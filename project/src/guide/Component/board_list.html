@@ -1,0 +1,199 @@
+
+<style>
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.guideBox {margin-top:40px;}
+.guideTitle {font-size:18px; font-weight:500;}
+.guideCont {margin-top:10px;}
+.gGroup {margin-top:20px;}
+.gText {font-size:14px;}
+.gView {padding:10px; border:1px solid #bbbbbb; background:#fff;}
+</style>
+
+<div class="cptPubGuide">
+<div class="guideArea">
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">게시판 리스트형</div>
+<div class="guideCont">
+<div class="gText">
+    일반 게시판 리스트형입니다. 온전하지 않은 버전입니다.
+    <br>더 좋은 형태가 나오면 업데이트 바랍니다.
+    <br>css는 _cptBoardList.scss를 참고바랍니다.
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+
+
+<div class="cptBoardList">
+    <div class="boardListArea">
+
+
+        <!-- 게시판 리스트 상단 -->
+        <div class="comGroupTop">
+            <div class="alignL">
+                <div class="unit"><span class="text">전체 <span class="total">999</span> 건</span></div>
+            </div>
+            <div class="alignR">
+                <ul class="opList">
+                    <li class="item">
+                        <div class="frmGroup">
+                            <div class="frmBox">
+                                <div class="iptSlt">
+                                    <div class="sltBox">
+                                        <div class="sltTitle">전체</div>
+                                        <ul class="optionGroup">
+                                            <li class="option">전체</li>
+                                            <li class="option">드롭다운</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="frmGroup">
+                            <div class="frmSearch">
+                                <input type="text" class="iptText" placeholder="내용을 입력하세요">
+                                <button class="btnSearch">검색</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 게시판 리스트 -->
+        <div class="listTable">
+            <table>
+                <caption></caption>
+                <colgroup>
+                    <col style="width:93px;">
+                    <col style="width:auto;">
+                    <col style="width:120px;">
+                    <col style="width:120px;">
+                    <col style="width:140px;">
+                </colgroup>
+                <tbody>
+                    <tr class="noti">
+                        <td class="num"><span class="top">공지</span></td>
+                        <td class="bdTitle left">
+                            <div class="title">
+                                <a href="#">[경륜] 2024 상반기 경륜 7대 뉴스, ‘광명스피돔에서 생긴 일’ 새 글</a>
+                                <span class="icons">
+                                    <span class="icon new">새로운 글</span>
+                                    <span class="icon file">첨부파일</span>
+                                </span>
+                            </div>
+                        </td>
+                        <td>2024.07.05</td>
+                        <td>경륜심판팀</td>
+                        <td class="views">35125</td>
+                    </tr>
+                    <tr class="noti">
+                        <td class="num"><span class="top">공지</span></td>
+                        <td class="bdTitle left">
+                            <div class="title">
+                                <a href="#">[경륜] 2024 상반기 경륜 7대 뉴스, ‘광명스피돔에서 생긴 일’ 새 글 경륜 7대 뉴스 2024 상반기 경륜 7대 뉴스, 한글50자 까지 나열됩니다</a>
+                                <span class="icons">
+                                    <span class="icon new">새로운 글</span>
+                                    <span class="icon file">첨부파일</span>
+                                </span>
+                            </div>
+                        </td>
+                        <td>2024.07.05</td>
+                        <td>경륜심판팀</td>
+                        <td class="views">35125</td>
+                    </tr>
+                    <tr>
+                        <td class="num">01</td>
+                        <td class="bdTitle left">
+                            <div class="title">
+                                <a href="#">[경륜] 2024 상반기 경륜 7대 뉴스, ‘광명스피돔에서 생긴 일’ 새 글 경륜 7대 뉴스 2024 상반기 경륜 7대 뉴스, 한글50자 까지 나열됩니다</a>
+                                <span class="icons">
+                                    <span class="icon new">새로운 글</span>
+                                    <span class="icon file">첨부파일</span>
+                                </span>
+                            </div>
+                        </td>
+                        <td>2024.07.05</td>
+                        <td>경륜심판팀</td>
+                        <td class="views">35125</td>
+                    </tr>
+                    <tr>
+                        <td class="num">02</td>
+                        <td class="bdTitle left">
+                            <div class="title">
+                                <a href="#">[경륜] 2024 상반기 경륜 7대 뉴스, ‘광명스피돔에서 생긴 일’ 새 글 경륜 7대 뉴스 2024 상반기 경륜 7대 뉴스, 한글50자 까지 나열됩니다</a>
+                                <span class="icons">
+                                    <span class="icon new">새로운 글</span>
+                                </span>
+                            </div>
+                        </td>
+                        <td>2024.07.05</td>
+                        <td>경륜심판팀</td>
+                        <td class="views">35125</td>
+                    </tr>
+                    <tr>
+                        <td class="num">03</td>
+                        <td class="bdTitle left">
+                            <div class="title">
+                                <a href="#">[경륜] 목록 리스트 총 15개 노출</a>
+                                <span class="icons">
+                                    <span class="icon file">첨부파일</span>
+                                </span>
+                            </div>
+                        </td>
+                        <td>2024.07.05</td>
+                        <td>경륜심판팀</td>
+                        <td class="views">35125</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- 페이징 -->
+        <div class="comPaging">
+            <a class="start" href="#"></a>
+            <a class="prev" href="#"></a>
+            <ul class="numList">
+                <li><a href="#">1</a></li>
+                <li class="on"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+            </ul>
+            <a class="next" href="#"></a>
+            <a class="end" href="#"></a>
+        </div>
+
+    </div>
+</div>
+
+
+
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- //가이드 그룹 -->
+
+</div>
+</div>
+
+    
+<script>
+    run();
+</script>
+    
+        

@@ -1,0 +1,478 @@
+<!-- Header -->
+<%- include('../_ejs/top.ejs', {
+    url: "../../"
+}) %>
+
+<!-- 레이아웃 -->
+<div class="lytLayout">
+    <div class="layoutArea">
+
+        <!-- 상단영역 -->
+        <div class="layoutTop">
+            <!-- Top -->
+            <%- include('../_ejs/gnb.ejs', {
+                url: "../"
+            }) %>
+        </div>
+        <!-- //상단영역 -->
+
+        <!-- 중단영역 -->
+        <div class="layoutContainer" id="container">
+
+            <!-- 서브 콘텐츠 영역 -->
+            <div class="layoutSubCont">
+
+                <!-- 서브 컨텐츠 내용이 들어오는 영역-->
+                <!-- 서브 상단 -->
+                <div class="cptSubTop">
+                    <div class="subTopArea">
+                        <dl class="subTopBox">
+                            <dt class="topHead">
+                                <!-- <i class="eyebrow">Intelligent AI</i> -->
+                                <h1 class="title">Products</h1>
+                            </dt>
+                            <dd class="topBody">
+                                검증된 자체 자체 운영 솔루션과 표준화된 아키텍처의 결합을 통해 <br/>비즈니스의 유연한 확장을 지원하며 지속 가능한 운영 환경을 완성합니다.
+                            </dd>
+                        </dl>
+                        <!-- <div class="requestArea">
+                            <a href="../sub/contact_us.html" class="link">문의하기</a>
+                        </div> -->
+
+                        <div class="breadCrumb">
+                            <ul>
+                                <li><a href="/"><span class="hidden">홈</span></a></li>
+                                <li><a href="/">Products</a></li>
+                                <li><a href="/">i-WMS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 서브 컨텐츠 -->
+                <div class="cptContGroup services01">
+                    <div class="contGroupArea">
+                        <div class="comTab pc">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0);">i-SBM</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="active">i-WMS</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">i-TMS</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="comTab mo">
+                            <button type="button" class="current">i-WMS</button>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0);" class="active">i-SBM</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">i-WMS</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">i-TMS</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="section section01 w1600">
+                            <div class="mockup">
+                                <img src="../../images/contents/wms_mock.png" alt="">
+                            </div>
+
+                            <p class="smTxt">
+                                i-WMS
+                            </p>
+
+                            <p class="bgTit">
+                                유지보수 이력과 운영 지표를 기반으로<br/>유지관리 체계를 만드는 유지관리 소프트웨어
+                            </p>
+
+                            <p class="desc">
+                                유지보수 요청부터 처리, 검수, 평가, 통계까지 모든 과정을 체계적으로 관리하여<br/>안정적인 운영과 의사결정을 지원하는 통합 유지보수 관리 솔루션
+                            </p>
+                        </div>
+
+                        <div class="section section02 w1400">
+                            <p class="contTit">유지보수 관리 플랫폼 i-WMS</p>
+                            <p class="contDesc">많은 중·소기업은 크고 작은 IT 시스템을 보유하고 있지만, 유지보수는 여전히 사람과 개별 커뮤니케이션(전화/메신저/메일)에 의존하여 운영되는 경우가 많습니다. 그 결과, 요청과 결정의 근거가 흩어지고, 이력이 남지 않으며, 재발 관리와 개선 판단이 어려워져 시스템 운영 품질이 사람 의존적으로 흔들립니다.</p>
+
+                            <div class="sbm_product_img_box">
+                                <img src="../../images/contents/wms_cont01.png" alt="" class="pc">
+                                <img src="../../images/contents/wms_cont01_mo.png" alt="" class="mo">
+                            </div>
+
+                            <p class="contDesc">
+                                유지보수 관리 플랫폼(유지보수 인사이트 1.0)은 유지보수 요청과 처리 과정을 온라인/모바일 단일 경로로 표준화하고, 협의·조치·검수·평가까지의 정보를 이력과 지표로 축적하여 조직이 안정적인 운영  기반(유지보수 체계)을 갖추도록 돕는 온프레미스 기반 제품입니다.<br/><br/>단순 소통 채널이 아니라, 유지보수 이력이 운영 자산으로 쌓이면서 IT 시스템의 생명주기를 늘리고 기업의 정보화 경쟁력을 강화하는 데 기여합니다.
+                            </p>
+                        </div>
+
+                        <div class="section section05 w1400">
+                            <div class="leftBox">
+                                <p class="title">i-WMS가 만드는 순기능</p>
+                                <p class="desc">
+                                    데이터 기반 운영을 통한 업무 효율 향상과 고객 만족, 조직 경쟁력 강화를 지원합니다.
+                                </p>
+                                <img src="../../images/contents/wms_product.png" alt="" />
+
+                                <p class="point">
+                                    유지보수 전 과정을 데이터 기반으로 체계화하여<br/>운영 효율과 고객 만족, 조직 경쟁력을 높입니다. 
+                                </p>
+                            </div>
+                            <div class="rightBox">
+                                <div class="list">
+                                    <ul>
+                                        <li>
+                                            <span>01</span>
+                                            <p>유지보수 체계 도입으로 안정적인 운영 기반 제공</p>
+                                        </li>
+                                        <li>
+                                            <span>02</span>
+                                            <p>업무담당자·전산담당자·수행사 역할 구분으로 효율적인 업무 기반 마련</p>
+                                        </li>
+                                        <li>
+                                            <span>03</span>
+                                            <p>안정적인 운영을 통해 고객 만족도 증가 및 기업 경쟁력 강화</p>
+                                        </li>
+                                        <li>
+                                            <span>04</span>
+                                            <p>요구사항/이력 데이터를 통해 시스템 발전 방향 도출(의사결정)</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section section04 dark">
+                            <p class="smTxt">
+                                Why i-SBM
+                            </p>
+
+                            <p class="bgTit">
+                                왜 i-WMS가 필요할까요?
+                            </p>
+
+                            <p class="desc">
+                                 체계가 없으면 운영은 흔들리고, 비용과 리스크는 커집니다.
+                            </p>
+
+                            <img src="../../images/contents/wms_cont02.png" alt="" class="center pc"/>
+                            <img src="../../images/contents/wms_cont02_mo.png" alt="" class="center mo"/>
+
+                            <p class="gradationTxt ty01">
+                                유지보수 관리 플랫폼은 이 문제를 “기능 추가”로 해결하기보다, <br/> 운영의 기본 규칙(체계)을 시스템 안에 고정하여,<br/>시간이 지날수록 더 강해지는 운영 기반을 만듭니다.
+                            </p>
+                        </div>
+
+                        <div class="section section10 w1400 type02">
+                            <div class="inner">
+                                <p class="title">
+                                    운영 원칙 - 전문화된 유지관리 SW의 핵심
+                                </p>
+
+                                <ul>
+                                    <li>
+                                        <p class="title">
+                                            1. 단일 접수 원칙
+                                        </p>
+                                        <p class="desc">
+                                            <span>유지보수 요청은 온라인/모바일 시스템 등록이 기본</span>
+                                            <span>요청이 한 곳에 모이면서 이력, 책임, 추적성 확보</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="title">
+                                            2. 증적 기반 처리
+                                        </p>
+                                        <p class="desc">
+                                            <span>유지보수 요청은 온라인/모바일 시스템 등록이 기본</span>
+                                            <span>요청이 한 곳에 모이면서 이력, 책임, 추적성 확보</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="title">
+                                            3. 긴급 예외, 기록 유지 (Hot-line)
+                                        </p>
+                                        <p class="desc">
+                                            <span>긴급 시 PM에게 전화로 즉시 요청 가능 (Hot-line)</span>                                            
+                                            <span>단, 통화는 접수가 아니며 PM이 시스템에 등록하여 이력 유지</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="title">
+                                            4. 단계 고정, 협의는 댓글
+                                        </p>
+                                        <p class="desc">
+                                            <span>처리 단계는 고정하여 운영 표준 유지, 변경/협의는 댓글 보드에 기록</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="section section03 w1400">
+                            <p class="contTit">OPENBRICKS의 구축 체계</p>
+                            <p class="contDesc">프로젝트 전 과정을 체계적으로 연결하고, 단계별 목적과 책임을 명확히 정의합니다. OPENBRICKS는 구축 전 과정을 통제 가능한 구조로 만드는 SI회사입니다.</p>
+
+                            <div class="stepView">
+                                <ul class="type03">
+                                    <li>
+                                        <div class="lineUpper">
+                                            <span class="stTxt">Step 01</span>
+                                            <span class="stIcon ico01"></span>
+                                        </div>
+                                        <div class="lineDown">
+                                            <p class="tit">요청</p>
+                                            <p class="desc">
+                                                요청 등록 (온라인/모바일)
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="lineUpper">
+                                            <span class="stTxt">Step 02</span>
+                                            <span class="stIcon ico02"></span>
+                                        </div>
+                                        <div class="lineDown">
+                                            <p class="tit">접수</p>
+                                            <p class="desc">
+                                                요청 접수 및 분류
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="lineUpper">
+                                            <span class="stTxt">Step 03</span>
+                                            <span class="stIcon ico03"></span>
+                                        </div>
+                                        <div class="lineDown">
+                                            <p class="tit">협의요청</p>
+                                            <p class="desc">
+                                                개발/조치 진행
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="lineUpper">
+                                            <span class="stTxt">Step 04</span>
+                                            <span class="stIcon ico04"></span>
+                                        </div>
+                                        <div class="lineDown">
+                                            <p class="tit">처리중</p>
+                                            <p class="desc">
+                                                개발/조치 진행
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="lineUpper">
+                                            <span class="stTxt">Step 05</span>
+                                            <span class="stIcon ico05"></span>
+                                        </div>
+                                        <div class="lineDown">
+                                            <p class="tit">처리완료</p>
+                                            <p class="desc">
+                                                조치 완료 및 내역 등록
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="lineUpper">
+                                            <span class="stTxt">Step 06</span>
+                                            <span class="stIcon ico06"></span>
+                                        </div>
+                                        <div class="lineDown">
+                                            <p class="tit">검수완료</p>
+                                            <p class="desc">
+                                                요청자 검수 및 만족도 평가
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="sndStep">
+                                <ul>
+                                    <li>
+                                        <p class="title">긴급 요청 (Hot-line)</p>
+                                        <p class="desc">
+                                            긴급 상황은 전화 요청 가능, 이력은 PM이 시스템 관리
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="title">검수 원칙</p>
+                                        <p class="desc">
+                                            검수완료는 요청 등록자의 최종 확인 (권한은 운영팀이 설정)
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="title">분류</p>
+                                        <p class="desc">
+                                            긴급/일반/기타 분류는 요청자 선택, PM 변경 가능
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="title">분배</p>
+                                        <p class="desc">
+                                            PM이 수동으로 배정하여 현업 부담을 최소화
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <p class="contTit">운영 체계 구성요소</p>
+                            <p class="contDesc">유지보수 관리 플랫폼은 아래 운영 체계 요소를 제품 구조로 제공합니다. (기능 나열이 아니라 체계 구성요소 관점)</p>
+                            
+                            <div class="listBox">
+                                <ul>
+                                    <li>
+                                        <p class="title">1. 체계 고정</p>
+                                        <p class="sub">운영 표준의 뼈대</p>
+                                        <p class="desc">
+                                            단일 접수 + 고정 단계 + 역할/권한 + 분배 책임 + 검수 책임. 운영총괄이 통제 가능한 운영 기준을 가질 수 있도록 고정
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="title">2. 운영 표준 자동화</p>
+                                        <p class="sub">운영 품질을 일정하게</p>
+                                        <p class="desc">
+                                            자동 분류/라우팅/승인/알림/에스컬레이션으로 운영 표준을 자동화. 주간/월간 보고 템플릿으로 운영 품질 편차 최소화
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="title">3. 후학습(지식화)</p>
+                                        <p class="sub">재발 감소</p>
+                                        <p class="desc">
+                                            “처리 완료”를 끝으로 보지 않고, 조치내역을 표준조치/지식으로 축적. 다음 대응을 더 빠르게
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="title">4. 지표 기반 운영</p>
+                                        <p class="sub">개선 투자 결정 지원</p>
+                                        <p class="desc">
+                                            “무엇을 먼저 개선할지”를 보여주는 운영 지표 중심. KPI와 인사이트로 우선순위를 데이터로 정렬
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="title">5. RACI/거버넌스 내재화</p>
+                                        <p class="sub">승인·검수·배정·조치</p>
+                                        <p class="desc">
+                                            누가 승인/검수/배정/조치하는지 역할 구조 명확화. 역할/권한 체계로 제품 내 구현
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="title">6. 운영 안정화</p>
+                                        <p class="sub">장애관리·영향도 관점</p>
+                                        <p class="desc">
+                                            유지보수 이력관리 기반에서 장애/변경의 영향 구간  확인. “기록” → “운영 판단” 가능한 구조 
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="section section04 dark">
+                            <p class="smTxt">
+                                i-WMS
+                            </p>
+
+                            <p class="bgTit">
+                                i-WMS의 핵심 기능
+                            </p>
+
+                            <p class="desc">
+                                요청 관리부터 이력·지식·지표까지, 유지보수 운영에 필요한 모든 기능을 제공합니다.
+                            </p>
+
+                            <img src="../../images/contents/wms_cont03.png" alt="" class="center pc"/>
+                            <img src="../../images/contents/wms_cont03_mo.png" alt="" class="center mo"/>
+                        </div>
+
+                        <div class="section section08 w1400">
+                            <div class="leftBox">
+                                <p class="title">i-WMS의 데이터 기반 체계적 운영</p>
+                                <p class="desc">
+                                    데이터 기반의 체계적 운영으로 업무 효율, 고객 만족, 조직 경쟁력을 높입니다.
+                                </p>
+                                <img src="../../images/contents/wms_product02.png" alt="" />
+
+                                <p class="point">
+                                    유지보수 관리 플랫폼 도입 효과는 “업무가 편해진다”를 넘어, <br/>조직 운영 능력이 바뀌는 데 있습니다.
+                                </p>
+                            </div>
+                            <div class="rightBox">
+                                <div class="list">
+                                    <ul>
+                                        <li>
+                                            <span>01</span>
+                                            <p>요청 단일화 기반 운영 통제 및 이력 관리</p>
+                                        </li>
+                                        <li>
+                                            <span>02</span>
+                                            <p>협의·조치·검수 기록 기반 인수인계 품질 강화</p>
+                                        </li>
+                                        <li>
+                                            <span>03</span>
+                                            <p>반복 이슈·KPI 기반 개선 우선순위 관리</p>
+                                        </li>
+                                        <li>
+                                            <span>04</span>
+                                            <p>RACI 기반 역할 분리 및 운영 책임 체계화</p>
+                                        </li>
+                                        <li>
+                                            <span>04</span>
+                                            <p>요구사항·이력 데이터 기반 시스템 고도화</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="csBanner">
+                            <div class="left">
+                                <span class="smT">OPENBRICKS</span>
+                                <p class="title">
+                                    Beyond Systems,<br/>We Connect Business
+                                </p>
+                                <p class="desc">
+                                    오픈브릭스는 AX 기반 시스템 통합으로<br/>시스템을 넘어, 비즈니스를 연결합니다.
+                                </p>
+                            </div>
+                            <div class="right">
+                                <div class="btn">
+                                    <button type="button" class="int" onclick="fileDownload()"><span>회사소개서</span></button>
+                                    <button type="button" class="faq"><span>문의하기</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //서브 컨텐츠 내용이 들어오는 영역-->
+                
+            </div>
+            <!-- //서브 콘텐츠 영역 -->
+
+        </div>
+        <!-- //중단영역 -->
+
+        <!-- 하단영역 -->
+        <div class="layoutFooter">
+            <!-- Footer -->
+            <%- include('../_ejs/footer.ejs', {
+                url: "../../"
+            }) %>
+        </div>
+        <!-- //하단영역 -->
+
+    </div>
+</div>
+
+
+<!-- Bottom -->
+<%- include('../_ejs/bottom.ejs', { }) %>

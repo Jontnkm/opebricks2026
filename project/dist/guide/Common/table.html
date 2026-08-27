@@ -1,0 +1,342 @@
+
+<style>
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.guideBox {margin-top:40px;}
+.guideTitle {font-size:18px; font-weight:500;}
+.guideCont {margin-top:10px;}
+.gGroup {margin-top:20px;}
+.gText {font-size:14px;}
+.gView {padding:10px; border:1px solid #bbbbbb; background:#fff;}
+</style>
+
+<div class="cptPubGuide">
+<div class="guideArea">
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">Data Table</div>
+<div class="guideCont">
+<div class="gText">
+    테이블 내부에 무엇이 들어갈 수 있는지를 정의합니다.
+    <br>- col의 가로값이 넓어지면 th는 고정되며 스크롤이 생성됩니다.
+    <br>- .tableArea에 class 혹은 style로 높이값이 정의되면 상하 스크롤이 생성되며 thead 영역은 고정됩니다.
+    <br>- 최상위 .comDataTable에 .row가 추가되면 head가 없는 테이블에서 좌측 th영역의 우측 라인이 진해집니다.
+    <br>*테이블 th, td에 사용하는 정렬 클래스
+    <br>left : 좌측정렬
+    <br>center : 가운데정렬
+    <br>right : 우측정렬
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<!-- 데이터 테이블 -->
+<div class="comDataTable row"><!-- addClass - row: head가 세로만 존재, both: head가 가로,세로에 모두 존재 -->
+    <div class="tableArea">
+        <table>
+            <caption></caption>
+            <colgroup>
+                <col style="width:300px;">
+                <col style="width:300px;">
+                <col style="width:300px;">
+                <col style="width:300px;">
+                <col style="width:300px;">
+                <col style="width:300px;">
+                <col style="width:300px;">
+                <col style="width:300px;">
+                <col style="width:300px;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>시간</th>
+                    <th>날씨</th>
+                    <th>풍향</th>
+                    <th>풍속</th>
+                    <th>기온</th>
+                    <th>습도</th>
+                    <th>우량</th>
+                    <th>200M</th>
+                    <th>최종주회</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="left">19:00</th>
+                    <td class="center">홍길동</td>
+                    <td class="right">4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                    <td>젖히기</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                    <td>젖히기</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                    <td>젖히기</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                    <td>젖히기</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                    <td>젖히기</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                    <td>젖히기</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br><br>
+<div class="comDataTable row"><!-- addClass - row: head가 세로만 존재, both: head가 가로,세로에 모두 존재 -->
+    <div class="tableArea" style="height:300px;">
+        <table>
+            <caption></caption>
+            <colgroup>
+                <col style="width:300px;">
+                <col style="width:300px;">
+                <col style="width:300px;">
+                <col style="width:300px;">
+                <col style="width:300px;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>시간</th>
+                    <th>날씨</th>
+                    <th>풍향</th>
+                    <th>풍속</th>
+                    <th>기온</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br><br>
+                
+<!-- 데이터 테이블 -->
+<div class="comDataTable row"><!-- addClass - row: head가 세로만 존재, both: head가 가로,세로에 모두 존재 -->
+    <div class="tableArea">
+        <table>
+            <caption></caption>
+            <colgroup>
+                <col style="width:auto;">
+                <col style="width:auto;">
+                <col style="width:auto;">
+                <col style="width:auto;">
+                <col style="width:auto;">
+                <col style="width:auto;">
+                <col style="width:auto;">
+                <col style="width:auto;">
+                <col style="width:auto;">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                    <td>젖히기</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                    <td>젖히기</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                    <td>젖히기</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                    <td>젖히기</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                    <td>젖히기</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>19:00</th>
+                    <td>홍길동</td>
+                    <td>4</td>
+                    <td>3/4W</td>
+                    <td>2:27:9725</td>
+                    <td>젖히기</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</textarea>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+
+    
+<script>
+    run();
+</script>
+    
+        

@@ -1,0 +1,169 @@
+
+<style>
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.guideBox {margin-top:40px;}
+.guideTitle {font-size:18px; font-weight:500;}
+.guideCont {margin-top:10px;}
+.gGroup {margin-top:20px;}
+.gText {font-size:14px;}
+.gView {padding:10px; border:1px solid #bbbbbb; background:#fff;}
+</style>
+
+<div class="cptPubGuide">
+<div class="guideArea">
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">첨부파일 - 아직 정의되지 않았습니다.</div>
+<div class="guideCont">
+<div class="gText">
+    스크립트는 common.js에 포합되어 있습니다.
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<style>
+input[type=file] {position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;}
+
+/* -------------------------------- 파일 업로드/다운로드 -------------------------------- */
+.comFileList{width: 100%; margin-top: 20px;}
+.comFileList .fileGroup {width:100%;}
+.comFileList .fileGroup .file {width: 100%; height: 66px; margin-top: 12px; border-radius: 12px; background: #F7F9FB;}
+.comFileList .fileGroup .file:first-child {margin-top:0;}
+.comFileList .fileGroup .file dl {width:100%; height:100%; display: flex; }
+.comFileList .fileGroup .file dl dt {min-width: max-content; padding-left:52px; color: #000; font-size: 14px; font-style: normal; font-weight: 500; align-self: center;}
+.comFileList .fileGroup .file dl dd {padding-left:49px; align-self: center; flex-grow: 1;}
+.comFileList .fileGroup .file .fileName {width:100%; padding-right: 75px; color: #000; font-size: 16px; font-style: normal; font-weight: 300; line-height: 1.75; display:block; background:url(../images/common/ico_file_download.svg) right 40px center no-repeat;}
+
+/* ------------------------------ 파일 박스 ------------------------------ */
+.fileBox {width: 100%; position:relative;}
+.fileBox.on .fileBefore {display:none;}
+.fileBox .fileBefore {display:flex;}
+.fileBox .fileBefore .clar {margin-left:10px; color: rgba(0,0,0,0.7); font-size: 12px; font-style: normal; font-weight: 300; align-self: center;}
+.fileBox .fileBefore .btn {width:70px; height:30px; color: #4053FF; text-align: center; font-size: 12px; font-style: normal; font-weight: 700; border-radius:15px; border: 1px solid #A2A9ED; background: #FFF; display:flex; justify-content: center; align-items: center;}
+
+.fileBox .fileAfter {padding-right:18px; align-items: center; justify-content: space-between; display:none;}
+.fileBox.on .fileAfter {display:flex;}
+.fileBox .fileAfter .textBox {color: rgba(0,0,0,0.7); font-size: 16px; font-style: normal; font-weight: 300;}
+.fileBox .fileAfter .fileDel {width:30px; height:30px; font-size:0; background:url(../images/common/ic_file_del.svg) center no-repeat;}
+
+</style>
+
+<!-- 파일 업로드 -->
+<div class="comFileList">
+    <ul class="fileGroup">
+        <li class="file upload">
+            <dl>
+                <dt>첨부파일</dt>
+                <dd>
+                    <div class="frmGroup">
+                        <div class="fileBox">
+                            <div class="fileBefore">
+                                <label for="uploadBtn1" class="btn">파일선택</label>
+                                <div class="clar"> * 최대 500MB까지 첨부가능</div>
+                                <input type="file" id="uploadBtn1" class="uploadBtn">
+                            </div>
+                            <div class="fileAfter">
+                                <div class="textBox"></div>
+                                <button class="fileDel">삭제</button>
+                            </div>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+        </li>
+    </ul>
+</div>
+<br>
+<br>
+<div class="frmGroup">
+    <div class="fileBox">
+        <div class="fileBefore">
+            <label for="uploadBtn2" class="btn">파일선택</label>
+            <div class="clar"> * 최대 500MB까지 첨부가능</div>
+            <input type="file" id="uploadBtn2" class="uploadBtn">
+        </div>
+        <div class="fileAfter">
+            <div class="textBox"></div>
+            <button class="fileDel">삭제</button>
+        </div>
+    </div>
+</div>   
+
+
+<!-- 파일 다운로드 -->
+<div class="comFileList">
+    <ul class="fileGroup">
+        <li class="file download">
+            <dl>
+                <dt>첨부파일</dt>
+                <dd><a href="#" class="fileName">재능기부 훈련지 모집공고.png</a></dd>
+            </dl>
+        </li>
+        <li class="file download">
+            <dl>
+                <dt>첨부파일</dt>
+                <dd><a href="#" class="fileName">재능기부 훈련지 모집공고.png</a></dd>
+            </dl>
+        </li>
+    </ul>
+</div>
+
+
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<script>
+setTimeout(() => {
+    
+    //파일찾기
+    const uploadFiles = document.querySelectorAll(".fileBox .uploadBtn");
+    uploadFiles.forEach(function(uploadFile,idx){
+        uploadFile.addEventListener("change",function(event){
+            const fileBox = parentsElementFind(this, "fileBox");
+            let fileName;
+            if(window.FileReader){
+                fileName = this.files[0].name;
+            } else {
+                console.log("noFileReader");
+                //var filename = $(this).val().split('/').pop().split('\\').pop();
+                //var filename = this.val().split('/').pop().split('\\').pop();
+            }
+            fileBox.querySelector(".textBox").innerText = fileName;
+            fileBox.classList.add("on");
+        });
+    });
+
+    //파일찾기 취소
+    const delFiles = document.querySelectorAll(".fileBox .fileDel");
+    delFiles.forEach(function(delFile,idx){
+        delFile.addEventListener("click",function(event){
+            const fileBox = parentsElementFind(this, "fileBox");
+            fileBox.querySelector(".uploadBtn").value = "";
+            fileBox.querySelector(".textBox").innerText = "";
+            fileBox.classList.remove("on");
+        });
+    });
+}, 500);
+</script>
+<!-- //가이드 그룹 -->
+
+</div>
+</div>
+
+    
+<script>
+    run();
+</script>
+    
+        

@@ -1,0 +1,223 @@
+
+<style>
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.guideBox {margin-top:40px;}
+.guideTitle {font-size:18px; font-weight:500;}
+.guideCont {margin-top:10px;}
+.gGroup {margin-top:20px;}
+.gText {font-size:14px;}
+.gView {padding:10px; border:1px solid #bbbbbb; background:#fff;}
+</style>
+
+<div class="cptPubGuide">
+<div class="guideArea">
+
+    
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">버튼</div>
+<div class="guideCont">
+<div class="gText">
+    - 버튼의 기본 형태입니다.
+    <br>- addClass로 색깔 및 모양을 사용합니다. (blue, purple, bLine, gLine, 등)
+    <br>- addClass로 크기를 변형합니다 (기본은 md, 큼:lg, 작음:sm, 아주작음:xs)
+    <br>- 예외적인 부분(가로길이가 다르다던가, 고정이라던가)은 사용되는 콤포넌트에 붙여서 사용하거나 btn에 addClass로 붙여 사용합니다.
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<div class="comBtnGroup">
+    <div class="alignL">
+        <div class="btnBox">
+            <button class="btn lg Primary">확인</button>
+            <button class="btn lg Primary" disabled>확인</button>
+            <button class="btn lg gray">확인</button>
+            <button class="btn lg gray" disabled>확인</button>
+            <button class="btn lg dkLine">확인</button>
+            <button class="btn lg dkLine" disabled>확인</button>
+            <button class="btn lg gLine">확인</button>
+            <button class="btn lg gLine" disabled>확인</button>
+        </div>
+    </div>
+</div>
+<div class="comBtnGroup">
+    <div class="alignL">
+        <div class="btnBox">
+            <button class="btn Primary">확인</button>
+            <button class="btn Primary" disabled>확인</button>
+            <button class="btn gray">확인</button>
+            <button class="btn gray" disabled>확인</button>
+            <button class="btn dkLine">확인</button>
+            <button class="btn dkLine" disabled>확인</button>
+            <button class="btn gLine">확인</button>
+            <button class="btn gLine" disabled>확인</button>
+        </div>
+    </div>
+</div>
+<div class="comBtnGroup">
+    <div class="alignL">
+        <div class="btnBox">
+            <button class="btn sm Primary">확인</button>
+            <button class="btn sm Primary" disabled>확인</button>
+            <button class="btn sm gray">확인</button>
+            <button class="btn sm gray" disabled>확인</button>
+            <button class="btn sm dkLine">확인</button>
+            <button class="btn sm dkLine" disabled>확인</button>
+            <button class="btn sm gLine">확인</button>
+            <button class="btn sm gLine" disabled>확인</button>
+        </div>
+    </div>
+</div>
+<div class="comBtnGroup">
+    <div class="alignL">
+        <div class="btnBox">
+            <button class="btn xs Primary">확인</button>
+            <button class="btn xs Primary" disabled>확인</button>
+            <button class="btn xs gray">확인</button>
+            <button class="btn xs gray" disabled>확인</button>
+            <button class="btn xs dkLine">확인</button>
+            <button class="btn xs dkLine" disabled>확인</button>
+            <button class="btn xs gLine">확인</button>
+            <button class="btn xs gLine" disabled>확인</button>
+        </div>
+    </div>
+</div>
+
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- //가이드 그룹 -->
+    
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">CRUD 사용 위치 (그리드, 테이블 아래)</div>
+<div class="guideCont">
+<div class="gText">
+    - 기본은 페이지 최하단에 사용
+    <br>- 정렬기능 있는 태그를 빼지 않습니다. (alignL, alignC, alignR)
+    <br>- 좌측, 우측, 좌우측에 사용 가능
+    <br>- 버튼을 .btnBox로 묶습니다 (모바일에서 필수)
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<!-- 그리드/테이블 하단 버튼 양측 -->  
+<div class="comBtnGroup">
+    <div class="alignL">
+        <div class="btnBox">
+            <button class="btn Primary">확인</button>
+            <button class="btn gray">취소</button>
+            <button class="btn dkLine">목록</button>
+        </div>
+    </div>
+    <div class="alignC">
+        <div class="btnBox">
+            <button class="btn Primary">확인</button>
+            <button class="btn gray">취소</button>
+            <button class="btn dkLine">목록</button>
+        </div>
+    </div>
+    <div class="alignR">
+        <div class="btnBox">
+            <button class="btn Primary">확인</button>
+            <button class="btn gray">취소</button>
+            <button class="btn dkLine">목록</button>
+        </div>
+    </div>
+</div>
+        
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- //가이드 그룹 -->
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">모바일 Class 규칙</div>
+<div class="guideCont">
+<div class="gText">
+    .btnBox는 모바일에서 버튼 너비가 기본 100% 이며 아래로 떨어집니다.
+    <br>.m30 : 버튼이 아래로 떨어지지 않으며 첫번째 버튼 너비가 30%가 됩니다
+    <br>.m50 : 버튼이 아래로 떨어지지 않으며 두개의 버튼이 50%가 됩니다
+    <br>.m70 : 버튼이 아래로 떨어지지 않으며 두번째 버튼 너비가 30%가 됩니다
+    <br>.min : align 영역에 버튼이 하나만 들어가며, 중앙정렬되고 너비는 버튼 컨텐츠의 너비가 된다.
+    <br>이외에 .btnBox내부에 버튼이 3개 이상 존재할 경우 새롭게 클래스를 추가하여 만들고 가이드에 추가합니다
+    <br>ex) 버튼 3개인데 첫번째 버튼 100% 두번째,세번째 버튼 50%
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<!-- 최하단 CURD 버튼 -->  
+<div class="comBtnGroup">
+    <div class="alignL">
+        <div class="btnBox m50">
+            <button class="btn Primary">확인</button>
+            <button class="btn gray">취소</button>
+        </div>
+    </div>
+    <div class="alignC">
+        <div class="btnBox m30">
+            <button class="btn Primary">확인</button>
+            <button class="btn dkLine">목록</button>
+        </div>
+    </div>
+    <div class="alignR">
+        <div class="btnBox m70">
+            <button class="btn gray">취소</button>
+            <button class="btn dkLine">목록</button>
+        </div>
+    </div>
+</div>
+
+<div class="comBtnGroup">
+    <div class="alignL">
+        <div class="btnBox min">
+            <button class="btn Primary">확인</button>
+        </div>
+    </div>
+    <div class="alignC">
+        <div class="btnBox min">
+            <button class="btn gray">취소</button>
+        </div>
+    </div>
+    <div class="alignR">
+        <div class="btnBox min">
+            <button class="btn dkLine">목록</button>
+        </div>
+    </div>
+</div>
+        
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- //가이드 그룹 -->
+    
+</div>
+</div>
+
+    
+<script>
+    run();
+</script>
+    
+        

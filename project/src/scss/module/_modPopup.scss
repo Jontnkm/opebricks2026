@@ -1,0 +1,367 @@
+/* --------------------------- 팝업 - 모달팝업 --------------------------- */
+.modPopup {
+    width:100%; height:100dvh; display:none; justify-content:center; align-items:center; position:fixed; left:0; top:0; z-index:1000;
+
+    @include minWidth('mobile'){
+        *:hover::-webkit-scrollbar-thumb {
+            background: rgba(87, 87, 87, 0.54);
+        }
+        *::-webkit-scrollbar {width:30px; padding:10px; background-color: #fff;}
+        *::-webkit-scrollbar-thumb {padding:10px; border: 12px solid #fff; border-radius: 15px; background: rgba(87, 87, 87, 0.2);/* box-shadow: inset 6px 6px 0 rgba(87, 87, 87, 0.54); */ }
+        *::-webkit-scrollbar-track{background-color: rgba(0,0,0,0);}
+    }
+    &.on {
+        display:flex;
+        .popupDim {
+            opacity:0; animation: popOpenDimd 0.2s linear forwards;
+            @keyframes popOpenDimd { 0% {opacity:0;} 100% {opacity:1;} }
+        }
+
+        .popupArea {
+            .popupInMotion {
+                opacity:1; //transform:scale(0.7); animation: popOpenScale 0.3s linear forwards;
+                @keyframes popOpenScale { 0% {opacity:0; transform:scale(0.7);} 100% {opacity:1; transform:scale(1);} }
+            }
+        }
+    }
+    .popupDim {
+        width:100%; height:100%; font-size:0; background:rgba(0,0,0,0.8); position:fixed; left:0; top:0;
+    }
+    .popupArea {
+        width: 100%; height: auto; max-height: calc(100% - 200px);
+        .popupInMotion {width:100%; height: 100%;}
+        .popupContainer {width:100%; height: 100%; max-height: calc(100vh - 200px); border-radius: 16px; overflow:hidden;}
+        .popupContArea {
+            width: 100%; height: 100%; max-height: calc(100vh - 200px); padding-bottom: 40px; position:relative; background:#fff; 
+            display: flex; flex-direction: column;
+            &:has(.popBtm){
+                padding-bottom: 20px;
+            }
+            .btnPopClose {
+                width:44px; height:44px; font-size:0; border:0; background:url(../../images/common/ic_24_pop_close.svg) center no-repeat; 
+                position:absolute; right:22px; top:10px; z-index:10;
+            }
+            .popTitle {
+                width:100%; min-height:64px; padding:20px 88px 20px 32px; font-size:rem(18px); font-weight:700; color: var(--Gray-900, #111); line-height: 1.3;
+                border-bottom: 1px solid var(--Bg-Line-line-100); position:relative; word-break:keep-all;
+                &.shadow {box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);}
+                a {
+                    padding-left: 32px; min-height: 24px; font-size: 0; background: url(../../images/common/ic_20_back.svg) 2px 1px no-repeat; 
+                    line-height: 24px; display: inline-block; vertical-align: middle;
+                }
+            }
+            .popCont {
+                width:100%; max-height:calc(100vh - 304px); padding:28px 2px 0 32px; overflow:auto; overflow-y: scroll;
+                .popSubTitle {
+                    color: var(--Primary, #078B7B);font-size: rem(20px);font-weight: 700;line-height: 140%; /* 28px */
+                    & + .comFormTable {margin-top: 12px;}
+                }     
+                .comPrivacyBox {
+                    margin-top: 48px;
+                    .infoBox .boxCont {
+                        .comNumList {
+                            > .listGroup {
+                                margin-top: 0;
+                                > .item {
+                                    padding-left: 0;
+                                    font-weight: 400;
+                                    &:before {display: none;}
+                                    .txt {margin-top: -4px;}
+                                    &.space {
+                                        padding-left: 24px;margin-top: 0;
+                                        .anno {margin-top: 0;}
+                                    }
+                                    .listGroup {margin-top: 8px;}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .popBtm {
+                margin-top: 28px; padding:20px 32px 0; display:flex; justify-content:flex-end; border-top: 1px solid #E4E4E4;
+                &.division {justify-content:space-between;}
+                .alignL {
+                    width: 100%; display: flex; justify-content: flex-start; flex-grow: 1;
+                }
+                .alignR {
+                    display: flex; justify-content:flex-end; flex-grow: 1;
+                }
+                .btmTxt {
+                    color: #000; font-size: rem(18px); font-weight: 700; line-height: 1.4; align-content: center;
+                }
+                .btn {padding: 0;}
+            }
+        }
+        @media screen and (min-width: 768px) {
+            .comFormTable {
+                & + .popSubTitle {margin-top: 48px;}
+                .tableArea table tbody {
+                    th {
+                        padding: 16px 0 16px 24px;
+                        &.interval {padding-top: 30px;}
+                    }
+                    td {
+                        padding: 16px 24px 16px 0px;
+                    }
+                    .iptTextArea {line-height: 140%;}
+                }
+            }
+        }
+    }
+    &.md .popupArea {max-width:600px;}
+    &.lg .popupArea {max-width:960px;}
+
+    @include media('mobile') {
+        .popupArea {
+            height: 100%; max-height: none;
+            .popupInMotion {
+                animation: none;
+            }
+            .popupContainer {
+                max-height: none; border-radius: 0;
+            }
+            .popupContArea {
+                max-height: none; padding-bottom: 0;
+                .btnPopClose {
+
+                }
+                .popTitle {
+                    min-height:65px; padding:20px 40px 20px 16px; font-size:rem(20px); line-height: 1.4;
+                    a {
+                        padding-left: 28px;
+                    }
+                }  
+                .popCont {
+                    width:100%; max-height: calc(100vh - 69px); padding:28px 16px 0; 
+                }
+                .popBtm {
+                    padding:20px 24px 0; display:flex; justify-content:flex-end;
+                    &.division {flex-wrap: wrap;}
+                    .alignL {
+
+                    }
+                    .alignR {
+                        width: 100%; margin-top: 20px;
+                    }
+                    .btmTxt {
+                        color: #000; font-size: rem(18px); font-weight: 700; line-height: 1.4; align-content: center; text-align: center;
+                    }
+                    .btn {padding: 0;}
+                }            
+            }
+        }
+        .comFormTable {
+            .tableArea table tbody tr:last-child {padding-bottom:32px;border-bottom: 1px solid var(--Bg-Line-line-200, #EDEDED);}
+            & + .popSubTitle {margin-top: 40px;}
+            *::placeholder,
+            select.iptSlt {font-size: rem(18px);}
+            .iptTextArea {line-height: 160%;}
+        }
+
+    }
+}
+
+/* --------------------------- 팝업 - 모바일 : 바텀 시트 (Bottom Sheet) --------------------------- */
+.modMdPopup {
+    width:100%; height:100%; display:none; justify-content:center; align-items:center; position:fixed; left:0; top:0; z-index:1000; 
+    
+    @include minWidth('mobile'){
+        *:hover::-webkit-scrollbar-thumb {
+            background: rgba(87, 87, 87, 0.54);
+        }
+        *::-webkit-scrollbar {width:30px; padding:10px; background-color: #fff;}
+        *::-webkit-scrollbar-thumb {padding:10px; border: 12px solid #fff; border-radius: 15px; background: rgba(87, 87, 87, 0.2);/* box-shadow: inset 6px 6px 0 rgba(87, 87, 87, 0.54); */ }
+        *::-webkit-scrollbar-track{background-color: rgba(0,0,0,0);}
+    }
+    &.pLg {
+        .popupArea {
+            width: 900px;
+            .popupContArea {
+                .btnPopClose {
+                    width:44px; height:44px; font-size:0; border:0; background:url(../../images/common/ic_24_pop_close.svg) center no-repeat; 
+                    position:absolute; right:22px; top:10px; z-index:10;
+                }
+                .popTitle {
+                    width:100%; min-height:64px; padding:20px 88px 20px 32px; font-size:rem(18px); font-weight:700; color: var(--Gray-900, #111); line-height: 1.3;
+                    border-bottom: 1px solid var(--Bg-Line-line-100); background: #fff; position:relative; word-break:keep-all;
+                    &.shadow {box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);}
+                }
+            }
+            @include media('mobile') {
+                width: 100%;
+            }
+        }
+    }
+
+    &.on {
+        display:flex;
+        .popupDim {
+            opacity:0; animation: popOpenDimd 0.2s linear forwards;
+            @keyframes popOpenDimd { 0% {opacity:0;} 100% {opacity:1;} }
+        }
+    }
+    .popupDim {
+        width:100%; height:100%; font-size:0; background:rgba(0,0,0,0.8); position:fixed; left:0; top:0;
+    }
+    .popupArea {
+        width: 600px; height: auto; max-height: calc(100% - 200px);
+        .popupInMotion {width:100%;}
+        .popupContainer {width:100%; height: 100%; max-height: calc(100vh - 200px); border-radius: 16px; overflow:hidden;}
+        .popupContArea {
+            width: 100%; height: 100%; max-height: calc(100vh - 200px); padding-bottom: 40px; position:relative; background:#fff; display: flex; flex-direction: column;
+            .btnPopClose {
+                width:24px; height:24px; font-size:0; border:0; background:url(../../images/common/ic_24_pop_close_w.svg) center no-repeat; 
+                position:absolute; right:32px; top:16px; z-index:10;
+            }
+            .popTitle {
+                width:100%; min-height:60px; padding:16px 56px 16px 32px; font-size:rem(20px); font-weight:700; color: #fff; line-height: 1.4;
+                background: var(--Point-Primary2); position:relative; word-break:keep-all;
+            }
+            .popCont {
+                width:100%; max-height:calc(100vh - 304px); padding:32px 2px 0 32px; overflow:auto; overflow-y: scroll;
+
+            }
+            .popBtm {
+                padding:20px 32px 0; display:flex; justify-content:flex-end;
+                &.division {justify-content:space-between;}
+            }
+        }
+    }
+    @include media('mobile') {
+        &.on {
+            .popupArea {
+                animation: 0.5s upPop; animation-fill-mode: forwards;
+                @keyframes upPop { 0% { bottom:-100%;} 100% { bottom: 0;  }}
+            }
+        }
+        .popupArea{
+            width: 100%; max-height: calc(100dvh - 160px); display: flex; justify-content: center; position: absolute; left: 0; bottom: -100%; z-index: 10;
+            animation: 0.5s downPop; animation-fill-mode: forwards;
+            @keyframes downPop {0% { bottom:0; } 100% { bottom:-100%; }}
+
+            .popupContainer {max-height: calc(100dvh - 160px); border-radius: 16px 16px 0 0;}
+            .popupContArea {
+                max-height: calc(100dvh - 160px); padding-bottom: 16px;
+                .btnPopClose {
+                    background:url(../../images/common/ic_24_pop_close.svg) center no-repeat; right:24px; top:20px;
+                }
+                .popTitle {
+                    min-height:64px; padding:20px 24px 0; font-size:rem(18px); font-weight:600; color: var(--font-900); line-height: 1.3;
+                    border-bottom: 1px solid var(--Bg-Line-line-200); background: #fff; 
+                }
+                .popCont {
+                    width:100%; max-height:calc(100dvh - 224px); padding:20px 24px 0; overflow:auto;
+                    
+                }
+                .popBtm {
+                    padding:24px 24px 0; display:flex; justify-content:flex-end; 
+                    &.division {justify-content:space-between;}
+                    // &:has(.btn:nth-child(2)){
+                    //     flex-wrap: nowrap;
+                    //     .btn {width: calc(50% - 6px); min-width: calc(50% - 6px)}
+                    // }
+                    .btnBox {flex-wrap: nowrap;}
+                }
+            }
+        }
+    }
+}
+
+/* --------------------------- 팝업 - Alert --------------------------- */
+.modAlertPopup {
+    width:100%; height:100%; display:none; justify-content:center; align-items:center; position:fixed; left:0; top:0; z-index:1000;
+
+    &.on {
+        display:flex;
+        .popupDim {
+            opacity:0; animation: popOpenDimd 0.2s linear forwards;
+            @keyframes popOpenDimd { 0% {opacity:0;} 100% {opacity:1;} }
+        }
+
+        .popupArea {
+            .popupInMotion {
+                opacity:1; //transform:scale(0.7); animation: popOpenScale 0.3s linear forwards;
+                @keyframes popOpenScale { 0% {opacity:0; transform:scale(0.7);} 100% {opacity:1; transform:scale(1);} }
+            }
+        }
+    }
+    .popupDim {
+        width:100%; height:100%; font-size:0; background:rgba(0,0,0,0.8); position:fixed; left:0; top:0;
+    }
+    .popupArea {
+        width: calc(100% - 32px); max-width: 360px; height: auto; max-height: calc(100% - 200px); margin: 0 auto;
+        .popupInMotion {width:100%; height: 100%;}
+        .popupContainer {width:100%; height: 100%; max-height: calc(100vh - 200px); border-radius: 16px; overflow:hidden;}
+        .popupContArea {
+            width: 100%; height: 100%; max-height: calc(100vh - 200px); padding-bottom: 24px; position:relative; background:#fff; display: flex; flex-direction: column;
+            .btnPopClose {
+                width:44px; height:44px; font-size:0; border:0; background:url(../../images/common/ic_24_pop_close.svg) center no-repeat; 
+                position:absolute; right:22px; top:10px; z-index:10;
+            }
+            .popCont {
+                width:100%; max-height:calc(100vh - 304px); padding:40px 16px 0; overflow:auto; overflow-y: auto;
+                &:not(.alertTit) {
+                    padding-top: 80px;
+                }
+                .alertTit {margin-bottom: 16px; font-size: rem(20px); font-weight: 700; color: var(--Gray-800); text-align: center;}
+                .alertDt {font-size: rem(16px); color: var(--Gray-800);text-align: center;}
+            }
+            .popBtm {
+                padding:36px 24px 0; display:flex; justify-content:center;
+                &.division {justify-content:space-between;}
+                .btn {padding:0 24px; height: 48px; margin-left:2px; font-size: rem(16px); font-weight: 400; white-space: nowrap; border-radius: 8px;}
+                &:has(.btn:nth-child(2)){
+                    gap: 12px;
+                    .btn {width: 100%;}
+                }
+            }
+        }
+    }
+}
+
+//스낵바(Snackbar)
+//토스트(toast)
+/*
+**스낵바(Snackbar)**와 **토스트(Toast)**는 둘 다 아래쪽에 잠깐 뜨는 경고나 메시지를 보여주는 UI 요소인데, 미묘한 차이가 있어. 아래 정리해볼게:
+
+🔹 Toast (토스트)
+가장 간단한 형태의 알림
+
+자동으로 사라짐, 유저 상호작용 없음
+
+UI 프레임워크에 따라 위치는 다양하지만, 보통 하단 중앙에 뜸
+
+사용자 행동에 대한 피드백 없이 그냥 알려주는 역할
+
+✅ 예시:
+“저장되었습니다”
+
+“인터넷 연결 없음”
+
+🔹 Snackbar (스낵바)
+토스트보다 진화된 버전
+
+사용자 액션을 포함할 수 있음 (예: "되돌리기" 버튼)
+
+보통 화면 하단이나 앱의 내비게이션 바 위에 뜸
+
+Material Design에선 스낵바가 토스트보다 권장됨
+
+✅ 예시:
+“메일이 삭제되었습니다 [되돌리기]”
+
+“설정이 저장되었습니다 [확인]”
+
+
+항목	        Toast	               Snackbar
+위치	        주로 하단 중앙	        하단, 내비게이션 위
+사용자 액션	     없음	                있음 (버튼 가능)
+지속 시간	    짧음	                조절 가능
+디자인 가이드	 단순	                Material Design에서 사용 권장
+
+#요약하면:
+👉 “그냥 보여주기” 용도면 Toast,
+👉 “알려주고 선택 기회 주기”면 Snackbar가 적합해!
+
+*/

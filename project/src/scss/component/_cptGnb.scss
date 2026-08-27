@@ -1,0 +1,382 @@
+/* ------------------------ GNB ------------------------ */
+.cptGnb {
+    width: 100%; height: 100px; position: relative; z-index:9999; transition: background-color .6s ease;
+
+    @include media ("mobile")  {
+        height:60px;
+    }
+    .gnbArea {
+        width: 100%; max-width: 1920px; margin: 0 auto; height: 100px; padding: 40px 30px; margin: 0 auto; align-items:center;
+        display: flex; justify-content: space-between;
+        .logoBox {
+            width: 240px; height: 40px; padding-right: 100px; flex-shrink: 0; flex-grow: 1; position: relative; z-index: 10;
+            .logo {
+                width: 100%; height: 100%; display: block; font-size: 0; background: url(../../images/contents/openbrics_logo.png) left center / 140px no-repeat;
+                transition: background-image .6s ease;
+            }
+        }
+        .gnbBox {
+            display: flex; justify-content: space-between; flex-grow: 2; flex-shrink: 0; position:relative; z-index:9;
+            .menuArea {
+                width: 100%; 
+                .depth1Group {
+                    width: 100%;  display: flex; justify-content: center;
+                    .depth1List {
+                        width:160px;
+                        .depth1Name {
+                            color: #fff;font-size: 18px; font-style: normal; font-weight: 600; line-height: normal; 
+                            align-content: center; display: block; transition: color 0.15s; text-align:center; position:relative;
+                            &:hover {
+                                color: #EC1C24;
+                            }
+
+                            &::after {
+                                display:none;
+                                content:''; position:absolute; bottom:-40px; left:50%; transform:translateX(-50%);
+                                width: 8px; height:8px; background:#EC1C24; border-radius:50%;
+                            }
+                        }
+
+                        &.on {
+                            a {
+                                color: #EC1C24 !important;
+                                &::after {
+                                    display:block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .quickBox {
+            width: 240px; height: 40px; flex-shrink: 0; flex-grow: 1; position: relative; z-index: 10;
+            .quickArea {
+                width: 100%; height: 100%; display: flex; justify-content: flex-end;
+                .quickGroup {
+                    height: 100%; margin-right: 28px; display: flex;
+                    .item {
+                        height: 100%; margin-left: 35px; align-content: center; position: relative;
+                        &::before {
+                            content:""; width: 3px; height: 3px; background: #000; display: block; position: absolute; left: -19px; top: 18px;
+                        }
+                        &:first-child {
+                            margin-left: 0;
+                            &::before {display: none;}
+                        }
+                        .link {
+                            width:100%; padding:6px 20px; border-radius:50px; text-align:center; background:#375579; color:#fff;
+                        }
+                    }
+                }
+                .menuBtn {
+                    width: 40px; height: 40px; border-radius: 8px; position: relative;
+                    span {
+                        height: 2px; font-size: 0; border-radius: 2px; background: #fff; position: absolute; transition: all 0.2s;
+                        &:nth-child(1) {width: 12px; left: 10px; top: 12px; transition-delay: 0.1s;}
+                        &:nth-child(2) {width: 20px; left: 10px; top: 18px; transition-delay: 0s;}
+                        &:nth-child(3) {width: 20px; left: 10px; top: 18px; transition-delay: 0s;}
+                        &:nth-child(4) {width: 12px; left: 18px; top: 24px; transition-delay: 0.1s;}
+                    }
+                }
+                &.active {
+                    .menuBtn {
+                        span {
+                            background: #000;
+                            &:nth-child(1) {width: 0; left: 10px; top: 12px; opacity: 0; transition-delay: 0s;}
+                            &:nth-child(2) {width: 24px; left: 8px; top: 19px; transform: rotate(45deg); transition-delay: 0.1s;}
+                            &:nth-child(3) {width: 24px; left: 8px; top: 19px; transform: rotate(-45deg); transition-delay: 0.1s;}
+                            &:nth-child(4) {width: 0; left: 30px; top: 24px; opacity: 0; transition-delay: 0s;}
+                        }
+                    }
+                }
+            }
+        }
+        .allMenuBox {
+            &.pc {
+                width: 100%; padding: 0 16px; border-left: 1px solid #e8e8e8; background: rgba(255,255,255,1); position: fixed; left: 0; top: -999px; z-index: 5;
+                transition: top 0.3s; transition-delay: 0s; backdrop-filter: blur(3.5840001106262207px);  border-top:1px solid #dfdfdf;
+
+                &.active {
+                    top: 100px; transition-delay: 0.2s;
+                }
+
+                .inner {
+                    max-width:905px; margin:0 auto;
+
+                    > ul {
+                        display:flex; flex-flow: row nowrap; align-items: flex-start; justify-content: center;
+                        > li {
+                            width:160px;
+
+                            .depth02 {
+                                padding:30px 0;
+                                > ul {
+                                    display:flex; flex-flow: column; align-items: flex-start; justify-content: flex-start; gap:20px;
+
+                                    > li {
+                                        width:100%; 
+                                        > a {
+                                            display:block; width:100%; text-align:center; font-size:18px; font-weight:400; color:#353a3f;
+                                            &:hover {
+                                                color:#000; font-weight:700;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.on {
+                                .depth02 {
+                                    background:#F4F5F7; height:356px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @include media ("mobile") {
+                    display:none;
+                }
+            }
+
+            &.mo {
+                display:none; 
+
+                @include media ("mobile") {
+                    display:block;
+                }
+
+                width: 100%; height: 100vh; padding: 0 16px; border-left: 1px solid #e8e8e8; background: rgba(255,255,255,1); position: fixed; right: -100%; top: 0; z-index: 5;
+                transition: right 0.1s; transition-delay: 0s; backdrop-filter: blur(3.5840001106262207px);
+                &.active {
+                    right: 0; transition-delay: 0.2s;
+                }
+                .depth1Group {
+                    width: 100%; padding-top: 60px;
+
+                    .depth1List {
+
+                        &:first-child {margin-top: 0;}
+
+                        width: 100%;
+
+                        .depth1Name {
+                            width: 100%; color: #000; font-size: 24px; font-style: normal; font-weight: 600; line-height: normal; display: block;
+                            padding:16px 0;
+
+                            span {
+                                display:inline-block; position:relative; width:max-content;
+                            }
+                        }
+
+                        .depth2Cov {
+                            max-height:0; overflow:hidden; transition: max-height .35s ease;
+                            > ul {
+                                display:flex; flex-flow: column; align-items: flex-start; justify-content: flex-start;
+                                 
+                                > li {
+                                    width:100%; position:relative;
+                                    > a {
+                                        display:block; width:100%; padding: 18px 0; font-size:18px; font-weight:400; line-height:150%; color: #6b7176;
+                                    }
+                                }
+                            }
+                        }
+
+                        &.active {
+                            .depth1Name {
+                                color:#EC1C24;
+
+                                span {
+                                    &::after {
+                                        content:''; position:absolute; top:50%; right:-24px; width:20px; height:20px; transform:translateY(-50%);
+                                        background:url(../../images/contents/moMenuArrow.svg)0 0 no-repeat;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .quickGroup {
+                    width: calc(100% - 32px); margin: 0 16px; padding: 20px 0 40px; border-top: 1px solid #C8C8C8; position: absolute; left: 0; bottom: 0;
+                    .item {
+                        &:first-child {margin-top: 0;}
+                        width: 100%; margin-top: 20px;
+                        .link {
+                            width: 100%; color: #000; font-size: 18px; font-style: normal; font-weight: 500; line-height: normal;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    @include media("pc") {
+        .gnbArea {
+            .gnbBox {
+                display: none;
+            }
+            .quickBox {
+                .quickArea {
+                    .quickGroup {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    @include media("mobile") {
+        .gnbArea {
+            height: 60px; padding: 10px;
+            .logoBox {
+                width: 101px; height: 40px; padding-right: 0; align-content: center; flex-grow: 0;
+                .logo {
+                    font-size: 0; background: url(../../images/contents/openbrics_logo.png) left center / 100% no-repeat;
+                    img {width: 101px;}
+                }
+            }
+            .quickBox {
+                .quickArea {
+                    .menuBtn {
+                        background: none;
+                        span {background: #fff;}
+                    }
+                    &.active {
+                        .menuBtn {
+                            span {
+                                background: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+            .allMenuBox {
+                width: 100%; right: -100%;
+            }
+        }
+    }
+
+    &.active {
+        background:#fff;
+        .logo {
+            background: url(../../images/contents/openbrics_logo_blk.png) left center / 140px no-repeat !important;/*2026.08.24 확장자 변경*/
+
+            @include media ("mobile"){
+                background-size:101px !important;
+            }
+        }
+
+        .gnbBox {
+            .menuArea {
+                .depth1Group {
+                    .depth1List {
+                        
+                        .depth1Name {
+                            color:#000 !important;
+
+                            &:hover {
+                                color: #EC1C24 !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main {
+    .cptGnb {
+        
+        .gnbArea {
+            height: 100px; padding: 40px 30px;
+            .logoBox {
+                .logo {
+                    background: url(../../images/contents/openbrics_logo.png) left center / 140px  no-repeat;
+                }
+            }
+            .gnbBox {
+                .menuArea {
+                    .depth1Group {
+                        .depth1List {
+                            .depth1Name {
+                                color: #fff;
+                                &:hover {
+                                    color: #EC1C24;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .quickBox {
+                .quickArea {
+                    .quickGroup {
+                        .item {
+                            &::before {
+                               background: #fff;
+                            }
+                            .link {
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @include media("mobile") {
+            
+            .gnbArea {
+                height: 60px; padding: 16px;
+                .logoBox {
+                    .logo {
+                        background: url(../../images/contents/openbrics_logo.png) left center / 100%  no-repeat;
+                    }
+                }
+                .quickBox {
+                    .quickArea {
+                        .menuBtn {
+                            span {background: #fff;}
+                        }
+                        &.active {
+                            .menuBtn {
+                                span {background: #000;}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.quick {
+    position:fixed; bottom:40px; right:40px; z-index: 9999;
+
+    ul {
+        display:flex; flex-flow: column; align-items: flex-start; justify-content: flex-start; gap:16px;
+
+        > li {
+            width:64px; height:64px; position:relative;
+
+            > a {
+                display:block; width:100%; height:100%;
+            }
+
+            &:first-of-type {
+                > a {
+                    background:url(../../images/contents/quick_ico01.png)0 0 no-repeat;
+                }
+            }
+
+            &:last-of-type {
+                > a {
+                    background:url(../../images/contents/quick_ico02.png)0 0 no-repeat;
+                }
+            }
+        }
+    }
+}

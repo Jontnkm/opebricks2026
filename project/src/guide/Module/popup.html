@@ -1,0 +1,206 @@
+
+<style>
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.guideBox {margin-top:40px;}
+.guideTitle {font-size:18px; font-weight:500;}
+.guideCont {margin-top:10px;}
+.gGroup {margin-top:20px;}
+.gText {font-size:14px;}
+.gView {padding:10px; border:1px solid #bbbbbb; background:#fff;}
+</style>
+
+<div class="cptPubGuide">
+<div class="guideArea">
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">팝업 - 아직 정의되지 않았습니다.</div>
+<div class="guideCont">
+<div class="gText">
+        - 팝업은 .sm, .md, .lg, .tini 크기별로 있으며, 해당 클래스를 추가 하여 종류를 더 다양하게 할 수 있습니다.
+    <br> - 하단 css에서 주석을 풀면 scale motion이 동작합니다.
+    <br> - script는 common.js에 있습니다.
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<div id="sample01" class="modPopup lg on"> <!-- class - on : 팝업오픈, md : middle,  lg : large -->
+    <div class="popupDim">딤영역</div>
+    <div class="popupArea"> <!-- style - 너비값(width), 높이값(height) : 팝업 너비 및 높이 지정 -->
+        <div class="popupInMotion">
+            <div class="popupContainer">
+                <div class="popupContArea">
+                    <button class="btnPopClose" onclick="closePopup('sample01');">닫기</button>
+                    <div class="popTitle">팝업 Large</div>
+                    <div class="popCont">
+                        <!-- 팝업 컨텐츠 영역 -->
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        <div class="abs">
+                        </div>
+                        <br><br>
+                        <div class="abs">
+                            <div class="bbs"></div>
+                        </div>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역<br>
+                        팝업콘텐츠 영역
+                        <!-- //팝업 컨텐츠 영역 -->
+                    </div>
+
+                    <!-- 팝업 하단 영역
+                    <div class="popBtm">
+                        <button class="btn gLine">취소</button>
+                        <button class="btn dkBlue">계정신청</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 관악지점 모달 -->
+<div id="branchSeoul5" class="modMdPopup on"> <!-- class - on : 팝업오픈, md : middle,  lg : large -->
+    <div class="popupDim">딤영역</div>
+    <div class="popupArea"> <!-- style - 너비값(width), 높이값(height) : 팝업 너비 및 높이 지정 -->
+        <div class="popupContainer">
+            <div class="popupContArea">
+                <button class="btnPopClose" onclick="closePopup('branchSeoul5');">닫기</button>
+                <div class="popTitle">위치보기</div>
+                <div class="popCont">
+                    
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역<br>
+                    팝업콘텐츠 영역                                   
+                </div>           
+            </div>
+        </div>
+    </div>
+</div>
+      
+
+<!-- 바텀 시트 -->
+<div id="infoAlert" class="modAlertPopup on"> <!-- class - on : 팝업오픈, md : middle,  lg : large -->
+    <div class="popupDim">딤영역</div>
+    <div class="popupArea"> <!-- style - 너비값(width), 높이값(height) : 팝업 너비 및 높이 지정 -->
+        <div class="popupInMotion">
+            <div class="popupContainer">
+                <div class="popupContArea">
+                    <button class="btnPopClose" onclick="closePopup('infoAlert');">닫기</button>
+                    <div class="popCont">
+                        <!-- 팝업 컨텐츠 영역 -->
+                        <div class="alertTit">
+                            안내
+                        </div>
+                        <p class="alertDt">
+                            해당 서비스는 경주일에만 제공됩니다 
+                        </p>
+                        <!-- //팝업 컨텐츠 영역 -->
+                    </div>
+
+                    <!-- 팝업 하단 영역 -->
+                    <div class="popBtm">
+                        <button type="button" class="btn Primary">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</textarea>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+setTimeout(function(){
+    tabMenuInit(); //모드 탭 함수
+},500)
+</script>
+<!-- //가이드 그룹 -->
+    
+</div>
+</div>
+
+    
+<script>
+    run();
+</script>
+    
+        
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

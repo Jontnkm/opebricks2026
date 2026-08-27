@@ -1,0 +1,116 @@
+/* ------------------------------ 서브 상단 공통 ------------------------------ */
+.cptSubTop {
+    width: 100%; padding: 220px 40px 0; background: linear-gradient(90deg, #39536B, #132637); background-size:300% 100%; 
+    animation: colorChange 8s ease-in-out infinite;
+
+    @keyframes colorChange{
+        0%{
+            background-position: 0% 50%;
+        }
+        50%{
+            background-position: 100% 50%;
+        }
+        100%{
+            background-position: 0% 50%;
+        }
+    }
+
+    .subTopArea {
+        width: 100%; max-width: 1600px; margin: -1px auto; padding-bottom: 80px; border-bottom: 1px solid #E8E8E8; display: flex; justify-content: space-between; align-items:flex-end;
+        .subTopBox {
+            width: 100%;
+            .topHead {
+                width: 100%;
+                .eyebrow {
+                    width: 100%; color: #757575; font-size: 24px; font-style: normal; font-weight: 500; line-height: 150%;
+                }
+                .title {
+                    width: 100%; color: #fff; font-size: 60px; font-style: normal; font-weight: 700; line-height: 150%;
+                }
+            }
+            .topBody {
+                width: 100%; margin-top: 0px; color: #A0A0A0; font-size: 20px; font-style: normal; font-weight: 400; line-height: 150%;
+                b {
+                    color: #EC1C24; font-weight: 700;
+                }
+            }
+        }
+    }
+    .requestArea {
+        align-content: flex-end;
+        .link {
+            width: 120px; height: 120px; color: #FFF; font-size: 20px; font-style: normal; font-weight: 700; line-height: 150%; border-radius: 160px; 
+            background: #333; display: block; text-align: center; align-content: center;
+        }
+    }
+
+    .breadCrumb {
+        position:relative; width:245px;
+
+        ul {
+            display:flex; flex-flow: row nowrap; align-items: center; justify-content: flex-start; gap:24px;
+
+            li {
+                position:relative;
+                a {
+                    display:inline-block; font-size:16px; font-weight:400; line-height:150%; color:#a3a9b2; line-height:150%;
+
+                    span.hidden {
+                        font-size:0;
+                    }
+
+                    &.present {
+                        color:#fff;
+                    }
+                }
+
+                &:not(:last-of-type) {
+                    &::after {
+                        content:''; position:absolute; top:50%; right:-25px; transform:translateY(-50%); width:20px; height:20px; background: url(../../images/common/breadcrumb.svg)0 0 no-repeat;
+                    }
+                }
+
+                &:first-of-type {
+                    > a {
+                        width:20px; height:20px; background:url(../../images/common/home.svg)0 0 no-repeat;
+
+                    }
+
+                    &::after {
+                        right:-20px;
+                    }
+                }
+
+                &:last-of-type {
+                    > a {
+                        color:#fff;
+                    }
+                }
+            }
+        }
+    }
+
+    @include media('mobile') {
+        margin-top: 0px; padding: 120px 16px 50px 16px; 
+        .subTopArea {
+            border-bottom:0; padding-bottom:0;
+
+            .subTopBox {
+                .topHead {
+                    .title {font-size: 36px;}
+                }
+                .topBody {
+                    font-size: 16px;
+                }
+            }
+
+            .breadCrumb {display:none;}
+        }
+        .requestArea {
+            margin-top: 28px; align-content: flex-start;
+            .link {
+                width: 92px; height: 39px; font-size: 15px; border-radius: 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,133 @@
+<!-- Header -->
+<%- include('../_ejs/top.ejs', {
+    title: "경륜 커뮤니티",
+    url: "../../"
+}) %>
+
+<!-- 레이아웃 -->
+<div class="lytLayout">
+    <div class="layoutArea">
+
+        <!-- 상단영역 -->
+        <div class="layoutTop">
+            <!-- Top -->
+            <%- include('../_ejs/gnb.ejs', {
+                url: "../../"
+            }) %>
+        </div>
+        <!-- //상단영역 -->
+
+        <!-- 중단영역 -->
+        <div class="layoutContainer" id="container">
+
+            <!-- 서브 콘텐츠 영역 -->
+            <div class="layoutSubCont">
+
+                <!-- 서브 컨텐츠 내용이 들어오는 영역-->
+                <!-- 서브 탑 (타이틀) -->
+                <%- include('../_ejs/sub_top.ejs', {
+                    subTitle: "선수 자유게시판",
+                    url: "../../",
+                }) %>
+
+                <!-- 그룹 상단 -->
+                <div class="cptBoardWrite">
+                    <div class="boardArea">
+                        <div class="boardTop">
+                            <h2 class="boardTitle"><input type="text" placeholder="제목을 입력해주세요"></h2>
+                            <div class="boardType">
+                                <select name="" id="">
+                                    <option>카테고리 선택</option>
+                                    <option>카테고리 선택</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="boardBody">
+                            <div class="boardCont">
+                                <textarea></textarea>
+                            </div>
+                            <div class="comFileList">
+                                <ul class="fileGroup">
+                                    <li class="file upload">
+                                        <dl>
+                                            <dt>첨부파일</dt>
+                                            <dd>
+                                                <div class="frmGroup">
+                                                    <div class="fileBox">
+                                                        <div class="fileBefore">
+                                                            <label for="uploadBtn1" class="gridBtn dkbLine">파일선택</label>
+                                                            <input type="file" id="uploadBtn1" class="uploadBtn">
+                                                        </div>
+                                                        <div class="fileAfter">
+                                                            <div class="textBox"></div>
+                                                            <button class="fileDel">삭제</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="textBox clar"> * 최대 500MB까지 첨부가능</div>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                    <li class="file upload">
+                                        <dl>
+                                            <dt>첨부파일</dt>
+                                            <dd>
+                                                <div class="frmGroup">
+                                                    <div class="fileBox">
+                                                        <div class="fileBefore">
+                                                            <label for="uploadBtn1" class="gridBtn dkbLine">파일선택</label>
+                                                            <input type="file" id="uploadBtn1" class="uploadBtn">
+                                                        </div>
+                                                        <div class="fileAfter">
+                                                            <div class="textBox"></div>
+                                                            <button class="fileDel">삭제</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="textBox clar"> * 최대 500MB까지 첨부가능</div>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 그룹하단 -->
+                <div class="comGroupBtm">
+                    <div class="alignL">
+                        <div class="frmGroup">
+                            <div class="frmChoBox">
+                                <input id="chk101" type="checkbox" class="iptChk"><label for="chk101" class="iptLbl">익명글</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alignR">
+                        <button class="btn basic">등록</button>
+                    </div>
+                </div>
+
+                <!-- //서브 컨텐츠 내용이 들어오는 영역-->
+                
+            </div>
+            <!-- //서브 콘텐츠 영역 -->
+
+        </div>
+        <!-- //중단영역 -->
+
+        <!-- 하단영역 -->
+        <div class="layoutFooter">
+            <!-- Footer -->
+            <%- include('../_ejs/footer.ejs', {
+                url: "../../"
+            }) %>
+        </div>
+        <!-- //하단영역 -->
+
+    </div>
+</div>
+
+
+<!-- Bottom -->
+<%- include('../_ejs/bottom.ejs', { }) %>

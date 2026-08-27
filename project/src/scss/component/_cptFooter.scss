@@ -1,0 +1,86 @@
+/* ------------------------ FOOTER ------------------------ */
+
+.cptFooter {
+    width: 100%; margin-top: 160px; position: relative;
+    .footArea {
+        width: 100%; height: 70px; max-width: 1600px; margin: 0 auto; border-top: 1px solid #CCC; display: flex; justify-content: space-between;
+        .copyArea {
+            width: 100%; color: #757575; font-size: 14px; font-style: normal; font-weight: 400; line-height: normal; align-content: center;
+        }
+        .alignR {
+            width: 100%; display: flex; justify-content: flex-end;
+        }
+        .addressArea {
+            width: max-content; display: flex; gap: 20px;
+            .grp {
+                width: max-content; display: flex;
+                .tit { 
+                    color: #333; font-size: 14px; font-style: normal; font-weight: 500; line-height: normal; align-content: center;
+                }
+                .dec {
+                    margin-left: 12px; color: #757575; font-size: 14px; font-style: normal; font-weight: 400; line-height: normal; align-content: center;
+                }
+            }
+        }
+        .quickArea {
+            width: max-content; display: flex;
+            .quickGroup {
+                width: max-content; display: flex;
+                .item {
+                    width: max-content; padding-left: 40px; position: relative; align-content: center;
+                    &::before {
+                        content:"·"; color: #737373; position: absolute; left: 19px; top: 23px;
+                    }
+                    .link {
+                        width: max-content; color: #000; font-size: 14px; font-style: normal; font-weight: 400; line-height: normal; display: block;
+                        &.bold {
+                            font-weight: 700; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+    br.t_only {
+        display: none;
+    }
+    @include media('pc') {
+        margin-top: 100px; padding: 0 20px;
+
+        @include media ("mobile") {
+            margin-top:50px;
+        }
+        .footArea {
+            height: auto; padding: 20px 0; flex-wrap: wrap;
+            .alignR {
+                margin-top: 30px; flex-wrap: wrap; justify-content: flex-start;
+                .addressArea {
+                    flex-wrap: wrap; gap: 8px;
+                    .grp {
+                        .tit { 
+                            font-size: 12px;
+                        }
+                        .dec {
+                            margin-left: 4px; font-size: 12px;
+                        }
+                    }
+                }
+                .quickArea {
+                    width: 100%; margin-top: 30px;
+                    .quickGroup {
+                        .item {
+                            &::before {top: -3px;} 
+                            &:first-child {
+                                padding-left: 0;
+                                &::before {display:none;} 
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        br.t_only {
+            display: inline;
+        }
+    }
+}

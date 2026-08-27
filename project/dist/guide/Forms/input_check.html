@@ -1,0 +1,119 @@
+
+<style>
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.guideBox {margin-top:40px;}
+.guideTitle {font-size:18px; font-weight:500;}
+.guideCont {margin-top:10px;}
+.gGroup {margin-top:20px;}
+.gText {font-size:14px;}
+.gView {padding:10px; border:1px solid #bbbbbb; background:#fff;}
+</style>
+
+<div class="cptPubGuide">
+<div class="guideArea">
+    
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">checkbox / radio</div>
+<div class="guideCont">
+<div class="gText">
+    - form은 기본적으로 .frmGroup안에서 사용합니다.
+    <br>- checkbox, radio는 .frmBox.maxCont 안에서 사용합니다.
+    <br>- 라인 하나에 여러개를 꽉차게 넣을 때는 .frmBox.maxCont에서 .maxCont를 뺀 .frmBox만 사용합니다.
+    <br>- 텍스트가 없을 경우 .iptLbl에 .noText를 추가한다.
+    <br>- 크기가 다른 것 (미정)
+    <br>- 기본 margin-right (미정)
+    <br>- 너비가 고정일경우 (미정)
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<div class="frmGroup">
+    <div class="frmBox maxCont"><input id="chk101" type="checkbox" class="iptChk" checked><label for="chk101" class="iptLbl">ON</label></div>
+    <div class="frmBox maxCont"><input id="chk102" type="checkbox" class="iptChk" checked disabled><label for="chk102" class="iptLbl">ON-disabled</label></div>
+    <div class="frmBox maxCont"><input id="chk103" type="checkbox" class="iptChk"><label for="chk103" class="iptLbl">OFF</label></div>
+    <div class="frmBox maxCont"><input id="chk104" type="checkbox" class="iptChk" disabled><label for="chk104" class="iptLbl">OFF-disabled</label></div>
+    <div class="frmBox maxCont"><input id="chk105" type="checkbox" class="iptChk"><label for="chk105" class="iptLbl">OFF</label></div>
+    <div class="frmBox maxCont"><input id="chk106" type="checkbox" class="iptChk" disabled><label for="chk106" class="iptLbl">OFF-disabled</label></div>
+</div>
+
+<div class="frmGroup">
+    <div class="frmBox maxCont"><input id="rdo101" type="checkbox" class="iptRdo" name="rdo101" checked><label for="rdo101" class="iptLbl">checked</label></div>
+    <div class="frmBox maxCont"><input id="rdo102" type="checkbox" class="iptRdo" name="rdo101" checked disabled><label for="rdo102" class="iptLbl">checked-disabled</label></div>
+    <div class="frmBox maxCont"><input id="rdo103" type="checkbox" class="iptRdo" name="rdo101"><label for="rdo103" class="iptLbl">OFF</label></div>
+    <div class="frmBox maxCont"><input id="rdo104" type="checkbox" class="iptRdo" name="rdo101" disabled><label for="rdo104" class="iptLbl">OFF-disabled</label></div>
+</div>
+
+<div class="frmGroup">
+    <div class="frmBox maxCont"><input id="chk201" type="checkbox" class="iptChk" checked><label for="chk201" class="iptLbl noText"></label></div>
+    <div class="frmBox maxCont"><input id="chk202" type="checkbox" class="iptChk" checked disabled><label for="chk202" class="iptLbl noText"></label></div>
+    <div class="frmBox maxCont"><input id="chk203" type="checkbox" class="iptChk"><label for="chk203" class="iptLbl noText"></label></div>
+    <div class="frmBox maxCont"><input id="chk204" type="checkbox" class="iptChk" disabled><label for="chk204" class="iptLbl noText"></label></div>
+    <div class="frmBox maxCont"><input id="chk205" type="checkbox" class="iptChk"><label for="chk205" class="iptLbl noText"></label></div>
+    <div class="frmBox maxCont"><input id="chk206" type="checkbox" class="iptChk" disabled><label for="chk206" class="iptLbl noText"></label></div>
+</div>
+        
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- //가이드 그룹 -->
+
+
+    
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">버튼형 checkbox / radio (미정)</div>
+<div class="guideCont">
+<div class="gText">
+    - 사용방법은 위와 동일한 상태에서 .iptLbl 대신에 .iptLblBtn 사용합니다.
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<div class="frmGroup">
+    <div class="frmBox maxCont"><input id="chk301" type="checkbox" class="iptChk" checked><label for="chk301" class="iptLblBtn">ON</label></div>
+    <div class="frmBox maxCont"><input id="chk302" type="checkbox" class="iptChk" checked disabled><label for="chk302" class="iptLblBtn">ON-disabled</label></div>
+    <div class="frmBox maxCont"><input id="chk303" type="checkbox" class="iptChk"><label for="chk303" class="iptLblBtn">OFF</label></div>
+    <div class="frmBox maxCont"><input id="chk304" type="checkbox" class="iptChk" disabled><label for="chk304" class="iptLblBtn">OFF-disabled</label></div>
+</div>
+
+<div class="frmGroup">
+    <div class="frmBox maxCont"><input id="rdo301" type="checkbox" class="iptRdo" name="rdo301" checked><label for="rdo301" class="iptLblBtn">checked</label></div>
+    <div class="frmBox maxCont"><input id="rdo302" type="checkbox" class="iptRdo" name="rdo301" checked disabled><label for="rdo302" class="iptLblBtn">checked-disabled</label></div>
+    <div class="frmBox maxCont"><input id="rdo303" type="checkbox" class="iptRdo" name="rdo301"><label for="rdo303" class="iptLblBtn">OFF</label></div>
+    <div class="frmBox maxCont"><input id="rdo304" type="checkbox" class="iptRdo" name="rdo301" disabled><label for="rdo304" class="iptLblBtn">OFF-disabled</label></div>
+</div>
+        
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- //가이드 그룹 -->
+    
+</div>
+</div>
+
+    
+<script>
+    run();
+    document.querySelector("#chk105").indeterminate = true;
+    document.querySelector("#chk106").indeterminate = true;
+    document.querySelector("#chk205").indeterminate = true;
+    document.querySelector("#chk206").indeterminate = true;
+</script>
+    
+        

@@ -1,0 +1,53 @@
+
+//기본 레이아웃
+.lytLayout {
+    width: 100%; height: 100%; 
+
+    &.main {
+        background: linear-gradient(270deg, #03101C 0%, #39536B 100%);
+        .layoutArea {
+            .layoutContainer {
+                height: 100%;
+            }
+        }
+    }
+    .layoutArea{
+        width: 100%; height: 100%;
+        .layoutTop{
+            position:absolute; width:100%;
+        }
+        .layoutContainer {
+            width: 100%; 
+
+            .layoutMaincont {
+                width: 100%; height: 100%;
+            }
+
+
+            //좌메뉴가 없을 때
+            .layoutCont{
+
+            }
+
+            //좌메뉴가 있을 때
+            .layoutNav{
+
+            }
+            .layoutSubCont{
+
+            }
+        }
+        .layoutFooter{
+
+        }
+    }
+}
+
+//상단/하단 없는 레이아웃
+.lytLogin{
+    
+}
+
+@media screen and (min-width: 100px) and (max-width: 1023px) {
+
+}

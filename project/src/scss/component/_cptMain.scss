@@ -1,0 +1,434 @@
+/* 메인 */
+.cptMain {
+    width: 100%; height: 100%; position: relative;
+    &::before {
+        content: ""; width: 100%; height: 100%; background: url(../../images/contents/bg_main_noise.jpg) center / cover no-repeat; 
+       mix-blend-mode: color-dodge; position: absolute; left: 0; top: 0; 
+    }
+    &.introSkip {
+        .sectGroup {
+            &.scene01 {
+                display: none;
+            }
+            &.scene02 {
+                display: block;
+            }
+        }
+    }
+    .sectGroup {
+        width: 100%; height: 100%;
+        &.scene01 {
+            width: 100%; height: 100%; display: flex; position: absolute; left: 0; top: 0; 
+            animation: sceneAction 0.8s ease-in; animation-delay: 5s; animation-fill-mode: forwards;
+            @keyframes sceneAction {
+                0% {top: 0;}
+                100% {top: -100%;}
+            }
+            .mainCopy {
+                width: 100%; height: 100%; display: flex; flex-wrap: wrap; align-content: center; justify-content: center;
+                .tit {
+                    width: 100%; display: flex; justify-content: center;
+                    .text {
+                        color: #FFF; font-size: 80px; font-style: normal; font-weight: 600; line-height: 120%; letter-spacing: 1.6px; position: relative;
+                        mask-image: linear-gradient(90deg, black 45%, transparent 55%);
+                        mask-position: 100%; mask-size: 250%; animation: textViewTit 2s linear; animation-delay: 0.5s; animation-fill-mode: forwards;
+                    }
+                    @keyframes textViewTit {
+                        0% {mask-position: 100%;}
+                        100% {mask-position: 0%;}
+                    }
+                }
+                .dec {
+                    width: 558px; height: 80px; margin-top: 40px; position: relative;
+                    span {
+                        white-space: nowrap; position: absolute; left: 0; top: 0;
+                        color: #FFF; font-size: 24px; font-style: normal; font-weight: 100; line-height: 160%;
+                        &:nth-child(1) {
+                            opacity: 0; left: 60px; top: 0;
+                            animation: textViewDec03 0.8s ease-out; animation-delay: 3.5s; animation-fill-mode: forwards;
+                        }
+                        &:nth-child(2) {
+                            opacity: 0; left: 184px; top: 0; font-weight: 700; 
+                            animation: textViewDec01 0.8s ease-out; animation-delay: 2s; animation-fill-mode: forwards;
+                        }
+                        &:nth-child(3) {
+                            opacity: 0; left: 399px; top: 0;
+                            animation: textViewDec03 0.8s ease-out; animation-delay: 3.5s; animation-fill-mode: forwards;
+                        }
+                        &:nth-child(4) {
+                            opacity: 0; left: 50px; top: 38px;
+                            animation: textViewDec03 0.8s ease-out; animation-delay: 3.5s; animation-fill-mode: forwards;
+                        }
+                        &:nth-child(5) {
+                            opacity: 0; left: 153px; top: 38px; font-weight: 700; 
+                            animation: textViewDec02 0.8s ease-out; animation-delay: 2.3s; animation-fill-mode: forwards;
+                        }
+                        &:nth-child(6) {
+                            opacity: 0; left: 322px; top: 38px;
+                            animation: textViewDec03 0.8s ease-out; animation-delay: 3.5s; animation-fill-mode: forwards;
+                        }
+                    }
+                    @keyframes textViewDec01 {
+                        0% {top: 50px; opacity: 0;}
+                        100% {top: 0; opacity: 1;}
+                    }
+                    @keyframes textViewDec02 {
+                        0% {top: 88px; opacity: 0;}
+                        100% {top: 38px; opacity: 1;}
+                    }
+                    @keyframes textViewDec03 {
+                        0% {opacity: 0;}
+                        100% {opacity: 1;}
+                    }
+                    .back {
+                        display: none; color: #FFF; font-size: 16px; font-style: normal; font-weight: 100; line-height: 160%; text-align: center;
+                    }
+                }
+            }
+        }
+        &.scene02 {
+            opacity: 1; position: relative; align-content: center; justify-items: center; display: none;
+            // animation: scene02View 0.1s linear; animation-fill-mode: forwards; //animation-delay: 5.6s; 
+            // @keyframes scene02View {
+            //     0% {display: none;}
+            //     100% {display: block;}
+            // }
+            &.sceneView {
+                display: block;
+            }
+            .backGroup {
+                width: 100%; height: 100%; position: absolute; left: 0; top: 0;
+                .backItem {
+                    width: 100%; height: 100%; position: absolute; left: 0; top: 0; overflow: hidden;
+                    &:nth-child(1) {
+                        //background: url(../../images/contents/bg_main_01.png) center no-repeat; opacity: 0;
+                        //opacity: 0;
+                        .bg01 {
+                            width: 2540px; height: 2540px; position: absolute; left: calc(50% - 1270px); top: calc(50% - 1270px);
+                            overflow: hidden; mix-blend-mode: color-dodge; opacity: 0;
+                            img {width: 2540px;}
+                        }
+                        .bg02 {
+                            width: 2540px; height: 2540px; position: absolute; left: calc(50% - 1270px); top: calc(50% - 1270px);
+                            overflow: hidden; mix-blend-mode: color-dodge; opacity: 0;
+                            img {width: 2540px;}
+                        }
+                        .bg03 {
+                            width: 2540px; height: 2540px; position: absolute; left: calc(50% - 1270px); top: calc(50% - 1270px);
+                            overflow: hidden; mix-blend-mode: color-dodge; opacity: 0;
+                            img {width: 2540px;}
+                        }
+                        .bg04 {
+                            width: 2400px; height: 2400px; position: absolute; left: calc(50% - 1200px); top: calc(50% - 1200px);
+                            overflow: hidden; mix-blend-mode: color-dodge; transition: all 0.8s; opacity: 0;
+                            img {width: 100%;}
+                        }
+                        //mix-blend-mode: color-dodge;
+                    }
+                    &:nth-child(2) {
+                        // background: url(../../images/contents/bg_main_02.png) center no-repeat; opacity: 0;
+                        .bg01 {
+                            width: 1920px; height: 1920px; position: absolute; left: calc(50% - 960px); top: calc(50% - 960px);
+                            overflow: hidden; mix-blend-mode: color-dodge; opacity: 0;
+                            img {width: 100%;}
+                        }
+                    }
+                    &:nth-child(3) {
+                        // background: url(../../images/contents/bg_main_03.png) center no-repeat; opacity: 0;
+                        .bg01 {
+                            width: 2400px; height: 2400px; position: absolute; left: calc(50% - 1200px); top: calc(50% - 1200px);
+                            overflow: hidden; mix-blend-mode: color-dodge; transition: all 0.8s; opacity: 0;
+                            img {width: 100%;}
+                        }
+                    }
+                    &:nth-child(4) {
+                        // background: url(../../images/contents/bg_main_04.png) center no-repeat; opacity: 0;
+                        .bg01 {
+                            width: 1920; height: 1920; position: absolute; left: calc(50% - 960px); top: 0;
+                            overflow: hidden; mix-blend-mode: color-dodge; opacity: 0;
+                            img {width: 100%;}
+                        }
+                        .bg02 {
+                            width: 1920; height: 1920; position: absolute; left: calc(50% - 960px); top: 0;
+                            overflow: hidden; mix-blend-mode: color-dodge; opacity: 0;
+                            img {width: 100%;}
+                        }
+                        .bg03 {
+                            width: 1920; height: 1920; position: absolute; left: calc(50% - 960px); top: 0;
+                            overflow: hidden; mix-blend-mode: color-dodge; opacity: 0;
+                            img {width: 100%;}
+                        }
+                    }
+                }
+            }
+            &:has(.mainBn .bnItem:nth-child(1):hover){
+                .backGroup .backItem:nth-child(1) {
+                    // opacity: 1;
+                    .bg01 {
+                        animation: mainMotionBG11 7s ease-out; animation-fill-mode: forwards;
+                    }
+                    @keyframes mainMotionBG11 {
+                        0% {top: calc(50% - 800px); opacity: 0;}
+                        30% {opacity: 1;}
+                        100% {top: calc(50% - 1270px); opacity: 1;}
+                    }
+                    .bg02 {
+                        animation: mainMotionBG12 7s ease-out; animation-fill-mode: forwards;
+                    }
+                    @keyframes mainMotionBG12 {
+                        0% {top: calc(50% - 1000px); opacity: 0;}
+                        30% {opacity: 1;}
+                        100% {top: calc(50% - 1270px); opacity: 1;}
+                    }
+                    .bg03 {
+                        animation: mainMotionBG13 7s ease-out; animation-fill-mode: forwards;
+                    }
+                    @keyframes mainMotionBG13 {
+                        0% {top: calc(50% - 1100px); opacity: 0;}
+                        30% {opacity: 1;}
+                        100% {top: calc(50% - 1270px); opacity: 1;}
+                    }
+                    .bg04 {
+                        animation: mainMotionBG14 5s ease-out; animation-fill-mode: forwards;
+                    }
+                    @keyframes mainMotionBG14 {
+                        0% {width: 2400px; height: 2400px; left: calc(50% - 1200px); top: calc(50% - 1200px); opacity: 0;}
+                        100% {width: 1920px; height: 1920px; left: calc(50% - 960px); top: calc(50% - 960px); opacity: 1;}
+                    }
+                }
+            }
+            &:has(.mainBn .bnItem:nth-child(2):hover){
+                .backGroup .backItem:nth-child(2) {
+                    // opacity: 1;
+                    .bg01 {
+                        animation: mainMotionBG21 28s linear; animation-fill-mode: forwards;
+                    }
+                    @keyframes mainMotionBG21 {
+                        0% {transform: rotate(0deg); opacity: 0;}
+                        20% {opacity: 1;}
+                        100% {transform: rotate(-720deg);opacity: 1;}
+                    }
+                }
+            }
+            &:has(.mainBn .bnItem:nth-child(3):hover){
+                .backGroup .backItem:nth-child(3) {
+                    // opacity: 1;
+                    .bg01 {
+                        animation: mainMotionBG31 5s ease-out; animation-fill-mode: forwards;
+                    }
+                    @keyframes mainMotionBG31 {
+                        0% {width: 2400px; height: 2400px; left: calc(50% - 1200px); top: calc(50% - 1200px); opacity: 0;}
+                        100% {width: 1920px; height: 1920px; left: calc(50% - 960px); top: calc(50% - 960px); opacity: 1;}
+                    }
+                }
+            }
+            &:has(.mainBn .bnItem:nth-child(4):hover){
+                .backGroup .backItem:nth-child(4) {
+                    // opacity: 1;
+                    .bg01 {
+                        animation: mainMotionBG41 7s ease-out; animation-fill-mode: forwards;
+                    }
+                    @keyframes mainMotionBG41 {
+                        0% {top: -300px; opacity: 0;}
+                        30% {opacity: 1;}
+                        100% {top: 0; opacity: 1;}
+                    }
+                    .bg02 {
+                        animation: mainMotionBG42 7s ease-out; animation-fill-mode: forwards;
+                    }
+                    @keyframes mainMotionBG42 {
+                        0% {top: -200px; opacity: 0;}
+                        30% {opacity: 1;}
+                        100% {top: 0; opacity: 1;}
+                    }
+                    .bg03 {
+                        animation: mainMotionBG43 7s ease-out; animation-fill-mode: forwards;
+                    }
+                    @keyframes mainMotionBG43 {
+                        0% {top: -100px; opacity: 0;}
+                        30% {opacity: 1;}
+                        100% {top: 0; opacity: 1;}
+                    }
+                }
+            }
+            .mainBnArea {
+                width: 100%; max-width: 1680px; height: 100%; padding: 0 40px; margin: 0 auto; overflow: hidden; align-content: center;
+
+                /*2026.06.04 신규*/
+
+                .introTextArea {
+                    width:100%; position:relative; margin-top:80px;
+                    .mainTit {
+                        font-size:48px; font-weight:600; line-height:72px; color:#fff; margin-bottom:60px;
+                        @include media ('mobile') {
+                            font-size:28px; line-height:42px; margin-bottom:40px; word-break:keep-all;
+
+                            br {
+                                display:none;
+                            }
+                        }
+                    }
+                    .desc {
+                        margin:20px 0 80px; font-size:20px; font-weight:400; line-height:30px; color:#a3a9b2;
+                        @include media ('mobile') {
+                            margin:12px 0 40px;
+                            font-size:15px;
+                            display:none;
+                        }
+                    }
+                }
+                .swiper-pagination-bullets {
+                    bottom: calc(50% - 250px); bottom:90px;
+                    animation: startMainSwiperBl 0.8s linear; animation-fill-mode: forwards; //animation-delay: 5.6s; 
+                    @keyframes startMainSwiperBl {
+                        0% {opacity: 0;}
+                        100% {opacity: 1;}
+                    }
+                    .swiper-pagination-bullet {
+                        margin: 0 6px; vertical-align: middle; background: rgba(255, 255, 255, 0.2);
+                        &.swiper-pagination-bullet-active {
+                            width: 14px; height: 14px; background: rgba(255, 255, 255, 1);
+                        }
+                    }
+                }
+            }
+            .mainBn {
+                width: 1600px; min-width: 1600px; height: auto; display: flex;
+                .bnItem {
+                    &:first-child {margin-left: 0;}
+                    width: 370px; min-width: 370px; margin-left: 40px; padding: 40px 40px 130px 40px; border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.15); 
+                    background: rgba(217, 217, 217, 0.09); box-shadow: 0px 40px 50px 10px rgba(0, 0, 0, 0.15); cursor: pointer; 
+                    transition: all 0.3s; position: relative; flex-shrink: 1; backdrop-filter: blur(3.5840001106262207px);
+                    animation: startMainBn 0.8s cubic-bezier(0.4,0,0.2,1.2); animation-fill-mode: forwards; transform: translate(0, 700px); opacity: 0;
+
+                    &:nth-child(1) {animation-delay: 0.3s; /*animation-delay: 5.6s;*/}
+                    &:nth-child(2) {animation-delay: 0.1s; /*animation-delay: 5.3s*/}
+                    &:nth-child(3) {animation-delay: 0.4s; /*animation-delay: 5.7s*/}
+                    &:nth-child(4) {animation-delay: 0.7s; /*animation-delay: 6.0s*/}
+                    @keyframes startMainBn {
+                        0% {transform: translate(0, 700px);  opacity: 0;}
+                        75% {transform: translate(0, -30px);}
+                        100% {transform: translate(0, 0);  opacity: 1;}
+                    }
+
+                    .bnGroup {
+                        width: 100%; 
+                        .bnTop {
+                            width: 100%; height: 232px;
+                            .eyebrow {
+                                color: #FFF; text-align: center; font-size: 14px; font-style: normal; font-weight: 300; line-height: 150%; text-align: left; display: block;
+                            }
+                            .tit {
+                                margin-top: 4px; color: #FFF; font-size: 32px; font-style: normal; font-weight: 600; line-height: 130%; text-align: left; display: block;
+                            }
+                            .titSub {
+                                margin-top: 20px; color: #EC1C24; font-size: 18px; font-style: normal; font-weight: 500; line-height: 150%; text-align: left; display: block;
+                            }
+                        }
+                        .bnCont { 
+                            height: 80px; color: #FFF; font-size: 16px; font-style: normal; font-weight: 400; line-height: 160%; opacity: 0.8;
+                        }
+                    }
+                    .more {
+                        width: 50px; height: 50px; font-size: 0; border-radius: 12px; opacity: 0.5; transition: all 0.3s;
+                        background: #000 url(../../images/common/ic_24_main_more.svg) center no-repeat; position: absolute; left: 40px; bottom: 40px; 
+                        &:hover {opacity: 1;}
+                    }
+                    &:hover{
+                        border: 1px solid rgba(255, 255, 255, 0.15); background: #FFF; box-shadow: 0px 40px 50px 10px rgba(0, 0, 0, 0.15);
+                        .bnGroup {
+                            .bnTop {
+                                width: 100%;
+                                .eyebrow {
+                                    color: #000;
+                                }
+                                .tit {
+                                    color: #000;
+                                }
+                            }
+                            .bnCont { 
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include media("mobile") {
+        .sectGroup {
+            &.scene01 {
+                .mainCopy {
+                    .tit {
+                        .text {
+                            text-align: center; font-size: 40px;
+                        }
+                    }
+                    .dec {
+                        width: 254px; height: 104px;
+                        span {
+                            font-size: 16px;
+                            &:nth-child(1) {left: 59px; top: 0;}
+                            &:nth-child(2) {left: 23px; top: 25px;}
+                            &:nth-child(3) {left: 167px; top: 25px;}
+                            &:nth-child(4) {left: 37px; top: 50px;}
+                            &:nth-child(5) {left: 110px; top: 50px;}
+                            &:nth-child(6) {left: 54px; top: 77px;}
+                        }
+                        @keyframes textViewDec01 {
+                            0% {top: 50px; opacity: 0;}
+                            100% {top: 25px; opacity: 1;}
+                        }
+                        @keyframes textViewDec02 {
+                            0% {top: 75px; opacity: 0;}
+                            100% {top: 50px; opacity: 1;}
+                        }
+                        @keyframes textViewDec03 {
+                            0% {opacity: 0;}
+                            100% {opacity: 1;}
+                        }
+                    }
+                }
+            }
+            &.scene02 {
+                .backGroup {
+                    .backItem {
+
+                    }
+                }
+                .mainBnArea {
+                    padding: 0 10px;
+                    .swiper-pagination-bullets {
+                        display: block;
+                    }
+                }
+                .mainBn {
+                    .bnItem {
+                        &:first-child {margin-left: 0;}
+                        width: 280px; min-width: 280px; margin-left: 20px; padding: 40px 30px 110px;
+                        .bnGroup {
+                            .bnTop {
+                                height: 184px;
+                                .eyebrow {
+                                    font-size: 12px;
+                                }
+                                .tit {
+                                    font-size: 24px;
+                                }
+                                .titSub {
+                                    font-size: 16px;
+                                }
+                            }
+                            .bnCont {
+                                height: 66px; font-size: 14px;
+                            }
+                        }
+                        .more {
+                            width: 40px; height: 40px; background: #000 url(../../images/common/ic_24_main_more.svg) center / 20px no-repeat; left: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

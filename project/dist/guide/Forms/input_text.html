@@ -1,0 +1,339 @@
+
+<style>
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.guideBox {margin-top:40px;}
+.guideTitle {font-size:18px; font-weight:500;}
+.guideCont {margin-top:10px;}
+.gGroup {margin-top:20px;}
+.gText {font-size:14px;}
+.gView {padding:10px; border:1px solid #bbbbbb; background:#fff;}
+</style>
+
+<div class="cptPubGuide">
+<div class="guideArea">
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">Input Text</div>
+<div class="guideCont">
+<div class="gText">
+    - input text, password 폼입니다.
+    <br>- 기본 폼이며 검색, 그리드, 테이블에 동일한 폼을 사용합니다
+    <br>- 가능한 .frmGroup 내부에서 사용합니다.
+    <br>- .iptText는 인풋 클래스이며 가로는 기본 100%입니다 .lg, .sm으로 크기를 조절합니다.
+    <br>- .frmBox는 가로 너비 및 gap을 담당합니다.
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<!-- 그리드/테이블 하단 버튼 양측 -->  
+<div class="frmGroup">
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" disabled />
+    </div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" readonly />
+    </div>
+</div>
+<div class="frmGroup error">
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+    <span class="errMsg line">메시지 내용</span>
+</div>
+
+<div class="frmGroup">
+    <div class="frmBox error">
+        <input type="text" class="iptText" placeholder="에러" />
+        <span class="errMsg">메시지 내용</span>
+    </div>
+</div>
+        
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- //가이드 그룹 -->
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">Input Text Reset</div>
+<div class="guideCont">
+<div class="gText">
+    - 텍스트 초기화가 있는 input입니다.
+    <br>- 기본 폼에 초기화 버튼만 추가해서 사용합니다.
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<!-- 그리드/테이블 하단 버튼 양측 -->  
+<div class="frmGroup">
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+        <button class="btnReset">텍스트 지우기</button>
+    </div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" disabled />
+        <button class="btnReset">텍스트 지우기</button>
+    </div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" readonly />
+        <button class="btnReset">텍스트 지우기</button>
+    </div>
+</div>
+<div class="frmGroup error">
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+        <button class="btnReset">텍스트 지우기</button>
+    </div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+        <button class="btnReset">텍스트 지우기</button>
+    </div>
+    <div class="frmBox">
+        <input type="text" class="iptText" placeholder="기본" />
+        <button class="btnReset">텍스트 지우기</button>
+    </div>
+    <span class="errMsg line">메시지 내용</span>
+</div>
+
+<div class="frmGroup">
+    <div class="frmBox error">
+        <input type="text" class="iptText" placeholder="에러" />
+        <button class="btnReset">텍스트 지우기</button>
+        <span class="errMsg">메시지 내용</span>
+    </div>
+</div>
+        
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- //가이드 그룹 -->
+<script>
+    setTimeout(function(){
+        inputTextReset();
+    },500);
+</script>
+
+<!-- 가이드 그룹 -->
+<!-- <div class="guideBox">
+<div class="guideTitle">Input Search</div>
+<div class="guideCont">
+<div class="gText">
+    - input 검색창 폼입니다.
+    <br>- 두종류가 있습니다.
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<div class="frmGroup">
+    <div class="frmSearch">
+        <input type="text" class="iptText" placeholder="내용을 입력하세요">
+        <button class="btnSearch">검색</button>
+    </div>
+</div>
+
+<div class="frmGroup">
+    <div class="frmSearch typeLine">
+        <input type="text" class="iptText" placeholder="내용을 입력하세요">
+        <button class="btnSearch">검색</button>
+    </div>
+</div>
+        
+</textarea>
+</div>
+</div>
+</div>
+</div> -->
+<!-- //가이드 그룹 -->
+    
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">Input Text 너비</div>
+<div class="guideCont">
+<div class="gText">
+    - input text, password 및 select의 너비 가이드입니다.
+    <br>- .frmBox에 너비 값을 적용합니다. 기본 너비는 자동 분할입니다. (100% / 인풋 갯수)
+    <br>- .frmTini : 제일 작은 크기 (정의되지 않았습니다).
+    <br>- .frmXs : 많이 작은 크기 (정의되지 않았습니다).
+    <br>- .frmSm : 작은 크기 (정의되지 않았습니다).
+    <br>- .frmMd : 보통크기 : 300px, 모바일 : 100%
+    <br>- .frmLg : 큰 크기 (정의되지 않았습니다).
+    <br>- .frmXL : 매우 크기 (정의되지 않았습니다).
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<!-- 그리드/테이블 하단 버튼 양측 -->  
+<div class="frmGroup">
+    <div class="frmBox frmTini">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+</div>
+<div class="frmGroup">
+    <div class="frmBox frmXs">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+</div>
+<div class="frmGroup">
+    <div class="frmBox frmSm">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+</div>
+<div class="frmGroup">
+    <div class="frmBox frmMd">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+</div>
+<div class="frmGroup">
+    <div class="frmBox frmLg">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+</div>
+<div class="frmGroup">
+    <div class="frmBox frmXL">
+        <input type="text" class="iptText" placeholder="기본" />
+    </div>
+</div>
+        
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- //가이드 그룹 -->
+
+
+
+
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">Input Text (datepicker) - 아직 정의하지 않았습니다.</div>
+<div class="guideCont">
+<div class="gText">
+    Datepicker은 기본적으로는 Toast UI를 사용하고 있습니다. 샘플 및 사용법은 다음과 같습니다.
+    기본적인 js는 common.js에 있습니다.
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+<div class="frmGroup">
+    <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
+        <input type="text" id="datepicker-input" aria-label="Date-Time">
+        <div id="datepicker-container" style="margin-top: -1px;"></div>
+    </div>
+</div>
+<div class="frmGroup">
+    <div class="tui-datepicker-input tui-datetime-input tui-has-focus frmSm">
+        <input type="text" id="datepicker-input01" aria-label="Date-Time">
+        <div id="datepicker-container01" style="margin-top: -1px;"></div>
+    </div>
+    <div class="tui-datepicker-input tui-datetime-input tui-has-focus frmMd">
+        <input type="text" id="datepicker-input02" aria-label="Date-Time">
+        <div id="datepicker-container02" style="margin-top: -1px;"></div>
+    </div>
+    <div class="tui-datepicker-input tui-datetime-input tui-has-focus frmLg">
+        <input type="text" id="datepicker-input03" aria-label="Date-Time">
+        <div id="datepicker-container03" style="margin-top: -1px;"></div>
+    </div>
+</div>
+
+<div class="frmGroup">
+    <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
+        <input id="startpicker-input" type="text" aria-label="Date">
+        <div id="startpicker-container" style="margin-left: -1px;"></div>
+    </div>
+    <div class="textBox deco">~</div>
+    <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
+        <input id="endpicker-input" type="text" aria-label="Date">
+        <div id="endpicker-container" style="margin-left: -1px;"></div>
+    </div>
+</div>
+
+<div class="frmGroup">
+    <div class="tui-datepicker-input tui-datetime-input tui-has-focus frmLg">
+        <input id="startpicker-input02" type="text" aria-label="Date">
+        <div id="startpicker-container02" style="margin-left: -1px;"></div>
+    </div>
+    <div class="textBox deco">~</div>
+    <div class="tui-datepicker-input tui-datetime-input tui-has-focus frmLg">
+        <input id="endpicker-input02" type="text" aria-label="Date">
+        <div id="endpicker-container02" style="margin-left: -1px;"></div>
+    </div>
+</div>
+
+<script>
+//단일
+datePicker("datepicker-input","datepicker-container");
+datePicker("datepicker-input01","datepicker-container01");
+datePicker("datepicker-input02","datepicker-container02");
+datePicker("datepicker-input03","datepicker-container03");
+
+//기간
+datePickerTo("startpicker-input", "startpicker-container", "endpicker-input", "endpicker-container");
+datePickerTo("startpicker-input02", "startpicker-container02", "endpicker-input02", "endpicker-container02");
+</script>
+        
+</textarea>
+</div>
+</div>
+</div>
+</div>
+<script>
+//단일
+setTimeout(function(){
+    datePicker("datepicker-input","datepicker-container");
+    datePicker("datepicker-input01","datepicker-container01");
+    datePicker("datepicker-input02","datepicker-container02");
+    datePicker("datepicker-input03","datepicker-container03");
+
+    //기간
+    datePickerTo("startpicker-input", "startpicker-container", "endpicker-input", "endpicker-container");
+    datePickerTo("startpicker-input02", "startpicker-container02", "endpicker-input02", "endpicker-container02");
+},500);
+</script>
+<!-- //가이드 그룹 -->
+    
+</div>
+</div>
+
+    
+<script>
+    run();
+</script>
+    
+        

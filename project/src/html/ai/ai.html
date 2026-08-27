@@ -1,0 +1,405 @@
+ <!-- Header -->
+<%- include('../_ejs/top.ejs', {
+    url: "../../"
+}) %>
+
+<!-- 레이아웃 -->
+<div class="lytLayout">
+    <div class="layoutArea">
+
+        <!-- 상단영역 -->
+        <div class="layoutTop">
+            <!-- Top -->
+            <%- include('../_ejs/gnb.ejs', {
+                url: "../"
+            }) %>
+        </div>
+        <!-- //상단영역 -->
+
+        <!-- 중단영역 -->
+        <div class="layoutContainer" id="container">
+
+            <!-- 서브 콘텐츠 영역 -->
+            <div class="layoutSubCont">
+
+                <!-- 서브 컨텐츠 내용이 들어오는 영역-->
+                <!-- 서브 상단 -->
+                <div class="cptSubTop">
+                    <div class="subTopArea">
+                        <dl class="subTopBox">
+                            <dt class="topHead">
+                                <!-- <i class="eyebrow">Intelligent AI</i> -->
+                                <h1 class="title">AI Use Cases</h1>
+                            </dt>
+                            <dd class="topBody">
+                                성공적인 AI 도입은 기술이 아닌 활용 방식에서 시작됩니다.<br/>조직에 최적화된 AI 솔루션으로 지속 가능한 운영 혁신을 지원합니다.
+                            </dd>
+                        </dl>
+                        <!-- <div class="requestArea">
+                            <a href="../sub/contact_us.html" class="link">문의하기</a>
+                        </div> -->
+
+                        <div class="breadCrumb">
+                            <ul>
+                                <li><a href="/"><span class="hidden">홈</span></a></li>
+                                <li><a href="/">AI Use Cases</a></li>
+                                <!-- <li><a href="/">시스템구축 SI</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 서브 컨텐츠 -->
+                <div class="cptContGroup services01 ai">
+                    <div class="contGroupArea">
+                        <!-- <div class="comTab pc">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0);" class="active">시스템구축 SI</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">서비스연계 SBM</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Cloud기반 최적화</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">DevOps 및 서비스 운영</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Cloud 인프라 구축</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="comTab mo">
+                            <button type="button" class="current">시스템구축 SI </button>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0);" class="active">시스템구축 SI</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">서비스연계 SBM</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Cloud기반 최적화</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">DevOps 및 서비스 운영</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Cloud 인프라 구축</a>
+                                </li>
+                            </ul>
+                        </div> -->
+
+                        <div class="section section04 whtBg">
+                            <p class="smTxt">
+                                AI-Enabled Delivery System
+                            </p>
+
+                            <p class="bgTit">
+                                AI 내재화
+                            </p>
+
+                            <p class="desc">
+                                SI 수행 전 과정의 표준화, 품질 게이트, 추적성, 지식화를 강화하여<br/>
+                                안정적인 납기와 일관된 품질을 지원하는 내부 운영 체계입니다.
+                            </p>
+
+                            <img src="../../images/contents/ai_cont01.png" alt="" class="center pc"/>
+                            <img src="../../images/contents/ai_cont01_mo.png" alt="" class="center mo"/>
+
+                            <p class="gradationTxt ty01">
+                                AI를 내재화해 표준화·자동화·지식화 기반의<br/>생산성과 품질 안정성을 강화합니다.
+                            </p>
+                        </div>
+
+                        <div class="section section05 w1400">
+                            <div class="leftBox">
+                                <p class="title">AI 내재화 원칙</p>
+                                <p class="desc">
+                                    SBM은 채널/클라이언트(웹·앱·키오스크·디바이스·클라이언트 앱)와 백엔드 서비스/기능 <br/>서비스/외부 연계 사이에 위치합니다.
+                                </p>
+                                <img src="../../images/contents/ai_product.png" alt="" />
+
+                                <p class="point">
+                                    AI 내재화 = 기술이 아닌 ‘일하는 방식’의 혁신,<br/>
+                                    OPENBRICKS는 사람과 AI가 함께, 표준과 데이터로 연결된 <br/>
+                                    수행체계를 만들어 고객의 성공을 가속화합니다.
+                                </p>
+                            </div>
+                            <div class="rightBox">
+                                <div class="list">
+                                    <ul>
+                                        <li>
+                                            <span>01</span>
+                                            <p>Human-in-the-loop
+                                                <em>AI는 초안/보조 역할이며, 승인과 책임은 사람에게 있습니다.</em>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <span>02</span>
+                                            <p>Standard-first
+                                                <em>AI는 개인 도구가 아니라 표준 템플릿·규칙·게이트에 결합되어 조직 단위로 적용됩니다.</em>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <span>03</span>
+                                            <p>Traceability
+                                                <em>산출물–코드–테스트–전환이 연결되어 변경에도 흔들리지 않는 추적성을 확보합니다.</em>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <span>04</span>
+                                            <p>Measured improvement
+                                                <em>도입은 이벤트가 아니라, 병목 구간의 전/후 지표로 개선 효과를 관리합니다.</em>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <span>05</span>
+                                            <p>Security by design
+                                                <em>폐쇄망/온프레미스 등 제약을 전제로 현장 적용 가능한 방식으로 설계합니다.</em>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section section04 whtBg">
+                            <p class="smTxt">
+                                AI-Native
+                            </p>
+
+                            <p class="bgTit">
+                                기술 도입을 넘어, AI 내재화로<br/>품질과 운영 체계를 혁신합니다.
+                            </p>
+
+                            <p class="desc">
+                                OPENBRICKS는 AI를 단순한 개발 도구가 아닌, 표준과 품질 통제를 일관되게 적용하는 수행 체계로 내재화합니다.<br/>
+                                오픈 직전 집중 검증, 변경 이력 분산, 반복 이슈 재발은 결국 납기와 품질 리스크로 이어집니다.
+                            </p>
+
+                            <img src="../../images/contents/ai_cont02.png" alt="" class="center pc"/>
+                            <img src="../../images/contents/ai_cont02_mo.png" alt="" class="center mo"/>
+
+                            <p class="gradationTxt ty01">
+                                AI를 내재화해 표준화·자동화·지식화 기반의<br/>생산성과 품질 안정성을 강화합니다.
+                            </p>
+                        </div>
+
+                        <div class="section section05 w1400">
+                            <div class="leftBox">
+                                <p class="title">AI 내재화 적용 방식</p>
+                                <p class="desc">
+                                    AI 내재화는 ‘전면 도입’이 아니라 ‘병목부터’가 정답입니다. 폐쇄망/온프레미스 환경 등 <br/>
+                                    프로젝트 제약을 고려해, 데이터 범위와 운영 정책을 명확히 해야 실제 현장에 안착합니다.
+                                </p>
+                                <img src="../../images/contents/ai_product02.png" alt="" />
+
+                                <p class="point">
+                                    OPENBRICKS의 목표는 “AI 도입”이 아니라 운영 가능한 <br/>
+                                    체계 정착과 결과물 품질의 일관성입니다.
+                                </p>
+                            </div>
+                            <div class="rightBox">
+                                <div class="list">
+                                    <ul>
+                                        <li>
+                                            <span>01</span>
+                                            <p>프로젝트 전면 도입이 아니라 병목 구간부터 단계적으로 적용</p>
+                                        </li>
+                                        <li>
+                                            <span>02</span>
+                                            <p>표준/게이트가 먼저, 그 다음 도구 적용 (순서 고정)</p>
+                                        </li>
+                                        <li>
+                                            <span>03</span>
+                                            <p>폐쇄망/온프레미스 환경에서는 데이터 범위/정책을 명확히 하고 적용</p>
+                                        </li>
+                                        <li>
+                                            <span>04</span>
+                                            <p>목표는 문서가 아니라 운영 가능한 체계 정착과 결과물 품질의 일관성</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section section06 w1600">
+                            <p class="title">AI 내재화 구성 4축</p>
+                            <p class="desc">
+                                AI는 강력하지만, 원칙 없이 쓰면 품질을 높이는 대신 리스크를 키울 수 있습니다.<br/>
+                                  표준 → 품질 게이트 → 추적성 → 지식화 선순환으로 시간이 지날수록 더 강한 수행체계를 완성합니다.
+                            </p>
+
+                            <div class="slideControl">
+                                <button type="button" class="prev"><span>이전</span></button>
+                                <button type="button" class="next"><span>다음</span></button>
+                            </div>
+ 
+                            <div class="si_slide type03">
+                                <div class="swiper-container">
+                                    
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="slideInner">
+                                                <img src="../../images/contents/ai_cont03.png" alt="" />
+                                                <div class="slideTxtBox">
+                                                    <p class="slideTit">1. 표준 구현 레이어</p>
+                                                    <p class="slideSub">표준 템플릿과 패턴을 고정해 개발의 시작점을 <br/>통일하고 구현 편차를 구조적으로 줄입니다.</p>
+                                                    <p class="slideDesc">
+                                                        <span>표준 템플릿/패턴 기반으로 개발 시작점 통일</span>
+                                                        <span>기본 품질 요소(권한/예외/로그/검증) 누락 최소화</span>
+                                                        <span>개발자는 반복보다 판단이 필요한 지점에 집중</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slideInner">
+                                                <img src="../../images/contents/ai_cont04.png" alt="" />
+                                                <div class="slideTxtBox">
+                                                    <p class="slideTit">2. 품질 게이트 레이어</p>
+                                                    <p class="slideSub">리뷰·테스트·검수를 상시 게이트로 운영해 누락을 <br/>줄이고, 오픈 직전 리스크를 낮춥니다.</p>
+                                                    <p class="slideDesc">
+                                                        <span>리뷰 포인트 요약/리스크 체크로 검증 밀도 향상</span>
+                                                        <span>테스트 체크포인트/케이스 보조로 누락 감소</span>
+                                                        <span>재검증 루프와 품질 기준을 운영 가능하게 고정</span>
+                                                    </p>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slideInner">
+                                                <img src="../../images/contents/ai_cont05.png" alt="" />
+                                                <div class="slideTxtBox">
+                                                    <p class="slideTit">3. 추적성 레이어</p>
+                                                    <p class="slideSub">요구–설계–코드–테스트–전환을 연결해 변경이 <br/>발생해도 근거와 영향 구간이 남게 합니다.</p>
+                                                    <p class="slideDesc">
+                                                        <span>변경/결정 근거 요약과 연결고리 유지</span>
+                                                        <span>산출물–구현–검증의 정합성 강화</span>
+                                                        <span>인수인계/감사/유지보수 단계에서 흔들림 최소화</span>
+                                                    </p>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slideInner">
+                                                <img src="../../images/contents/ai_cont06.png" alt="" />
+                                                <div class="slideTxtBox">
+                                                    <p class="slideTit">4. 지식화 레이어</p>
+                                                    <p class="slideSub">반복 이슈와 표준 조치를 자산으로 축적해 재작업을 <br/>줄이고, 대응 품질의 일관성을 높입니다.</p>
+                                                    <p class="slideDesc">
+                                                        <span>반복 이슈/표준 조치/구현 패턴 자산화</span>
+                                                        <span>유사 프로젝트 재사용으로 재작업 감소</span>
+                                                        <span>운영 지식과 연결해 대응 품질 일관성 확보</span>
+                                                    </p>
+                                                </div>
+                                            </div>    
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section section04 dark">
+                            <p class="smTxt">
+                                AI for Stable Systems
+                            </p>
+
+                            <p class="bgTit">
+                                OPENBRICKS의 혁신은 AI 제품 판매가 아닌, <br/>SI 수행체계의 고도화입니다.
+                            </p>
+
+                            <p class="desc">
+                                코딩·리뷰·테스트·증적 반복 작업을 줄여 품질 활동에 집중하고,<br/>운영 이력과 결과물을 자산화해 더 안정적인 수행 체계를 만듭니다.<br/>AI 제품 판매가 아닌, 납품 품질과 운영 안정성 강화를 위한 AI 내재화입니다.
+                            </p>
+
+                            <img src="../../images/contents/ai_cont07.png" alt="" class="center pc"/>
+                            <img src="../../images/contents/ai_cont07_mo.png" alt="" class="center mo"/>
+
+                            <p class="gradationTxt ty01">
+                                코딩·리뷰·테스트·증적의 반복 작업을 줄여<br/> 품질 활동에 집중하고, 운영 이력과 결과물을 자산화해<br/>지속 가능한 운영 안정성을 만듭니다.
+                            </p>
+                        </div>
+
+                        <div class="section section08 w1400">
+                            <div class="leftBox">
+                                <p class="title">AI 내재화 기대 효과</p>
+                                <p class="desc">
+                                    납기·품질 편차 감소로 운영 리스크는 낮아지고, 변경 대응이 빨라지며, 재작업이 감소합니다.
+                                </p>
+                                <img src="../../images/contents/ai_product03.png" alt="" />
+
+                                <p class="point">
+                                    AI 내재화의 핵심 가치는 <br/>‘더 빨리’가 아니라 ‘더 안정적으로’입니다.
+                                </p>
+                            </div>
+                            <div class="rightBox">
+                                <div class="list">
+                                    <ul>
+                                        <li>
+                                            <span>01</span>
+                                            <p>표준과 게이트로 납기/품질 편차 감소</p>
+                                        </li>
+                                        <li>
+                                            <span>02</span>
+                                            <p>추적성과 지식화로 변경 대응력 향상 + 재작업 감소</p>
+                                        </li>
+                                        <li>
+                                            <span>03</span>
+                                            <p>결과물이 자산으로 축적되어 유사 프로젝트 속도/품질 동시 개선</p>
+                                        </li>
+                                        <li>
+                                            <span>04</span>
+                                            <p>결과적으로 SI 수행과 운영 대응에 소모되는 시간을 줄여, 핵심 업무 집중과 기업 경쟁력 강화를 지원</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="csBanner">
+                            <div class="left">
+                                <span class="smT">OPENBRICKS</span>
+                                <p class="title">
+                                    Beyond Systems,<br/>We Connect Business
+                                </p>
+                                <p class="desc">
+                                    오픈브릭스는 AX 기반 시스템 통합으로<br/>시스템을 넘어, 비즈니스를 연결합니다.
+                                </p>
+                            </div>
+                            <div class="right">
+                                <div class="btn">
+                                    <button type="button" class="int" onclick="fileDownload()"><span>회사소개서</span></button>
+                                    <button type="button" class="faq"><span>문의하기</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //서브 컨텐츠 내용이 들어오는 영역-->
+                
+            </div>
+            <!-- //서브 콘텐츠 영역 -->
+
+        </div>
+        <!-- //중단영역 -->
+
+        <!-- 하단영역 -->
+        <div class="layoutFooter">
+            <!-- Footer -->
+            <%- include('../_ejs/footer.ejs', {
+                url: "../../"
+            }) %>
+        </div>
+        <!-- //하단영역 -->
+
+    </div>
+</div>
+
+
+<!-- Bottom -->
+<%- include('../_ejs/bottom.ejs', { }) %>

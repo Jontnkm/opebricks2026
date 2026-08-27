@@ -1,0 +1,248 @@
+
+<style>
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.guideBox {margin-top:40px;}
+.guideTitle {font-size:18px; font-weight:500;}
+.guideCont {margin-top:10px;}
+.gGroup {margin-top:20px;}
+.gText {font-size:14px;}
+.gView {padding:10px; border:1px solid #bbbbbb; background:#fff;}
+</style>
+
+<div class="cptPubGuide">
+<div class="guideArea">
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">아코디언 - 아직 정의되지 않았습니다.</div>
+<div class="guideCont">
+<div class="gText">
+        - 아코디언 디자인이 현재는 없습니다.
+    <br> - 콘텐츠 내용을 감추가 나타내는데 사용합니다.
+    <br> - accordionInit(); 함수로 기능을 활성화 합니다.
+    <br> - 한 페이지 안에 아코디언이 여러번 중복 될 수 있으나 아코디언 안에 아코디언은 불가능합니다.
+    <br> - script는 common.js에 있습니다. (//모드 탭 함수)
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+
+<style>
+/* ----------------------------------- 모드 탭 ----------------------------------- */
+.modAccordion {margin-top:10px;}
+.modAccordion .accoArea {}
+.modAccordion .accoArea.on {}
+.modAccordion .accoArea .accoTop {padding:5px 10px; border:1px solid #ccc;}
+.modAccordion .accoArea .accoTop .accoTitle {font-size:16px;}
+.modAccordion .accoArea .accoBody {width:100%; overflow:hidden; display:none;}
+.modAccordion .accoArea .accoBody .accoCont {padding:40px; background:#ccc;}
+
+</style>
+<div class="modAccordion">
+    <dl class="accoArea">
+        <dt class="accoTop">
+            <button class="accoTitle">Title 01</button>
+        </dt>
+        <dd class="accoBody">
+            <div class="accoCont">
+                게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의 아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다. 
+            </div>
+        </dd>
+    </dl>
+</div>
+
+<div class="modAccordion">
+    <dl class="accoArea">
+        <dt class="accoTop">
+            <button class="accoTitle">Title 02</button>
+        </dt>
+        <dd class="accoBody">
+            <div class="accoCont">
+                게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의 아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다. 
+            </div>
+        </dd>
+    </dl>
+</div>
+<br>
+<br>
+<br>
+
+<script>
+accordionInit(); //모드 아코디언 함수
+</script>
+        
+</textarea>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+setTimeout(function(){
+    accordionInit(); //모드 아코디언 함수
+},500)
+</script>
+<!-- //가이드 그룹 -->
+    
+
+
+<!-- 가이드 그룹 -->
+<div class="guideBox">
+<div class="guideTitle">아코디언 리스트</div>
+<div class="guideCont">
+<div class="gText">
+        - 아코디언리스트 디자인이 현재는 없습니다.
+    <br> - QnA, FAQ 등에서 주로 사용합니다.
+    <br> - accordionListInit(); 함수로 기능을 활성화 합니다.
+    <br> - 한 페이지 안에 아코디언리스트가 여러번 중복 될 수 있으나 아코디언리스트 안에 아코디언리스트를 넣는 것은 불가능합니다.
+    <br> - script는 common.js에 있습니다. (//모드 탭 함수)
+</div>
+<div class="gGroup">
+<div class="gView"></div>
+<div class="gCode">
+<pre><code class="xml" style="font-size:14px; letter-spacing:1.5px; font-family: 'D2Coding'"></code></pre>
+<textarea class="codeGuide" style="display:none;">
+
+
+<style>
+/* ----------------------------------- 모드 탭 ----------------------------------- */
+.modAccordionList {margin-top:30px;}
+.modAccordionList .accoList {}
+.modAccordionList .accoList .accoItem {margin-top:10px;}
+.modAccordionList .accoList .accoItem:first-child {margin-top:0;}
+.modAccordionList .accoArea {}
+.modAccordionList .accoArea.on {}
+.modAccordionList .accoArea .accoTop {padding:5px 10px; border:1px solid #ccc;}
+.modAccordionList .accoArea .accoTop .accoTitle {font-size:16px;}
+.modAccordionList .accoArea .accoBody {width:100%; overflow:hidden; display:none;}
+.modAccordionList .accoArea .accoBody .accoCont {padding:40px; background:#ccc;}
+
+</style>
+<div class="modAccordionList">
+    <ul class="accoList">
+        <li class="accoItem">
+            <dl class="accoArea">
+                <dt class="accoTop">
+                    <button class="accoTitle">Title 00</button>
+                </dt>
+                <dd class="accoBody">
+                    <div class="accoCont">
+                        게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의 아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다. 
+                    </div>
+                </dd>
+            </dl>
+        </li>
+        <li class="accoItem">
+            <dl class="accoArea">
+                <dt class="accoTop">
+                    <button class="accoTitle">Title 01</button>
+                </dt>
+                <dd class="accoBody">
+                    <div class="accoCont">
+                        게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의 아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다.
+                        게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의  <br>
+                        게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의 아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다. 
+                        아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다.
+                    </div>
+                </dd>
+            </dl>
+        </li>
+    </ul>
+</div>
+
+<div class="modAccordionList">
+    <ul class="accoList">
+        <li class="accoItem">
+            <dl class="accoArea">
+                <dt class="accoTop">
+                    <button class="accoTitle">Title 10</button>
+                </dt>
+                <dd class="accoBody">
+                    <div class="accoCont">
+                        게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의 아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다. 
+                    </div>
+                </dd>
+            </dl>
+        </li>
+        <li class="accoItem">
+            <dl class="accoArea">
+                <dt class="accoTop">
+                    <button class="accoTitle">Title 11</button>
+                </dt>
+                <dd class="accoBody">
+                    <div class="accoCont">
+                        게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의 아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다.
+                        게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의  <br>
+                        게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의 아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다. 
+                        아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다.
+                    </div>
+                </dd>
+            </dl>
+        </li>
+        <li class="accoItem">
+            <dl class="accoArea">
+                <dt class="accoTop">
+                    <button class="accoTitle">Title 12</button>
+                </dt>
+                <dd class="accoBody">
+                    <div class="accoCont">
+                        게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의 아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다.
+                        게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의  <br>
+                        게시글 제목 사랑이 가득한 물까치 가족 여섯 식구 오월의 마지막 월요일을 산뜻하게 열어봅니다. 여섯 식구의 아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다. 
+                        아침을 엿보면서 오월의 마지막 월요일을 산뜻하게 열어봅니다.
+                    </div>
+                </dd>
+            </dl>
+        </li>
+    </ul>
+</div>
+
+<script>
+accordionListInit(); //모드 아코디언 리스트 함수
+</script>
+        
+</textarea>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+setTimeout(function(){
+    accordionListInit(); //모드 아코디언 리스트 함수
+},500)
+</script>
+<!-- //가이드 그룹 -->
+
+</div>
+</div>
+
+    
+<script>
+    run();
+</script>
+    
+        
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
