@@ -1,5 +1,7 @@
 <!-- Header -->
 <%- include('../_ejs/top.ejs', {
+    title: "시스템구축 SI",
+    description: "전략 설계부터 구현까지 통합된 구조로 비즈니스 운영 전반을 하나의 흐름으로 완성하여 운영 효율성과 확장성을 확보합니다.",
     url: "../../"
 }) %>
 
@@ -17,104 +19,52 @@
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container">
+        <div class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
 
                 <!-- 서브 컨텐츠 내용이 들어오는 영역-->
                 <!-- 서브 상단 -->
-                <div class="cptSubTop">
-                    <div class="subTopArea">
-                        <dl class="subTopBox">
-                            <dt class="topHead">
-                                <!-- <i class="eyebrow">Intelligent AI</i> -->
-                                <h1 class="title">Services</h1>
-                            </dt>
-                            <dd class="topBody">
-                                전략 설계부터 구현까지 통합된 구조로 비즈니스 운영 전반을<br/>하나의 흐름으로 완성하여 운영 효율성과 확장성을 확보합니다.
-                            </dd>
-                        </dl>
-                        <!-- <div class="requestArea">
-                            <a href="../sub/contact_us.html" class="link">문의하기</a>
-                        </div> -->
-
-                        <div class="breadCrumb">
-                            <ul>
-                                <li><a href="/"><span class="hidden">홈</span></a></li>
-                                <li><a href="/">Services</a></li>
-                                <li><a href="/">시스템구축 SI</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <%- include('../_ejs/sub_nav.ejs', {
+                    part: "top",
+                    group: "service",
+                    current: "system_build",
+                    url: "../"
+                }) %>
 
                 <!-- 서브 컨텐츠 -->
                 <div class="cptContGroup services01">
                     <div class="contGroupArea">
-                        <div class="comTab pc">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud 플랫폼 인프라</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="active" >시스템구축 SI</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">서비스연계 SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">DevOps 및 서비스 운영</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud기반 최적화</a>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="comTab mo">
-                            <button type="button" class="current">Cloud기반 최적화</button>
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud 플랫폼 인프라</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">시스템구축 SI</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">서비스연계 SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">DevOps 및 서비스 운영</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud기반 최적화</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <%- include('../_ejs/sub_nav.ejs', {
+                    part: "tab",
+                    group: "service",
+                    current: "system_build",
+                    url: "../"
+                }) %>
 
                         <div class="section section01 w1600">
                             <p class="smTxt">
                                 System Integration
                             </p>
 
-                            <p class="bgTit">
-                                분석·설계·아키텍처에 강한<br/>AI시대 시스템 통합
-                            </p>
+                            <h2 class="bgTit">
+                                분석·설계·아키텍처에 강한 <br/>AI시대 시스템 통합
+                            </h2>
 
                             <p class="desc">
-                                OPENBRICKS의 System Integration은 단순한 개발 수행이 아닙니다. 복잡한 업무와 시스템을 구조적으로 해석하고,<br/>이를 분석·설계·아키텍처 중심으로 정리하여 운영 최적화된 시스템으로 완벽히 구축합니다.
+                                OPENBRICKS의 System Integration은 단순한 개발 수행이 아닙니다. 복잡한 업무와 시스템을 구조적으로 해석하고, <br/>이를 분석·설계·아키텍처 중심으로 정리하여 운영 최적화된 시스템으로 완벽히 구축합니다.
                             </p>
 
                             <div class="imgTxt">
                                 <ul>
                                     <li>
-                                        시스템 구축 과정에서 가장 중요한 것은<br/>개발자체보다, 분석과 설계, 전체 구조를<br/>통제하는 아키텍처 역량입니다.
+                                        시스템 구축 과정에서 가장 중요한 것은 <br/>개발자체보다, 분석과 설계, 전체 구조를 <br/>통제하는 아키텍처 역량입니다.
                                     </li>
                                     <li>
                                         최근 IT 시스템 구축의 흐름을 보면 업무 규칙, 데이터 구조, 사용자 흐름, 외부 연계, <br/>
                                         운영 환경, 보안과 품질까지 하나의 구조로 연결되어야 합니다.<br/><br/>
-                                        OPENBRICKS는 AI 시대 IT조직의 직무 기반 수행 체계를 바탕으로, 분석–설계–아키텍처–<br/>개발–검증–전환이 분절되지 않고 하나의 기준으로 연결되는 SI를 지향합니다.<br/><br/>
+                                        OPENBRICKS는 AI 시대 IT조직의 직무 기반 수행 체계를 바탕으로, 분석–설계–아키텍처– <br/>개발–검증–전환이 분절되지 않고 하나의 기준으로 연결되는 SI를 지향합니다.<br/><br/>
                                         즉, 사람 몇 명의 감각에 의존하는 프로젝트가 아니라, 역할과 책임, 프로세스, <br/>산출물, 품질 기준이 살아 있는 구축 체계로 프로젝트를 수행합니다.
                                     </li> 
                                 </ul>
@@ -251,19 +201,19 @@
                                 AI-Native
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 AI 내재화 기반 수행 방식
-                            </p>
+                            </h2>
 
                             <p class="desc">
-                                OPENBRICKS는 AI를 단순한 기술적 트랜드나 부가 기능으로 정의하지 않습니다.<br/>SI의 생산성, 정합성, 속도, 품질을 높이기 위한 내재화된 수행 체계로 친화적으로 활용합니다.
+                                OPENBRICKS는 AI를 단순한 기술적 트렌드나 부가 기능으로 정의하지 않습니다. <br/>SI의 생산성, 정합성, 속도, 품질을 높이기 위한 내재화된 수행 체계로 친화적으로 활용합니다.
                             </p>
 
                             <img src="../../images/contents/ai-native-img.png" alt="" class="center pc"/>
                             <img src="../../images/contents/ai_native_cont_mo.png" alt="" class="center mo"/>
 
                             <p class="gradationTxt ty01">
-                                OPENBRICKS는 AI내재화를 통한 자동화와 협업 환경을 통해<br/>더 빠르고 안정적인 SI 수행 구조를 만듭니다.
+                                OPENBRICKS는 AI내재화를 통한 자동화와 협업 환경을 통해 <br/>더 빠르고 안정적인 SI 수행 구조를 만듭니다.
                             </p>
                         </div>
 
@@ -271,12 +221,12 @@
                             <div class="leftBox">
                                 <p class="title">표준 방법론과 품질 체계</p>
                                 <p class="desc">
-                                    복잡한 프로젝트일수록 시스템 구축은 개인 역량보다<br/>표준화된 방법론과 품질 체계 위에서 운영되어야합니다.
+                                    복잡한 프로젝트일수록 시스템 구축은 개인 역량보다 <br/>표준화된 방법론과 품질 체계 위에서 운영되어야 합니다.
                                 </p>
                                 <img src="../../images/contents/product_quality.png" alt="" />
 
                                 <p class="point">
-                                    OPENBRICKS는 현장에 맞지 않는 형식적 절차보다,<br/><span>실무 중심의 방법론으로 품질과 생산성을 높입니다.</span>
+                                    OPENBRICKS는 현장에 맞지 않는 형식적 절차보다, <br/><span>실무 중심의 방법론으로 품질과 생산성을 높입니다.</span>
                                 </p>
                             </div>
                             <div class="rightBox">
@@ -391,9 +341,9 @@
                                 OPENBRICKS Expertise
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 OPENBRICKS가 잘하는 SI
-                            </p>
+                            </h2>
 
                             <p class="desc">
                                 오픈브릭스는 공공·금융·민간에서 연계가 복잡하고 운영이 중요한 시스템을 운영 가능한 구조로 구축합니다.<br/>
@@ -524,7 +474,7 @@
                                         </li>
                                         <li>
                                             <span>03</span>
-                                            <p>표주화된 인터페이스와 데이터 체계 확보</p>
+                                            <p>표준화된 인터페이스와 데이터 체계 확보</p>
                                         </li>
                                         <li>
                                             <span>04</span>
@@ -579,16 +529,16 @@
                             <div class="left">
                                 <span class="smT">OPENBRICKS</span>
                                 <p class="title">
-                                    Beyond Systems,<br/>We Connect Business
+                                    Beyond Systems, <br/>We Connect Business
                                 </p>
                                 <p class="desc">
-                                    오픈브릭스는 AX 기반 시스템 통합으로<br/>시스템을 넘어, 비즈니스를 연결합니다.
+                                    오픈브릭스는 AX 기반 시스템 통합으로 <br/>시스템을 넘어, 비즈니스를 연결합니다.
                                 </p>
                             </div>
                             <div class="right">
                                 <div class="btn">
                                     <button type="button" class="int" onclick="fileDownload()"><span>회사소개서</span></button>
-                                    <button type="button" class="faq"><span>문의하기</span></button>
+                                    <button type="button" class="faq" onclick="location.href='../contact/contact_us.html'"><span>문의하기</span></button>
                                 </div>
                             </div>
                         </div>

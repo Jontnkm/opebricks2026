@@ -53,8 +53,7 @@ $minWidthText: (
 }
 
 //rem공식
-//$basicFontSize:16px; default.scss 최상단에 있음
-$basicFontSize:16px;
+//$basicFontSize는 _default.scss 최상단에 있음
 @function rem($pixels, $base: $basicFontSize) {
     @return calc($pixels / $base)+rem;
 }

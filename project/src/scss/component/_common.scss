@@ -1,5 +1,5 @@
 .comTab {
-    width:100%; position:relative; margin-bottom:80px; max-width:1400px; margin:0 auto; 
+    width:100%; position:relative; max-width:1400px; margin:0 auto;
 
     &.mo {
         display:none;  padding: 0 16px; position:relative;
@@ -73,7 +73,7 @@
             margin-bottom:140px;
 
             img {
-                position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); margin-top:60px;
+                position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); margin-top:60px; max-width:calc(100% - 32px);
             }
         }
 
@@ -224,7 +224,7 @@
             }
 
             &.pc {
-                display:block;
+                display:block; max-width:100%; height:auto;
                 @include media ("mobile") {
                     display:none;
                 }
@@ -255,6 +255,12 @@
         }
         &.w1400 {width:100%; max-width:1400px; margin:0 auto;}
         &.w1600 {width:100%; max-width:1600px; margin:0 auto;}
+        // 화면이 컨텐츠 최대폭보다 좁을 때 좌우 20px 여백 (모바일은 별도 규칙)
+        &.w1400, &.w1600 {
+            @include minWidth("mobile") {
+                width:calc(100% - 40px);
+            }
+        }
         .contTit {
             font-size:32px; font-weight:700; line-height:150%; color:#353a3f;
             @include media ("mobile") {
@@ -284,7 +290,10 @@
                 
                 > li {
                     
-                    display:flex; flex-flow: column; align-items: felx-start; justify-content: flex-start; gap:20px;
+                    display:flex; flex-flow: column; align-items: flex-start; justify-content: flex-start; gap:20px;
+                    @include media ("pc") {
+                        flex:1 1 0; min-width:0;
+                    }
                     @include media ("mobile") {
                         gap:12px; width:100%;
                     }
@@ -329,6 +338,9 @@
                             }
 
                             flex-flow:column; width:520px;
+                            @include media ("pc") {
+                                width:100%;
+                            }
 
                             p.description {
                                 font-size:20px; font-weight:500; line-height:150%; color:rgba(255,255,255,0.8); text-align:center;
@@ -397,11 +409,16 @@
                 @include media ("mobile") {
                     flex-flow:column; justify-content: flex-start; gap:20px;
                 }
+                // 연결선은 아이콘 뒤로
                 &::after {
-                    content:''; position:absolute; top:50%; left:0; width:100%; height:1px; background:#D7DBDF;
+                    content:''; position:absolute; top:50%; left:0; width:100%; height:1px; background:#D7DBDF; z-index:0;
                     @include media ("mobile") {
                         display:none;
                     }
+                }
+
+                > li {
+                    z-index:1;
                 }
 
                 &.type02 {
@@ -554,6 +571,9 @@
 
                             &.type02 {
                                 width:325px; min-height:211px; padding:20px; background:#F4F5F7; border-radius:16px;
+                                @include media ("pc") {
+                                    width:auto; max-width:325px;
+                                }
                                 display:flex; flex-flow: column; align-items: flex-start; justify-content: flex-start; gap:12px;
 
                                 span {
@@ -703,7 +723,7 @@
             }
 
             &.whtBg {
-                background:url(../../images/contents/wht_bg.png)center top no-repeat !important; background-size:cover !important;
+                background:url(../../images/contents/wht_bg.png)center top no-repeat; background-size:cover;
 
                 .gradationTxt {
                     background:linear-gradient(92deg, #52A8FF 32.23%, #C555DA 68.81%); background-clip: text;
@@ -908,6 +928,9 @@
             }
             .swiper-slide {
                 width:335px; margin-right:20px; border-radius:16px; overflow:hidden;
+                @include media ("mobile") {
+                    width:calc(100% - 40px); max-width:335px;
+                }
 
                 img {
                     display:block;
@@ -936,13 +959,16 @@
                 &.type02 {
                     .swiper-slide {
                         width:455.3333px;
+                        @include media ("mobile") {
+                            width:calc(100% - 40px);
+                        }
                     }
 
                     .slideTxtBox {
                         min-height:260px;
                     }
                     .slideTit {
-                        color:#353A3F !important;
+                        color:#353A3F;
                     }
                     .slideDesc {
                         display:flex; flex-flow: column; align-items: flex-start; justify-content: flex-start; gap:12px; margin-top:20px !important;
@@ -961,13 +987,16 @@
 
                     .swiper-slide {
                         width:455.3333px;
+                        @include media ("mobile") {
+                            width:calc(100% - 40px);
+                        }
                     }
                     img {width:100%;}
                     .slideTxtBox {
                         min-height:280px;
                     }
                     .slideTit {
-                        color:#353A3F !important;
+                        color:#353A3F;
                     }
                     .slideSub {
                         margin-top:20px; font-size:18px; font-weight:700; line-height:150%; color:#486d99;
@@ -1023,7 +1052,7 @@
                 padding:50px 16px;
             }
 
-            > p {
+            > p, > h2 {
                 text-align:left !important; max-width:1400px; margin:0 auto;
                 @include media ("mobile") {
                     padding:0; word-break:keep-all; margin:12px 0;
@@ -1772,7 +1801,7 @@
 
             &.type02 {
                 .inner {
-                    background: url(../../images/contents/wms_cont_bg.png)center center no-repeat !important;
+                    background: url(../../images/contents/wms_cont_bg.png)center center no-repeat;
 
                     > ul {
                         display:flex; flex-flow: row wrap; align-items: center; justify-content: flex-start; gap:20px 20px;
@@ -1849,6 +1878,9 @@
 
 .csBanner {
     width:100%; max-width:1600px; margin:0 auto;
+    @include minWidth("mobile") {
+        width:calc(100% - 40px); /* 1640px 이하 좌우 20px 여백 */
+    }
     display:flex; flex-flow: row nowrap; align-items: center; justify-content: space-between;
     background: linear-gradient(90deg, #132637, #39536B); padding:120px 100px; background-size:300% 100%; border-radius:60px;
     position:relative; animation: colorChange 8s ease-in-out infinite;
@@ -1913,15 +1945,18 @@
             }
 
             button {
-                position:relative; border-radius:50px; padding:10px 36px; font-size:16px; font-weight:400; color:#fff; 
+                position:relative; border-radius:50px; padding:10px 36px; font-size:16px; font-weight:400; color:#fff; white-space:nowrap;
                 @include media ("mobile") {
-                    width:calc(50% - 10px);
+                    width:calc(50% - 10px); padding:10px 20px;
                 }
                 span {
                     display:block; margin-right:30px;
                 }
                 &::after {
                     content:''; position:absolute; top:50%; right:36px; width:20px; height:20px; transform:translateY(-50%);
+                    @include media ("mobile") {
+                        right:20px;
+                    }
                 }
 
                 &.int {
@@ -1971,6 +2006,9 @@
     }
     .intro {
         width:100%; max-width:1600px; margin:140px auto;
+        @include minWidth("mobile") {
+            width:calc(100% - 40px); /* 1640px 이하 좌우 20px 여백 */
+        }
 
         @include media ("mobile"){
             max-width:auto; margin:50px auto; position:relative;
@@ -2057,20 +2095,25 @@
                         width:100%; position:relative; display:flex; flex-flow:row nowrap; align-items: center ;justify-content: flex-start; gap:60px; padding:32px;
                         border-bottom:1px solid #EBEEF5; border-top:1px solid #EBEEF5;
 
+                        text-align:left; padding-right:96px; /* 펼침 화살표 자리 */
+
                         @include media ("mobile"){
-                            flex-flow:column; gap:5px; align-items: flex-start; justify-content: flex-start; padding:16px;
+                            flex-flow:column; gap:5px; align-items: flex-start; justify-content: flex-start; padding:16px 56px 16px 16px;
                         }
 
                         &::after {
                             content:''; position:absolute; top:50%; right:32px; width:32px; height:32px; transform:translateY(-50%);
                             background:url(../../images/contents/ref_arrow.svg)50% 50% no-repeat;
+                            @include media ("mobile"){
+                                right:16px;
+                            }
                         }
 
                         > span.yr {
                             font-size:24px; font-weight:700; color:#acb4bd;
                         }
 
-                        > p.title {
+                        > .title {
                             font-size:20px; font-weight:700; color:#353A3F;
                         }
                     }
@@ -2162,7 +2205,7 @@
                                 transform: translateY(-50%) rotate(180deg);
                             }
 
-                            > span {
+                            > span.yr {
                                 color:#EC1C24;
                             }
                         }
@@ -2210,6 +2253,9 @@
 
     .w1600 {
         width:100%; max-width:1600px; margin:0 auto;
+        @include minWidth("mobile") {
+            width:calc(100% - 40px);
+        }
     }
 
     .mapArea {
@@ -2266,7 +2312,7 @@
                                 font-size:20px; font-weight:500; line-height:150%; color:#353a3f;
 
                                 @include media ("mobile") {
-                                    font-size:18px;
+                                    font-size:18px; display:inline-block; padding-top:8px; padding-bottom:8px; margin:-8px 0; /* 터치 영역 */
                                 }
                                 
                                 &::after {
@@ -2378,7 +2424,7 @@
                 }
 
                 > p {
-                    line-height:150%; word-break:keep-all; width:100%; text-align:left! important;
+                    line-height:150%; word-break:keep-all; width:100%; text-align:left !important;
 
                     &.title {
                         font-size:32px; font-weight:700; color:#353A3F;

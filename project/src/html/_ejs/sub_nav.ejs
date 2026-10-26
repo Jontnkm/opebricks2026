@@ -1,0 +1,97 @@
+<%
+// 서브페이지 상단(cptSubTop)과 탭(comTab)을 메뉴 데이터 하나로 생성
+// part: 'top' | 'tab', group: service | product | ai | reference | company, current: 현재 페이지 파일명(확장자 제외)
+var url = locals.url ? locals.url : '../';
+var part = locals.part ? locals.part : 'top';
+var groups = {
+    service: {
+        name: 'Services',
+        desc: '전략 설계부터 구현까지 통합된 구조로 비즈니스 운영 전반을 <br/>하나의 흐름으로 완성하여 운영 효율성과 확장성을 확보합니다.',
+        pages: [
+            { id: 'cloud_infra', name: 'Cloud 플랫폼 인프라' },
+            { id: 'system_build', name: '시스템구축 SI' },
+            { id: 'serviceSbm', name: '서비스연계 SBM' },
+            { id: 'devops', name: 'DevOps 및 서비스 운영' },
+            { id: 'cloude_base', name: 'Cloud 기반 최적화' }
+        ]
+    },
+    product: {
+        name: 'Products',
+        desc: '검증된 자체 운영 솔루션과 표준화된 아키텍처의 결합을 통해 <br/>비즈니스의 유연한 확장을 지원하며 지속 가능한 운영 환경을 완성합니다.',
+        pages: [
+            { id: 'sbm', name: 'i-SBM' },
+            { id: 'wms', name: 'i-WMS' },
+            { id: 'tms', name: 'i-TMS' }
+        ]
+    },
+    ai: {
+        name: 'AI Use Cases',
+        desc: '성공적인 AI 도입은 기술이 아닌 활용 방식에서 시작됩니다. <br/>조직에 최적화된 AI 솔루션으로 지속 가능한 운영 혁신을 지원합니다.',
+        pages: [ { id: 'ai', name: 'AI Use Cases' } ]
+    },
+    reference: {
+        name: 'References',
+        desc: '지난 20여 년간 다양한 파트너와 함께 성장해온, <br/>\n                                OPENBRICKS의 경험과 기술이 담긴 프로젝트 성과를 소개합니다.',
+        pages: [ { id: 'reference', name: 'References' } ]
+    },
+    company: {
+        name: 'Company',
+        desc: 'OPENBRICKS는 20년 이상의 수행 경험과 검증된 전문성으로 <br/>고객의 지속 가능한 비즈니스 경쟁력을 만듭니다.',
+        pages: [
+            { id: 'introduce', name: '회사소개' },
+            { id: 'org_strength', name: '조직 및 보유역량' }
+        ]
+    }
+};
+var g = groups[locals.group];
+var cur = g.pages.filter(function (p) { return p.id === locals.current; })[0] || g.pages[0];
+var hasSub = g.pages.length > 1;
+var href = function (p) { return url + locals.group + '/' + p.id + '.html'; };
+%>
+<% if (part === 'top') { %>
+                <div class="cptSubTop">
+                    <div class="subTopArea">
+                        <dl class="subTopBox">
+                            <dt class="topHead">
+                                <h1 class="title"><%= g.name %><% if (hasSub) { %><span class="hidden"> - <%= cur.name %></span><% } %></h1>
+                            </dt>
+                            <dd class="topBody">
+                                <%- g.desc %>
+                            </dd>
+                        </dl>
+
+                        <nav class="breadCrumb" aria-label="현재 위치">
+                            <ul>
+                                <li><a href="<%= url %>index.html"><span class="hidden">홈</span></a></li>
+                                <% if (hasSub) { %>
+                                <li><a href="<%= href(g.pages[0]) %>"><%= g.name %></a></li>
+                                <li><a href="<%= href(cur) %>" class="present" aria-current="page"><%= cur.name %></a></li>
+                                <% } else { %>
+                                <li><a href="<%= href(cur) %>" class="present" aria-current="page"><%= g.name %></a></li>
+                                <% } %>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+<% } else if (part === 'tab' && hasSub) { %>
+                        <div class="comTab pc">
+                            <ul>
+                                <% g.pages.forEach(function (p) { %>
+                                <li>
+                                    <a href="<%= href(p) %>"<% if (p === cur) { %> class="active" aria-current="page"<% } %>><%= p.name %></a>
+                                </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+
+                        <div class="comTab mo">
+                            <button type="button" class="current" aria-expanded="false"><%= cur.name %></button>
+                            <ul>
+                                <% g.pages.forEach(function (p) { %>
+                                <li>
+                                    <a href="<%= href(p) %>"<% if (p === cur) { %> class="active" aria-current="page"<% } %>><%= p.name %></a>
+                                </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+<% } %>

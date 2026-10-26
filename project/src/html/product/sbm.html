@@ -1,5 +1,7 @@
 <!-- Header -->
 <%- include('../_ejs/top.ejs', {
+    title: "i-SBM",
+    description: "검증된 자체 운영 솔루션과 표준화된 아키텍처의 결합을 통해 비즈니스의 유연한 확장을 지원하며 지속 가능한 운영 환경을 완성합니다.",
     url: "../../"
 }) %>
 
@@ -17,69 +19,29 @@
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container">
+        <div class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
 
                 <!-- 서브 컨텐츠 내용이 들어오는 영역-->
                 <!-- 서브 상단 -->
-                <div class="cptSubTop">
-                    <div class="subTopArea">
-                        <dl class="subTopBox">
-                            <dt class="topHead">
-                                <!-- <i class="eyebrow">Intelligent AI</i> -->
-                                <h1 class="title">Products</h1>
-                            </dt>
-                            <dd class="topBody">
-                                검증된 자체 자체 운영 솔루션과 표준화된 아키텍처의 결합을 통해 <br/>비즈니스의 유연한 확장을 지원하며 지속 가능한 운영 환경을 완성합니다.
-                            </dd>
-                        </dl>
-                        <!-- <div class="requestArea">
-                            <a href="../sub/contact_us.html" class="link">문의하기</a>
-                        </div> -->
-
-                        <div class="breadCrumb">
-                            <ul>
-                                <li><a href="/"><span class="hidden">홈</span></a></li>
-                                <li><a href="/">Products</a></li>
-                                <li><a href="/">i-SBM</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <%- include('../_ejs/sub_nav.ejs', {
+                    part: "top",
+                    group: "product",
+                    current: "sbm",
+                    url: "../"
+                }) %>
 
                 <!-- 서브 컨텐츠 -->
                 <div class="cptContGroup services01">
                     <div class="contGroupArea">
-                        <div class="comTab pc">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);" class="active">i-SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">i-WMS</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">i-TMS</a>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="comTab mo">
-                            <button type="button" class="current">i-SBM</button>
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);" class="active">i-SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">i-WMS</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">i-TMS</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <%- include('../_ejs/sub_nav.ejs', {
+                    part: "tab",
+                    group: "product",
+                    current: "sbm",
+                    url: "../"
+                }) %>
 
                         <div class="section section01 w1600">
                             <div class="mockup">
@@ -90,12 +52,12 @@
                                 i-SBM
                             </p>
 
-                            <p class="bgTit">
-                                유연한 시스템 연계와<br/>완벽한 데이터 흐름을 위한 i-SBM
-                            </p>
+                            <h2 class="bgTit">
+                                유연한 시스템 연계와 <br/>완벽한 데이터 흐름을 위한 <span class="nowrap">i-SBM</span>
+                            </h2>
 
                             <p class="desc">
-                                i-SBM은 여러 클라이언트와 백엔드 서비스를 WSS 프로토콜 기반의 연결을 유지하면서,<br/>요청과 메시지를 실시간(동기) + 비동기(필요 시) 흐름으로 중계하는 Service Bridge Middleware입니다.
+                                i-SBM은 여러 클라이언트와 백엔드 서비스를 WSS 프로토콜 기반의 연결을 유지하면서, <br/>요청과 메시지를 실시간(동기) + 비동기(필요 시) 흐름으로 중계하는 Service Bridge Middleware입니다.
                             </p>
                         </div>
 
@@ -146,9 +108,9 @@
                                 Why i-SBM
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 왜 i-SBM이 필요할까요?
-                            </p>
+                            </h2>
 
                             <p class="desc">
                                  시스템이 커질수록 문제가 생기는 지점은 대개 “연결과 운영”입니다.
@@ -158,7 +120,7 @@
                             <img src="../../images/contents/sbm_product_cont02_mo.png" alt="" class="center mo"/>
 
                             <p class="gradationTxt ty01">
-                                SBM는 연결과 흐름을 공통 구조로 통합해 표준화된 실행 구조로 <br/>제공함으로써 운영 복잡도를 줄이고 서비스 품질을 높입니다.
+                                SBM은 연결과 흐름을 공통 구조로 통합해 표준화된 실행 구조로 <br/>제공함으로써 운영 복잡도를 줄이고 서비스 품질을 높입니다.
                             </p>
                         </div>
 
@@ -245,12 +207,12 @@
                                 i-SBM Features
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 i-SBM의 핵심 기능
-                            </p>
+                            </h2>
 
                             <p class="desc">
-                                다양한 채널·언어·프로토콜·서브리스를 운영 가능한 연결 구조로 묶습니다.
+                                다양한 채널·언어·프로토콜·서버리스를 운영 가능한 연결 구조로 묶습니다.
                             </p>
 
                             <div class="cardList">
@@ -266,7 +228,7 @@
                                             <span>토큰 인증 / 세션 관리</span>
                                             <span>재연결 흐름 통제</span>
                                             <span>채널/클라이언트별 패턴 고려</span>
-                                            <span>다중화 서비스 트래픽 분배/span>
+                                            <span>다중화 서비스 트래픽 분배</span>
                                         </div>
                                     </li>
                                     <li>
@@ -285,7 +247,7 @@
                                     <li>
                                         <div class="group">
                                             <span class="smT">Feature 03</span>
-                                            <p class="title">이기종 환경 연계 단순화<br/>(채널·언어·서버리스 확장)</p>
+                                            <p class="title">이기종 환경 연계 단순화 <br/>(채널·언어·서버리스 확장)</p>
                                         </div>
                                         <img src="../../images/contents/sbm_prod_ico06.png" alt="">
                                         <div class="list">
@@ -450,16 +412,16 @@
                             <div class="left">
                                 <span class="smT">OPENBRICKS</span>
                                 <p class="title">
-                                    Beyond Systems,<br/>We Connect Business
+                                    Beyond Systems, <br/>We Connect Business
                                 </p>
                                 <p class="desc">
-                                    오픈브릭스는 AX 기반 시스템 통합으로<br/>시스템을 넘어, 비즈니스를 연결합니다.
+                                    오픈브릭스는 AX 기반 시스템 통합으로 <br/>시스템을 넘어, 비즈니스를 연결합니다.
                                 </p>
                             </div>
                             <div class="right">
                                 <div class="btn">
                                     <button type="button" class="int" onclick="fileDownload()"><span>회사소개서</span></button>
-                                    <button type="button" class="faq"><span>문의하기</span></button>
+                                    <button type="button" class="faq" onclick="location.href='../contact/contact_us.html'"><span>문의하기</span></button>
                                 </div>
                             </div>
                         </div>

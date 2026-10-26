@@ -1,5 +1,7 @@
 <!-- Header -->
 <%- include('../_ejs/top.ejs', {
+    title: "i-WMS",
+    description: "검증된 자체 운영 솔루션과 표준화된 아키텍처의 결합을 통해 비즈니스의 유연한 확장을 지원하며 지속 가능한 운영 환경을 완성합니다.",
     url: "../../"
 }) %>
 
@@ -17,69 +19,29 @@
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container">
+        <div class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
 
                 <!-- 서브 컨텐츠 내용이 들어오는 영역-->
                 <!-- 서브 상단 -->
-                <div class="cptSubTop">
-                    <div class="subTopArea">
-                        <dl class="subTopBox">
-                            <dt class="topHead">
-                                <!-- <i class="eyebrow">Intelligent AI</i> -->
-                                <h1 class="title">Products</h1>
-                            </dt>
-                            <dd class="topBody">
-                                검증된 자체 자체 운영 솔루션과 표준화된 아키텍처의 결합을 통해 <br/>비즈니스의 유연한 확장을 지원하며 지속 가능한 운영 환경을 완성합니다.
-                            </dd>
-                        </dl>
-                        <!-- <div class="requestArea">
-                            <a href="../sub/contact_us.html" class="link">문의하기</a>
-                        </div> -->
-
-                        <div class="breadCrumb">
-                            <ul>
-                                <li><a href="/"><span class="hidden">홈</span></a></li>
-                                <li><a href="/">Products</a></li>
-                                <li><a href="/">i-WMS</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <%- include('../_ejs/sub_nav.ejs', {
+                    part: "top",
+                    group: "product",
+                    current: "wms",
+                    url: "../"
+                }) %>
 
                 <!-- 서브 컨텐츠 -->
                 <div class="cptContGroup services01">
                     <div class="contGroupArea">
-                        <div class="comTab pc">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);">i-SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="active">i-WMS</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">i-TMS</a>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="comTab mo">
-                            <button type="button" class="current">i-WMS</button>
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);" class="active">i-SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">i-WMS</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">i-TMS</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <%- include('../_ejs/sub_nav.ejs', {
+                    part: "tab",
+                    group: "product",
+                    current: "wms",
+                    url: "../"
+                }) %>
 
                         <div class="section section01 w1600">
                             <div class="mockup">
@@ -90,12 +52,12 @@
                                 i-WMS
                             </p>
 
-                            <p class="bgTit">
-                                유지보수 이력과 운영 지표를 기반으로<br/>유지관리 체계를 만드는 유지관리 소프트웨어
-                            </p>
+                            <h2 class="bgTit">
+                                유지보수 이력과 운영 지표를 기반으로 <br/>유지관리 체계를 만드는 유지관리 소프트웨어
+                            </h2>
 
                             <p class="desc">
-                                유지보수 요청부터 처리, 검수, 평가, 통계까지 모든 과정을 체계적으로 관리하여<br/>안정적인 운영과 의사결정을 지원하는 통합 유지보수 관리 솔루션
+                                유지보수 요청부터 처리, 검수, 평가, 통계까지 모든 과정을 체계적으로 관리하여 <br/>안정적인 운영과 의사결정을 지원하는 통합 유지보수 관리 솔루션
                             </p>
                         </div>
 
@@ -122,7 +84,7 @@
                                 <img src="../../images/contents/wms_product.png" alt="" />
 
                                 <p class="point">
-                                    유지보수 전 과정을 데이터 기반으로 체계화하여<br/>운영 효율과 고객 만족, 조직 경쟁력을 높입니다. 
+                                    유지보수 전 과정을 데이터 기반으로 체계화하여 <br/>운영 효율과 고객 만족, 조직 경쟁력을 높입니다. 
                                 </p>
                             </div>
                             <div class="rightBox">
@@ -151,12 +113,12 @@
 
                         <div class="section section04 dark">
                             <p class="smTxt">
-                                Why i-SBM
+                                Why i-WMS
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 왜 i-WMS가 필요할까요?
-                            </p>
+                            </h2>
 
                             <p class="desc">
                                  체계가 없으면 운영은 흔들리고, 비용과 리스크는 커집니다.
@@ -166,7 +128,7 @@
                             <img src="../../images/contents/wms_cont02_mo.png" alt="" class="center mo"/>
 
                             <p class="gradationTxt ty01">
-                                유지보수 관리 플랫폼은 이 문제를 “기능 추가”로 해결하기보다, <br/> 운영의 기본 규칙(체계)을 시스템 안에 고정하여,<br/>시간이 지날수록 더 강해지는 운영 기반을 만듭니다.
+                                유지보수 관리 플랫폼은 이 문제를 “기능 추가”로 해결하기보다, <br/> 운영의 기본 규칙(체계)을 시스템 안에 고정하여, <br/>시간이 지날수록 더 강해지는 운영 기반을 만듭니다.
                             </p>
                         </div>
 
@@ -382,9 +344,9 @@
                                 i-WMS
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 i-WMS의 핵심 기능
-                            </p>
+                            </h2>
 
                             <p class="desc">
                                 요청 관리부터 이력·지식·지표까지, 유지보수 운영에 필요한 모든 기능을 제공합니다.
@@ -426,7 +388,7 @@
                                             <p>RACI 기반 역할 분리 및 운영 책임 체계화</p>
                                         </li>
                                         <li>
-                                            <span>04</span>
+                                            <span>05</span>
                                             <p>요구사항·이력 데이터 기반 시스템 고도화</p>
                                         </li>
                                     </ul>
@@ -438,16 +400,16 @@
                             <div class="left">
                                 <span class="smT">OPENBRICKS</span>
                                 <p class="title">
-                                    Beyond Systems,<br/>We Connect Business
+                                    Beyond Systems, <br/>We Connect Business
                                 </p>
                                 <p class="desc">
-                                    오픈브릭스는 AX 기반 시스템 통합으로<br/>시스템을 넘어, 비즈니스를 연결합니다.
+                                    오픈브릭스는 AX 기반 시스템 통합으로 <br/>시스템을 넘어, 비즈니스를 연결합니다.
                                 </p>
                             </div>
                             <div class="right">
                                 <div class="btn">
                                     <button type="button" class="int" onclick="fileDownload()"><span>회사소개서</span></button>
-                                    <button type="button" class="faq"><span>문의하기</span></button>
+                                    <button type="button" class="faq" onclick="location.href='../contact/contact_us.html'"><span>문의하기</span></button>
                                 </div>
                             </div>
                         </div>

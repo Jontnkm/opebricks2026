@@ -1,6 +1,6 @@
 <!-- Header -->
 <%- include('../_ejs/top.ejs', {
-    title: "경륜 커뮤니티",
+    title: "포토게시판 샘플",
     url: "../../"
 }) %>
 
@@ -12,13 +12,13 @@
         <div class="layoutTop">
             <!-- Top -->
             <%- include('../_ejs/gnb.ejs', {
-                url: "../../"
+                url: "../"
             }) %>
         </div>
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container">
+        <div class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
@@ -81,22 +81,22 @@
 
                 <!-- 페이징 -->
                 <div class="comPaging">
-                    <a class="start" href="#"></a>
-                    <a class="prev" href="#"></a>
+                    <a class="start" href="?page=1" aria-label="첫 페이지"></a>
+                    <a class="prev" href="?page=1" aria-label="이전 페이지"></a>
                     <ul class="numList">
-                        <li><a href="#">1</a></li>
-                        <li class="on"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li><a href="#">9</a></li>
-                        <li><a href="#">10</a></li>
+                        <li><a href="?page=1">1</a></li>
+                        <li class="on"><a href="?page=2" aria-current="page">2</a></li>
+                        <li><a href="?page=3">3</a></li>
+                        <li><a href="?page=4">4</a></li>
+                        <li><a href="?page=5">5</a></li>
+                        <li><a href="?page=6">6</a></li>
+                        <li><a href="?page=7">7</a></li>
+                        <li><a href="?page=8">8</a></li>
+                        <li><a href="?page=9">9</a></li>
+                        <li><a href="?page=10">10</a></li>
                     </ul>
-                    <a class="next" href="#"></a>
-                    <a class="end" href="#"></a>
+                    <a class="next" href="?page=3" aria-label="다음 페이지"></a>
+                    <a class="end" href="?page=10" aria-label="마지막 페이지"></a>
                 </div>
                 
                 

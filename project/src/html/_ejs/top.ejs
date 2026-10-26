@@ -1,5 +1,7 @@
 <%
-var title = locals.title ? locals.title : '';
+var siteName = 'OPENBRICKS';
+var title = locals.title ? locals.title + ' | ' + siteName : siteName + ' | 운영 가능한 시스템을 만드는 SI 기업';
+var description = locals.description ? locals.description : '복잡한 시스템 연계를 장애 추적과 운영 관리가 가능한 구조로 설계·구축하는 연계브릿지 전문 SI 기업입니다';
 var url = locals.url ? locals.url : '../../';
 %>
 <!doctype html>
@@ -8,26 +10,22 @@ var url = locals.url ? locals.url : '../../';
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" >
 	<meta name="format-detection" content="telephone=no">
-	<meta name="format-detection" content="telephone=no">
-	<meta name="description" content="복잡한 시스템 연계를 장애 추적과 운영 관리가 가능한 구조로 설계·구축하는 연계브릿지 전문 SI 기업입니다">
+	<meta name="description" content="<%= description %>">
 	<meta name="keywords" content="컨테이너 다중화, MSA환경, 분산트래픽제어, 서비스브릿지, 서비스 통합 관제, API·전문 연계, 운영 안정화, AI 내재화">
 	<meta name="author" content="오픈브릭스">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="<%= siteName %>">
 	<meta property="og:title" content="<%= title %>">
-	<meta property="og:description" content="오픈브릭스">
-	<!-- <meta property="og:image" content="<%= url %>images/common/logo_header.svg"> -->
-	<meta property="og:url" content="">
+	<meta property="og:description" content="<%= description %>">
+	<meta property="og:image" content="<%= url %>images/contents/openbrics_logo_blk.png">
 
 	<title><%= title %></title>
 
 	<link rel="stylesheet" href="<%= url %>common/css/swiper.css" />
 	<link rel="stylesheet" href="<%= url %>common/css/style.css" />
-	<!-- <link rel="stylesheet" href="../common/css/jquery-ui.min.css" /> -->
-	
+
 	<script src="<%= url %>common/js/swiper.js"></script>
 	<script src="<%= url %>common/js/common.js"></script>
-	<!--
-    <script src="../common/js/basic.js"></script>
-    -->
 </head>
 <body>
 <div class="skip"><a class="quickBtn" href="#container">본문바로가기</a></div>

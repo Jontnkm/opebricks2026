@@ -1137,8 +1137,12 @@ button {
 
 body {
 	background: #fff;
-}
-
+	word-break: keep-all;
+	overflow-wrap: break-word;
+} /* 한글 단어 중간 줄바꿈 방지 */
+p, h1, h2, h3, h4, h5, h6, li, dt, dd {
+	text-wrap: pretty;
+} /* 마지막 줄에 한 글자만 남는 현상 완화 */
 html, body, th, td, input, select, textarea, button {
 	font-size: 16px;
 	line-height: 1.5;
@@ -1154,6 +1158,9 @@ a:active, a:hover {
 	text-decoration: none;
 }
 
+a[href^="tel:"] {
+	color: inherit;
+} /* 전화 링크는 주변 글자색 유지 */
 address, caption, cite, code, dfn, em, var {
 	font-style: normal;
 	font-weight: normal;
@@ -1186,15 +1193,11 @@ select {
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 	border-radius: 0;
-	background: #fff url(../../common/images/icon_select.png) calc(100% - 9px) center no-repeat;
+	background: #fff url(../../images/common/ic_20_down_arr.svg) calc(100% - 9px) center no-repeat;
 }
 
 select::-ms-expand {
 	display: none;
-}
-
-label {
-	font-size: 0;
 }
 
 .skip .quickBtn {
@@ -1212,6 +1215,13 @@ label {
 	height: auto;
 }
 
+#container:focus {
+	outline: none;
+} /* 본문바로가기 포커스 대상 */
+.nowrap {
+	white-space: nowrap;
+}
+
 .hide {
 	font-size: 0 !important;
 	position: fixed;
@@ -1219,6 +1229,24 @@ label {
 	top: 0;
 }
 
+/* 화면에서는 숨기고 스크린리더에는 읽히는 텍스트 */
+.hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+@media screen and (max-width: 1280px) {
+	img {
+		max-width: 100%;
+	}
+} /* 태블릿 이하 이미지 넘침 방지 */
 body.noScrl {
 	height: 100vh;
 	overflow: hidden;
@@ -3078,6 +3106,10 @@ select.iptSlt.typeLine {
 }
 
 /* --------------------------- 연락 --------------------------- */
+.cptContactUs.cptSubTop {
+	background: #fff;
+	animation: none;
+}
 .cptContactUs .contactArea {
 	display: flex;
 	justify-content: space-between;
@@ -3324,10 +3356,11 @@ select.iptSlt.typeLine {
 	border-bottom: 0px solid transparent;
 }
 .cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .chkBox input:checked:not(:disabled) + label::after {
-	width: 30px;
-	height: 30px;
-	background: url("../../images/common/chk.svg") #C8C8C8 center center no-repeat;
-	background-size: 100% 100%;
+	background-color: #EC1C24;
+}
+.cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .chkBox input:focus-visible + label::after {
+	outline: 2px solid #353a3f;
+	outline-offset: 2px;
 }
 .cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .chkBox input + label {
 	position: relative;
@@ -3353,7 +3386,7 @@ select.iptSlt.typeLine {
 	left: 0;
 	width: 30px;
 	height: 30px;
-	background: url("../../images/common/chk.svg") #EC1C24 center center no-repeat;
+	background: url("../../images/common/chk.svg") #C8C8C8 center center no-repeat;
 	background-size: 100% 100%;
 	border-radius: 50%;
 	transform: translateY(-50%);
@@ -3418,8 +3451,8 @@ select.iptSlt.typeLine {
 	width: 100%;
 	height: 100px;
 	position: relative;
-	z-index: 9999;
-	transition: background-color 0.6s ease;
+	z-index: 10000;
+	transition: background-color 0.6s ease; /* 전체메뉴가 퀵버튼(9999)보다 위 */
 }
 @media screen and (max-width: 767px) {
 	.cptGnb {
@@ -3492,9 +3525,9 @@ select.iptSlt.typeLine {
 	display: none;
 	content: "";
 	position: absolute;
-	bottom: -40px;
+	bottom: -43px;
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translateX(-50%); /* 헤더 하단선 중앙 */
 	width: 8px;
 	height: 8px;
 	background: #EC1C24;
@@ -3626,21 +3659,22 @@ select.iptSlt.typeLine {
 }
 .cptGnb .gnbArea .allMenuBox.pc {
 	width: 100%;
+	min-height: 356px;
 	padding: 0 16px;
-	border-left: 1px solid #e8e8e8;
-	background: rgb(255, 255, 255);
-	position: fixed;
+	background: #fff;
+	position: absolute;
 	left: 0;
-	top: -999px;
+	top: 100px;
 	z-index: 5;
-	transition: top 0.3s;
-	transition-delay: 0s;
-	backdrop-filter: blur(3.5840001106px);
-	border-top: 1px solid #dfdfdf;
+	border-top: 1px solid #d7dbdf;
+	box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.2s, visibility 0.2s;
 }
 .cptGnb .gnbArea .allMenuBox.pc.active {
-	top: 100px;
-	transition-delay: 0.2s;
+	visibility: visible;
+	opacity: 1;
 }
 .cptGnb .gnbArea .allMenuBox.pc .inner {
 	max-width: 905px;
@@ -3684,7 +3718,7 @@ select.iptSlt.typeLine {
 	background: #F4F5F7;
 	height: 356px;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1280px) {
 	.cptGnb .gnbArea .allMenuBox.pc {
 		display: none;
 	}
@@ -3693,6 +3727,7 @@ select.iptSlt.typeLine {
 	display: none;
 	width: 100%;
 	height: 100vh;
+	height: 100dvh;
 	padding: 0 16px;
 	border-left: 1px solid #e8e8e8;
 	background: rgb(255, 255, 255);
@@ -3700,22 +3735,31 @@ select.iptSlt.typeLine {
 	right: -100%;
 	top: 0;
 	z-index: 5;
+	flex-direction: column;
+	overflow-y: auto;
+	visibility: hidden;
 	transition: right 0.1s;
 	transition-delay: 0s;
 	backdrop-filter: blur(3.5840001106px);
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1280px) {
 	.cptGnb .gnbArea .allMenuBox.mo {
-		display: block;
+		display: flex;
 	}
 }
 .cptGnb .gnbArea .allMenuBox.mo.active {
 	right: 0;
 	transition-delay: 0.2s;
+	visibility: visible;
 }
 .cptGnb .gnbArea .allMenuBox.mo .depth1Group {
 	width: 100%;
-	padding-top: 60px;
+	padding-top: 100px;
+}
+@media screen and (max-width: 767px) {
+	.cptGnb .gnbArea .allMenuBox.mo .depth1Group {
+		padding-top: 60px;
+	}
 }
 .cptGnb .gnbArea .allMenuBox.mo .depth1Group .depth1List {
 	width: 100%;
@@ -3776,13 +3820,11 @@ select.iptSlt.typeLine {
 	background: url(../../images/contents/moMenuArrow.svg) 0 0 no-repeat;
 }
 .cptGnb .gnbArea .allMenuBox.mo .quickGroup {
-	width: calc(100% - 32px);
-	margin: 0 16px;
+	width: 100%;
+	margin-top: auto;
 	padding: 20px 0 40px;
 	border-top: 1px solid #C8C8C8;
-	position: absolute;
-	left: 0;
-	bottom: 0;
+	flex-shrink: 0;
 }
 .cptGnb .gnbArea .allMenuBox.mo .quickGroup .item {
 	width: 100%;
@@ -3840,21 +3882,24 @@ select.iptSlt.typeLine {
 		right: -100%;
 	}
 }
-.cptGnb.active {
+.cptGnb.active, .cptGnb.white {
 	background: #fff;
 }
-.cptGnb.active .logo {
+.cptGnb.active .gnbArea .quickBox .quickArea .menuBtn span, .cptGnb.white .gnbArea .quickBox .quickArea .menuBtn span {
+	background: #000;
+}
+.cptGnb.active .logo, .cptGnb.white .logo {
 	background: url(../../images/contents/openbrics_logo_blk.png) left center/140px no-repeat !important; /*2026.08.24 확장자 변경*/
 }
 @media screen and (max-width: 767px) {
-	.cptGnb.active .logo {
+	.cptGnb.active .logo, .cptGnb.white .logo {
 		background-size: 101px !important;
 	}
 }
-.cptGnb.active .gnbBox .menuArea .depth1Group .depth1List .depth1Name {
+.cptGnb.active .gnbBox .menuArea .depth1Group .depth1List .depth1Name, .cptGnb.white .gnbBox .menuArea .depth1Group .depth1List .depth1Name {
 	color: #000 !important;
 }
-.cptGnb.active .gnbBox .menuArea .depth1Group .depth1List .depth1Name:hover {
+.cptGnb.active .gnbBox .menuArea .depth1Group .depth1List .depth1Name:hover, .cptGnb.white .gnbBox .menuArea .depth1Group .depth1List .depth1Name:hover {
 	color: #EC1C24 !important;
 }
 
@@ -3899,6 +3944,12 @@ select.iptSlt.typeLine {
 	right: 40px;
 	z-index: 9999;
 }
+@media screen and (max-width: 767px) {
+	.quick {
+		bottom: 16px;
+		right: 16px;
+	}
+}
 .quick ul {
 	display: flex;
 	flex-flow: column;
@@ -3911,16 +3962,29 @@ select.iptSlt.typeLine {
 	height: 64px;
 	position: relative;
 }
+@media screen and (max-width: 767px) {
+	.quick ul > li {
+		width: 48px;
+		height: 48px;
+	}
+}
 .quick ul > li > a {
 	display: block;
 	width: 100%;
 	height: 100%;
 }
 .quick ul > li:first-of-type > a {
-	background: url(../../images/contents/quick_ico01.png) 0 0 no-repeat;
+	background: url(../../images/contents/quick_ico01.png) 0 0/100% 100% no-repeat;
 }
 .quick ul > li:last-of-type > a {
-	background: url(../../images/contents/quick_ico02.png) 0 0 no-repeat;
+	background: url(../../images/contents/quick_ico02.png) 0 0/100% 100% no-repeat;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s, visibility 0.3s;
+}
+.quick ul > li:last-of-type > a.show {
+	opacity: 1;
+	visibility: visible;
 }
 
 /* 메인 */
@@ -4489,13 +4553,13 @@ select.iptSlt.typeLine {
 	display: flex;
 }
 .cptMain .sectGroup.scene02 .mainBn .bnItem {
-	width: 370px;
-	min-width: 370px;
-	margin-left: 40px;
+	width: 380px;
+	min-width: 380px;
+	height: 480px;
 	padding: 40px 40px 130px 40px;
 	border-radius: 40px;
-	border: 1px solid rgba(255, 255, 255, 0.15);
-	background: rgba(217, 217, 217, 0.09);
+	border: 1px solid rgba(255, 255, 255, 0.15); /* 간격은 swiper spaceBetween */
+	background: rgba(217, 217, 217, 0.1);
 	box-shadow: 0px 40px 50px 10px rgba(0, 0, 0, 0.15);
 	cursor: pointer;
 	transition: all 0.3s;
@@ -4561,6 +4625,7 @@ select.iptSlt.typeLine {
 	line-height: 130%;
 	text-align: left;
 	display: block;
+	letter-spacing: -0.06em; /* 'DevOps 및 서비스 운영' 한 줄 유지 */
 }
 .cptMain .sectGroup.scene02 .mainBn .bnItem .bnGroup .bnTop .titSub {
 	margin-top: 20px;
@@ -4586,9 +4651,8 @@ select.iptSlt.typeLine {
 	height: 50px;
 	font-size: 0;
 	border-radius: 12px;
-	opacity: 0.5;
 	transition: all 0.3s;
-	background: #000 url(../../images/common/ic_24_main_more.svg) center no-repeat;
+	background: rgba(0, 0, 0, 0.5) url(../../images/common/ic_24_main_more.svg) center no-repeat;
 	position: absolute;
 	left: 40px;
 	bottom: 40px;
@@ -4612,6 +4676,9 @@ select.iptSlt.typeLine {
 }
 .cptMain .sectGroup.scene02 .mainBn .bnItem:hover .bnGroup .bnCont {
 	color: #000;
+}
+.cptMain .sectGroup.scene02 .mainBn .bnItem:hover .more {
+	background-color: #34475E;
 }
 @media screen and (max-width: 767px) {
 	.cptMain .sectGroup.scene01 .mainCopy .tit .text {
@@ -4682,11 +4749,14 @@ select.iptSlt.typeLine {
 	}
 	.cptMain .sectGroup.scene02 .mainBnArea .swiper-pagination-bullets {
 		display: block;
+		position: relative;
+		bottom: auto;
+		margin-top: 26px; /* 카드~점 40px (피그마: 간격 30 + 영역 여백 10) */
 	}
 	.cptMain .sectGroup.scene02 .mainBn .bnItem {
-		width: 280px;
-		min-width: 280px;
-		margin-left: 20px;
+		width: 276px;
+		min-width: 276px;
+		height: 400px;
 		padding: 40px 30px 110px;
 	}
 	.cptMain .sectGroup.scene02 .mainBn .bnItem:first-child {
@@ -4711,7 +4781,7 @@ select.iptSlt.typeLine {
 	.cptMain .sectGroup.scene02 .mainBn .bnItem .more {
 		width: 40px;
 		height: 40px;
-		background: #000 url(../../images/common/ic_24_main_more.svg) center/20px no-repeat;
+		background: rgba(0, 0, 0, 0.5) url(../../images/common/ic_24_main_more.svg) center/20px no-repeat;
 		left: 30px;
 	}
 }
@@ -4721,6 +4791,7 @@ select.iptSlt.typeLine {
 	width: 100%;
 	margin-top: 160px;
 	position: relative;
+	padding: 0 20px; /* 1640px 이하 좌우 여백 */
 }
 .cptFooter .footArea {
 	width: 100%;
@@ -4771,6 +4842,16 @@ select.iptSlt.typeLine {
 	line-height: normal;
 	align-content: center;
 }
+.cptFooter .footArea .addressArea .grp .dec a {
+	color: inherit;
+}
+@media screen and (max-width: 767px) {
+	.cptFooter .footArea .addressArea .grp .dec a {
+		display: inline-block;
+		padding: 14px 0;
+		margin: -14px 0; /* 터치 영역 */
+	}
+}
 .cptFooter .footArea .quickArea {
 	width: max-content;
 	display: flex;
@@ -4800,6 +4881,12 @@ select.iptSlt.typeLine {
 	font-weight: 400;
 	line-height: normal;
 	display: block;
+}
+@media screen and (max-width: 767px) {
+	.cptFooter .footArea .quickArea .quickGroup .item .link {
+		padding: 13px 0;
+		margin: -13px 0; /* 터치 영역 44px (보이는 크기는 동일) */
+	}
 }
 .cptFooter .footArea .quickArea .quickGroup .item .link.bold {
 	font-weight: 700;
@@ -4918,6 +5005,11 @@ select.iptSlt.typeLine {
 	font-weight: 400;
 	line-height: 150%;
 }
+@media screen and (max-width: 767px) {
+	.cptSubTop .subTopArea .subTopBox .topBody br {
+		display: none; /* PC용 줄바꿈은 모바일에서 해제 */
+	}
+}
 .cptSubTop .subTopArea .subTopBox .topBody b {
 	color: #EC1C24;
 	font-weight: 700;
@@ -4941,7 +5033,9 @@ select.iptSlt.typeLine {
 }
 .cptSubTop .breadCrumb {
 	position: relative;
-	width: 245px;
+	width: auto;
+	flex-shrink: 0;
+	white-space: nowrap; /* 현재 위치명 줄바꿈 방지 */
 }
 .cptSubTop .breadCrumb ul {
 	display: flex;
@@ -5644,7 +5738,6 @@ select.iptSlt.typeLine {
 .comTab {
 	width: 100%;
 	position: relative;
-	margin-bottom: 80px;
 	max-width: 1400px;
 	margin: 0 auto;
 }
@@ -5767,6 +5860,7 @@ select.iptSlt.typeLine {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	margin-top: 60px;
+	max-width: calc(100% - 32px);
 }
 .services01 .section .smTxt {
 	font-size: 20px;
@@ -5989,6 +6083,8 @@ select.iptSlt.typeLine {
 }
 .services01 .section img.pc {
 	display: block;
+	max-width: 100%;
+	height: auto;
 }
 @media screen and (max-width: 767px) {
 	.services01 .section img.pc {
@@ -6033,6 +6129,11 @@ select.iptSlt.typeLine {
 	width: 100%;
 	max-width: 1600px;
 	margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+	.services01 .section.w1400, .services01 .section.w1600 {
+		width: calc(100% - 40px);
+	}
 }
 .services01 .section .contTit {
 	font-size: 32px;
@@ -6086,9 +6187,15 @@ select.iptSlt.typeLine {
 .services01 .section .graphGrid > ul > li {
 	display: flex;
 	flex-flow: column;
-	align-items: felx-start;
+	align-items: flex-start;
 	justify-content: flex-start;
 	gap: 20px;
+}
+@media screen and (max-width: 1280px) {
+	.services01 .section .graphGrid > ul > li {
+		flex: 1 1 0;
+		min-width: 0;
+	}
 }
 @media screen and (max-width: 767px) {
 	.services01 .section .graphGrid > ul > li {
@@ -6167,6 +6274,11 @@ select.iptSlt.typeLine {
 		width: 100%;
 		padding: 40px 20px;
 		background-size: cover;
+	}
+}
+@media screen and (max-width: 1280px) {
+	.services01 .section .graphGrid > ul > li.grid02 .box01 {
+		width: 100%;
 	}
 }
 .services01 .section .graphGrid > ul > li.grid02 .box01 p.description {
@@ -6281,11 +6393,15 @@ select.iptSlt.typeLine {
 	width: 100%;
 	height: 1px;
 	background: #D7DBDF;
+	z-index: 0;
 }
 @media screen and (max-width: 767px) {
 	.services01 .section .stepView ul::after {
 		display: none;
 	}
+}
+.services01 .section .stepView ul > li {
+	z-index: 1;
 }
 .services01 .section .stepView ul.type02::after {
 	margin-top: -69px;
@@ -6528,6 +6644,12 @@ select.iptSlt.typeLine {
 	justify-content: flex-start;
 	gap: 12px;
 }
+@media screen and (max-width: 1280px) {
+	.services01 .section .stepView ul > li .lineDown .desc.type02 {
+		width: auto;
+		max-width: 325px;
+	}
+}
 .services01 .section .stepView ul > li .lineDown .desc.type02 span {
 	display: block;
 	padding-left: 24px;
@@ -6749,8 +6871,8 @@ select.iptSlt.typeLine {
 	}
 }
 .services01 .section.section04.whtBg {
-	background: url(../../images/contents/wht_bg.png) center top no-repeat !important;
-	background-size: cover !important;
+	background: url(../../images/contents/wht_bg.png) center top no-repeat;
+	background-size: cover;
 }
 .services01 .section.section04.whtBg .gradationTxt {
 	background: linear-gradient(92deg, #52A8FF 32.23%, #C555DA 68.81%);
@@ -7028,6 +7150,12 @@ select.iptSlt.typeLine {
 	border-radius: 16px;
 	overflow: hidden;
 }
+@media screen and (max-width: 767px) {
+	.services01 .section.section06 .swiper-slide {
+		width: calc(100% - 40px);
+		max-width: 335px;
+	}
+}
 .services01 .section.section06 .swiper-slide img {
 	display: block;
 }
@@ -7061,11 +7189,16 @@ select.iptSlt.typeLine {
 .services01 .section.section06 .si_slide.type02 .swiper-slide {
 	width: 455.3333px;
 }
+@media screen and (max-width: 767px) {
+	.services01 .section.section06 .si_slide.type02 .swiper-slide {
+		width: calc(100% - 40px);
+	}
+}
 .services01 .section.section06 .si_slide.type02 .slideTxtBox {
 	min-height: 260px;
 }
 .services01 .section.section06 .si_slide.type02 .slideTit {
-	color: #353A3F !important;
+	color: #353A3F;
 }
 .services01 .section.section06 .si_slide.type02 .slideDesc {
 	display: flex;
@@ -7092,6 +7225,11 @@ select.iptSlt.typeLine {
 .services01 .section.section06 .si_slide.type03 .swiper-slide {
 	width: 455.3333px;
 }
+@media screen and (max-width: 767px) {
+	.services01 .section.section06 .si_slide.type03 .swiper-slide {
+		width: calc(100% - 40px);
+	}
+}
 .services01 .section.section06 .si_slide.type03 img {
 	width: 100%;
 }
@@ -7099,7 +7237,7 @@ select.iptSlt.typeLine {
 	min-height: 280px;
 }
 .services01 .section.section06 .si_slide.type03 .slideTit {
-	color: #353A3F !important;
+	color: #353A3F;
 }
 .services01 .section.section06 .si_slide.type03 .slideSub {
 	margin-top: 20px;
@@ -7185,13 +7323,13 @@ select.iptSlt.typeLine {
 		padding: 50px 16px;
 	}
 }
-.services01 .section.section07 > p {
+.services01 .section.section07 > p, .services01 .section.section07 > h2 {
 	text-align: left !important;
 	max-width: 1400px;
 	margin: 0 auto;
 }
 @media screen and (max-width: 767px) {
-	.services01 .section.section07 > p {
+	.services01 .section.section07 > p, .services01 .section.section07 > h2 {
 		padding: 0;
 		word-break: keep-all;
 		margin: 12px 0;
@@ -8235,7 +8373,7 @@ select.iptSlt.typeLine {
 	background: url(../../images/contents/sbm_prod_ico03.svg) 50% 50% no-repeat;
 }
 .services01 .section.section10.type02 .inner {
-	background: url(../../images/contents/wms_cont_bg.png) center center no-repeat !important;
+	background: url(../../images/contents/wms_cont_bg.png) center center no-repeat;
 }
 .services01 .section.section10.type02 .inner > ul {
 	display: flex;
@@ -8312,6 +8450,11 @@ select.iptSlt.typeLine {
 	border-radius: 60px;
 	position: relative;
 	animation: colorChange 8s ease-in-out infinite;
+}
+@media screen and (min-width: 768px) {
+	.csBanner {
+		width: calc(100% - 40px); /* 1640px 이하 좌우 20px 여백 */
+	}
 }
 @media screen and (max-width: 767px) {
 	.csBanner {
@@ -8406,10 +8549,12 @@ select.iptSlt.typeLine {
 	font-size: 16px;
 	font-weight: 400;
 	color: #fff;
+	white-space: nowrap;
 }
 @media screen and (max-width: 767px) {
 	.csBanner .right .btn button {
 		width: calc(50% - 10px);
+		padding: 10px 20px;
 	}
 }
 .csBanner .right .btn button span {
@@ -8424,6 +8569,11 @@ select.iptSlt.typeLine {
 	width: 20px;
 	height: 20px;
 	transform: translateY(-50%);
+}
+@media screen and (max-width: 767px) {
+	.csBanner .right .btn button::after {
+		right: 20px;
+	}
 }
 .csBanner .right .btn button.int {
 	background: rgba(255, 255, 255, 0.2);
@@ -8484,6 +8634,11 @@ select.iptSlt.typeLine {
 	width: 100%;
 	max-width: 1600px;
 	margin: 140px auto;
+}
+@media screen and (min-width: 768px) {
+	.cptRef .intro {
+		width: calc(100% - 40px); /* 1640px 이하 좌우 20px 여백 */
+	}
 }
 @media screen and (max-width: 767px) {
 	.cptRef .intro {
@@ -8620,6 +8775,8 @@ select.iptSlt.typeLine {
 	padding: 32px;
 	border-bottom: 1px solid #EBEEF5;
 	border-top: 1px solid #EBEEF5;
+	text-align: left;
+	padding-right: 96px; /* 펼침 화살표 자리 */
 }
 @media screen and (max-width: 767px) {
 	.cptRef .refBox .refList > ul > li > button {
@@ -8627,7 +8784,7 @@ select.iptSlt.typeLine {
 		gap: 5px;
 		align-items: flex-start;
 		justify-content: flex-start;
-		padding: 16px;
+		padding: 16px 56px 16px 16px;
 	}
 }
 .cptRef .refBox .refList > ul > li > button::after {
@@ -8640,12 +8797,17 @@ select.iptSlt.typeLine {
 	transform: translateY(-50%);
 	background: url(../../images/contents/ref_arrow.svg) 50% 50% no-repeat;
 }
+@media screen and (max-width: 767px) {
+	.cptRef .refBox .refList > ul > li > button::after {
+		right: 16px;
+	}
+}
 .cptRef .refBox .refList > ul > li > button > span.yr {
 	font-size: 24px;
 	font-weight: 700;
 	color: #acb4bd;
 }
-.cptRef .refBox .refList > ul > li > button > p.title {
+.cptRef .refBox .refList > ul > li > button > .title {
 	font-size: 20px;
 	font-weight: 700;
 	color: #353A3F;
@@ -8753,7 +8915,7 @@ select.iptSlt.typeLine {
 .cptRef .refBox .refList > ul > li.active > button::after {
 	transform: translateY(-50%) rotate(180deg);
 }
-.cptRef .refBox .refList > ul > li.active > button > span {
+.cptRef .refBox .refList > ul > li.active > button > span.yr {
 	color: #EC1C24;
 }
 .cptRef .refBox .refList > ul > li.active > .listInfo {
@@ -8809,6 +8971,11 @@ select.iptSlt.typeLine {
 	width: 100%;
 	max-width: 1600px;
 	margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+	.cptLocation .w1600 {
+		width: calc(100% - 40px);
+	}
 }
 .cptLocation .mapArea {
 	margin-bottom: 140px;
@@ -8894,6 +9061,10 @@ select.iptSlt.typeLine {
 @media screen and (max-width: 767px) {
 	.cptLocation .locInfo > div.left .linkArea > ul > li > a {
 		font-size: 18px;
+		display: inline-block;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		margin: -8px 0; /* 터치 영역 */
 	}
 }
 .cptLocation .locInfo > div.left .linkArea > ul > li > a::after {
@@ -9267,6 +9438,7 @@ select.iptSlt.typeLine {
 }
 .comBtnGroup .btnBox {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 12px;
 }
 .comPaging {

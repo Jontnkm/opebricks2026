@@ -1,5 +1,7 @@
 <!-- Header -->
 <%- include('../_ejs/top.ejs', {
+    title: "i-TMS",
+    description: "검증된 자체 운영 솔루션과 표준화된 아키텍처의 결합을 통해 비즈니스의 유연한 확장을 지원하며 지속 가능한 운영 환경을 완성합니다.",
     url: "../../"
 }) %>
 
@@ -17,69 +19,29 @@
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container">
+        <div class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
 
                 <!-- 서브 컨텐츠 내용이 들어오는 영역-->
                 <!-- 서브 상단 -->
-                <div class="cptSubTop">
-                    <div class="subTopArea">
-                        <dl class="subTopBox">
-                            <dt class="topHead">
-                                <!-- <i class="eyebrow">Intelligent AI</i> -->
-                                <h1 class="title">Products</h1>
-                            </dt>
-                            <dd class="topBody">
-                                검증된 자체 자체 운영 솔루션과 표준화된 아키텍처의 결합을 통해 <br/>비즈니스의 유연한 확장을 지원하며 지속 가능한 운영 환경을 완성합니다.
-                            </dd>
-                        </dl>
-                        <!-- <div class="requestArea">
-                            <a href="../sub/contact_us.html" class="link">문의하기</a>
-                        </div> -->
-
-                        <div class="breadCrumb">
-                            <ul>
-                                <li><a href="/"><span class="hidden">홈</span></a></li>
-                                <li><a href="/">Products</a></li>
-                                <li><a href="/">i-TMS</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <%- include('../_ejs/sub_nav.ejs', {
+                    part: "top",
+                    group: "product",
+                    current: "tms",
+                    url: "../"
+                }) %>
 
                 <!-- 서브 컨텐츠 -->
                 <div class="cptContGroup services01">
                     <div class="contGroupArea">
-                        <div class="comTab pc">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);">i-SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">i-WMS</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="active">i-TMS</a>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="comTab mo">
-                            <button type="button" class="current">i-TMS</button>
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);" class="active">i-SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">i-WMS</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">i-TMS</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <%- include('../_ejs/sub_nav.ejs', {
+                    part: "tab",
+                    group: "product",
+                    current: "tms",
+                    url: "../"
+                }) %>
 
                         <div class="section section01 w1600">
                             <div class="mockup">
@@ -90,9 +52,9 @@
                                 i-TMS
                             </p>
 
-                            <p class="bgTit">
-                                단위·통합테스트를 표준화하고,<br/>오픈 품질을 통제하는 운영 게이트 플랫폼
-                            </p>
+                            <h2 class="bgTit">
+                                단위·통합테스트를 표준화하고, <br/>오픈 품질을 통제하는 운영 게이트 플랫폼
+                            </h2>
 
                             <p class="desc">
                                 단위테스트와 통합테스트를 단순 수행하는 도구를 넘어,<br/>
@@ -105,7 +67,7 @@
                             <p class="contTit">테스트 관리 플랫폼  i-TMS</p>
                             <p class="contDesc">
                                 테스트는 “하면 좋은 활동”이 아니라, 시스템 운영 품질과 서비스 신뢰를 좌우하는 필수 절차입니다. 특히 통합 환경에서는 기능 간 연결, 데이터 흐름, 외부 연계, 성능/보안/장애 대응 같은 비기능 요소까지 얽히면서 “테스트가 됐는지”를 말로 설명하기 어렵습니다.<br/><br/>
-                                Test Insight는 테스트의 결과와 근거(증적)를 체계로 남겨, 오픈 가능 여부를 객관적으로 판단할 수 있게 합니다. 
+                                i-TMS는 테스트의 결과와 근거(증적)를 체계로 남겨, 오픈 가능 여부를 객관적으로 판단할 수 있게 합니다. 
                             </p>
 
                             <div class="sbm_product_img_box">
@@ -119,19 +81,19 @@
                                 Why i-TMS
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 왜 i-TMS가 필요할까요?
-                            </p>
+                            </h2>
 
                             <p class="desc">
-                                테스트는 시스템 운영 품질과 서비스 신뢰를 좌우합니다.<br/>체계가 없으면 누락과 지연, 운영 리스크가 오픈 후 비용으로 돌아옵니다.
+                                테스트는 시스템 운영 품질과 서비스 신뢰를 좌우합니다. <br/>체계가 없으면 누락과 지연, 운영 리스크가 오픈 후 비용으로 돌아옵니다.
                             </p>
 
                             <img src="../../images/contents/tms_cont02.png" alt="" class="center pc"/>
                             <img src="../../images/contents/tms_cont02_mo.png" alt="" class="center mo"/>
 
                             <p class="gradationTxt ty01">
-                                테스트는 시스템 운영 품질과 서비스 신뢰를 좌우합니다.<br/>i-TMS는 테스트를 반복 가능한 운영 체계로 만들고,<br/>오픈 품질을 객관적으로 통제합니다.
+                                테스트는 시스템 운영 품질과 서비스 신뢰를 좌우합니다. <br/>i-TMS는 테스트를 반복 가능한 운영 체계로 만들고, <br/>오픈 품질을 객관적으로 통제합니다.
                             </p>
                         </div>
 
@@ -286,9 +248,9 @@
                                 i-TMS Feature
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 i-TMS가 제공하는 핵심 기능
-                            </p>
+                            </h2>
 
                             <p class="desc">
                                 유지보수 관리 플랫폼은 아래 운영 체계 요소를 제품 구조로 제공합니다. (기능 나열이 아니라 체계 구성요소 관점)
@@ -407,7 +369,7 @@
                                 <p class="desc">
                                     테스트 케이스부터 수행 결과, 조치, 증적, 지표까지 하나의 체계로 통합 관리합니다.
                                 </p>
-                                <img src="../../images/contents/tms_product .png" alt="" />
+                                <img src="../../images/contents/tms_product.png" alt="" />
 
                                 <p class="point">
                                     i-TMS는 테스트를 “한 번 잘하는 도구”가 아니라, <br/>
@@ -446,16 +408,16 @@
                             <div class="left">
                                 <span class="smT">OPENBRICKS</span>
                                 <p class="title">
-                                    Beyond Systems,<br/>We Connect Business
+                                    Beyond Systems, <br/>We Connect Business
                                 </p>
                                 <p class="desc">
-                                    오픈브릭스는 AX 기반 시스템 통합으로<br/>시스템을 넘어, 비즈니스를 연결합니다.
+                                    오픈브릭스는 AX 기반 시스템 통합으로 <br/>시스템을 넘어, 비즈니스를 연결합니다.
                                 </p>
                             </div>
                             <div class="right">
                                 <div class="btn">
                                     <button type="button" class="int" onclick="fileDownload()"><span>회사소개서</span></button>
-                                    <button type="button" class="faq"><span>문의하기</span></button>
+                                    <button type="button" class="faq" onclick="location.href='../contact/contact_us.html'"><span>문의하기</span></button>
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,7 @@
 <!-- Header -->
 <%- include('../_ejs/top.ejs', {
+    title: "서비스연계 SBM",
+    description: "전략 설계부터 구현까지 통합된 구조로 비즈니스 운영 전반을 하나의 흐름으로 완성하여 운영 효율성과 확장성을 확보합니다.",
     url: "../../"
 }) %>
 
@@ -17,90 +19,38 @@
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container">
+        <div class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
 
                 <!-- 서브 컨텐츠 내용이 들어오는 영역-->
                 <!-- 서브 상단 -->
-                <div class="cptSubTop">
-                    <div class="subTopArea">
-                        <dl class="subTopBox">
-                            <dt class="topHead">
-                                <!-- <i class="eyebrow">Intelligent AI</i> -->
-                                <h1 class="title">Services</h1>
-                            </dt>
-                            <dd class="topBody">
-                                전략 설계부터 구현까지 통합된 구조로 비즈니스 운영 전반을<br/>하나의 흐름으로 완성하여 운영 효율성과 확장성을 확보합니다.
-                            </dd>
-                        </dl>
-                        <!-- <div class="requestArea">
-                            <a href="../sub/contact_us.html" class="link">문의하기</a>
-                        </div> -->
-
-                        <div class="breadCrumb">
-                            <ul>
-                                <li><a href="/"><span class="hidden">홈</span></a></li>
-                                <li><a href="/">Services</a></li>
-                                <li><a href="/">시스템구축 SI</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <%- include('../_ejs/sub_nav.ejs', {
+                    part: "top",
+                    group: "service",
+                    current: "serviceSbm",
+                    url: "../"
+                }) %>
 
                 <!-- 서브 컨텐츠 -->
                 <div class="cptContGroup services01">
                     <div class="contGroupArea">
-                        <div class="comTab pc">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud 플랫폼 인프라</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" >시스템구축 SI</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="active">서비스연계 SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">DevOps 및 서비스 운영</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud기반 최적화</a>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="comTab mo">
-                            <button type="button" class="current">Cloud기반 최적화</button>
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud 플랫폼 인프라</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">시스템구축 SI</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">서비스연계 SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">DevOps 및 서비스 운영</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud기반 최적화</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <%- include('../_ejs/sub_nav.ejs', {
+                    part: "tab",
+                    group: "service",
+                    current: "serviceSbm",
+                    url: "../"
+                }) %>
 
                         <div class="section section01 w1600">
                             <p class="smTxt">
                                 Service Bridge Middleware
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 서비스연계 SBM(Service Bridge Middleware)
-                            </p>
+                            </h2>
 
                             <p class="desc">
                                 OPENBRICKS의 서비스 SBM은 단순 API 연계를 넘어, 채널/클라이언트–서비스–외부 연계 사이의 연결과 흐름을 운영 가능한 구조로 설계·구현하는 구축 서비스입니다.
@@ -114,7 +64,7 @@
                                     <li>
                                         서비스가 늘고 채널이 확장될수록 품질은 기능 자체보다 연결 상태, 흐름 제어, 운영 <br/>안정성에서 차이가 납니다. 
                                         <br/><br/>
-                                        OPENBRICKS는 자체 자산인 SBM(Service Bridge Middleware)을 적용해, 서비스 단위 구조(MAS)의 완성도를 높이고 변경과 확장에 강한 연계 기반을 만듭니다.
+                                        OPENBRICKS는 자체 자산인 SBM(Service Bridge Middleware)을 적용해, 서비스 단위 구조(MSA)의 완성도를 높이고 변경과 확장에 강한 연계 기반을 만듭니다.
                                         <br/><br/>
                                         시스템이 커질수록 문제가 생기는 지점은 대개 “연결과 운영”입니다. SBM은 연결과 <br/>
                                         흐름을 공통 구조로 묶어 운영 복잡도를 줄이고 서비스 품질을 높입니다.
@@ -138,9 +88,9 @@
                                 Why SBM
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 왜 SBM이 필요할까요?
-                            </p>
+                            </h2>
 
                             <p class="desc">
                                 시스템이 커질수록 문제가 생기는 지점은 대개 “연결과 운영”입니다.
@@ -150,7 +100,7 @@
                             <img src="../../images/contents/whtsbm02.png" alt="" class="center mo"/>
 
                             <p class="gradationTxt ty01">
-                                SBM는 연결과 흐름을 공통 구조로 통합해 표준화된 실행 구조로 <br/> 제공함으로써 운영 복잡도를 줄이고 서비스 품질을 높입니다.
+                                SBM은 연결과 흐름을 공통 구조로 통합해 표준화된 실행 구조로 <br/> 제공함으로써 운영 복잡도를 줄이고 서비스 품질을 높입니다.
                             </p>
                         </div>
 
@@ -163,7 +113,7 @@
                                 <img src="../../images/contents/sbm_product.png" alt="" />
 
                                 <p class="point">
-                                    일반 연계가 필요 시 호출하는 단절형 호출이라면, <br/>SBM은 연결 유지와 흐름 통제를 통해<br/>실시간 상호작용과 운영 안정성을 강화합니다.
+                                    일반 연계가 필요 시 호출하는 단절형 호출이라면, <br/>SBM은 연결 유지와 흐름 통제를 통해 <br/>실시간 상호작용과 운영 안정성을 강화합니다.
                                 </p>
                             </div>
                             <div class="rightBox">
@@ -187,7 +137,7 @@
                                         </li>
                                         <li>
                                             <span>05</span>
-                                            <p>스케쥴러 기반 배치/예약 실행 및 결과 Push 흐름</p>
+                                            <p>스케줄러 기반 배치/예약 실행 및 결과 Push 흐름</p>
                                         </li>
                                         <li>
                                             <span>06</span>
@@ -286,15 +236,15 @@
 
                         <div class="section section07 dark">
                             <p class="smTxt">
-                                SBM Adventages
+                                SBM Advantages
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 SBM 기반 구현 강점
-                            </p>
+                            </h2>
 
                             <p class="desc">
-                                다양한 채널·언어·프로토콜·서브리스를 운영 가능한 연결 구조로 묶습니다.
+                                다양한 채널·언어·프로토콜·서버리스를 운영 가능한 연결 구조로 묶습니다.
                             </p>
 
                             <div class="cardList">
@@ -484,16 +434,16 @@
                             <div class="left">
                                 <span class="smT">OPENBRICKS</span>
                                 <p class="title">
-                                    Beyond Systems,<br/>We Connect Business
+                                    Beyond Systems, <br/>We Connect Business
                                 </p>
                                 <p class="desc">
-                                    오픈브릭스는 AX 기반 시스템 통합으로<br/>시스템을 넘어, 비즈니스를 연결합니다.
+                                    오픈브릭스는 AX 기반 시스템 통합으로 <br/>시스템을 넘어, 비즈니스를 연결합니다.
                                 </p>
                             </div>
                             <div class="right">
                                 <div class="btn">
                                     <button type="button" class="int" onclick="fileDownload()"><span>회사소개서</span></button>
-                                    <button type="button" class="faq"><span>문의하기</span></button>
+                                    <button type="button" class="faq" onclick="location.href='../contact/contact_us.html'"><span>문의하기</span></button>
                                 </div>
                             </div>
                         </div>

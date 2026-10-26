@@ -1,5 +1,7 @@
 <!-- Header -->
 <%- include('../_ejs/top.ejs', {
+    title: "Cloud 플랫폼 인프라",
+    description: "전략 설계부터 구현까지 통합된 구조로 비즈니스 운영 전반을 하나의 흐름으로 완성하여 운영 효율성과 확장성을 확보합니다.",
     url: "../../"
 }) %>
 
@@ -17,90 +19,38 @@
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container">
+        <div class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
 
                 <!-- 서브 컨텐츠 내용이 들어오는 영역-->
                 <!-- 서브 상단 -->
-                <div class="cptSubTop">
-                    <div class="subTopArea">
-                        <dl class="subTopBox">
-                            <dt class="topHead">
-                                <!-- <i class="eyebrow">Intelligent AI</i> -->
-                                <h1 class="title">Services</h1>
-                            </dt>
-                            <dd class="topBody">
-                                전략 설계부터 구현까지 통합된 구조로 비즈니스 운영 전반을<br/>하나의 흐름으로 완성하여 운영 효율성과 확장성을 확보합니다.
-                            </dd>
-                        </dl>
-                        <!-- <div class="requestArea">
-                            <a href="../sub/contact_us.html" class="link">문의하기</a>
-                        </div> -->
-
-                        <div class="breadCrumb">
-                            <ul>
-                                <li><a href="/"><span class="hidden">홈</span></a></li>
-                                <li><a href="/">Services</a></li>
-                                <li><a href="/">시스템구축 SI</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <%- include('../_ejs/sub_nav.ejs', {
+                    part: "top",
+                    group: "service",
+                    current: "cloud_infra",
+                    url: "../"
+                }) %>
 
                 <!-- 서브 컨텐츠 -->
                 <div class="cptContGroup services01">
                     <div class="contGroupArea">
-                        <div class="comTab pc">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);" class="active">Cloud 플랫폼 인프라</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" >시스템구축 SI</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">서비스연계 SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">DevOps 및 서비스 운영</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud기반 최적화</a>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="comTab mo">
-                            <button type="button" class="current">Cloud 플랫폼 인프라</button>
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud 플랫폼 인프라</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">시스템구축 SI</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">서비스연계 SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">DevOps 및 서비스 운영</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud기반 최적화</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <%- include('../_ejs/sub_nav.ejs', {
+                    part: "tab",
+                    group: "service",
+                    current: "cloud_infra",
+                    url: "../"
+                }) %>
 
                         <div class="section section01 w1600">
                             <p class="smTxt">
                                 Cloud Platform Engineering 
                             </p>
 
-                            <p class="bgTit">
-                                클라우드 기반의 안정적이고<br/>확장 가능한 플랫폼 구축
-                            </p>
+                            <h2 class="bgTit">
+                                클라우드 기반의 안정적이고 <br/>확장 가능한 플랫폼 구축
+                            </h2>
 
                             <p class="desc">
                                 인프라부터 컨테이너 플랫폼, DevOps 체계까지 표준화된 클라우드 플랫폼을 <br/>설계·구축하여 개발부터 운영까지 일관된 환경을 제공합니다.
@@ -109,10 +59,10 @@
                             <div class="imgTxt type02">
                                 <ul>
                                     <li>
-                                        클라우드 플랫폼은 단순한 인프라가 아니라<br/>서비스를 안정적으로 운영하기 위한<br/>기반입니다.
+                                        클라우드 플랫폼은 단순한 인프라가 아니라 <br/>서비스를 안정적으로 운영하기 위한 <br/>기반입니다.
                                     </li>
                                     <li>
-                                        최근 시스템은 빠른 개발뿐만 아니라 안정적인 운영과 지속적인 확장을 지원하는 플랫폼이 <br/>요구됩니다. 하지만 많은 기업들은 개발 환경과 운영 환경이 분리되어 있어 배포 지연, 운영 오류, 환경 차이 등의 문제를 반복적으로 발생하고 있습니다.
+                                        최근 시스템은 빠른 개발뿐만 아니라 안정적인 운영과 지속적인 확장을 지원하는 플랫폼이 <br/>요구됩니다. 하지만 많은 기업들은 개발 환경과 운영 환경이 분리되어 있어 배포 지연, 운영 오류, 환경 차이 등의 문제가 반복적으로 발생하고 있습니다.
                                         <br/><br/>
                                         오픈브릭스는 Azure를 중심으로 AWS, NHN Cloud 및 On-Premise 환경까지 <br/>고객의 비즈니스와 운영 환경에 적합한 클라우드 플랫폼을 설계하고 구축합니다. 또한 컨테이너 기반 운영 환경과 DevOps 체계를 통해 개발부터 운영까지 일관된 플랫폼을 제공합니다.
                                     </li> 
@@ -177,9 +127,9 @@
                                 Why Cloud App Engineering
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 플랫폼 서비스 구성
-                            </p>
+                            </h2>
 
                             <p class="desc">
                                 각 상품은 개별적으로 선택하여 구축할 수 있으며, 필요에 따라 상위 상품으로 확장할 수 있습니다. 
@@ -190,7 +140,7 @@
                                     <li>
                                         <div class="group">
                                             <span class="smT">Layer 01</span>
-                                            <p class="title">Infrastructure Foundation<br/>Cloud 및 On-Premise 초기 구축</p>
+                                            <p class="title">Infrastructure Foundation <br/>Cloud 및 On-Premise 초기 구축</p>
                                             <p class="desc">Azure, AWS, NHN Cloud 또는 On-Premise 환경의 기본 인프라를 설계·구축하여 안정적인 서비스 운영 기반을 제공합니다.</p>
                                         </div>
                                         <img src="../../images/contents/ico_cli01.svg" alt="">
@@ -198,7 +148,7 @@
                                     <li>
                                         <div class="group">
                                             <span class="smT">Layer 02</span>
-                                            <p class="title">Container Platform<br/>컨테이너 개발 환경 및 운영 구성</p>
+                                            <p class="title">Container Platform <br/>컨테이너 개발 환경 및 운영 구성</p>
                                             <p class="desc">Docker와 Kubernetes 기반의 표준 개발·운영 환경을 구축하여 배포 효율성과 운영 안정성을 높입니다.</p>
                                         </div>
                                         <img src="../../images/contents/ico_cli02.svg" alt="">
@@ -206,7 +156,7 @@
                                     <li>
                                         <div class="group">
                                             <span class="smT">Layer 03</span>
-                                            <p class="title">DevOps & CI/CD Platform<br/>애플리케이션 개발 관리 및 CI/CD</p>
+                                            <p class="title">DevOps & CI/CD Platform <br/>애플리케이션 개발 관리 및 CI/CD</p>
                                             <p class="desc">형상관리와 CI/CD 자동화 환경을 구축하여 개발부터 테스트, 배포까지 지속 가능한 DevOps 체계를 제공합니다.</p>
                                         </div>
                                         <img src="../../images/contents/ico_cli03.svg" alt="">
@@ -292,16 +242,16 @@
                             <div class="left">
                                 <span class="smT">OPENBRICKS</span>
                                 <p class="title">
-                                    Beyond Systems,<br/>We Connect Business
+                                    Beyond Systems, <br/>We Connect Business
                                 </p>
                                 <p class="desc">
-                                    오픈브릭스는 AX 기반 시스템 통합으로<br/>시스템을 넘어, 비즈니스를 연결합니다.
+                                    오픈브릭스는 AX 기반 시스템 통합으로 <br/>시스템을 넘어, 비즈니스를 연결합니다.
                                 </p> 
                             </div>
                             <div class="right">
                                 <div class="btn">
                                     <button type="button" class="int" onclick="fileDownload()"><span>회사소개서</span></button>
-                                    <button type="button" class="faq"><span>문의하기</span></button>
+                                    <button type="button" class="faq" onclick="location.href='../contact/contact_us.html'"><span>문의하기</span></button>
                                 </div>
                             </div>
                         </div>

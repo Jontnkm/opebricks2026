@@ -1,5 +1,7 @@
   <!-- Header -->
 <%- include('../_ejs/top.ejs', {
+    title: "References",
+    description: "지난 20여 년간 다양한 파트너와 함께 성장해온 OPENBRICKS의 경험과 기술이 담긴 프로젝트 성과를 소개합니다.",
     url: "../../"
 }) %>
 
@@ -17,38 +19,19 @@
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container">
+        <div class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
 
                 <!-- 서브 컨텐츠 내용이 들어오는 영역-->
                 <!-- 서브 상단 -->
-                <div class="cptSubTop">
-                    <div class="subTopArea">
-                        <dl class="subTopBox">
-                            <dt class="topHead">
-                                <!-- <i class="eyebrow">Intelligent AI</i> -->
-                                <h1 class="title">References</h1>
-                            </dt>
-                            <dd class="topBody">
-                                지난 20여 년간 다양한 파트너와 함께 성장해온,<br/>
-                                OPENBRICKS의 경험과 기술이 담긴 프로젝트 성과를 소개합니다.
-                            </dd>
-                        </dl>
-                        <!-- <div class="requestArea">
-                            <a href="../sub/contact_us.html" class="link">문의하기</a>
-                        </div> -->
-
-                        <div class="breadCrumb">
-                            <ul>
-                                <li><a href="/"><span class="hidden">홈</span></a></li>
-                                <li><a href="/">References</a></li>
-                                <!-- <li><a href="/">시스템구축 SI</a></li> -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <%- include('../_ejs/sub_nav.ejs', {
+                    part: "top",
+                    group: "reference",
+                    current: "reference",
+                    url: "../"
+                }) %>
 
                 <!-- 서브 컨텐츠 -->
                 <div class="cptContGroup">
@@ -58,7 +41,7 @@
                             <div class="txtBox">
                                 <div class="left">
                                     <p>
-                                        지난 20여 년간 다양한 고객과 함께 성장하며,<br/>다양한 프로젝트를 성공적으로 수행해왔습니다.<br/>레퍼런스 사례를 통해 OPENBRICKS의 성과를 확인 해보세요.
+                                        지난 20여 년간 다양한 고객과 함께 성장하며, <br/>다양한 프로젝트를 성공적으로 수행해왔습니다. <br/>레퍼런스 사례를 통해 OPENBRICKS의 성과를 확인해 보세요.
                                     </p>
                                 </div>
                                 <div class="right">
@@ -81,9 +64,9 @@
                             <div class="refList">
                                 <ul>
                                     <li class="active">
-                                        <button>
+                                        <button type="button" aria-expanded="true">
                                             <span class="yr">2025</span>
-                                            <p class="title">공항철도 직통열차 예약발매 고객누리집 개편</p>
+                                            <span class="title">공항철도 직통열차 예약발매 고객누리집 개편</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -109,9 +92,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2024</span>
-                                            <p class="title">아이돌봄서비스 인적성검사시스템</p>
+                                            <span class="title">아이돌봄서비스 인적성검사시스템</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -140,9 +123,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2024</span>
-                                            <p class="title">국민체육진흥공단 경륜경정 홈페이지 구축</p>
+                                            <span class="title">국민체육진흥공단 경륜경정 홈페이지 구축</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -171,9 +154,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2024</span>
-                                            <p class="title">현대자동차 IONIQ 5 싱가포르 브랜드 웹사이트</p>
+                                            <span class="title">현대자동차 IONIQ 5 싱가포르 브랜드 웹사이트</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -202,9 +185,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2023</span>
-                                            <p class="title">바로크레디트 대출 플랫폼 구축</p>
+                                            <span class="title">바로크레디트 대출 플랫폼 구축</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -233,9 +216,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2022</span>
-                                            <p class="title">현대캐피탈 Smart work place Platform</p>
+                                            <span class="title">현대캐피탈 Smart work place Platform</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -264,9 +247,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2022</span>
-                                            <p class="title">국민체력100 통합서비스 시스템</p>
+                                            <span class="title">국민체력100 통합서비스 시스템</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -295,9 +278,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2022</span>
-                                            <p class="title">불법스포츠토토신고센터</p>
+                                            <span class="title">불법스포츠토토신고센터</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -326,9 +309,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2021</span>
-                                            <p class="title">한화생명 hello 고도화 및 운영</p>
+                                            <span class="title">한화생명 hello 고도화 및 운영</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -357,9 +340,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2021</span>
-                                            <p class="title">삼성주니어 SW아카데미</p>
+                                            <span class="title">삼성주니어 SW아카데미</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -388,9 +371,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2021</span>
-                                            <p class="title">한국 컴패션 캠퍼스</p>
+                                            <span class="title">한국 컴패션 캠퍼스</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -419,9 +402,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2019</span>
-                                            <p class="title">스포츠강좌이용권 시스템 구축</p>
+                                            <span class="title">스포츠강좌이용권 시스템 구축</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -450,9 +433,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2019</span>
-                                            <p class="title">잡스포이즈 Recruit 시스템</p>
+                                            <span class="title">잡스포이즈 Recruit 시스템</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -481,9 +464,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2018</span>
-                                            <p class="title">현대홈쇼핑 서비스 고도화</p>
+                                            <span class="title">현대홈쇼핑 서비스 고도화</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -512,9 +495,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2018</span>
-                                            <p class="title">더현대닷컴 서비스 개선</p>
+                                            <span class="title">더현대닷컴 서비스 개선</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -543,9 +526,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2015</span>
-                                            <p class="title">에버랜드 온라인 통합예약시스템</p>
+                                            <span class="title">에버랜드 온라인 통합예약시스템</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -573,9 +556,9 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <button>
+                                        <button type="button" aria-expanded="false">
                                             <span class="yr">2010 </span>
-                                            <p class="title">대웅제약 The SHOP</p>
+                                            <span class="title">대웅제약 The SHOP</span>
                                         </button>
                                         <div class="listInfo">
                                             <div class="thumb">
@@ -612,16 +595,16 @@
                         <div class="left">
                             <span class="smT">OPENBRICKS</span>
                             <p class="title">
-                                Beyond Systems,<br/>We Connect Business
+                                Beyond Systems, <br/>We Connect Business
                             </p>
                             <p class="desc">
-                                오픈브릭스는 AX 기반 시스템 통합으로<br/>시스템을 넘어, 비즈니스를 연결합니다.
+                                오픈브릭스는 AX 기반 시스템 통합으로 <br/>시스템을 넘어, 비즈니스를 연결합니다.
                             </p>
                         </div>
                         <div class="right">
                             <div class="btn">
                                 <button type="button" class="int" onclick="fileDownload()"><span>회사소개서</span></button>
-                                <button type="button" class="faq"><span>문의하기</span></button>
+                                <button type="button" class="faq" onclick="location.href='../contact/contact_us.html'"><span>문의하기</span></button>
                             </div>
                         </div>
                     </div>

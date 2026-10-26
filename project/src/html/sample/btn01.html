@@ -1,6 +1,6 @@
 <!-- Header -->
 <%- include('../_ejs/top.ejs', {
-    title: "경륜 커뮤니티",
+    title: "버튼 샘플",
     url: "../../"
 }) %>
 
@@ -9,11 +9,12 @@
     <div class="layoutArea">
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container">
+        <div class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
                 <div class="layoutContArea">
+                    <%- include('../_ejs/sub_top.ejs', { subTitle: "버튼 샘플" }) %>
                     
                     <!-- margin top 40px -->
                     <div class="comBtnGroup">

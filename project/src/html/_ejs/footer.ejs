@@ -5,7 +5,7 @@ var url = locals.url ? locals.url : '../../';
 <div class="cptFooter">
     <div class="footArea">
         <div class="copyArea">
-            COPYRIGHT © OPENBRICKS. <br class="t_only"> ALL RIGHT RESERVED
+            COPYRIGHT © OPENBRICKS. <br class="t_only"> ALL RIGHTS RESERVED
         </div>
         <div class="alignR">
             <div class="addressArea">
@@ -15,14 +15,14 @@ var url = locals.url ? locals.url : '../../';
                 </dl>
                 <dl class="grp">
                     <dt class="tit">TEL</dt>
-                    <dd class="dec">02-557-0130</dd>
+                    <dd class="dec"><a href="tel:025570130">02-557-0130</a></dd>
                 </dl>
             </div>
             <div class="quickArea">
                 <ul class="quickGroup">
-                    <li class="item"><a href="javascript:void(0);" class="link" onclick="fileDownload()">회사소개서 다운로드</a></li>
-                    <li class="item"><a href="javascript:void(0);" class="link">문의하기</a></li>
-                    <li class="item"><a href="https://blog.naver.com/iwi_log" target="_blank" class="link bold">BLOG</a></li>
+                    <li class="item"><a href="<%= url %>common/file/OPENBRICKS.pdf" class="link" download="OPENBRICKS_회사소개서.pdf">회사소개서 다운로드</a></li>
+                    <li class="item"><a href="<%= url %>html/contact/contact_us.html" class="link">문의하기</a></li>
+                    <li class="item"><a href="https://blog.naver.com/iwi_log" target="_blank" rel="noopener noreferrer" title="새 창 열림" class="link bold">BLOG</a></li>
                 </ul>
             </div>
         </div>

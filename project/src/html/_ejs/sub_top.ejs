@@ -1,4 +1,4 @@
 <%
-var url = locals.url ? locals.url : '../../';
-var subTitle = locals.subTitle ? locals.subTitle : '../../';
+var subTitle = locals.subTitle ? locals.subTitle : '';
 %>
+<% if (subTitle) { %><h1 class="hidden"><%= subTitle %></h1><% } %>

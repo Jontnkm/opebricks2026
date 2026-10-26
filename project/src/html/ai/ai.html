@@ -1,5 +1,7 @@
  <!-- Header -->
 <%- include('../_ejs/top.ejs', {
+    title: "AI Use Cases",
+    description: "성공적인 AI 도입은 기술이 아닌 활용 방식에서 시작됩니다. 조직에 최적화된 AI 솔루션으로 지속 가능한 운영 혁신을 지원합니다.",
     url: "../../"
 }) %>
 
@@ -17,90 +19,32 @@
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container">
+        <div class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
 
                 <!-- 서브 컨텐츠 내용이 들어오는 영역-->
                 <!-- 서브 상단 -->
-                <div class="cptSubTop">
-                    <div class="subTopArea">
-                        <dl class="subTopBox">
-                            <dt class="topHead">
-                                <!-- <i class="eyebrow">Intelligent AI</i> -->
-                                <h1 class="title">AI Use Cases</h1>
-                            </dt>
-                            <dd class="topBody">
-                                성공적인 AI 도입은 기술이 아닌 활용 방식에서 시작됩니다.<br/>조직에 최적화된 AI 솔루션으로 지속 가능한 운영 혁신을 지원합니다.
-                            </dd>
-                        </dl>
-                        <!-- <div class="requestArea">
-                            <a href="../sub/contact_us.html" class="link">문의하기</a>
-                        </div> -->
-
-                        <div class="breadCrumb">
-                            <ul>
-                                <li><a href="/"><span class="hidden">홈</span></a></li>
-                                <li><a href="/">AI Use Cases</a></li>
-                                <!-- <li><a href="/">시스템구축 SI</a></li> -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <%- include('../_ejs/sub_nav.ejs', {
+                    part: "top",
+                    group: "ai",
+                    current: "ai",
+                    url: "../"
+                }) %>
 
                 <!-- 서브 컨텐츠 -->
                 <div class="cptContGroup services01 ai">
                     <div class="contGroupArea">
-                        <!-- <div class="comTab pc">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);" class="active">시스템구축 SI</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">서비스연계 SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud기반 최적화</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">DevOps 및 서비스 운영</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud 인프라 구축</a>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="comTab mo">
-                            <button type="button" class="current">시스템구축 SI </button>
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);" class="active">시스템구축 SI</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">서비스연계 SBM</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud기반 최적화</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">DevOps 및 서비스 운영</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Cloud 인프라 구축</a>
-                                </li>
-                            </ul>
-                        </div> -->
 
                         <div class="section section04 whtBg">
                             <p class="smTxt">
                                 AI-Enabled Delivery System
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 AI 내재화
-                            </p>
+                            </h2>
 
                             <p class="desc">
                                 SI 수행 전 과정의 표준화, 품질 게이트, 추적성, 지식화를 강화하여<br/>
@@ -111,7 +55,7 @@
                             <img src="../../images/contents/ai_cont01_mo.png" alt="" class="center mo"/>
 
                             <p class="gradationTxt ty01">
-                                AI를 내재화해 표준화·자동화·지식화 기반의<br/>생산성과 품질 안정성을 강화합니다.
+                                AI를 내재화해 표준화·자동화·지식화 기반의 <br/>생산성과 품질 안정성을 강화합니다.
                             </p>
                         </div>
 
@@ -172,9 +116,9 @@
                                 AI-Native
                             </p>
 
-                            <p class="bgTit">
-                                기술 도입을 넘어, AI 내재화로<br/>품질과 운영 체계를 혁신합니다.
-                            </p>
+                            <h2 class="bgTit">
+                                기술 도입을 넘어, AI 내재화로 <br/>품질과 운영 체계를 혁신합니다.
+                            </h2>
 
                             <p class="desc">
                                 OPENBRICKS는 AI를 단순한 개발 도구가 아닌, 표준과 품질 통제를 일관되게 적용하는 수행 체계로 내재화합니다.<br/>
@@ -185,7 +129,7 @@
                             <img src="../../images/contents/ai_cont02_mo.png" alt="" class="center mo"/>
 
                             <p class="gradationTxt ty01">
-                                AI를 내재화해 표준화·자동화·지식화 기반의<br/>생산성과 품질 안정성을 강화합니다.
+                                AI를 내재화해 표준화·자동화·지식화 기반의 <br/>생산성과 품질 안정성을 강화합니다.
                             </p>
                         </div>
 
@@ -309,19 +253,19 @@
                                 AI for Stable Systems
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 OPENBRICKS의 혁신은 AI 제품 판매가 아닌, <br/>SI 수행체계의 고도화입니다.
-                            </p>
+                            </h2>
 
                             <p class="desc">
-                                코딩·리뷰·테스트·증적 반복 작업을 줄여 품질 활동에 집중하고,<br/>운영 이력과 결과물을 자산화해 더 안정적인 수행 체계를 만듭니다.<br/>AI 제품 판매가 아닌, 납품 품질과 운영 안정성 강화를 위한 AI 내재화입니다.
+                                코딩·리뷰·테스트·증적 반복 작업을 줄여 품질 활동에 집중하고, <br/>운영 이력과 결과물을 자산화해 더 안정적인 수행 체계를 만듭니다. <br/>AI 제품 판매가 아닌, 납품 품질과 운영 안정성 강화를 위한 AI 내재화입니다.
                             </p>
 
                             <img src="../../images/contents/ai_cont07.png" alt="" class="center pc"/>
                             <img src="../../images/contents/ai_cont07_mo.png" alt="" class="center mo"/>
 
                             <p class="gradationTxt ty01">
-                                코딩·리뷰·테스트·증적의 반복 작업을 줄여<br/> 품질 활동에 집중하고, 운영 이력과 결과물을 자산화해<br/>지속 가능한 운영 안정성을 만듭니다.
+                                코딩·리뷰·테스트·증적의 반복 작업을 줄여<br/> 품질 활동에 집중하고, 운영 이력과 결과물을 자산화해 <br/>지속 가능한 운영 안정성을 만듭니다.
                             </p>
                         </div>
 
@@ -365,16 +309,16 @@
                             <div class="left">
                                 <span class="smT">OPENBRICKS</span>
                                 <p class="title">
-                                    Beyond Systems,<br/>We Connect Business
+                                    Beyond Systems, <br/>We Connect Business
                                 </p>
                                 <p class="desc">
-                                    오픈브릭스는 AX 기반 시스템 통합으로<br/>시스템을 넘어, 비즈니스를 연결합니다.
+                                    오픈브릭스는 AX 기반 시스템 통합으로 <br/>시스템을 넘어, 비즈니스를 연결합니다.
                                 </p>
                             </div>
                             <div class="right">
                                 <div class="btn">
                                     <button type="button" class="int" onclick="fileDownload()"><span>회사소개서</span></button>
-                                    <button type="button" class="faq"><span>문의하기</span></button>
+                                    <button type="button" class="faq" onclick="location.href='../contact/contact_us.html'"><span>문의하기</span></button>
                                 </div>
                             </div>
                         </div>

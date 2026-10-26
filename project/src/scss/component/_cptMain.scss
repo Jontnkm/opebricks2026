@@ -296,8 +296,8 @@
                 width: 1600px; min-width: 1600px; height: auto; display: flex;
                 .bnItem {
                     &:first-child {margin-left: 0;}
-                    width: 370px; min-width: 370px; margin-left: 40px; padding: 40px 40px 130px 40px; border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.15); 
-                    background: rgba(217, 217, 217, 0.09); box-shadow: 0px 40px 50px 10px rgba(0, 0, 0, 0.15); cursor: pointer; 
+                    width: 380px; min-width: 380px; height: 480px; padding: 40px 40px 130px 40px; border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.15); /* 간격은 swiper spaceBetween */
+                    background: rgba(217, 217, 217, 0.1); box-shadow: 0px 40px 50px 10px rgba(0, 0, 0, 0.15); cursor: pointer; 
                     transition: all 0.3s; position: relative; flex-shrink: 1; backdrop-filter: blur(3.5840001106262207px);
                     animation: startMainBn 0.8s cubic-bezier(0.4,0,0.2,1.2); animation-fill-mode: forwards; transform: translate(0, 700px); opacity: 0;
 
@@ -319,7 +319,7 @@
                                 color: #FFF; text-align: center; font-size: 14px; font-style: normal; font-weight: 300; line-height: 150%; text-align: left; display: block;
                             }
                             .tit {
-                                margin-top: 4px; color: #FFF; font-size: 32px; font-style: normal; font-weight: 600; line-height: 130%; text-align: left; display: block;
+                                margin-top: 4px; color: #FFF; font-size: 32px; font-style: normal; font-weight: 600; line-height: 130%; text-align: left; display: block; letter-spacing: -0.06em; /* 'DevOps 및 서비스 운영' 한 줄 유지 */
                             }
                             .titSub {
                                 margin-top: 20px; color: #EC1C24; font-size: 18px; font-style: normal; font-weight: 500; line-height: 150%; text-align: left; display: block;
@@ -330,8 +330,8 @@
                         }
                     }
                     .more {
-                        width: 50px; height: 50px; font-size: 0; border-radius: 12px; opacity: 0.5; transition: all 0.3s;
-                        background: #000 url(../../images/common/ic_24_main_more.svg) center no-repeat; position: absolute; left: 40px; bottom: 40px; 
+                        width: 50px; height: 50px; font-size: 0; border-radius: 12px; transition: all 0.3s;
+                        background: rgba(0, 0, 0, 0.5) url(../../images/common/ic_24_main_more.svg) center no-repeat; position: absolute; left: 40px; bottom: 40px; 
                         &:hover {opacity: 1;}
                     }
                     &:hover{
@@ -349,6 +349,9 @@
                             .bnCont { 
                                 color: #000;
                             }
+                        }
+                        .more {
+                            background-color: #34475E;
                         }
                     }
                 }
@@ -399,13 +402,13 @@
                 .mainBnArea {
                     padding: 0 10px;
                     .swiper-pagination-bullets {
-                        display: block;
+                        display: block; position: relative; bottom: auto; margin-top: 26px; /* 카드~점 40px (피그마: 간격 30 + 영역 여백 10) */
                     }
                 }
                 .mainBn {
                     .bnItem {
                         &:first-child {margin-left: 0;}
-                        width: 280px; min-width: 280px; margin-left: 20px; padding: 40px 30px 110px;
+                        width: 276px; min-width: 276px; height: 400px; padding: 40px 30px 110px;
                         .bnGroup {
                             .bnTop {
                                 height: 184px;
@@ -424,7 +427,7 @@
                             }
                         }
                         .more {
-                            width: 40px; height: 40px; background: #000 url(../../images/common/ic_24_main_more.svg) center / 20px no-repeat; left: 30px;
+                            width: 40px; height: 40px; background: rgba(0, 0, 0, 0.5) url(../../images/common/ic_24_main_more.svg) center / 20px no-repeat; left: 30px;
                         }
                     }
                 }

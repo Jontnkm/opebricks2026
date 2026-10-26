@@ -30,6 +30,11 @@
             }
             .topBody {
                 width: 100%; margin-top: 0px; color: #A0A0A0; font-size: 20px; font-style: normal; font-weight: 400; line-height: 150%;
+                br {
+                    @include media ("mobile") {
+                        display: none; /* PC용 줄바꿈은 모바일에서 해제 */
+                    }
+                }
                 b {
                     color: #EC1C24; font-weight: 700;
                 }
@@ -45,7 +50,7 @@
     }
 
     .breadCrumb {
-        position:relative; width:245px;
+        position:relative; width:auto; flex-shrink:0; white-space:nowrap; /* 현재 위치명 줄바꿈 방지 */
 
         ul {
             display:flex; flex-flow: row nowrap; align-items: center; justify-content: flex-start; gap:24px;

@@ -1,5 +1,10 @@
 /* --------------------------- 연락 --------------------------- */
 .cptContactUs {
+    // 문의하기는 흰 배경 (서브 상단 공통 그라데이션 미사용)
+    &.cptSubTop {
+        background: #fff; animation: none;
+    }
+
 
     .contactArea {
         display: flex; justify-content: space-between; width: 100%; max-width: 1600px; margin: 0 auto; padding-bottom: 80px; border-bottom: 1px solid #E8E8E8;
@@ -192,7 +197,13 @@
 
                                 &:checked:not(:disabled) + label {
                                     &::after {
-                                        width: 30px; height: 30px; background: url("../../images/common/chk.svg") #C8C8C8 center center no-repeat; background-size: 100% 100%;
+                                        background-color: #EC1C24;
+                                    }
+                                }
+
+                                &:focus-visible + label {
+                                    &::after {
+                                        outline: 2px solid #353a3f; outline-offset: 2px;
                                     }
                                 }
 
@@ -209,7 +220,7 @@
                                     }
 
                                     &::after {
-                                        content: ""; display: block; position: absolute; top: 50%; left: 0; width: 30px; height: 30px; background: url("../../images/common/chk.svg") #EC1C24 center center no-repeat; background-size: 100% 100%; border-radius: 50%; transform: translateY(-50%); box-sizing: border-box;
+                                        content: ""; display: block; position: absolute; top: 50%; left: 0; width: 30px; height: 30px; background: url("../../images/common/chk.svg") #C8C8C8 center center no-repeat; background-size: 100% 100%; border-radius: 50%; transform: translateY(-50%); box-sizing: border-box;
                                     }
 
                                 }

@@ -1,6 +1,6 @@
 /* ------------------------ GNB ------------------------ */
 .cptGnb {
-    width: 100%; height: 100px; position: relative; z-index:9999; transition: background-color .6s ease;
+    width: 100%; height: 100px; position: relative; z-index:10000; transition: background-color .6s ease; /* 전체메뉴가 퀵버튼(9999)보다 위 */
 
     @include media ("mobile")  {
         height:60px;
@@ -32,7 +32,7 @@
 
                             &::after {
                                 display:none;
-                                content:''; position:absolute; bottom:-40px; left:50%; transform:translateX(-50%);
+                                content:''; position:absolute; bottom:-43px; left:50%; transform:translateX(-50%); /* 헤더 하단선 중앙 */
                                 width: 8px; height:8px; background:#EC1C24; border-radius:50%;
                             }
                         }
@@ -94,11 +94,13 @@
         }
         .allMenuBox {
             &.pc {
-                width: 100%; padding: 0 16px; border-left: 1px solid #e8e8e8; background: rgba(255,255,255,1); position: fixed; left: 0; top: -999px; z-index: 5;
-                transition: top 0.3s; transition-delay: 0s; backdrop-filter: blur(3.5840001106262207px);  border-top:1px solid #dfdfdf;
+                // 헤더와 함께 스크롤되도록 absolute, 닫힘 상태는 visibility로 숨겨 키보드 포커스도 막음
+                width: 100%; min-height: 356px; padding: 0 16px; background: #fff; position: absolute; left: 0; top: 100px; z-index: 5;
+                border-top: 1px solid #d7dbdf; box-shadow: 0 20px 20px 0 rgba(0,0,0,0.1);
+                visibility: hidden; opacity: 0; transition: opacity 0.2s, visibility 0.2s;
 
                 &.active {
-                    top: 100px; transition-delay: 0.2s;
+                    visibility: visible; opacity: 1;
                 }
 
                 .inner {
@@ -135,7 +137,8 @@
                     }
                 }
 
-                @include media ("mobile") {
+                // 상단 GNB가 숨겨지는 구간(1280px 이하)부터는 1차 메뉴가 포함된 mo 메뉴 사용
+                @include media ("pc") {
                     display:none;
                 }
             }
@@ -143,17 +146,22 @@
             &.mo {
                 display:none; 
 
-                @include media ("mobile") {
-                    display:block;
+                @include media ("pc") {
+                    display:flex;
                 }
 
-                width: 100%; height: 100vh; padding: 0 16px; border-left: 1px solid #e8e8e8; background: rgba(255,255,255,1); position: fixed; right: -100%; top: 0; z-index: 5;
+                width: 100%; height: 100vh; height: 100dvh; padding: 0 16px; border-left: 1px solid #e8e8e8; background: rgba(255,255,255,1); position: fixed; right: -100%; top: 0; z-index: 5;
+                flex-direction: column; overflow-y: auto; visibility: hidden;
                 transition: right 0.1s; transition-delay: 0s; backdrop-filter: blur(3.5840001106262207px);
                 &.active {
-                    right: 0; transition-delay: 0.2s;
+                    right: 0; transition-delay: 0.2s; visibility: visible;
                 }
                 .depth1Group {
-                    width: 100%; padding-top: 60px;
+                    width: 100%; padding-top: 100px;
+
+                    @include media ("mobile") {
+                        padding-top: 60px;
+                    }
 
                     .depth1List {
 
@@ -199,7 +207,7 @@
                     }
                 }
                 .quickGroup {
-                    width: calc(100% - 32px); margin: 0 16px; padding: 20px 0 40px; border-top: 1px solid #C8C8C8; position: absolute; left: 0; bottom: 0;
+                    width: 100%; margin-top: auto; padding: 20px 0 40px; border-top: 1px solid #C8C8C8; flex-shrink: 0;
                     .item {
                         &:first-child {margin-top: 0;}
                         width: 100%; margin-top: 20px;
@@ -257,8 +265,14 @@
         }
     }
 
-    &.active {
+    // 메뉴 열림(active) 또는 흰 배경 페이지용 헤더(white)
+    &.active, &.white {
         background:#fff;
+
+        .gnbArea .quickBox .quickArea .menuBtn span {
+            background:#000;
+        }
+
         .logo {
             background: url(../../images/contents/openbrics_logo_blk.png) left center / 140px no-repeat !important;/*2026.08.24 확장자 변경*/
 
@@ -356,11 +370,19 @@
 .quick {
     position:fixed; bottom:40px; right:40px; z-index: 9999;
 
+    @include media ("mobile") {
+        bottom:16px; right:16px;
+    }
+
     ul {
         display:flex; flex-flow: column; align-items: flex-start; justify-content: flex-start; gap:16px;
 
         > li {
             width:64px; height:64px; position:relative;
+
+            @include media ("mobile") {
+                width:48px; height:48px;
+            }
 
             > a {
                 display:block; width:100%; height:100%;
@@ -368,13 +390,18 @@
 
             &:first-of-type {
                 > a {
-                    background:url(../../images/contents/quick_ico01.png)0 0 no-repeat;
+                    background:url(../../images/contents/quick_ico01.png) 0 0 / 100% 100% no-repeat;
                 }
             }
 
             &:last-of-type {
                 > a {
-                    background:url(../../images/contents/quick_ico02.png)0 0 no-repeat;
+                    background:url(../../images/contents/quick_ico02.png) 0 0 / 100% 100% no-repeat;
+                    opacity:0; visibility:hidden; transition:opacity .3s, visibility .3s;
+
+                    &.show {
+                        opacity:1; visibility:visible;
+                    }
                 }
             }
         }

@@ -13,7 +13,7 @@
     }
 
     .btnBox {
-        display: flex; gap: 12px;
+        display: flex; flex-wrap: wrap; gap: 12px;
         @include media('mobile'){
             //.reverse : 버튼 순서가 바뀌는 경우
             //.min : 버튼 크기가 [고정=>최소]로 바뀌는 경우

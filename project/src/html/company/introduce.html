@@ -1,5 +1,7 @@
 <!-- Header -->
 <%- include('../_ejs/top.ejs', {
+    title: "회사소개",
+    description: "OPENBRICKS는 20년 이상의 수행 경험과 검증된 전문성으로 고객의 지속 가능한 비즈니스 경쟁력을 만듭니다.",
     url: "../../"
 }) %>
 
@@ -17,72 +19,38 @@
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container">
+        <div class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
 
                 <!-- 서브 컨텐츠 내용이 들어오는 영역-->
                 <!-- 서브 상단 -->
-                <div class="cptSubTop">
-                    <div class="subTopArea">
-                        <dl class="subTopBox">
-                            <dt class="topHead">
-                                <!-- <i class="eyebrow">Intelligent AI</i> -->
-                                <h1 class="title">Company</h1>
-                            </dt>
-                            <dd class="topBody">
-                                OPENBRICKS는 20년 이상의 수행 경험과 검증된 전문성으로<br/>고객의 지속 가능한 비즈니스 경쟁력을 만듭니다.
-                            </dd>
-                        </dl>
-                        <!-- <div class="requestArea">
-                            <a href="../sub/contact_us.html" class="link">문의하기</a>
-                        </div> -->
-
-                        <div class="breadCrumb">
-                            <ul>
-                                <li><a href="/"><span class="hidden">홈</span></a></li>
-                                <li><a href="/">회사소개</a></li>
-                                <!-- <li><a href="/">시스템구축 SI</a></li> -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <%- include('../_ejs/sub_nav.ejs', {
+                    part: "top",
+                    group: "company",
+                    current: "introduce",
+                    url: "../"
+                }) %>
 
                 <!-- 서브 컨텐츠 -->
                 <div class="cptContGroup services01">
                     <div class="contGroupArea">
-                        <div class="comTab pc">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);" class="active">회사소개</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">조직 및 보유역량</a>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="comTab mo">
-                            <button type="button" class="current">회사소개</button>
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);" class="active">회사소개</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">조직 및 보유역량</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <%- include('../_ejs/sub_nav.ejs', {
+                    part: "tab",
+                    group: "company",
+                    current: "introduce",
+                    url: "../"
+                }) %>
 
                         <div class="section section01 w1600">
                             <p class="smTxt">
                                 Who we are
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 Limitless Re.novation
-                            </p>
+                            </h2>
 
                             <p class="desc">
                                 사람과 기술이 만나 지식과 노하우가 되었고, 크리에이티브가 더해져 <br/> 경쟁력이 되었으며, 경험이 쌓여 신뢰가 되었습니다. 
@@ -111,9 +79,9 @@
                                 Our Mission
                             </p>
 
-                            <p class="bgTit">
+                            <h2 class="bgTit">
                                 디지털 혁신을 완성하는 최적의 파트너
-                            </p>
+                            </h2>
 
                             <p class="desc">
                                 오픈브릭스는 변화하는 디지털 환경에 맞춰<br/>
@@ -124,37 +92,37 @@
                             <div class="infiniteMarq">
                                 <div class="rolling">
                                     <ul>
-                                        <li><img src="../../images/contents/01.png" alt=""></li>
-                                        <li><img src="../../images/contents/02.png" alt=""></li>
-                                        <li><img src="../../images/contents/03.png" alt=""></li>
-                                        <li><img src="../../images/contents/04.png" alt=""></li>
-                                        <li><img src="../../images/contents/05.png" alt=""></li>
-                                        <li><img src="../../images/contents/06.png" alt=""></li>
-                                        <li><img src="../../images/contents/07.png" alt=""></li>
+                                        <li><img src="../../images/contents/01.png" alt="현대자동차"></li>
+                                        <li><img src="../../images/contents/02.png" alt="현대오토에버"></li>
+                                        <li><img src="../../images/contents/03.png" alt="현대캐피탈"></li>
+                                        <li><img src="../../images/contents/04.png" alt="더현대"></li>
+                                        <li><img src="../../images/contents/05.png" alt="H.Point"></li>
+                                        <li><img src="../../images/contents/06.png" alt="현대백화점그룹"></li>
+                                        <li><img src="../../images/contents/07.png" alt="Hmall"></li>
 
-                                        <li><img src="../../images/contents/08.png" alt=""></li>
-                                        <li><img src="../../images/contents/09.png" alt=""></li>
-                                        <li><img src="../../images/contents/10.png" alt=""></li>
-                                        <li><img src="../../images/contents/11.png" alt=""></li>
-                                        <li><img src="../../images/contents/12.png" alt=""></li>
-                                        <li><img src="../../images/contents/13.png" alt=""></li>
-                                        <li><img src="../../images/contents/14.png" alt=""></li>
+                                        <li><img src="../../images/contents/08.png" alt="대웅제약"></li>
+                                        <li><img src="../../images/contents/09.png" alt="기아"></li>
+                                        <li><img src="../../images/contents/10.png" alt="한화생명"></li>
+                                        <li><img src="../../images/contents/11.png" alt="삼성SDS"></li>
+                                        <li><img src="../../images/contents/12.png" alt="SAMSUNG · JA Korea"></li>
+                                        <li><img src="../../images/contents/13.png" alt="롯데백화점"></li>
+                                        <li><img src="../../images/contents/14.png" alt="신라면세점"></li>
 
-                                        <li><img src="../../images/contents/15.png" alt=""></li>
-                                        <li><img src="../../images/contents/16.png" alt=""></li>
-                                        <li><img src="../../images/contents/17.png" alt=""></li>
-                                        <li><img src="../../images/contents/18.png" alt=""></li>
-                                        <li><img src="../../images/contents/19.png" alt=""></li>
-                                        <li><img src="../../images/contents/20.png" alt=""></li>
-                                        <li><img src="../../images/contents/21.png" alt=""></li>
+                                        <li><img src="../../images/contents/15.png" alt="ACRO"></li>
+                                        <li><img src="../../images/contents/16.png" alt="에버랜드 리조트"></li>
+                                        <li><img src="../../images/contents/17.png" alt="11번가"></li>
+                                        <li><img src="../../images/contents/18.png" alt="CJmall"></li>
+                                        <li><img src="../../images/contents/19.png" alt="인터파크 큐브릿지"></li>
+                                        <li><img src="../../images/contents/20.png" alt="동행복권"></li>
+                                        <li><img src="../../images/contents/21.png" alt="로또6/45"></li>
 
-                                        <li><img src="../../images/contents/22.png" alt=""></li>
-                                        <li><img src="../../images/contents/23.png" alt=""></li>
-                                        <li><img src="../../images/contents/24.png" alt=""></li>
-                                        <li><img src="../../images/contents/25.png" alt=""></li>
-                                        <li><img src="../../images/contents/26.png" alt=""></li>
-                                        <li><img src="../../images/contents/27.png" alt=""></li>
-                                        <li><img src="../../images/contents/28.png" alt=""></li>
+                                        <li><img src="../../images/contents/22.png" alt="리바트"></li>
+                                        <li><img src="../../images/contents/23.png" alt="바로크레디트대부"></li>
+                                        <li><img src="../../images/contents/24.png" alt="금융결제원"></li>
+                                        <li><img src="../../images/contents/25.png" alt="국민체육진흥공단"></li>
+                                        <li><img src="../../images/contents/26.png" alt="문화체육관광부"></li>
+                                        <li><img src="../../images/contents/27.png" alt="고용노동부"></li>
+                                        <li><img src="../../images/contents/28.png" alt="여성가족부"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -167,7 +135,7 @@
                                 <img src="../../images/contents/intro_product.png" alt="" />
 
                                 <p class="point">
-                                    한계를 넘어설 때 비로소 변화와 혁신이 시작됩니다.<br/>끊임없는 도전으로 가능성을 현실로 만듭니다.
+                                    한계를 넘어설 때 비로소 변화와 혁신이 시작됩니다. <br/>끊임없는 도전으로 가능성을 현실로 만듭니다.
                                 </p>
                             </div>
                             <div class="rightBox ceo">
@@ -181,7 +149,7 @@
                                 잘 알고 미래를 위한 기회를 만들어 가고 있습니다.<br/><br/>
 
                                 일하기 좋은 일터를 만들어가는 우리는 오늘도 최적을 위한 <br/>
-                                한계점을 향해 가고 있고 우리의 아이덴티티는 계속 진행중입니다.
+                                한계점을 향해 가고 있고 우리의 아이덴티티는 계속 진행 중입니다.
 
                                 <span class="sign">- C. Lee, CEO</span>
                             </div>
@@ -199,14 +167,12 @@
                                 <!-- <div id="map"></div> -->
                                 <!-- <img src="../../images/contents/temp_map.png" alt="">  -->
                                 <div class="mapFrame">
-                                    <iframe 
+                                    <iframe title="오시는 길 지도"
                                         src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357ca411b21023cb%3A0xfb9ced7a612ec439!2zKOyjvCnslYTsnbTsm43siqTsnbjthLDroInti7DruIw!5e0!3m2!1sko!2skr!4v1785994702618!5m2!1sko!2skr"
                                         width="100%" height="450"
                                         style="border:0;" 
-                                        allowfullscreen="false" 
                                         loading="lazy" 
-                                        referrerpolicy="strict-origin-when-cross-origin
-                                    "></iframe>
+                                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
                                 </div>
                             </div>
 
@@ -219,13 +185,13 @@
                                     <div class="linkArea">
                                         <ul>
                                             <li>
-                                                <a href="javascript:void(0);">회사소개서</a>
+                                                <a href="../../common/file/OPENBRICKS.pdf" download="OPENBRICKS_회사소개서.pdf">회사소개서</a>
                                             </li>
                                             <li>
-                                                <a href="javascript:void(0);">문의하기</a>
+                                                <a href="../contact/contact_us.html">문의하기</a>
                                             </li>
                                             <li>
-                                                <a href="javascript:void(0);">블로그</a>
+                                                <a href="https://blog.naver.com/iwi_log" target="_blank" rel="noopener noreferrer" title="새 창 열림">블로그</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -235,11 +201,11 @@
                                         <ul>
                                             <li>
                                                 <span>ADDRESS</span>
-                                                <p>서울특별시 강남구 선릉로 90길 44, 정인빌딩 6층</p>
+                                                <p>서울특별시 강남구 선릉로 90길 44 정인빌딩 6층</p>
                                             </li>
                                             <li>
                                                 <span>TEL</span>
-                                                <p>02-557-0130</p>
+                                                <p><a href="tel:025570130">02-557-0130</a></p>
                                             </li>
                                             <li>
                                                 <span>Fax</span>
@@ -255,16 +221,16 @@
                             <div class="left">
                                 <span class="smT">OPENBRICKS</span>
                                 <p class="title">
-                                    Beyond Systems,<br/>We Connect Business
+                                    Beyond Systems, <br/>We Connect Business
                                 </p>
                                 <p class="desc">
-                                    오픈브릭스는 AX 기반 시스템 통합으로<br/>시스템을 넘어, 비즈니스를 연결합니다.
+                                    오픈브릭스는 AX 기반 시스템 통합으로 <br/>시스템을 넘어, 비즈니스를 연결합니다.
                                 </p>
                             </div>
                             <div class="right">
                                 <div class="btn">
                                     <button type="button" class="int" onclick="fileDownload()"><span>회사소개서</span></button>
-                                    <button type="button" class="faq"><span>문의하기</span></button>
+                                    <button type="button" class="faq" onclick="location.href='../contact/contact_us.html'"><span>문의하기</span></button>
                                 </div>
                             </div>
                         </div>

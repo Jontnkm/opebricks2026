@@ -1,8 +1,10 @@
 <%
 var url = locals.url ? locals.url : '../';
+var theme = locals.theme ? ' ' + locals.theme : ''; // 'white' : 흰 배경 페이지용 헤더
+var quickContact = locals.quickContact !== false; // 문의 페이지에서는 false (떠 있는 문의 버튼 숨김)
 %>
 
-            <div class="cptGnb">
+            <div class="cptGnb<%= theme %>">
                 <div class="gnbArea">
                     <div class="logoBox">
                         <a href="<%= url %>index.html" class="logo">OPENBRICKS</a>
@@ -33,30 +35,30 @@ var url = locals.url ? locals.url : '../';
                             <ul class="quickGroup">
                                 <!-- <li class="item"><a href="#" class="link">Info IWI</a></li>
                                 <li class="item"><a href="#" class="link">개발자센터</a></li> -->
-                                <li class="item"><a href="<%= url %>sub/contact_us.html" class="link">문의하기</a></li>
+                                <li class="item"><a href="<%= url %>contact/contact_us.html" class="link">문의하기</a></li>
                             </ul>
                             
-                            <button class="menuBtn">
-                                <span>메</span>
-                                <span>뉴</span>
-                                <span>열</span>
-                                <span>기</span>
+                            <button type="button" class="menuBtn" aria-label="전체 메뉴 열기" aria-expanded="false" aria-controls="allMenuPc allMenuMo">
+                                <span aria-hidden="true"></span>
+                                <span aria-hidden="true"></span>
+                                <span aria-hidden="true"></span>
+                                <span aria-hidden="true"></span>
                             </button>
                         </div>
                     </div>
 
                     <!--pc-->
-                    <div class="allMenuBox pc">
+                    <div class="allMenuBox pc" id="allMenuPc">
                         <div class="inner">
                             <ul>
                                 <li>
                                     <div class="depth02">
                                         <ul>
-                                            <li><a href="<%= url %>service/cloud_infra.html">Cloud 플랫폼<br/>인프라</a></li>
-                                            <li><a href="<%= url %>service/system_build.html">시스템 구축 SI</a></li>
+                                            <li><a href="<%= url %>service/cloud_infra.html">Cloud 플랫폼 <br/>인프라</a></li>
+                                            <li><a href="<%= url %>service/system_build.html">시스템구축 SI</a></li>
                                             <li><a href="<%= url %>service/serviceSbm.html">서비스연계 SBM</a></li>
-                                            <li><a href="<%= url %>service/devops.html">DevOps 및<br/>서비스 운영</a></li>
-                                            <li><a href="<%= url %>service/cloude_base.html">Cloud 기반<br/>최적화</a></li>
+                                            <li><a href="<%= url %>service/devops.html">DevOps 및 <br/>서비스 운영</a></li>
+                                            <li><a href="<%= url %>service/cloude_base.html">Cloud 기반 <br/>최적화</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -84,7 +86,7 @@ var url = locals.url ? locals.url : '../';
                     </div>
 
                     <!--mo-->
-                    <div class="allMenuBox mo">
+                    <div class="allMenuBox mo" id="allMenuMo">
                         <ul class="depth1Group">
                             <li class="depth1List">
                                 <a href="<%= url %>service/cloud_infra.html" class="depth1Name"><span>Services</span></a>
@@ -94,7 +96,7 @@ var url = locals.url ? locals.url : '../';
                                             <a href="<%= url %>service/cloud_infra.html">Cloud 플랫폼 인프라</a>
                                         </li>
                                         <li class="depth2List">
-                                            <a href="<%= url %>service/system_build.html">시스템 구축 SI</a>
+                                            <a href="<%= url %>service/system_build.html">시스템구축 SI</a>
                                         </li>
                                         <li class="depth2List">
                                             <a href="<%= url %>service/serviceSbm.html">서비스연계 SBM</a>
@@ -147,7 +149,7 @@ var url = locals.url ? locals.url : '../';
                         <ul class="quickGroup">
                             <!-- <li class="item"><a href="#" class="link">Info IWI</a></li>
                             <li class="item"><a href="#" class="link">개발자센터</a></li> -->
-                            <li class="item"><a href="#none" class="link">문의하기</a></li>
+                            <li class="item"><a href="<%= url %>contact/contact_us.html" class="link">문의하기</a></li>
                         </ul>
                     </div>
                 </div>
@@ -155,11 +157,13 @@ var url = locals.url ? locals.url : '../';
 
             <div class="quick">
                 <ul>
+                    <% if (quickContact) { %>
                     <li>
-                        <a href="javascript:void(0);" title="문의하기"></a>
+                        <a href="<%= url %>contact/contact_us.html" aria-label="문의하기"></a>
                     </li>
+                    <% } %>
                     <li>
-                        <a href="javascript:void(0);" title="상단으로 이동" id="quickTop"></a>
+                        <a href="#container" aria-label="상단으로 이동" id="quickTop"></a>
                     </li>
                 </ul>
             </div>
