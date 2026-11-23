@@ -10,16 +10,16 @@
     <div class="layoutArea">
 
         <!-- 상단영역 -->
-        <div class="layoutTop">
+        <header class="layoutTop">
             <!-- Top -->
             <%- include('../_ejs/gnb.ejs', {
                 url: "../"
             }) %>
-        </div>
+        </header>
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container" tabindex="-1">
+        <main class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
@@ -209,8 +209,8 @@
                                 OPENBRICKS는 AI를 단순한 기술적 트렌드나 부가 기능으로 정의하지 않습니다. <br/>SI의 생산성, 정합성, 속도, 품질을 높이기 위한 내재화된 수행 체계로 친화적으로 활용합니다.
                             </p>
 
-                            <img src="../../images/contents/ai-native-img.png" alt="" class="center pc"/>
-                            <img src="../../images/contents/ai_native_cont_mo.png" alt="" class="center mo"/>
+                            <img src="../../images/contents/ai-native-img.png" alt="" class="center pc" decoding="async"/>
+                            <img src="../../images/contents/ai_native_cont_mo.png" alt="" class="center mo" loading="lazy" decoding="async"/>
 
                             <p class="gradationTxt ty01">
                                 OPENBRICKS는 AI내재화를 통한 자동화와 협업 환경을 통해 <br/>더 빠르고 안정적인 SI 수행 구조를 만듭니다.
@@ -223,7 +223,7 @@
                                 <p class="desc">
                                     복잡한 프로젝트일수록 시스템 구축은 개인 역량보다 <br/>표준화된 방법론과 품질 체계 위에서 운영되어야 합니다.
                                 </p>
-                                <img src="../../images/contents/product_quality.png" alt="" />
+                                <img src="../../images/contents/product_quality.png" alt="" loading="lazy" decoding="async" />
 
                                 <p class="point">
                                     OPENBRICKS는 현장에 맞지 않는 형식적 절차보다, <br/><span>실무 중심의 방법론으로 품질과 생산성을 높입니다.</span>
@@ -278,7 +278,7 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/si_service_slide01.png" alt="" />
+                                                <img src="../../images/contents/si_service_slide01.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">복잡한 이해관계자 조율 능력</p>
                                                     <p class="slideDesc">이해관계 속 요구사항을 구조화하고 <br/>최적의 우선순위를 도출해야 합니다.</p>
@@ -287,7 +287,7 @@
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/si_service_slide02.png" alt="" />
+                                                <img src="../../images/contents/si_service_slide02.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">요구사항의 추적성과 정합성</p>
                                                     <p class="slideDesc">설계와 개발 전반에 대한 추적 가능성이 <br/>확보되어야 변경에도 흔들리지 않습니다.</p>
@@ -296,7 +296,7 @@
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/si_service_slide03.png" alt="" />
+                                                <img src="../../images/contents/si_service_slide03.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">데이터와 인터페이스 표준화</p>
                                                     <p class="slideDesc">데이터 구조와 연계 기준이 모호하면 <br/>개발 및 운영의 비효율이 커집니다.</p>
@@ -305,7 +305,7 @@
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/si_service_slide04.png" alt="" />
+                                                <img src="../../images/contents/si_service_slide04.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">품질과 운영전환</p>
                                                     <p class="slideDesc">좋은 구축은 개발 완료를 넘어, 운영 가능한 <br/>상태까지 포함합니다.</p>
@@ -315,7 +315,7 @@
 
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/si_service_slide05.png" alt="" />
+                                                <img src="../../images/contents/si_service_slide05.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">확장성과 지속 가능성</p>
                                                     <p class="slideDesc">일회성 시스템이 아닌, 변경과 확장에 <br/>대응 가능한 구조로 설계합니다.</p>
@@ -324,7 +324,7 @@
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/si_service_slide06.png" alt="" />
+                                                <img src="../../images/contents/si_service_slide06.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">운영 현실 반영</p>
                                                     <p class="slideDesc">검증-오픈-안정화-인수인계까지 실제 <br/>서비스 운영을 고려하여 구축합니다.</p>
@@ -358,7 +358,7 @@
                                             <p class="title">공공·금융·민간 복합 시스템 연계</p>
                                             <p class="desc">대내외 연계, 다기관 연동 등 복잡한 연계 경험 보유</p>
                                         </div>
-                                        <img src="../../images/contents/si_ico01.svg" alt="">
+                                        <img src="../../images/contents/si_ico01.svg" alt="" loading="lazy" decoding="async">
                                     </li>
                                     <li>
                                         <div class="group">
@@ -366,7 +366,7 @@
                                             <p class="title">연계 구조 설계 및 전문 데이터 송수신</p>
                                             <p class="desc">API Gateway 포함 연계 구조 설계 및 안정적 데이터 전송</p>
                                         </div>
-                                        <img src="../../images/contents/si_ico02.svg" alt="">
+                                        <img src="../../images/contents/si_ico02.svg" alt="" loading="lazy" decoding="async">
                                     </li>
                                     <li>
                                         <div class="group">
@@ -374,7 +374,7 @@
                                             <p class="title">마이데이터/외부기관 연계 등 규격 기반 연동 경험</p>
                                             <p class="desc">마이데이터 등 규격 기반 외부기관 연동의 높은 안정성 구현</p>
                                         </div>
-                                        <img src="../../images/contents/si_ico03.svg" alt="">
+                                        <img src="../../images/contents/si_ico03.svg" alt="" loading="lazy" decoding="async">
                                     </li>
                                     <li>
                                         <div class="group">
@@ -382,7 +382,7 @@
                                             <p class="title">실시간·비동기 흐름이 섞이는 운영형 서비스 구조 구현</p>
                                             <p class="desc">안정적인 트랜잭션과 실시간 처리 구조 <br/>제공</p>
                                         </div>
-                                        <img src="../../images/contents/si_ico04.svg" alt="">
+                                        <img src="../../images/contents/si_ico04.svg" alt="" loading="lazy" decoding="async">
                                     </li>
 
                                     <li>
@@ -391,7 +391,7 @@
                                             <p class="title">컨테이너 기반 개발·배포로 변경 대응력 확보</p>
                                             <p class="desc">표준화된 환경으로 빠른 배포와 변경 대응력 확보</p>
                                         </div>
-                                        <img src="../../images/contents/si_ico05.svg" alt="">
+                                        <img src="../../images/contents/si_ico05.svg" alt="" loading="lazy" decoding="async">
                                     </li>
                                     <li>
                                         <div class="group">
@@ -399,7 +399,7 @@
                                             <p class="title">오픈 이후 운영 안정화·전환·인수인계까지 연결</p>
                                             <p class="desc">안정적인 운영 전환과 지속 가능한 서비스 운영 지원</p>
                                         </div>
-                                        <img src="../../images/contents/si_ico06.svg" alt="">
+                                        <img src="../../images/contents/si_ico06.svg" alt="" loading="lazy" decoding="async">
                                     </li>
                                     <li>
                                         <div class="group">
@@ -407,7 +407,7 @@
                                             <p class="title">운영 이력/검증(i-WMS, i-TMS)과 AI 내재화</p>
                                             <p class="desc">이력 기반 관리와 자동화·지능화로 더 높은 품질과 생산성 확보</p>
                                         </div>
-                                        <img src="../../images/contents/si_ico07.svg" alt="">
+                                        <img src="../../images/contents/si_ico07.svg" alt="" loading="lazy" decoding="async">
                                     </li>
                                 </ul>
                             </div>
@@ -455,7 +455,7 @@
                                 <p class="desc">
                                     OPENBRICKS의 System Integration은 단순히 "구축 완료"로 끝나지 않습니다. <br/>고객이 실제로 활용하고 운영할 수 있는 구조와 결과를 남기는 것을 목표로 합니다.
                                 </p>
-                                <img src="../../images/contents/expect_result.png" alt="" />
+                                <img src="../../images/contents/expect_result.png" alt="" loading="lazy" decoding="async" />
 
                                 <p class="point">
                                     OPENBRICKS의 시스템 구축은 복잡한 구축 과제를 구조적으로 정리하고, <br/>운영 가능한 수준까지 완성하는 서비스입니다.
@@ -549,16 +549,16 @@
             </div>
             <!-- //서브 콘텐츠 영역 -->
 
-        </div>
+        </main>
         <!-- //중단영역 -->
 
         <!-- 하단영역 -->
-        <div class="layoutFooter">
+        <footer class="layoutFooter">
             <!-- Footer -->
             <%- include('../_ejs/footer.ejs', {
                 url: "../../"
             }) %>
-        </div>
+        </footer>
         <!-- //하단영역 -->
 
     </div>

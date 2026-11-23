@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
     refAccordion(); //레퍼런스 아코디언
     logoRolling(); //협력사 로고 롤링
     quickTop(); //퀵 상단이동
+    quickOverlap(); //퀵 버튼이 탭 메뉴와 겹치면 숨김
     mobileMenu(); //모바일 전체메뉴 아코디언
+    searchFile(); //파일찾기 (파일 첨부 영역이 있는 페이지에서만 동작)
 });
 
 //인트로부터 시작
@@ -49,9 +51,12 @@ function allMenu() {
     const depth1Lists = gnb.querySelectorAll('.gnbBox .depth1Group .depth1List');
     const pcCols = gnb.querySelectorAll('.allMenuBox.pc .inner > ul > li');
     let closeTimer = null;
+    let hoverLock = false; // 링크를 누른 직후에는 마우스를 올려도 다시 열지 않음 (헤더 밖으로 나가면 해제)
 
     // 1depth와 같은 순서의 2depth 열 강조 (-1이면 해제)
+    // 메뉴가 닫혀 있을 때는 강조를 붙이지 않음 (개발 반영 2026.11.23)
     function highlight(idx) {
+        if (idx >= 0 && !gnb.classList.contains('active')) return;
         depth1Lists.forEach((li, i) => li.classList.toggle('on', i === idx));
         pcCols.forEach((li, i) => li.classList.toggle('on', i === idx));
     }
@@ -79,7 +84,7 @@ function allMenu() {
     // PC: 1depth 마우스오버/포커스 시 드롭다운 열기
     depth1Lists.forEach((li, i) => {
         const open = () => {
-            if (mq.matches) return;
+            if (mq.matches || hoverLock) return;
             setOpen(true);
             highlight(i);
         };
@@ -93,6 +98,7 @@ function allMenu() {
 
     // PC: 헤더+드롭다운 영역을 벗어나면 닫기
     gnb.addEventListener('mouseleave', () => {
+        hoverLock = false;
         if (mq.matches || !gnb.classList.contains('active')) return;
         closeTimer = setTimeout(() => setOpen(false), 200);
     });
@@ -109,16 +115,18 @@ function allMenu() {
         }
     });
 
-    // 메뉴 링크로 이동할 때 닫기 (모바일 아코디언 1depth는 제외)
-    gnb.querySelectorAll('.allMenuBox a, .gnbBox a').forEach(a => {
+    // 헤더 안의 링크(로고·1depth·2depth·상단 바로가기)를 누르면 닫기 (모바일 아코디언 1depth는 제외)
+    // 누른 직후에는 마우스가 메뉴 위에 있어도 다시 열지 않음 (개발 반영 2026.11.23)
+    gnb.querySelectorAll('a').forEach(a => {
         a.addEventListener('click', () => {
             if (a.classList.contains('depth1Name') && a.parentElement.querySelector('.depth2Cov')) return;
+            if (!mq.matches) hoverLock = true;
             setOpen(false);
         });
     });
 
     // 뒤로가기 등으로 페이지가 복원되거나, pc/mo 구간이 바뀌면 닫기
-    window.addEventListener('pageshow', (e) => { if (e.persisted) setOpen(false); });
+    window.addEventListener('pageshow', (e) => { if (e.persisted) { hoverLock = false; setOpen(false); } });
     mq.addEventListener('change', () => setOpen(false));
 }
 
@@ -169,6 +177,29 @@ function swiperMain(){
     }
     trimSnapGrid();
     mainSlide.on('resize', trimSnapGrid);
+
+    // 자동재생 일시정지: 마우스를 올리거나 키보드 포커스가 카드 줄에 있는 동안 정지 (WCAG 2.2.2)
+    // 감지 영역은 카드 줄(swiper-wrapper)만 — .mainBnArea는 화면 전체 높이라 어디에 마우스가 있어도 멈추던 문제 (개발 반영 2026.11.23)
+    // 움직임 줄이기(prefers-reduced-motion) 설정과 관계없이 자동재생 유지 (클라이언트 결정 2026.11.23)
+    const hoverArea = mainBanner.querySelector('.swiper-wrapper') || mainBanner;
+    const stop = () => mainSlide.autoplay.stop();
+    const start = () => mainSlide.autoplay.start();
+    hoverArea.addEventListener('mouseenter', stop);
+    hoverArea.addEventListener('mouseleave', start);
+    hoverArea.addEventListener('focusin', stop);
+    hoverArea.addEventListener('focusout', (e) => { if (!hoverArea.contains(e.relatedTarget)) start(); });
+
+    // 카드 전체에 손가락 커서가 표시되므로 카드 아무 곳이나 눌러도 '자세히 보기'로 이동
+    mainBanner.querySelectorAll('.bnItem').forEach(card => {
+        const more = card.querySelector('.more');
+        if (!more) return;
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('a')) return; // 링크 자체 클릭은 기본 동작
+            if (window.getSelection && String(window.getSelection())) return; // 텍스트 드래그 선택 중이면 이동 안 함
+            if (mainSlide.animating) return;
+            more.click();
+        });
+    });
 }
 
 //상단 고정 탭 메뉴
@@ -542,21 +573,51 @@ function contactForm(){
     const form = document.getElementById('contactForm');
     if (!form) return;
     const submitBtn = form.querySelector('.btnSubmit');
+    const fields = form.querySelectorAll('[required]');
+
+    // 공백만 입력한 경우도 미입력으로 처리
+    function checkBlank(field) {
+        if (field.type === 'checkbox') return;
+        field.setCustomValidity(field.value.trim() === '' && field.value !== '' ? (field.dataset.err || ' ') : '');
+    }
+
+    // 필드 오류 표시 (한 번 입력/이탈한 필드만)
+    function showError(field) {
+        const msg = document.getElementById(field.getAttribute('aria-describedby'));
+        const invalid = !field.validity.valid;
+        field.setAttribute('aria-invalid', String(invalid));
+        const wrap = field.closest('.item') || field.closest('.chkBox');
+        if (wrap) wrap.classList.toggle('error', invalid);
+        if (msg) msg.textContent = invalid ? (field.dataset.err || '') : '';
+    }
 
     function update() {
+        fields.forEach(checkBlank);
         const valid = form.checkValidity();
         submitBtn.classList.toggle('isDisabled', !valid);
         submitBtn.setAttribute('aria-disabled', String(!valid));
     }
 
+    fields.forEach(field => {
+        field.addEventListener('blur', () => { field.dataset.touched = 'y'; checkBlank(field); showError(field); });
+        field.addEventListener(field.type === 'checkbox' ? 'change' : 'input', () => {
+            if (field.dataset.touched || field.type === 'checkbox') { checkBlank(field); showError(field); }
+        });
+    });
+
     form.addEventListener('input', update);
     form.addEventListener('change', update);
     form.addEventListener('submit', function (e) {
+        update();
         if (!form.checkValidity()) {
             e.preventDefault();
-            form.reportValidity();
+            fields.forEach(field => { field.dataset.touched = 'y'; showError(field); });
+            const first = form.querySelector(':invalid');
+            if (first) first.focus();
+            return;
         }
-        // 실제 전송 처리는 개발 연동 시 구현
+        // 실제 전송 처리는 개발 연동 시 구현 — action 미지정 상태에서는 전송하지 않음(현재 페이지로 개인정보가 전송되는 것 방지)
+        if (!form.getAttribute('action')) e.preventDefault();
     });
     update();
 }
@@ -605,12 +666,29 @@ function comTabMobile(){
         });
     });
 
-    // 바깥 클릭 시 닫기
-    document.addEventListener('click', () => {
+    function closeAll() {
         comTabs.forEach(tab => {
             tab.classList.remove('open');
             const button = tab.querySelector('.current');
             if (button) button.setAttribute('aria-expanded', 'false');
+        });
+    }
+
+    // 바깥 클릭 시 닫기
+    document.addEventListener('click', closeAll);
+
+    // ESC로 닫고 버튼으로 포커스 복귀, 키보드 포커스가 탭 밖으로 나가면 닫기
+    document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        const opened = document.querySelector('.comTab.mo.open');
+        if (!opened) return;
+        closeAll();
+        const btn = opened.querySelector('.current');
+        if (btn) btn.focus();
+    });
+    comTabs.forEach(tab => {
+        tab.addEventListener('focusout', (e) => {
+            if (tab.classList.contains('open') && !tab.contains(e.relatedTarget)) closeAll();
         });
     });
 }
@@ -619,9 +697,16 @@ function comTabMobile(){
 function refAccordion(){
     const items = document.querySelectorAll(".refList > ul > li");
 
-    items.forEach((item) => {
+    items.forEach((item, idx) => {
         const button = item.querySelector("button");
         if (!button) return;
+
+        // 버튼 ↔ 펼쳐지는 내용 연결 (스크린리더)
+        const panel = item.querySelector(".listInfo");
+        if (panel) {
+            if (!panel.id) panel.id = "refPanel" + (idx + 1);
+            button.setAttribute("aria-controls", panel.id);
+        }
 
         button.addEventListener("click", () => {
             const isActive = item.classList.contains("active");
@@ -656,9 +741,7 @@ function logoRolling(){
         list.appendChild(clone);
     });
 
-    // 움직임 줄이기 설정 시 롤링하지 않음
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
+    // 움직임 줄이기 설정과 관계없이 롤링 유지 (클라이언트 결정 2026.11.23)
     let x = 0;
     const speed = 0.5; // 숫자가 작을수록 느림
     let pause = false;
@@ -711,6 +794,38 @@ function quickTop(){
     });
 }
 
+//퀵 버튼이 탭 메뉴(PC 탭, 모바일 탭·펼친 목록, 고정 탭)와 겹치는 동안 숨김 (개발 반영 2026.11.23)
+function quickOverlap(){
+    const quick = document.querySelector('.quick');
+    const tabs = document.querySelectorAll('.comTab, .modSticky .stickyHead');
+    if (!quick || !tabs.length) return;
+
+    let ticking = false;
+    function check() {
+        ticking = false;
+        // 실제로 보이는 버튼만 기준 (상단이동 버튼은 스크롤 전에는 투명)
+        const btns = [...quick.querySelectorAll('a')].filter(a => getComputedStyle(a).visibility !== 'hidden').map(a => a.getBoundingClientRect());
+        const hit = [...tabs].some(tab => {
+            // 탭 자체 + 펼쳐진 모바일 목록까지 포함
+            return [tab, ...tab.querySelectorAll(':scope > ul')].some(el => {
+                if (!el.offsetParent) return false; // 숨겨진 요소 제외
+                const r = el.getBoundingClientRect();
+                return r.width && r.height && btns.some(q => r.left < q.right && r.right > q.left && r.top < q.bottom && r.bottom > q.top);
+            });
+        });
+        quick.classList.toggle('isHidden', hit);
+        quick.inert = hit; // 숨긴 동안 키보드 포커스도 막음
+    }
+    function request() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(check);
+    }
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request);
+    document.addEventListener('click', request); // 모바일 탭 목록 열고 닫을 때
+    check();
+}
 
 function mobileMenu() {
     const depth1Items = document.querySelectorAll('.allMenuBox.mo .depth1List');

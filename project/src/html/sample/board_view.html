@@ -9,16 +9,16 @@
     <div class="layoutArea">
 
         <!-- 상단영역 -->
-        <div class="layoutTop">
+        <header class="layoutTop">
             <!-- Top -->
             <%- include('../_ejs/gnb.ejs', {
                 url: "../"
             }) %>
-        </div>
+        </header>
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container" tabindex="-1">
+        <main class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
@@ -70,12 +70,12 @@
                 <!-- 그룹하단 -->
                 <div class="comGroupBtm">
                     <div class="alignL">
-                        <button class="btn bGray">수정</button>
-                        <button class="btn oGray">삭제</button>
+                        <button type="button" class="btn bGray">수정</button>
+                        <button type="button" class="btn oGray">삭제</button>
                     </div>
                     <div class="alignR">
-                        <button class="btn basic">답글</button>
-                        <button class="btn basic">등록</button>
+                        <button type="button" class="btn basic">답글</button>
+                        <button type="button" class="btn basic">등록</button>
                     </div>
                 </div>
 
@@ -111,8 +111,8 @@
                                     <div class="cmtCont">
                                         <p class="cmtText">지난 광명 경주 진행 시 A선수와 B선수가 담합하는 것을 보았습니다.</p>
                                         <!-- <span class="cmtBtnBox">
-                                            <button class="btn bGray">수정</button>
-                                            <button class="btn oGray">삭제</button>
+                                            <button type="button" class="btn bGray">수정</button>
+                                            <button type="button" class="btn oGray">삭제</button>
                                         </span> -->
                                         <i class="cmtDate">2004.05.20</i>
                                     </div>
@@ -126,8 +126,8 @@
                                     <div class="cmtCont">
                                         <p class="cmtText">B선수의 도움으로 A선수가 순위 내 들었습니다.</p>
                                         <!-- <span class="cmtBtnBox">
-                                            <button class="btn bGray">수정</button>
-                                            <button class="btn oGray">삭제</button>
+                                            <button type="button" class="btn bGray">수정</button>
+                                            <button type="button" class="btn oGray">삭제</button>
                                         </span> -->
                                         <i class="cmtDate">2004.05.20</i>
                                     </div>
@@ -141,8 +141,8 @@
                                     <div class="cmtCont">
                                         <p class="cmtText">할머니 할아버지께서 들려주시는 재미있는 옛날이야기나 구연동화에 귀를 귀울여보신 적 있으신가요?</p>
                                         <span class="cmtBtnBox">
-                                            <button class="btn bGray">수정</button>
-                                            <button class="btn oGray">삭제</button>
+                                            <button type="button" class="btn bGray">수정</button>
+                                            <button type="button" class="btn oGray">삭제</button>
                                         </span>
                                         <i class="cmtDate">2004.05.20</i>
                                     </div>
@@ -156,8 +156,8 @@
                                     <div class="cmtCont">
                                         <p class="cmtText">할머니 할아버지께서 들려주시는 재미있는 옛날이야기나 구연동화에 귀를 귀울여보신 적 있으신가요?</p>
                                         <!-- <span class="cmtBtnBox">
-                                            <button class="btn bGray">수정</button>
-                                            <button class="btn oGray">삭제</button>
+                                            <button type="button" class="btn bGray">수정</button>
+                                            <button type="button" class="btn oGray">삭제</button>
                                         </span> -->
                                         <i class="cmtDate">2004.05.20</i>
                                     </div>
@@ -165,7 +165,7 @@
                                     <!-- 댓글 입력 영역 (수정) -->
                                     <div class="cmtWriteBox">
                                         <div class="writeText">
-                                            <textarea></textarea>
+                                            <textarea aria-label="댓글 입력"></textarea>
                                             <span class="byte">56/5000 byte</span>
                                         </div>
                                         <div class="writeBtm">
@@ -177,8 +177,8 @@
                                                 </div>
                                             </div>
                                             <div class="btmR">
-                                                <button class="btn basic">취소</button>
-                                                <button class="btn basic">댓글 등록</button>
+                                                <button type="button" class="btn basic">취소</button>
+                                                <button type="button" class="btn basic">댓글 등록</button>
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +189,7 @@
                             <!-- 댓글 입력 영역 -->
                             <div class="cmtWriteBox">
                                 <div class="writeText">
-                                    <textarea></textarea>
+                                    <textarea aria-label="댓글 입력"></textarea>
                                     <span class="byte">56/5000 byte</span>
                                 </div>
                                 <div class="writeBtm">
@@ -201,8 +201,8 @@
                                         </div>
                                     </div>
                                     <div class="btmR">
-                                        <button class="btn basic">취소</button>
-                                        <button class="btn basic">댓글 등록</button>
+                                        <button type="button" class="btn basic">취소</button>
+                                        <button type="button" class="btn basic">댓글 등록</button>
                                     </div>
                                 </div>
                             </div>
@@ -216,16 +216,16 @@
             </div>
             <!-- //서브 콘텐츠 영역 -->
 
-        </div>
+        </main>
         <!-- //중단영역 -->
 
         <!-- 하단영역 -->
-        <div class="layoutFooter">
+        <footer class="layoutFooter">
             <!-- Footer -->
             <%- include('../_ejs/footer.ejs', {
                 url: "../../"
             }) %>
-        </div>
+        </footer>
         <!-- //하단영역 -->
 
     </div>

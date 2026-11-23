@@ -3,6 +3,7 @@ var siteName = 'OPENBRICKS';
 var title = locals.title ? locals.title + ' | ' + siteName : siteName + ' | 운영 가능한 시스템을 만드는 SI 기업';
 var description = locals.description ? locals.description : '복잡한 시스템 연계를 장애 추적과 운영 관리가 가능한 구조로 설계·구축하는 연계브릿지 전문 SI 기업입니다';
 var url = locals.url ? locals.url : '../../';
+var siteUrl = 'https://openbricks.kr/'; // 공유 미리보기(og:image)는 절대 URL이어야 함
 %>
 <!doctype html>
 <html lang="ko">
@@ -17,9 +18,12 @@ var url = locals.url ? locals.url : '../../';
 	<meta property="og:site_name" content="<%= siteName %>">
 	<meta property="og:title" content="<%= title %>">
 	<meta property="og:description" content="<%= description %>">
-	<meta property="og:image" content="<%= url %>images/contents/openbrics_logo_blk.png">
+	<meta property="og:image" content="<%= siteUrl %>images/contents/openbrics_logo_blk.png">
 
 	<title><%= title %></title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 	<link rel="stylesheet" href="<%= url %>common/css/swiper.css" />
 	<link rel="stylesheet" href="<%= url %>common/css/style.css" />

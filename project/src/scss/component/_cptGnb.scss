@@ -27,19 +27,19 @@
                             color: #fff;font-size: 18px; font-style: normal; font-weight: 600; line-height: normal; 
                             align-content: center; display: block; transition: color 0.15s; text-align:center; position:relative;
                             &:hover {
-                                color: #EC1C24;
+                                color: #0E88D3;
                             }
 
                             &::after {
                                 display:none;
                                 content:''; position:absolute; bottom:-43px; left:50%; transform:translateX(-50%); /* 헤더 하단선 중앙 */
-                                width: 8px; height:8px; background:#EC1C24; border-radius:50%;
+                                width: 8px; height:8px; background:#0E88D3; border-radius:50%;
                             }
                         }
 
                         &.on {
                             a {
-                                color: #EC1C24 !important;
+                                color: #0E88D3 !important;
                                 &::after {
                                     display:block;
                                 }
@@ -152,7 +152,7 @@
 
                 width: 100%; height: 100vh; height: 100dvh; padding: 0 16px; border-left: 1px solid #e8e8e8; background: rgba(255,255,255,1); position: fixed; right: -100%; top: 0; z-index: 5;
                 flex-direction: column; overflow-y: auto; visibility: hidden;
-                transition: right 0.1s; transition-delay: 0s; backdrop-filter: blur(3.5840001106262207px);
+                transition: right 0.1s; transition-delay: 0s; -webkit-backdrop-filter: blur(3.5840001106262207px); backdrop-filter: blur(3.5840001106262207px);
                 &.active {
                     right: 0; transition-delay: 0.2s; visibility: visible;
                 }
@@ -194,7 +194,7 @@
 
                         &.active {
                             .depth1Name {
-                                color:#EC1C24;
+                                color:#0E88D3;
 
                                 span {
                                     &::after {
@@ -236,7 +236,7 @@
     }
     @include media("mobile") {
         .gnbArea {
-            height: 60px; padding: 10px;
+            height: 60px; padding: 16px; /* 메인과 동일하게 16px — 페이지 이동 시 로고 위치 틀어짐 방지 (개발 반영 2026.11.23) */
             .logoBox {
                 width: 101px; height: 40px; padding-right: 0; align-content: center; flex-grow: 0;
                 .logo {
@@ -245,6 +245,7 @@
                 }
             }
             .quickBox {
+                width: auto; /* 모바일은 메뉴 버튼만 있으므로 240px 고정 폭 해제 — 360px 이하 화면에서 헤더가 가로로 넘치던 문제 */
                 .quickArea {
                     .menuBtn {
                         background: none;
@@ -290,7 +291,7 @@
                             color:#000 !important;
 
                             &:hover {
-                                color: #EC1C24 !important;
+                                color: #0E88D3 !important;
                             }
                         }
                     }
@@ -317,7 +318,7 @@
                             .depth1Name {
                                 color: #fff;
                                 &:hover {
-                                    color: #EC1C24;
+                                    color: #0E88D3;
                                 }
                             }
                         }
@@ -368,7 +369,13 @@
 
 
 .quick {
-    position:fixed; bottom:40px; right:40px; z-index: 9999;
+    position:fixed; bottom:40px; right:40px; z-index: 9999; transition: opacity .2s;
+
+    // 탭 메뉴와 겹치는 동안 숨김 (common.js quickOverlap, 개발 반영 2026.11.23)
+    // visibility는 상단이동 버튼의 .show(visible)가 덮어쓰므로 opacity + 클릭 차단으로 처리
+    &.isHidden {
+        opacity:0; pointer-events:none;
+    }
 
     @include media ("mobile") {
         bottom:16px; right:16px;

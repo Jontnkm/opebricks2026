@@ -10,16 +10,16 @@
     <div class="layoutArea">
 
         <!-- 상단영역 -->
-        <div class="layoutTop">
+        <header class="layoutTop">
             <!-- Top -->
             <%- include('../_ejs/gnb.ejs', {
                 url: "../"
             }) %>
-        </div>
+        </header>
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container" tabindex="-1">
+        <main class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
@@ -75,9 +75,9 @@
                             <p class="contDesc">클라우드 플랫폼은 단순한 인프라가 아니라 서비스를 안정적으로 운영하기 위한 기반입니다.</p>
 
                             <div class="cloud_infra_img">
-                                <img src="../../images/contents/cloud_infra_img01.png" alt="" class="pc">
-                                <img src="../../images/contents/cloud_infra_img02.png" alt="" class="pc">
-                                <img src="../../images/contents/cloud_infra_img02_mo.png" alt="" class="mo">
+                                <img src="../../images/contents/cloud_infra_img01.png" alt="" class="pc" decoding="async">
+                                <img src="../../images/contents/cloud_infra_img02.png" alt="" class="pc" loading="lazy" decoding="async">
+                                <img src="../../images/contents/cloud_infra_img02_mo.png" alt="" class="mo" loading="lazy" decoding="async">
                             </div>
                         </div> 
 
@@ -87,7 +87,7 @@
                                 <p class="desc">
                                     오픈브릭스는 클라우드 플랫폼을 서버 구축이 아닌 운영 가능한 서비스 환경으로 바라봅니다.
                                 </p>
-                                <img src="../../images/contents/cli_product.png" alt="" />
+                                <img src="../../images/contents/cli_product.png" alt="" loading="lazy" decoding="async" />
 
                                 <p class="point">
                                     클라우드 플랫폼은 프로젝트와 함께 끝나는 구축 결과물이 아니라, <br/>
@@ -143,7 +143,7 @@
                                             <p class="title">Infrastructure Foundation <br/>Cloud 및 On-Premise 초기 구축</p>
                                             <p class="desc">Azure, AWS, NHN Cloud 또는 On-Premise 환경의 기본 인프라를 설계·구축하여 안정적인 서비스 운영 기반을 제공합니다.</p>
                                         </div>
-                                        <img src="../../images/contents/ico_cli01.svg" alt="">
+                                        <img src="../../images/contents/ico_cli01.svg" alt="" loading="lazy" decoding="async">
                                     </li>
                                     <li>
                                         <div class="group">
@@ -151,15 +151,15 @@
                                             <p class="title">Container Platform <br/>컨테이너 개발 환경 및 운영 구성</p>
                                             <p class="desc">Docker와 Kubernetes 기반의 표준 개발·운영 환경을 구축하여 배포 효율성과 운영 안정성을 높입니다.</p>
                                         </div>
-                                        <img src="../../images/contents/ico_cli02.svg" alt="">
+                                        <img src="../../images/contents/ico_cli02.svg" alt="" loading="lazy" decoding="async">
                                     </li>
                                     <li>
                                         <div class="group">
                                             <span class="smT">Layer 03</span>
-                                            <p class="title">DevOps & CI/CD Platform <br/>애플리케이션 개발 관리 및 CI/CD</p>
+                                            <p class="title">DevOps &amp; CI/CD Platform <br/>애플리케이션 개발 관리 및 CI/CD</p>
                                             <p class="desc">형상관리와 CI/CD 자동화 환경을 구축하여 개발부터 테스트, 배포까지 지속 가능한 DevOps 체계를 제공합니다.</p>
                                         </div>
-                                        <img src="../../images/contents/ico_cli03.svg" alt="">
+                                        <img src="../../images/contents/ico_cli03.svg" alt="" loading="lazy" decoding="async">
                                     </li>
                                 </ul> 
                             </div>
@@ -183,7 +183,7 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/cli_slide01.png" alt="" />
+                                                <img src="../../images/contents/cli_slide01.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">Infrastructure Foundation</p>
                                                     <p class="slideDesc">
@@ -196,7 +196,7 @@
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/cli_slide02.png" alt="" />
+                                                <img src="../../images/contents/cli_slide02.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">Container Platform</p>
                                                     <p class="slideDesc">
@@ -209,9 +209,9 @@
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/cli_slide03.png" alt="" />
+                                                <img src="../../images/contents/cli_slide03.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
-                                                    <p class="slideTit">DevOps & CI/CD Platform</p>
+                                                    <p class="slideTit">DevOps &amp; CI/CD Platform</p>
                                                     <p class="slideDesc">
                                                         <span>Git 기반 형상관리 환경 구축</span>
                                                         <span>CI/CD 자동화 파이프라인 구축</span>
@@ -222,7 +222,7 @@
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/cli_slide04.png" alt="" />
+                                                <img src="../../images/contents/cli_slide04.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">Platform Operation Support</p>
                                                     <p class="slideDesc">
@@ -262,16 +262,16 @@
             </div>
             <!-- //서브 콘텐츠 영역 -->
 
-        </div>
+        </main>
         <!-- //중단영역 -->
 
         <!-- 하단영역 -->
-        <div class="layoutFooter">
+        <footer class="layoutFooter">
             <!-- Footer -->
             <%- include('../_ejs/footer.ejs', {
                 url: "../../"
             }) %>
-        </div>
+        </footer>
         <!-- //하단영역 -->
 
     </div>

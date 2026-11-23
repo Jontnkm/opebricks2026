@@ -13,9 +13,12 @@
 	<meta property="og:site_name" content="OPENBRICKS">
 	<meta property="og:title" content="Contact Us | OPENBRICKS">
 	<meta property="og:description" content="OPENBRICKS에 프로젝트와 서비스에 대해 문의하세요.">
-	<meta property="og:image" content="../../images/contents/openbrics_logo_blk.png">
+	<meta property="og:image" content="https://openbricks.kr/images/contents/openbrics_logo_blk.png">
 
 	<title>Contact Us | OPENBRICKS</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 	<link rel="stylesheet" href="../../common/css/swiper.css" />
 	<link rel="stylesheet" href="../../common/css/style.css" />
@@ -33,7 +36,7 @@
     <div class="layoutArea">
 
         <!-- 상단영역 -->
-        <div class="layoutTop">
+        <header class="layoutTop">
             <!-- Top -->
             
 
@@ -42,7 +45,7 @@
                     <div class="logoBox">
                         <a href="../index.html" class="logo">OPENBRICKS</a>
                     </div>
-                    <div class="gnbBox">
+                    <nav class="gnbBox" aria-label="주메뉴">
                         <div class="menuArea">
                             <ul class="depth1Group">
                                 <li class="depth1List">
@@ -62,7 +65,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </nav>
                     <div class="quickBox">
                         <div class="quickArea">
                             <ul class="quickGroup">
@@ -196,11 +199,11 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </header>
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container" tabindex="-1">
+        <main class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
@@ -210,38 +213,42 @@
                     <div class="contactArea">
                         <!-- 서브 좌측 -->
                         <div class="subLeftBox">
-                            <dl class="leftArea">
-                                <dt class="leftHead">
+                            <div class="leftArea">
+                                <div class="leftHead">
                                     <h1 class="title">Contact Us</h1>
-                                </dt>
-                                <dd class="leftBody">
+                                </div>
+                                <p class="leftBody">
                                     한계없는 리노베이션의 시작,<br>
                                     <b>오픈브릭스</b>와 함께 하세요!
-                                </dd>
-                            </dl>
+                                </p>
+                            </div>
                         </div>
                         <!-- //서브 좌측 -->
                         <!-- 서브 우측 -->
                         <div class="subRightBox">
-                            <!-- 실제 전송(action)은 개발 연동 시 지정 -->
-                            <form class="contactInfo" id="contactForm" novalidate>
+                            <!-- 실제 전송(action)은 개발 연동 시 지정. action이 비어 있으면 스크립트가 전송을 막음(개인정보가 주소창에 붙지 않도록 method=post) -->
+                            <form class="contactInfo" id="contactForm" method="post" novalidate>
                                 <div class="infoArea">
                                     <div class="infoItem">
                                         <div class="item">
                                             <p><label for="infoCompany" class="labelTitle">회사명<em class="required" aria-hidden="true">*</em></label></p>
-                                            <p><input type="text" id="infoCompany" name="company" autocomplete="organization" placeholder="회사명을 입력해주세요." required></p>
+                                            <p><input type="text" id="infoCompany" name="company" autocomplete="organization" placeholder="회사명을 입력해주세요." required aria-describedby="errCompany" data-err="회사명을 입력해주세요."></p>
+                                            <p class="errMsg" id="errCompany" aria-live="polite"></p>
                                         </div>
                                         <div class="item">
                                             <p><label for="infoClient" class="labelTitle">고객명<em class="required" aria-hidden="true">*</em></label></p>
-                                            <p><input type="text" id="infoClient" name="name" autocomplete="name" placeholder="고객명을 입력해주세요." required></p>
+                                            <p><input type="text" id="infoClient" name="name" autocomplete="name" placeholder="고객명을 입력해주세요." required aria-describedby="errClient" data-err="고객명을 입력해주세요."></p>
+                                            <p class="errMsg" id="errClient" aria-live="polite"></p>
                                         </div>
                                         <div class="item">
                                             <p><label for="infoNum" class="labelTitle">연락처<em class="required" aria-hidden="true">*</em></label></p>
-                                            <p><input type="tel" id="infoNum" name="phone" autocomplete="tel" inputmode="tel" pattern="[0-9\-+ ]{9,}" placeholder="010-0000-0000" required></p>
+                                            <p><input type="tel" id="infoNum" name="phone" autocomplete="tel" inputmode="tel" pattern="[0-9\-+ ]{9,}" placeholder="010-0000-0000" required aria-describedby="errNum" data-err="연락처를 정확히 입력해주세요."></p>
+                                            <p class="errMsg" id="errNum" aria-live="polite"></p>
                                         </div>
                                         <div class="item">
                                             <p><label for="infoMail" class="labelTitle">이메일<em class="required" aria-hidden="true">*</em></label></p>
-                                            <p><input type="email" id="infoMail" name="email" autocomplete="email" placeholder="이메일을 입력해 주세요." required></p>
+                                            <p><input type="email" id="infoMail" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" name="email" autocomplete="email" placeholder="이메일을 입력해 주세요." required aria-describedby="errMail" data-err="이메일 주소를 정확히 입력해주세요."></p>
+                                            <p class="errMsg" id="errMail" aria-live="polite"></p>
                                         </div>
                                     </div>
                                     <div class="infoItem">
@@ -264,9 +271,10 @@
                                             </p>
                                         </div>
                                         <div class="chkBox">
-                                            <input type="checkbox" id="infoChk" name="agree" required>
+                                            <input type="checkbox" id="infoChk" name="agree" required aria-describedby="errChk" data-err="개인정보 수집 및 이용에 동의해주세요.">
                                             <label for="infoChk" class="chkBoxTxt"><span>개인정보보호정책에 동의합니다.</span></label>
                                         </div>
+                                        <p class="errMsg" id="errChk" aria-live="polite"></p>
                                     </div>
                                     <div class="infoItem">
                                         <button type="submit" class="btnSubmit isDisabled" aria-disabled="true">문의하기</button> <!-- 필수 항목 입력 + 동의 시 isDisabled 제거 -->
@@ -281,11 +289,11 @@
             </div>
             <!-- //서브 콘텐츠 영역 -->
 
-        </div>
+        </main>
         <!-- //중단영역 -->
 
         <!-- 하단영역 -->
-        <div class="layoutFooter">
+        <footer class="layoutFooter">
             <!-- Footer -->
             
 
@@ -316,7 +324,7 @@
     </div>
 </div>
 
-        </div>
+        </footer>
         <!-- //하단영역 -->
 
     </div>

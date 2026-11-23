@@ -1135,6 +1135,9 @@ button {
 	cursor: pointer;
 }
 
+html {
+	scrollbar-gutter: stable;
+} /* 스크롤바 유무에 따라 헤더가 흔들리는 현상 방지 (개발 반영 2026.11.23) */
 body {
 	background: #fff;
 	word-break: keep-all;
@@ -2071,6 +2074,10 @@ select.iptSlt.typeLine {
 	.btn.pmW180 {
 		width: 180px !important;
 	}
+}
+
+body:has(.lytLayout.main) {
+	background: #03101C;
 }
 
 .lytLayout {
@@ -3138,6 +3145,9 @@ select.iptSlt.typeLine {
 	font-weight: 700;
 	line-height: 150%;
 }
+.cptContactUs .contactArea .subLeftBox .leftArea .leftHead .title:focus {
+	outline: none;
+}
 @media screen and (max-width: 767px) {
 	.cptContactUs .contactArea .subLeftBox .leftArea .leftHead .title {
 		font-size: 30px;
@@ -3153,7 +3163,7 @@ select.iptSlt.typeLine {
 	line-height: 170%;
 }
 .cptContactUs .contactArea .subLeftBox .leftArea .leftBody b {
-	color: #EC1C24;
+	color: #0E88D3;
 	font-weight: 700;
 }
 @media screen and (max-width: 1023px) {
@@ -3180,6 +3190,9 @@ select.iptSlt.typeLine {
 	display: flex;
 	flex-direction: column;
 	gap: 80px;
+}
+.cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem {
+	position: relative;
 }
 .cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem:first-child {
 	display: grid;
@@ -3229,7 +3242,7 @@ select.iptSlt.typeLine {
 .cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .required {
 	display: inline-block;
 	padding-left: 3px;
-	color: #EC1C24;
+	color: #0E88D3;
 	font-weight: 700;
 }
 .cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .item {
@@ -3245,11 +3258,32 @@ select.iptSlt.typeLine {
 	transition: all 0.3s 0s ease-in-out;
 }
 .cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .item input:focus {
-	border-bottom: 3px solid #EC1C24;
+	border-bottom: 3px solid #0E88D3;
 	outline: none;
 }
 .cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .item input.add {
-	border-bottom: 3px solid #EC1C24;
+	border-bottom: 3px solid #0E88D3;
+}
+.cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .item.error input {
+	border-bottom-color: #EB003B;
+}
+.cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .item {
+	position: relative;
+}
+.cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .errMsg {
+	position: absolute;
+	left: 0;
+	top: 100%;
+	margin-top: 8px;
+	padding-left: 24px;
+	color: #EB003B;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 1.5;
+	background: url(../../images/common/ic_20_danger.svg) left 1px no-repeat;
+}
+.cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .errMsg:empty {
+	display: none;
 }
 .cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .labelTitle {
 	font-size: 22px;
@@ -3356,7 +3390,7 @@ select.iptSlt.typeLine {
 	border-bottom: 0px solid transparent;
 }
 .cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .chkBox input:checked:not(:disabled) + label::after {
-	background-color: #EC1C24;
+	background-color: #0E88D3;
 }
 .cptContactUs .contactArea .subRightBox .contactInfo .infoArea .infoItem .chkBox input:focus-visible + label::after {
 	outline: 2px solid #353a3f;
@@ -3519,7 +3553,7 @@ select.iptSlt.typeLine {
 	position: relative;
 }
 .cptGnb .gnbArea .gnbBox .menuArea .depth1Group .depth1List .depth1Name:hover {
-	color: #EC1C24;
+	color: #0E88D3;
 }
 .cptGnb .gnbArea .gnbBox .menuArea .depth1Group .depth1List .depth1Name::after {
 	display: none;
@@ -3530,11 +3564,11 @@ select.iptSlt.typeLine {
 	transform: translateX(-50%); /* 헤더 하단선 중앙 */
 	width: 8px;
 	height: 8px;
-	background: #EC1C24;
+	background: #0E88D3;
 	border-radius: 50%;
 }
 .cptGnb .gnbArea .gnbBox .menuArea .depth1Group .depth1List.on a {
-	color: #EC1C24 !important;
+	color: #0E88D3 !important;
 }
 .cptGnb .gnbArea .gnbBox .menuArea .depth1Group .depth1List.on a::after {
 	display: block;
@@ -3740,6 +3774,7 @@ select.iptSlt.typeLine {
 	visibility: hidden;
 	transition: right 0.1s;
 	transition-delay: 0s;
+	-webkit-backdrop-filter: blur(3.5840001106px);
 	backdrop-filter: blur(3.5840001106px);
 }
 @media screen and (max-width: 1280px) {
@@ -3807,7 +3842,7 @@ select.iptSlt.typeLine {
 	color: #6b7176;
 }
 .cptGnb .gnbArea .allMenuBox.mo .depth1Group .depth1List.active .depth1Name {
-	color: #EC1C24;
+	color: #0E88D3;
 }
 .cptGnb .gnbArea .allMenuBox.mo .depth1Group .depth1List.active .depth1Name span::after {
 	content: "";
@@ -3852,7 +3887,7 @@ select.iptSlt.typeLine {
 @media screen and (max-width: 767px) {
 	.cptGnb .gnbArea {
 		height: 60px;
-		padding: 10px;
+		padding: 16px; /* 메인과 동일하게 16px — 페이지 이동 시 로고 위치 틀어짐 방지 (개발 반영 2026.11.23) */
 	}
 	.cptGnb .gnbArea .logoBox {
 		width: 101px;
@@ -3867,6 +3902,9 @@ select.iptSlt.typeLine {
 	}
 	.cptGnb .gnbArea .logoBox .logo img {
 		width: 101px;
+	}
+	.cptGnb .gnbArea .quickBox {
+		width: auto; /* 모바일은 메뉴 버튼만 있으므로 240px 고정 폭 해제 — 360px 이하 화면에서 헤더가 가로로 넘치던 문제 */
 	}
 	.cptGnb .gnbArea .quickBox .quickArea .menuBtn {
 		background: none;
@@ -3900,7 +3938,7 @@ select.iptSlt.typeLine {
 	color: #000 !important;
 }
 .cptGnb.active .gnbBox .menuArea .depth1Group .depth1List .depth1Name:hover, .cptGnb.white .gnbBox .menuArea .depth1Group .depth1List .depth1Name:hover {
-	color: #EC1C24 !important;
+	color: #0E88D3 !important;
 }
 
 .main .cptGnb .gnbArea {
@@ -3914,7 +3952,7 @@ select.iptSlt.typeLine {
 	color: #fff;
 }
 .main .cptGnb .gnbArea .gnbBox .menuArea .depth1Group .depth1List .depth1Name:hover {
-	color: #EC1C24;
+	color: #0E88D3;
 }
 .main .cptGnb .gnbArea .quickBox .quickArea .quickGroup .item::before {
 	background: #fff;
@@ -3943,6 +3981,11 @@ select.iptSlt.typeLine {
 	bottom: 40px;
 	right: 40px;
 	z-index: 9999;
+	transition: opacity 0.2s;
+}
+.quick.isHidden {
+	opacity: 0;
+	pointer-events: none;
 }
 @media screen and (max-width: 767px) {
 	.quick {
@@ -4316,7 +4359,7 @@ select.iptSlt.typeLine {
 .cptMain .sectGroup.scene02 .backGroup .backItem:nth-child(4) .bg03 img {
 	width: 100%;
 }
-.cptMain .sectGroup.scene02:has(.mainBn .bnItem:nth-child(1):hover) .backGroup .backItem:nth-child(1) .bg01 {
+.cptMain .sectGroup.scene02:has(.mainBn .bnItem:nth-child(1):hover) .backGroup .backItem:nth-child(1) .bg01, .cptMain .sectGroup.scene02:has(.mainBn .bnItem:nth-child(5):hover) .backGroup .backItem:nth-child(1) .bg01 {
 	animation: mainMotionBG11 7s ease-out;
 	animation-fill-mode: forwards;
 }
@@ -4333,7 +4376,7 @@ select.iptSlt.typeLine {
 		opacity: 1;
 	}
 }
-.cptMain .sectGroup.scene02:has(.mainBn .bnItem:nth-child(1):hover) .backGroup .backItem:nth-child(1) .bg02 {
+.cptMain .sectGroup.scene02:has(.mainBn .bnItem:nth-child(1):hover) .backGroup .backItem:nth-child(1) .bg02, .cptMain .sectGroup.scene02:has(.mainBn .bnItem:nth-child(5):hover) .backGroup .backItem:nth-child(1) .bg02 {
 	animation: mainMotionBG12 7s ease-out;
 	animation-fill-mode: forwards;
 }
@@ -4350,7 +4393,7 @@ select.iptSlt.typeLine {
 		opacity: 1;
 	}
 }
-.cptMain .sectGroup.scene02:has(.mainBn .bnItem:nth-child(1):hover) .backGroup .backItem:nth-child(1) .bg03 {
+.cptMain .sectGroup.scene02:has(.mainBn .bnItem:nth-child(1):hover) .backGroup .backItem:nth-child(1) .bg03, .cptMain .sectGroup.scene02:has(.mainBn .bnItem:nth-child(5):hover) .backGroup .backItem:nth-child(1) .bg03 {
 	animation: mainMotionBG13 7s ease-out;
 	animation-fill-mode: forwards;
 }
@@ -4367,7 +4410,7 @@ select.iptSlt.typeLine {
 		opacity: 1;
 	}
 }
-.cptMain .sectGroup.scene02:has(.mainBn .bnItem:nth-child(1):hover) .backGroup .backItem:nth-child(1) .bg04 {
+.cptMain .sectGroup.scene02:has(.mainBn .bnItem:nth-child(1):hover) .backGroup .backItem:nth-child(1) .bg04, .cptMain .sectGroup.scene02:has(.mainBn .bnItem:nth-child(5):hover) .backGroup .backItem:nth-child(1) .bg04 {
 	animation: mainMotionBG14 5s ease-out;
 	animation-fill-mode: forwards;
 }
@@ -4483,6 +4526,10 @@ select.iptSlt.typeLine {
 	margin: 0 auto;
 	overflow: hidden;
 	align-content: center;
+	position: relative; /* 페이지네이션(absolute) 기준 박스 명시 — 사파리에서 점이 화면 아래로 밀려 메인이 스크롤되던 문제 */
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* 블록 align-content 미지원 브라우저(사파리 17.4 미만) 대비 */
 	/*2026.06.04 신규*/
 }
 .cptMain .sectGroup.scene02 .mainBnArea .introTextArea {
@@ -4565,6 +4612,7 @@ select.iptSlt.typeLine {
 	transition: all 0.3s;
 	position: relative;
 	flex-shrink: 1;
+	-webkit-backdrop-filter: blur(3.5840001106px);
 	backdrop-filter: blur(3.5840001106px);
 	animation: startMainBn 0.8s cubic-bezier(0.4, 0, 0.2, 1.2);
 	animation-fill-mode: forwards;
@@ -4629,7 +4677,7 @@ select.iptSlt.typeLine {
 }
 .cptMain .sectGroup.scene02 .mainBn .bnItem .bnGroup .bnTop .titSub {
 	margin-top: 20px;
-	color: #EC1C24;
+	color: #0E88D3;
 	font-size: 18px;
 	font-style: normal;
 	font-weight: 500;
@@ -4686,53 +4734,45 @@ select.iptSlt.typeLine {
 		font-size: 40px;
 	}
 	.cptMain .sectGroup.scene01 .mainCopy .dec {
-		width: 254px;
-		height: 104px;
+		width: 100%;
+		max-width: 280px;
+		height: auto;
+		padding: 0 16px;
+		box-sizing: content-box;
+		text-align: center;
+		word-break: keep-all;
 	}
 	.cptMain .sectGroup.scene01 .mainCopy .dec span {
+		position: relative;
+		left: auto;
+		top: 0;
 		font-size: 16px;
+		white-space: normal;
 	}
-	.cptMain .sectGroup.scene01 .mainCopy .dec span:nth-child(1) {
-		left: 59px;
+	.cptMain .sectGroup.scene01 .mainCopy .dec span:nth-child(n) {
+		left: auto;
 		top: 0;
 	}
-	.cptMain .sectGroup.scene01 .mainCopy .dec span:nth-child(2) {
-		left: 23px;
-		top: 25px;
-	}
-	.cptMain .sectGroup.scene01 .mainCopy .dec span:nth-child(3) {
-		left: 167px;
-		top: 25px;
-	}
-	.cptMain .sectGroup.scene01 .mainCopy .dec span:nth-child(4) {
-		left: 37px;
-		top: 50px;
-	}
-	.cptMain .sectGroup.scene01 .mainCopy .dec span:nth-child(5) {
-		left: 110px;
-		top: 50px;
-	}
-	.cptMain .sectGroup.scene01 .mainCopy .dec span:nth-child(6) {
-		left: 54px;
-		top: 77px;
+	.cptMain .sectGroup.scene01 .mainCopy .dec span:nth-child(1) {
+		display: block;
 	}
 	@keyframes textViewDec01 {
 		0% {
-			top: 50px;
+			top: 25px;
 			opacity: 0;
 		}
 		100% {
-			top: 25px;
+			top: 0;
 			opacity: 1;
 		}
 	}
 	@keyframes textViewDec02 {
 		0% {
-			top: 75px;
+			top: 25px;
 			opacity: 0;
 		}
 		100% {
-			top: 50px;
+			top: 0;
 			opacity: 1;
 		}
 	}
@@ -4783,6 +4823,39 @@ select.iptSlt.typeLine {
 		height: 40px;
 		background: rgba(0, 0, 0, 0.5) url(../../images/common/ic_24_main_more.svg) center/20px no-repeat;
 		left: 30px;
+	}
+}
+@media screen and (min-width: 768px) and (max-height: 940px) {
+	.cptMain .sectGroup.scene02 .mainBnArea .introTextArea .mainTit {
+		margin-bottom: 40px;
+	}
+	.cptMain .sectGroup.scene02 .mainBnArea .swiper-pagination-bullets {
+		position: relative;
+		bottom: auto;
+		margin-top: 30px;
+	}
+}
+@media screen and (min-width: 768px) and (max-height: 820px) {
+	.cptMain .sectGroup.scene02 .mainBnArea .introTextArea .mainTit {
+		font-size: 40px;
+		line-height: 60px;
+	}
+	.cptMain .sectGroup.scene02 .mainBnArea .mainBn .bnItem {
+		height: 420px;
+	}
+	.cptMain .sectGroup.scene02 .mainBnArea .mainBn .bnItem .bnGroup .bnTop {
+		height: 200px;
+	}
+}
+@media screen and (min-width: 768px) and (max-height: 760px) {
+	.cptMain .sectGroup.scene02 .mainBnArea .introTextArea {
+		margin-top: 90px;
+	}
+	.cptMain .sectGroup.scene02 .mainBnArea .mainBn .bnItem {
+		height: 400px;
+	}
+	.cptMain .sectGroup.scene02 .mainBnArea .mainBn .bnItem .bnGroup .bnTop {
+		height: 184px;
 	}
 }
 
@@ -5011,7 +5084,7 @@ select.iptSlt.typeLine {
 	}
 }
 .cptSubTop .subTopArea .subTopBox .topBody b {
-	color: #EC1C24;
+	color: #0E88D3;
 	font-weight: 700;
 }
 .cptSubTop .requestArea {
@@ -5408,13 +5481,13 @@ select.iptSlt.typeLine {
 }
 .cptContGroup.cloud01 .graph01 .gphItem .gphGroup:nth-child(2) .tit {
 	color: #000;
-	border: 1px solid #EC1C24;
+	border: 1px solid #0E88D3;
 	background: #FFFFFF;
 }
 .cptContGroup.cloud01 .graph01 .gphItem .gphGroup:nth-child(3) .tit {
 	color: #FFF;
-	border: 1px solid #D50008;
-	background: #D50008;
+	border: 1px solid #0E88D3;
+	background: #0E88D3;
 }
 .cptContGroup.cloud01 .imgBox {
 	width: 560px;
@@ -5499,7 +5572,7 @@ select.iptSlt.typeLine {
 	margin-top: 20px;
 }
 .cptContGroup.cloud02 .colBoxList .colItem .colBox .txtBasic.red {
-	color: #EC1C24;
+	color: #0E88D3;
 	font-weight: 600;
 }
 @media screen and (max-width: 767px) {
@@ -5593,7 +5666,7 @@ select.iptSlt.typeLine {
 	top: -21px;
 }
 .cptContGroup.devops01 .colBoxList .colItem .colBox .txtBasic.red {
-	color: #EC1C24;
+	color: #0E88D3;
 	font-weight: 600;
 }
 @media screen and (max-width: 767px) {
@@ -5735,6 +5808,11 @@ select.iptSlt.typeLine {
 	}
 }
 
+.swiper-container {
+	position: relative;
+	overflow: hidden;
+}
+
 .comTab {
 	width: 100%;
 	position: relative;
@@ -5756,7 +5834,7 @@ select.iptSlt.typeLine {
 	width: 100%;
 	padding: 0 24px;
 	border-radius: 50px;
-	background: #ec1c24;
+	background: #0E88D3;
 	color: #fff;
 	font-size: 14px;
 	font-weight: 700;
@@ -5834,7 +5912,7 @@ select.iptSlt.typeLine {
 	font-weight: 400;
 }
 .comTab.pc ul li > a.active {
-	background: #EC1C24;
+	background: #0E88D3;
 	box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
 	color: #fff;
 	font-size: 18px;
@@ -5866,7 +5944,7 @@ select.iptSlt.typeLine {
 	font-size: 20px;
 	font-weight: 700;
 	line-height: 150%;
-	color: #ec1c24;
+	color: #0E88D3;
 	text-align: center;
 }
 @media screen and (max-width: 767px) {
@@ -5905,7 +5983,7 @@ select.iptSlt.typeLine {
 	margin-top: 80px;
 	width: 100%;
 	padding: 80px;
-	background: url(../../images/contents/bg_sub_01.png) 0 0 no-repeat;
+	background: url(../../images/contents/bg_sub_01.jpg) 0 0 no-repeat;
 	border-radius: 40px;
 	/*클라우드 인프라*/
 	/*sbm*/
@@ -5992,7 +6070,7 @@ select.iptSlt.typeLine {
 	height: 400px;
 	overflow: hidden;
 	border-radius: 40px;
-	background: url(../../images/contents/intro_cont01.png) center center no-repeat;
+	background: url(../../images/contents/intro_cont01.jpg) center center no-repeat;
 }
 @media screen and (max-width: 767px) {
 	.services01 .section .intro > .imgFrame {
@@ -6002,14 +6080,14 @@ select.iptSlt.typeLine {
 	}
 }
 .services01 .section .intro.strength .imgFrame {
-	background: url(../../images/contents/str_cont01.png) center center no-repeat;
+	background: url(../../images/contents/str_cont01.jpg) center center no-repeat;
 }
 .services01 .section .intro.strength02 .imgFrame {
-	background: url(../../images/contents/str_cont02.png) center top -225px no-repeat;
+	background: url(../../images/contents/str_cont02.jpg) center top -225px no-repeat;
 }
 @media screen and (max-width: 767px) {
 	.services01 .section .intro.strength02 .imgFrame {
-		background: url(../../images/contents/str_cont02.png) center center no-repeat;
+		background: url(../../images/contents/str_cont02.jpg) center center no-repeat;
 		background-size: 100%;
 	}
 }
@@ -6158,7 +6236,7 @@ select.iptSlt.typeLine {
 	.services01 .section .contDesc {
 		font-size: 16px;
 		padding: 0 16px;
-		wprd-break: keep-all;
+		word-break: keep-all;
 	}
 }
 .services01 .section .graphGrid {
@@ -6279,6 +6357,12 @@ select.iptSlt.typeLine {
 @media screen and (max-width: 1280px) {
 	.services01 .section .graphGrid > ul > li.grid02 .box01 {
 		width: 100%;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.services01 .section .graphGrid > ul > li.grid02 .box01 {
+		padding: 60px 20px;
+		background-size: cover;
 	}
 }
 .services01 .section .graphGrid > ul > li.grid02 .box01 p.description {
@@ -6402,6 +6486,11 @@ select.iptSlt.typeLine {
 }
 .services01 .section .stepView ul > li {
 	z-index: 1;
+}
+@media screen and (min-width: 768px) {
+	.services01 .section .stepView ul > li {
+		min-width: 0;
+	}
 }
 .services01 .section .stepView ul.type02::after {
 	margin-top: -69px;
@@ -6715,6 +6804,37 @@ select.iptSlt.typeLine {
 .services01 .section .stepView + .sndStep {
 	margin: 40px 0 140px;
 }
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+	.services01 .section .stepView > ul {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 48px 20px;
+	}
+	.services01 .section .stepView > ul::after {
+		display: none;
+	}
+	.services01 .section .stepView > ul > li {
+		flex: 0 0 calc((100% - 40px) / 3);
+		min-width: 0;
+		gap: 24px;
+	}
+	.services01 .section .stepView > ul > li:first-child:nth-last-child(4), .services01 .section .stepView > ul > li:first-child:nth-last-child(4) ~ li {
+		flex-basis: calc((100% - 20px) / 2);
+	}
+	.services01 .section .stepView > ul > li .lineDown::after {
+		display: none;
+	}
+	.services01 .section .stepView > ul > li .lineDown .desc br {
+		display: none;
+	}
+	.services01 .section .stepView > ul > li .chk {
+		margin-top: 0;
+		width: 100%;
+	}
+	.services01 .section .stepView.addLine::after {
+		display: none;
+	}
+}
 @media screen and (max-width: 767px) {
 	.services01 .section .sndStep {
 		margin: 20px 0 50px !important;
@@ -6726,6 +6846,15 @@ select.iptSlt.typeLine {
 	align-items: center;
 	justify-content: flex-start;
 	gap: 20px;
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.services01 .section .sndStep ul {
+		flex-wrap: wrap;
+		align-items: stretch;
+	}
+	.services01 .section .sndStep ul > li {
+		flex: 0 0 calc((100% - 20px) / 2);
+	}
 }
 @media screen and (max-width: 767px) {
 	.services01 .section .sndStep ul {
@@ -6861,7 +6990,7 @@ select.iptSlt.typeLine {
 	}
 }
 .services01 .section.section04 {
-	background: url(../../images/contents/ai-native-bg.svg) 0 0 no-repeat;
+	background: url(../../images/contents/ai-native-bg.jpg) 0 0 no-repeat;
 	padding: 140px 0;
 	background-position: center bottom;
 }
@@ -6870,13 +6999,18 @@ select.iptSlt.typeLine {
 		padding: 60px 0;
 	}
 }
+.services01 .section.section04.bgPosLow {
+	background-position: center bottom -553px;
+}
 .services01 .section.section04.whtBg {
-	background: url(../../images/contents/wht_bg.png) center top no-repeat;
+	background: url(../../images/contents/wht_bg.jpg) center top no-repeat;
 	background-size: cover;
 }
 .services01 .section.section04.whtBg .gradationTxt {
 	background: linear-gradient(92deg, #52A8FF 32.23%, #C555DA 68.81%);
 	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent; /* 사파리 구버전 대응 */
 }
 .services01 .section.section04.whtBg .infiniteMarq {
 	margin-top: 40px;
@@ -6913,11 +7047,16 @@ select.iptSlt.typeLine {
 	flex-flow: row nowrap;
 	align-items: center;
 	justify-content: center;
-	gap: 80px;
-	width: 100%;
+	gap: 80px; /* 폭은 .w1400 규칙(좌우 20px 여백) 사용 */
+}
+@media screen and (max-width: 1280px) {
+	.services01 .section.section05, .services01 .section.section08 {
+		gap: 40px;
+	}
 }
 @media screen and (max-width: 767px) {
 	.services01 .section.section05, .services01 .section.section08 {
+		width: 100%;
 		flex-flow: column;
 		align-items: flex-start;
 		justify-content: flex-start;
@@ -7313,7 +7452,7 @@ select.iptSlt.typeLine {
 	display: none;
 }
 .services01 .section.section07 {
-	background: url(../../images/contents/ai-native-bg.svg) 0 0 no-repeat;
+	background: url(../../images/contents/ai-native-bg.jpg) 0 0 no-repeat;
 	padding: 140px 0;
 	background-size: cover;
 	background-position: center bottom;
@@ -7358,6 +7497,11 @@ select.iptSlt.typeLine {
 		gap: 10px;
 	}
 }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.services01 .section.section07 .cardList > ul:not(.noWrap):not(.type05) > li {
+		width: calc((100% - 20px) / 2);
+	}
+}
 .services01 .section.section07 .cardList > ul.noWrap {
 	flex-flow: row nowrap;
 }
@@ -7374,11 +7518,21 @@ select.iptSlt.typeLine {
 .services01 .section.section07 .cardList > ul.noWrap li .desc {
 	margin-bottom: 8px;
 }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.services01 .section.section07 .cardList > ul.noWrap {
+		flex-wrap: wrap;
+		align-items: stretch;
+	}
+	.services01 .section.section07 .cardList > ul.noWrap > li {
+		width: calc((100% - 20px) / 2);
+	}
+}
 .services01 .section.section07 .cardList > ul > li {
 	width: 335px;
 	padding: 36px;
 	border-radius: 16px;
 	background: rgba(233, 233, 233, 0.15);
+	-webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);
 }
 @media screen and (max-width: 767px) {
@@ -7402,11 +7556,11 @@ select.iptSlt.typeLine {
 	font-size: 14px;
 	font-weight: 700;
 	line-height: 150%;
-	color: #ef4349;
+	color: #0E88D3;
 }
 @media screen and (max-width: 767px) {
 	.services01 .section.section07 .cardList > ul > li .smT {
-		font-szie: 13px;
+		font-size: 13px;
 	}
 }
 .services01 .section.section07 .cardList > ul > li .title {
@@ -7582,6 +7736,12 @@ select.iptSlt.typeLine {
 	width: calc((100% - 40px) / 3);
 	min-height: 425px;
 }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.services01 .section.section07 .cardList > ul.type05 > li {
+		padding: 24px;
+		overflow-wrap: anywhere;
+	}
+}
 @media screen and (max-width: 767px) {
 	.services01 .section.section07 .cardList > ul.type05 > li {
 		width: 100%;
@@ -7658,6 +7818,11 @@ select.iptSlt.typeLine {
 .services01 .section.section07 .cardList + .cardList.double > ul > li .title {
 	margin-top: 0;
 }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.services01 .section.section07 .cardList + .cardList.double > ul > li {
+		width: 100%;
+	}
+}
 @media screen and (max-width: 767px) {
 	.services01 .section.section07 .cardList + .cardList.double > ul > li {
 		width: 100%;
@@ -7726,6 +7891,7 @@ select.iptSlt.typeLine {
 @media screen and (max-width: 767px) {
 	.services01 .section.section07 .cardList + .cardList.double .flow ul li {
 		width: calc(50% - 20px);
+		padding: 16px 8px; /* 360px에서 'Connector'가 두 줄로 쪼개지던 문제 */
 	}
 	.services01 .section.section07 .cardList + .cardList.double .flow ul li:last-of-type {
 		width: 100%;
@@ -7842,7 +8008,15 @@ select.iptSlt.typeLine {
 	border-radius: 16px;
 	background: rgba(233, 233, 233, 0.15);
 	min-height: 257px;
+	-webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.services01 .section.section07 .sndSec .list ul li {
+		min-width: 0;
+		padding: 24px;
+		overflow-wrap: anywhere;
+	}
 }
 @media screen and (max-width: 767px) {
 	.services01 .section.section07 .sndSec .list ul li {
@@ -8260,6 +8434,14 @@ select.iptSlt.typeLine {
 	background: #F4F5F7;
 	border-radius: 60px;
 }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.services01 .section.section10 .inner {
+		padding: 80px 40px;
+	}
+	.services01 .section.section10 .inner > ul > li {
+		padding: 24px;
+	}
+}
 @media screen and (max-width: 767px) {
 	.services01 .section.section10 .inner {
 		padding: 50px 16px;
@@ -8373,7 +8555,7 @@ select.iptSlt.typeLine {
 	background: url(../../images/contents/sbm_prod_ico03.svg) 50% 50% no-repeat;
 }
 .services01 .section.section10.type02 .inner {
-	background: url(../../images/contents/wms_cont_bg.png) center center no-repeat;
+	background: url(../../images/contents/wms_cont_bg.jpg) center center no-repeat;
 }
 .services01 .section.section10.type02 .inner > ul {
 	display: flex;
@@ -8489,7 +8671,7 @@ select.iptSlt.typeLine {
 	font-size: 20px;
 	font-weight: 700;
 	line-height: 150%;
-	color: #ef4349;
+	color: #0E88D3;
 }
 @media screen and (max-width: 767px) {
 	.csBanner .left .smT {
@@ -8652,7 +8834,7 @@ select.iptSlt.typeLine {
 	height: 400px;
 	overflow: hidden;
 	border-radius: 40px;
-	background: url(../../images/contents/ref_cont01.png) center center no-repeat;
+	background: url(../../images/contents/ref_cont01.jpg) center center no-repeat;
 }
 @media screen and (max-width: 767px) {
 	.cptRef .intro > .imgFrame {
@@ -8731,7 +8913,7 @@ select.iptSlt.typeLine {
 	font-size: 20px;
 	font-weight: 700;
 	line-height: 150%;
-	color: #ec1c24;
+	color: #0E88D3;
 }
 @media screen and (max-width: 767px) {
 	.cptRef .refBox .smT {
@@ -8916,7 +9098,7 @@ select.iptSlt.typeLine {
 	transform: translateY(-50%) rotate(180deg);
 }
 .cptRef .refBox .refList > ul > li.active > button > span.yr {
-	color: #EC1C24;
+	color: #0E88D3;
 }
 .cptRef .refBox .refList > ul > li.active > .listInfo {
 	height: max-content;
@@ -8937,9 +9119,14 @@ select.iptSlt.typeLine {
 	max-width: 1400px;
 	margin: 0 auto;
 }
+@media screen and (min-width: 768px) {
+	.cptLocation .w1400 {
+		width: calc(100% - 40px); /* 1440px 이하 좌우 20px 여백 */
+	}
+}
 @media screen and (max-width: 767px) {
 	.cptLocation .w1400 {
-		max-width: auto;
+		max-width: none;
 		padding: 0 16px;
 	}
 }
@@ -8947,7 +9134,7 @@ select.iptSlt.typeLine {
 	font-size: 20px;
 	font-weight: 700;
 	line-height: 150%;
-	color: #ec1c24;
+	color: #0E88D3;
 }
 @media screen and (max-width: 767px) {
 	.cptLocation .w1400 > span.smT {
@@ -8988,6 +9175,10 @@ select.iptSlt.typeLine {
 .cptLocation .mapArea .mapFrame {
 	border-radius: 60px;
 	overflow: hidden;
+	/* 기존 인라인 style 이동 */
+}
+.cptLocation .mapArea .mapFrame iframe {
+	border: 0;
 }
 @media screen and (max-width: 767px) {
 	.cptLocation .mapArea .mapFrame {
@@ -9001,6 +9192,11 @@ select.iptSlt.typeLine {
 	justify-content: flex-start;
 	gap: 100px;
 }
+@media screen and (max-width: 1280px) {
+	.cptLocation .locInfo {
+		gap: 40px;
+	}
+}
 @media screen and (max-width: 767px) {
 	.cptLocation .locInfo {
 		flex-flow: column;
@@ -9010,9 +9206,17 @@ select.iptSlt.typeLine {
 .cptLocation .locInfo > div {
 	width: 640px;
 }
+@media screen and (max-width: 1280px) {
+	.cptLocation .locInfo > div {
+		width: auto;
+		flex: 1 1 0;
+		min-width: 0;
+	}
+}
 @media screen and (max-width: 767px) {
 	.cptLocation .locInfo > div {
 		width: 100%;
+		flex: none;
 	}
 }
 .cptLocation .locInfo > div.left .title {
@@ -9165,6 +9369,11 @@ select.iptSlt.typeLine {
 	justify-content: flex-start;
 	gap: 80px;
 }
+@media screen and (max-width: 1280px) {
+	.cptPartInt > ul > li {
+		gap: 40px;
+	}
+}
 @media screen and (max-width: 767px) {
 	.cptPartInt > ul > li {
 		flex-flow: column;
@@ -9174,10 +9383,18 @@ select.iptSlt.typeLine {
 }
 .cptPartInt > ul > li > .thumb {
 	width: 640px;
+	/* 1280px 이하: 이미지 고정폭(640px) 때문에 텍스트 칸이 찌그러지던 문제 → 비율 분할 */
+}
+@media screen and (max-width: 1280px) {
+	.cptPartInt > ul > li > .thumb {
+		width: 45%;
+		flex: 0 0 45%;
+	}
 }
 @media screen and (max-width: 767px) {
 	.cptPartInt > ul > li > .thumb {
 		width: 100%;
+		flex: none;
 	}
 }
 .cptPartInt > ul > li > .thumb > img {
@@ -9195,9 +9412,17 @@ select.iptSlt.typeLine {
 	align-items: flex-start;
 	justify-content: flex-start;
 }
+@media screen and (max-width: 1280px) {
+	.cptPartInt > ul > li > .txt {
+		width: auto;
+		flex: 1 1 0;
+		min-width: 0;
+	}
+}
 @media screen and (max-width: 767px) {
 	.cptPartInt > ul > li > .txt {
 		width: 100%;
+		flex: none;
 	}
 }
 .cptPartInt > ul > li > .txt > p {
@@ -9289,7 +9514,7 @@ select.iptSlt.typeLine {
 
 /* --------------------------- 텍스트 공통 --------------------------- */
 .txtTitle {
-	color: #EC1C24;
+	color: #0E88D3;
 	margin-bottom: 60px;
 	font-family: Cormorant;
 	font-size: 56px;
@@ -9383,7 +9608,7 @@ select.iptSlt.typeLine {
 	width: 4px;
 	height: 4px;
 	border-radius: 50%;
-	background: #EC1C24;
+	background: #0E88D3;
 	display: block;
 	position: absolute;
 	left: 0;
@@ -10324,7 +10549,7 @@ Material Design에선 스낵바가 토스트보다 권장됨
 }
 .modSticky .stickyArea .stickyHead .tabGroup .tabItem.on .btnTab {
 	color: #fff;
-	background: #EC1C24;
+	background: #0E88D3;
 }
 .modSticky .stickyArea .stickyBody {
 	width: 100%;

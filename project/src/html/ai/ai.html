@@ -10,16 +10,16 @@
     <div class="layoutArea">
 
         <!-- 상단영역 -->
-        <div class="layoutTop">
+        <header class="layoutTop">
             <!-- Top -->
             <%- include('../_ejs/gnb.ejs', {
                 url: "../"
             }) %>
-        </div>
+        </header>
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container" tabindex="-1">
+        <main class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
@@ -51,8 +51,8 @@
                                 안정적인 납기와 일관된 품질을 지원하는 내부 운영 체계입니다.
                             </p>
 
-                            <img src="../../images/contents/ai_cont01.png" alt="" class="center pc"/>
-                            <img src="../../images/contents/ai_cont01_mo.png" alt="" class="center mo"/>
+                            <img src="../../images/contents/ai_cont01.png" alt="" class="center pc" decoding="async"/>
+                            <img src="../../images/contents/ai_cont01_mo.png" alt="" class="center mo" loading="lazy" decoding="async"/>
 
                             <p class="gradationTxt ty01">
                                 AI를 내재화해 표준화·자동화·지식화 기반의 <br/>생산성과 품질 안정성을 강화합니다.
@@ -65,7 +65,7 @@
                                 <p class="desc">
                                     SBM은 채널/클라이언트(웹·앱·키오스크·디바이스·클라이언트 앱)와 백엔드 서비스/기능 <br/>서비스/외부 연계 사이에 위치합니다.
                                 </p>
-                                <img src="../../images/contents/ai_product.png" alt="" />
+                                <img src="../../images/contents/ai_product.png" alt="" loading="lazy" decoding="async" />
 
                                 <p class="point">
                                     AI 내재화 = 기술이 아닌 ‘일하는 방식’의 혁신,<br/>
@@ -125,8 +125,8 @@
                                 오픈 직전 집중 검증, 변경 이력 분산, 반복 이슈 재발은 결국 납기와 품질 리스크로 이어집니다.
                             </p>
 
-                            <img src="../../images/contents/ai_cont02.png" alt="" class="center pc"/>
-                            <img src="../../images/contents/ai_cont02_mo.png" alt="" class="center mo"/>
+                            <img src="../../images/contents/ai_cont02.png" alt="" class="center pc" loading="lazy" decoding="async"/>
+                            <img src="../../images/contents/ai_cont02_mo.png" alt="" class="center mo" loading="lazy" decoding="async"/>
 
                             <p class="gradationTxt ty01">
                                 AI를 내재화해 표준화·자동화·지식화 기반의 <br/>생산성과 품질 안정성을 강화합니다.
@@ -140,7 +140,7 @@
                                     AI 내재화는 ‘전면 도입’이 아니라 ‘병목부터’가 정답입니다. 폐쇄망/온프레미스 환경 등 <br/>
                                     프로젝트 제약을 고려해, 데이터 범위와 운영 정책을 명확히 해야 실제 현장에 안착합니다.
                                 </p>
-                                <img src="../../images/contents/ai_product02.png" alt="" />
+                                <img src="../../images/contents/ai_product02.png" alt="" loading="lazy" decoding="async" />
 
                                 <p class="point">
                                     OPENBRICKS의 목표는 “AI 도입”이 아니라 운영 가능한 <br/>
@@ -189,7 +189,7 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/ai_cont03.png" alt="" />
+                                                <img src="../../images/contents/ai_cont03.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">1. 표준 구현 레이어</p>
                                                     <p class="slideSub">표준 템플릿과 패턴을 고정해 개발의 시작점을 <br/>통일하고 구현 편차를 구조적으로 줄입니다.</p>
@@ -203,7 +203,7 @@
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/ai_cont04.png" alt="" />
+                                                <img src="../../images/contents/ai_cont04.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">2. 품질 게이트 레이어</p>
                                                     <p class="slideSub">리뷰·테스트·검수를 상시 게이트로 운영해 누락을 <br/>줄이고, 오픈 직전 리스크를 낮춥니다.</p>
@@ -217,7 +217,7 @@
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/ai_cont05.png" alt="" />
+                                                <img src="../../images/contents/ai_cont05.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">3. 추적성 레이어</p>
                                                     <p class="slideSub">요구–설계–코드–테스트–전환을 연결해 변경이 <br/>발생해도 근거와 영향 구간이 남게 합니다.</p>
@@ -231,7 +231,7 @@
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slideInner">
-                                                <img src="../../images/contents/ai_cont06.png" alt="" />
+                                                <img src="../../images/contents/ai_cont06.png" alt="" loading="lazy" decoding="async" />
                                                 <div class="slideTxtBox">
                                                     <p class="slideTit">4. 지식화 레이어</p>
                                                     <p class="slideSub">반복 이슈와 표준 조치를 자산으로 축적해 재작업을 <br/>줄이고, 대응 품질의 일관성을 높입니다.</p>
@@ -261,8 +261,8 @@
                                 코딩·리뷰·테스트·증적 반복 작업을 줄여 품질 활동에 집중하고, <br/>운영 이력과 결과물을 자산화해 더 안정적인 수행 체계를 만듭니다. <br/>AI 제품 판매가 아닌, 납품 품질과 운영 안정성 강화를 위한 AI 내재화입니다.
                             </p>
 
-                            <img src="../../images/contents/ai_cont07.png" alt="" class="center pc"/>
-                            <img src="../../images/contents/ai_cont07_mo.png" alt="" class="center mo"/>
+                            <img src="../../images/contents/ai_cont07.png" alt="" class="center pc" loading="lazy" decoding="async"/>
+                            <img src="../../images/contents/ai_cont07_mo.png" alt="" class="center mo" loading="lazy" decoding="async"/>
 
                             <p class="gradationTxt ty01">
                                 코딩·리뷰·테스트·증적의 반복 작업을 줄여<br/> 품질 활동에 집중하고, 운영 이력과 결과물을 자산화해 <br/>지속 가능한 운영 안정성을 만듭니다.
@@ -275,7 +275,7 @@
                                 <p class="desc">
                                     납기·품질 편차 감소로 운영 리스크는 낮아지고, 변경 대응이 빨라지며, 재작업이 감소합니다.
                                 </p>
-                                <img src="../../images/contents/ai_product03.png" alt="" />
+                                <img src="../../images/contents/ai_product03.png" alt="" loading="lazy" decoding="async" />
 
                                 <p class="point">
                                     AI 내재화의 핵심 가치는 <br/>‘더 빨리’가 아니라 ‘더 안정적으로’입니다.
@@ -329,16 +329,16 @@
             </div>
             <!-- //서브 콘텐츠 영역 -->
 
-        </div>
+        </main>
         <!-- //중단영역 -->
 
         <!-- 하단영역 -->
-        <div class="layoutFooter">
+        <footer class="layoutFooter">
             <!-- Footer -->
             <%- include('../_ejs/footer.ejs', {
                 url: "../../"
             }) %>
-        </div>
+        </footer>
         <!-- //하단영역 -->
 
     </div>

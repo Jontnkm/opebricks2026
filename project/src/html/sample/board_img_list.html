@@ -9,16 +9,16 @@
     <div class="layoutArea">
 
         <!-- 상단영역 -->
-        <div class="layoutTop">
+        <header class="layoutTop">
             <!-- Top -->
             <%- include('../_ejs/gnb.ejs', {
                 url: "../"
             }) %>
-        </div>
+        </header>
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container" tabindex="-1">
+        <main class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
@@ -40,7 +40,7 @@
                             <li class="sideItem">
                                 <div class="frmSearch">
                                     <input type="text" placeholder="검색어를 입력해주세요">
-                                    <button class="btnSearch">검색</button>
+                                    <button type="button" class="btnSearch">검색</button>
                                 </div>
                             </li>
                         </ul>
@@ -54,7 +54,7 @@
                         <ul class="boardList">
                             <li class="boardItem">
                                 <div class="imgBox">
-                                    <img src="" alt="">
+                                    <img src="../../images/contents/ref01.png" alt="">
                                 </div>
                                 <div class="flogBox">
                                     <div class="state new"></div>
@@ -75,7 +75,7 @@
                 <!-- 게시판 하단 버튼 영역 -->
                 <div class="comGroupBtm">
                     <div class="alignR">
-                        <button class="btn basic">글쓰기</button>
+                        <button type="button" class="btn basic">글쓰기</button>
                     </div>
                 </div>
 
@@ -105,16 +105,16 @@
             </div>
             <!-- //서브 콘텐츠 영역 -->
 
-        </div>
+        </main>
         <!-- //중단영역 -->
 
         <!-- 하단영역 -->
-        <div class="layoutFooter">
+        <footer class="layoutFooter">
             <!-- Footer -->
             <%- include('../_ejs/footer.ejs', {
                 url: "../../"
             }) %>
-        </div>
+        </footer>
         <!-- //하단영역 -->
 
     </div>

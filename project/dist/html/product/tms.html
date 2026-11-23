@@ -13,9 +13,12 @@
 	<meta property="og:site_name" content="OPENBRICKS">
 	<meta property="og:title" content="i-TMS | OPENBRICKS">
 	<meta property="og:description" content="검증된 자체 운영 솔루션과 표준화된 아키텍처의 결합을 통해 비즈니스의 유연한 확장을 지원하며 지속 가능한 운영 환경을 완성합니다.">
-	<meta property="og:image" content="../../images/contents/openbrics_logo_blk.png">
+	<meta property="og:image" content="https://openbricks.kr/images/contents/openbrics_logo_blk.png">
 
 	<title>i-TMS | OPENBRICKS</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 	<link rel="stylesheet" href="../../common/css/swiper.css" />
 	<link rel="stylesheet" href="../../common/css/style.css" />
@@ -33,7 +36,7 @@
     <div class="layoutArea">
 
         <!-- 상단영역 -->
-        <div class="layoutTop">
+        <header class="layoutTop">
             <!-- Top -->
             
 
@@ -42,7 +45,7 @@
                     <div class="logoBox">
                         <a href="../index.html" class="logo">OPENBRICKS</a>
                     </div>
-                    <div class="gnbBox">
+                    <nav class="gnbBox" aria-label="주메뉴">
                         <div class="menuArea">
                             <ul class="depth1Group">
                                 <li class="depth1List">
@@ -62,7 +65,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </nav>
                     <div class="quickBox">
                         <div class="quickArea">
                             <ul class="quickGroup">
@@ -200,11 +203,11 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </header>
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container" tabindex="-1">
+        <main class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
@@ -215,14 +218,14 @@
 
                 <div class="cptSubTop">
                     <div class="subTopArea">
-                        <dl class="subTopBox">
-                            <dt class="topHead">
+                        <div class="subTopBox">
+                            <div class="topHead">
                                 <h1 class="title">Products<span class="hidden"> - i-TMS</span></h1>
-                            </dt>
-                            <dd class="topBody">
+                            </div>
+                            <p class="topBody">
                                 검증된 자체 운영 솔루션과 표준화된 아키텍처의 결합을 통해 <br/>비즈니스의 유연한 확장을 지원하며 지속 가능한 운영 환경을 완성합니다.
-                            </dd>
-                        </dl>
+                            </p>
+                        </div>
 
                         <nav class="breadCrumb" aria-label="현재 위치">
                             <ul>
@@ -284,7 +287,7 @@
 
                         <div class="section section01 w1600">
                             <div class="mockup">
-                                <img src="../../images/contents/tms_mock.png" alt="">
+                                <img src="../../images/contents/tms_mock.png" alt="" decoding="async">
                             </div>
 
                             <p class="smTxt">
@@ -310,8 +313,8 @@
                             </p>
 
                             <div class="sbm_product_img_box">
-                                <img src="../../images/contents/tms_cont01.png" alt="" class="pc">
-                                <img src="../../images/contents/tms_cont01_mo.png" alt="" class="mo">
+                                <img src="../../images/contents/tms_cont01.png" alt="" class="pc" loading="lazy" decoding="async">
+                                <img src="../../images/contents/tms_cont01_mo.png" alt="" class="mo" loading="lazy" decoding="async">
                             </div>
                         </div>
 
@@ -328,8 +331,8 @@
                                 테스트는 시스템 운영 품질과 서비스 신뢰를 좌우합니다. <br/>체계가 없으면 누락과 지연, 운영 리스크가 오픈 후 비용으로 돌아옵니다.
                             </p>
 
-                            <img src="../../images/contents/tms_cont02.png" alt="" class="center pc"/>
-                            <img src="../../images/contents/tms_cont02_mo.png" alt="" class="center mo"/>
+                            <img src="../../images/contents/tms_cont02.png" alt="" class="center pc" loading="lazy" decoding="async"/>
+                            <img src="../../images/contents/tms_cont02_mo.png" alt="" class="center mo" loading="lazy" decoding="async"/>
 
                             <p class="gradationTxt ty01">
                                 테스트는 시스템 운영 품질과 서비스 신뢰를 좌우합니다. <br/>i-TMS는 테스트를 반복 가능한 운영 체계로 만들고, <br/>오픈 품질을 객관적으로 통제합니다.
@@ -502,7 +505,7 @@
                                             <span class="smT">Feature 01</span>
                                             <p class="title">테스트 케이스 관리</p>
                                         </div>
-                                        <img src="../../images/contents/tms_ico01.svg" alt="">
+                                        <img src="../../images/contents/tms_ico01.svg" alt="" loading="lazy" decoding="async">
                                         <div class="list">
                                             <span>테스트 케이스 등록/분류/버전 관리</span>
                                             <span>단위/통합 구분 운영(업무/화면/연계/비기능 등 분류 가능)</span>
@@ -514,7 +517,7 @@
                                             <span class="smT">Feature 02</span>
                                             <p class="title">단위테스트 관리</p>
                                         </div>
-                                        <img src="../../images/contents/tms_ico02.svg" alt="">
+                                        <img src="../../images/contents/tms_ico02.svg" alt="" loading="lazy" decoding="async">
                                         <div class="list">
                                             <span>단위테스트 계획/수행/결과 기록</span>
                                             <span>결과와 증적(스크린샷/로그/첨부) 축적</span>
@@ -525,7 +528,7 @@
                                             <span class="smT">Feature 03</span>
                                             <p class="title">회차별 통합테스트 설정 및 수행 관리</p>
                                         </div>
-                                        <img src="../../images/contents/tms_ico03.svg" alt="">
+                                        <img src="../../images/contents/tms_ico03.svg" alt="" loading="lazy" decoding="async">
                                         <div class="list">
                                             <span>통합테스트를 1차/2차/3차… 회차로 구분 운영</span>
                                             <span>회차별 수행 범위/참여자/진행률/결과를 분리 관리</span>
@@ -537,7 +540,7 @@
                                             <span class="smT">Feature 04</span>
                                             <p class="title">결함 등록 · 조치 등록 · 재검증 루프</p>
                                         </div>
-                                        <img src="../../images/contents/tms_ico04.svg" alt="">
+                                        <img src="../../images/contents/tms_ico04.svg" alt="" loading="lazy" decoding="async">
                                         <div class="list">
                                             <span>결함 등록(심각도/우선순위/재현 절차/첨부)</span>
                                             <span>조치 등록(원인/해결/패치 정보)</span>
@@ -549,7 +552,7 @@
                                             <span class="smT">Feature 05</span>
                                             <p class="title">오픈 품질 게이트(Release Gate)</p>
                                         </div>
-                                        <img src="../../images/contents/tms_ico05.svg" alt="">
+                                        <img src="../../images/contents/tms_ico05.svg" alt="" loading="lazy" decoding="async">
                                         <div class="list">
                                             <span>잔존 결함 현황과 테스트 결과를 집계</span>
                                             <span>오픈 가능 여부 판단 기준 화면 제공</span>
@@ -561,7 +564,7 @@
                                             <span class="smT">Feature 06</span>
                                             <p class="title">대시보드/리포트(의사결정)</p>
                                         </div>
-                                        <img src="../../images/contents/tms_ico06.svg" alt="">
+                                        <img src="../../images/contents/tms_ico06.svg" alt="" loading="lazy" decoding="async">
                                         <div class="list">
                                             <span>단위/통합/회차별 진행률</span>
                                             <span>결함 현황(열림/조치중/재검증/종결)</span>
@@ -580,22 +583,22 @@
                                 <div class="list">
                                     <ul>
                                         <li>
-                                            <img src="../../images/contents/tms_cont03.png" alt="">
+                                            <img src="../../images/contents/tms_cont03.png" alt="" loading="lazy" decoding="async">
                                         </li>
                                         <li>
-                                            <img src="../../images/contents/tms_cont04.png" alt="">
+                                            <img src="../../images/contents/tms_cont04.png" alt="" loading="lazy" decoding="async">
                                         </li>
                                         <li>
-                                            <img src="../../images/contents/tms_cont05.png" alt="">
+                                            <img src="../../images/contents/tms_cont05.png" alt="" loading="lazy" decoding="async">
                                         </li>
                                         <li>
-                                            <img src="../../images/contents/tms_cont06.png" alt="">
+                                            <img src="../../images/contents/tms_cont06.png" alt="" loading="lazy" decoding="async">
                                         </li>
                                         <li>
-                                            <img src="../../images/contents/tms_cont07.png" alt="">
+                                            <img src="../../images/contents/tms_cont07.png" alt="" loading="lazy" decoding="async">
                                         </li>
                                         <li>
-                                            <img src="../../images/contents/tms_cont08.png" alt="">
+                                            <img src="../../images/contents/tms_cont08.png" alt="" loading="lazy" decoding="async">
                                         </li>
                                     </ul>
                                 </div>
@@ -608,7 +611,7 @@
                                 <p class="desc">
                                     테스트 케이스부터 수행 결과, 조치, 증적, 지표까지 하나의 체계로 통합 관리합니다.
                                 </p>
-                                <img src="../../images/contents/tms_product.png" alt="" />
+                                <img src="../../images/contents/tms_product.png" alt="" loading="lazy" decoding="async" />
 
                                 <p class="point">
                                     i-TMS는 테스트를 “한 번 잘하는 도구”가 아니라, <br/>
@@ -667,11 +670,11 @@
             </div>
             <!-- //서브 콘텐츠 영역 -->
 
-        </div>
+        </main>
         <!-- //중단영역 -->
 
         <!-- 하단영역 -->
-        <div class="layoutFooter">
+        <footer class="layoutFooter">
             <!-- Footer -->
             
 
@@ -702,7 +705,7 @@
     </div>
 </div>
 
-        </div>
+        </footer>
         <!-- //하단영역 -->
 
     </div>

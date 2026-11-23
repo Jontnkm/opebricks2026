@@ -13,9 +13,12 @@
 	<meta property="og:site_name" content="OPENBRICKS">
 	<meta property="og:title" content="게시판 글쓰기 샘플 | OPENBRICKS">
 	<meta property="og:description" content="복잡한 시스템 연계를 장애 추적과 운영 관리가 가능한 구조로 설계·구축하는 연계브릿지 전문 SI 기업입니다">
-	<meta property="og:image" content="../../images/contents/openbrics_logo_blk.png">
+	<meta property="og:image" content="https://openbricks.kr/images/contents/openbrics_logo_blk.png">
 
 	<title>게시판 글쓰기 샘플 | OPENBRICKS</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 	<link rel="stylesheet" href="../../common/css/swiper.css" />
 	<link rel="stylesheet" href="../../common/css/style.css" />
@@ -33,7 +36,7 @@
     <div class="layoutArea">
 
         <!-- 상단영역 -->
-        <div class="layoutTop">
+        <header class="layoutTop">
             <!-- Top -->
             
 
@@ -42,7 +45,7 @@
                     <div class="logoBox">
                         <a href="../index.html" class="logo">OPENBRICKS</a>
                     </div>
-                    <div class="gnbBox">
+                    <nav class="gnbBox" aria-label="주메뉴">
                         <div class="menuArea">
                             <ul class="depth1Group">
                                 <li class="depth1List">
@@ -62,7 +65,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </nav>
                     <div class="quickBox">
                         <div class="quickArea">
                             <ul class="quickGroup">
@@ -200,11 +203,11 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </header>
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container" tabindex="-1">
+        <main class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
@@ -219,9 +222,9 @@
                 <div class="cptBoardWrite">
                     <div class="boardArea">
                         <div class="boardTop">
-                            <h2 class="boardTitle"><input type="text" placeholder="제목을 입력해주세요"></h2>
+                            <div class="boardTitle"><input type="text" placeholder="제목을 입력해주세요" aria-label="제목"></div>
                             <div class="boardType">
-                                <select name="" id="">
+                                <select name="category" id="boardCategory" aria-label="카테고리 선택">
                                     <option>카테고리 선택</option>
                                     <option>카테고리 선택</option>
                                 </select>
@@ -229,7 +232,7 @@
                         </div>
                         <div class="boardBody">
                             <div class="boardCont">
-                                <textarea></textarea>
+                                <textarea aria-label="내용"></textarea>
                             </div>
                             <div class="comFileList">
                                 <ul class="fileGroup">
@@ -245,7 +248,7 @@
                                                         </div>
                                                         <div class="fileAfter">
                                                             <div class="textBox"></div>
-                                                            <button class="fileDel">삭제</button>
+                                                            <button type="button" class="fileDel">삭제</button>
                                                         </div>
                                                     </div>
                                                     <div class="textBox clar"> * 최대 500MB까지 첨부가능</div>
@@ -265,7 +268,7 @@
                                                         </div>
                                                         <div class="fileAfter">
                                                             <div class="textBox"></div>
-                                                            <button class="fileDel">삭제</button>
+                                                            <button type="button" class="fileDel">삭제</button>
                                                         </div>
                                                     </div>
                                                     <div class="textBox clar"> * 최대 500MB까지 첨부가능</div>
@@ -289,7 +292,7 @@
                         </div>
                     </div>
                     <div class="alignR">
-                        <button class="btn basic">등록</button>
+                        <button type="button" class="btn basic">등록</button>
                     </div>
                 </div>
 
@@ -298,11 +301,11 @@
             </div>
             <!-- //서브 콘텐츠 영역 -->
 
-        </div>
+        </main>
         <!-- //중단영역 -->
 
         <!-- 하단영역 -->
-        <div class="layoutFooter">
+        <footer class="layoutFooter">
             <!-- Footer -->
             
 
@@ -333,7 +336,7 @@
     </div>
 </div>
 
-        </div>
+        </footer>
         <!-- //하단영역 -->
 
     </div>

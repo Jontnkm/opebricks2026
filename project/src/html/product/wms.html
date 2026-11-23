@@ -10,16 +10,16 @@
     <div class="layoutArea">
 
         <!-- 상단영역 -->
-        <div class="layoutTop">
+        <header class="layoutTop">
             <!-- Top -->
             <%- include('../_ejs/gnb.ejs', {
                 url: "../"
             }) %>
-        </div>
+        </header>
         <!-- //상단영역 -->
 
         <!-- 중단영역 -->
-        <div class="layoutContainer" id="container" tabindex="-1">
+        <main class="layoutContainer" id="container" tabindex="-1">
 
             <!-- 서브 콘텐츠 영역 -->
             <div class="layoutSubCont">
@@ -45,7 +45,7 @@
 
                         <div class="section section01 w1600">
                             <div class="mockup">
-                                <img src="../../images/contents/wms_mock.png" alt="">
+                                <img src="../../images/contents/wms_mock.png" alt="" decoding="async">
                             </div>
 
                             <p class="smTxt">
@@ -66,8 +66,8 @@
                             <p class="contDesc">많은 중·소기업은 크고 작은 IT 시스템을 보유하고 있지만, 유지보수는 여전히 사람과 개별 커뮤니케이션(전화/메신저/메일)에 의존하여 운영되는 경우가 많습니다. 그 결과, 요청과 결정의 근거가 흩어지고, 이력이 남지 않으며, 재발 관리와 개선 판단이 어려워져 시스템 운영 품질이 사람 의존적으로 흔들립니다.</p>
 
                             <div class="sbm_product_img_box">
-                                <img src="../../images/contents/wms_cont01.png" alt="" class="pc">
-                                <img src="../../images/contents/wms_cont01_mo.png" alt="" class="mo">
+                                <img src="../../images/contents/wms_cont01.png" alt="" class="pc" loading="lazy" decoding="async">
+                                <img src="../../images/contents/wms_cont01_mo.png" alt="" class="mo" loading="lazy" decoding="async">
                             </div>
 
                             <p class="contDesc">
@@ -81,7 +81,7 @@
                                 <p class="desc">
                                     데이터 기반 운영을 통한 업무 효율 향상과 고객 만족, 조직 경쟁력 강화를 지원합니다.
                                 </p>
-                                <img src="../../images/contents/wms_product.png" alt="" />
+                                <img src="../../images/contents/wms_product.png" alt="" loading="lazy" decoding="async" />
 
                                 <p class="point">
                                     유지보수 전 과정을 데이터 기반으로 체계화하여 <br/>운영 효율과 고객 만족, 조직 경쟁력을 높입니다. 
@@ -124,8 +124,8 @@
                                  체계가 없으면 운영은 흔들리고, 비용과 리스크는 커집니다.
                             </p>
 
-                            <img src="../../images/contents/wms_cont02.png" alt="" class="center pc"/>
-                            <img src="../../images/contents/wms_cont02_mo.png" alt="" class="center mo"/>
+                            <img src="../../images/contents/wms_cont02.png" alt="" class="center pc" loading="lazy" decoding="async"/>
+                            <img src="../../images/contents/wms_cont02_mo.png" alt="" class="center mo" loading="lazy" decoding="async"/>
 
                             <p class="gradationTxt ty01">
                                 유지보수 관리 플랫폼은 이 문제를 “기능 추가”로 해결하기보다, <br/> 운영의 기본 규칙(체계)을 시스템 안에 고정하여, <br/>시간이 지날수록 더 강해지는 운영 기반을 만듭니다.
@@ -352,8 +352,8 @@
                                 요청 관리부터 이력·지식·지표까지, 유지보수 운영에 필요한 모든 기능을 제공합니다.
                             </p>
 
-                            <img src="../../images/contents/wms_cont03.png" alt="" class="center pc"/>
-                            <img src="../../images/contents/wms_cont03_mo.png" alt="" class="center mo"/>
+                            <img src="../../images/contents/wms_cont03.png" alt="" class="center pc" loading="lazy" decoding="async"/>
+                            <img src="../../images/contents/wms_cont03_mo.png" alt="" class="center mo" loading="lazy" decoding="async"/>
                         </div>
 
                         <div class="section section08 w1400">
@@ -362,7 +362,7 @@
                                 <p class="desc">
                                     데이터 기반의 체계적 운영으로 업무 효율, 고객 만족, 조직 경쟁력을 높입니다.
                                 </p>
-                                <img src="../../images/contents/wms_product02.png" alt="" />
+                                <img src="../../images/contents/wms_product02.png" alt="" loading="lazy" decoding="async" />
 
                                 <p class="point">
                                     유지보수 관리 플랫폼 도입 효과는 “업무가 편해진다”를 넘어, <br/>조직 운영 능력이 바뀌는 데 있습니다.
@@ -420,16 +420,16 @@
             </div>
             <!-- //서브 콘텐츠 영역 -->
 
-        </div>
+        </main>
         <!-- //중단영역 -->
 
         <!-- 하단영역 -->
-        <div class="layoutFooter">
+        <footer class="layoutFooter">
             <!-- Footer -->
             <%- include('../_ejs/footer.ejs', {
                 url: "../../"
             }) %>
-        </div>
+        </footer>
         <!-- //하단영역 -->
 
     </div>

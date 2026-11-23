@@ -1,3 +1,8 @@
+// 마크업이 Swiper 6 이전 클래스(.swiper-container)를 쓰므로, Swiper 11(.swiper 기준 CSS)에서도 영역 밖 슬라이드가 보이지 않도록 기본 규칙 추가 (개발 반영 2026.11.23)
+.swiper-container {
+    position:relative; overflow:hidden;
+}
+
 .comTab {
     width:100%; position:relative; max-width:1400px; margin:0 auto;
 
@@ -9,7 +14,7 @@
         }
 
         .current {
-            position:relative; width:100%; padding:0 24px; border-radius:50px; background:#ec1c24; color:#fff; font-size: 14px; font-weight:700; line-height: 53px; text-align:left;
+            position:relative; width:100%; padding:0 24px; border-radius:50px; background:#0E88D3; color:#fff; font-size: 14px; font-weight:700; line-height: 53px; text-align:left;
 
             &::after {
                content:''; position:absolute; top:50%; right:24px; transform:translateY(-50%); width: 20px; height: 20px; background:url(../../images/contents/ico_dropdown_arrow.svg)50% 50% no-repeat;
@@ -56,7 +61,7 @@
                     display:block; padding: 20px 24px; text-align:center; border-radius:50px; font-size:18px; font-weight:400;
 
                     &.active {
-                        background:#EC1C24; box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.20); color:#fff; font-size: 18px; font-weight:700; 
+                        background:#0E88D3; box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.20); color:#fff; font-size: 18px; font-weight:700; 
                     }
                 }
             }
@@ -78,7 +83,7 @@
         }
 
         .smTxt {
-            font-size:20px; font-weight:700; line-height:150%; color:#ec1c24; text-align:center;
+            font-size:20px; font-weight:700; line-height:150%; color:#0E88D3; text-align:center;
             @include media ("mobile") {
                 padding: 0 16px;
             }
@@ -102,7 +107,7 @@
         }
         
         .imgTxt {
-            margin-top:80px; width:100%; padding:80px; background:url(../../images/contents/bg_sub_01.png)0 0 no-repeat; border-radius:40px;
+            margin-top:80px; width:100%; padding:80px; background:url(../../images/contents/bg_sub_01.jpg)0 0 no-repeat; border-radius:40px;
 
             &.type02 {background:url(../../images/contents/cli_imgTxt_bg.png)0 0 no-repeat; background-position:center center;} /*클라우드 인프라*/
             &.type03 {background:url(../../images/contents/sbm_imgTxt_bg.png)0 0 no-repeat; background-position:center center;} /*sbm*/
@@ -148,7 +153,7 @@
 
             > .imgFrame {
                 width:100%; height:400px; overflow:hidden; border-radius:40px;
-                background:url(../../images/contents/intro_cont01.png)center center no-repeat;
+                background:url(../../images/contents/intro_cont01.jpg)center center no-repeat;
 
                 @include media ("mobile"){
                     height:200px; background-size:100%; border-radius:0;
@@ -157,16 +162,16 @@
 
             &.strength {
                 .imgFrame {
-                    background:url(../../images/contents/str_cont01.png)center center no-repeat;
+                    background:url(../../images/contents/str_cont01.jpg)center center no-repeat;
                 }
             }
 
             &.strength02 {
                 .imgFrame {
-                    background:url(../../images/contents/str_cont02.png)center top -225px no-repeat;
+                    background:url(../../images/contents/str_cont02.jpg)center top -225px no-repeat;
 
                     @include media ("mobile") {
-                        background:url(../../images/contents/str_cont02.png)center center no-repeat;
+                        background:url(../../images/contents/str_cont02.jpg)center center no-repeat;
                         background-size:100%;
                     }
                 }
@@ -271,7 +276,7 @@
         .contDesc {
             font-size:18px; font-weight:400; line-height:150%; color:#68717b; margin-top:12px;
             @include media ("mobile") {
-                font-size:16px; padding: 0 16px; wprd-break:keep-all;
+                font-size:16px; padding: 0 16px; word-break:keep-all;
             }
         }
 
@@ -340,6 +345,9 @@
                             flex-flow:column; width:520px;
                             @include media ("pc") {
                                 width:100%;
+                            }
+                            @media screen and (min-width:768px) and (max-width:1023px) {
+                                padding:60px 20px; background-size:cover;
                             }
 
                             p.description {
@@ -419,6 +427,11 @@
 
                 > li {
                     z-index:1;
+
+                    // 긴 내용 때문에 단계 목록이 가로로 넘치지 않도록 (개발 반영 2026.11.23)
+                    @include minWidth ("mobile") {
+                        min-width:0;
+                    }
                 }
 
                 &.type02 {
@@ -612,6 +625,25 @@
             }
 
             & + .sndStep {margin:40px 0 140px;}
+
+            // 768~1200px: 스텝 5~6개가 한 줄이라 칸이 80~150px로 좁아지고 i-TMS는 화면 밖으로 잘림
+            // → 3열(4개면 2열)로 줄바꿈, 한 줄 기준 연결선·점은 숨김
+            @media screen and (min-width:768px) and (max-width:1200px) {
+                > ul {
+                    flex-wrap:wrap; justify-content:center; gap:48px 20px;
+                    &::after {display:none;}
+                    > li {
+                        flex:0 0 calc((100% - 40px) / 3); min-width:0; gap:24px;
+                        &:first-child:nth-last-child(4), &:first-child:nth-last-child(4) ~ li {
+                            flex-basis:calc((100% - 20px) / 2);
+                        }
+                        .lineDown::after {display:none;}
+                        .lineDown .desc br {display:none;}
+                        .chk {margin-top:0; width:100%;}
+                    }
+                }
+                &.addLine::after {display:none;}
+            }
         }
 
         .sndStep {
@@ -620,6 +652,11 @@
             }
             ul {
                 display:flex; flex-flow: row nowrap; align-items: center; justify-content: flex-start; gap:20px;
+                // 태블릿: 4칸이 한 줄이면 제목이 4줄로 쪼개짐 → 2열
+                @media screen and (min-width:768px) and (max-width:1023px) {
+                    flex-wrap:wrap; align-items:stretch;
+                    > li {flex:0 0 calc((100% - 20px) / 2);}
+                }
                 @include media ("mobile") {
                     flex-flow:column; align-items: flex-start; gap:10px; padding: 0 16px;
                 }
@@ -717,16 +754,19 @@
         }
 
         &.section04 {
-            background:url(../../images/contents/ai-native-bg.svg)0 0 no-repeat; padding:140px 0; background-position:center bottom;
+            background:url(../../images/contents/ai-native-bg.jpg)0 0 no-repeat; padding:140px 0; background-position:center bottom;
             @include media ("mobile") {
                 padding:60px 0;
             }
+            // 조직 및 보유역량 페이지 전용 배경 위치 (기존 인라인 style 이동)
+            &.bgPosLow {background-position:center bottom -553px;}
 
             &.whtBg {
-                background:url(../../images/contents/wht_bg.png)center top no-repeat; background-size:cover;
+                background:url(../../images/contents/wht_bg.jpg)center top no-repeat; background-size:cover;
 
                 .gradationTxt {
                     background:linear-gradient(92deg, #52A8FF 32.23%, #C555DA 68.81%); background-clip: text;
+                    -webkit-background-clip: text; -webkit-text-fill-color: transparent; /* 사파리 구버전 대응 */
                 }
 
                 .infiniteMarq {
@@ -764,9 +804,12 @@
         }
 
         &.section05, &.section08 {
-            display:flex; flex-flow: row nowrap; align-items: center ;justify-content: center; gap:80px; width:100%;
+            display:flex; flex-flow: row nowrap; align-items: center ;justify-content: center; gap:80px; /* 폭은 .w1400 규칙(좌우 20px 여백) 사용 */
+            @include media ("pc") {
+                gap:40px;
+            }
             @include media ("mobile") {
-                flex-flow:column; align-items: flex-start; justify-content: flex-start; gap:20px; padding: 0 16px;
+                width:100%; flex-flow:column; align-items: flex-start; justify-content: flex-start; gap:20px; padding: 0 16px;
             }
             .leftBox {
                 width:100%;
@@ -1047,7 +1090,7 @@
         }
         
         &.section07 {
-            background:url(../../images/contents/ai-native-bg.svg)0 0 no-repeat; padding:140px 0; background-size:cover; background-position:center bottom;
+            background:url(../../images/contents/ai-native-bg.jpg)0 0 no-repeat; padding:140px 0; background-size:cover; background-position:center bottom;
             @include media ("mobile") {
                 padding:50px 16px;
             }
@@ -1071,6 +1114,11 @@
                         flex-flow:column;  gap:10px;
                     }
 
+                    // 태블릿: 335px 고정 카드 2개가 왼쪽에 붙고 오른쪽이 비던 문제 → 2열 균등
+                    @media screen and (min-width:768px) and (max-width:1023px) {
+                        &:not(.noWrap):not(.type05) > li {width:calc((100% - 20px) / 2);}
+                    }
+
                     &.noWrap {
                         flex-flow:row nowrap;
 
@@ -1087,10 +1135,16 @@
                                 margin-bottom:8px;
                             }
                         }
+
+                        // 태블릿: 4칸 한 줄이면 설명 칸이 100px 남짓 → 2열
+                        @media screen and (min-width:768px) and (max-width:1023px) {
+                            flex-wrap:wrap; align-items:stretch;
+                            > li {width:calc((100% - 20px) / 2);}
+                        }
                     }
 
                     > li {
-                        width:335px; padding:36px; border-radius:16px; background:rgba(233,233,233,0.15); backdrop-filter: blur(10px);
+                        width:335px; padding:36px; border-radius:16px; background:rgba(233,233,233,0.15); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
 
                         @include media ("mobile") {
                             width:100%; padding:20px;
@@ -1106,9 +1160,9 @@
                         }
 
                         .smT {
-                            font-size:14px; font-weight:700; line-height:150%; color:#ef4349;
+                            font-size:14px; font-weight:700; line-height:150%; color:#0E88D3;
                             @include media ("mobile") {
-                                font-szie:13px;
+                                font-size:13px;
                             }
                         }
 
@@ -1234,6 +1288,10 @@
                         }
                         > li {
                             width:calc((100% - 40px) / 3); min-height:425px;
+                            // 태블릿: 3칸 + 안쪽 여백 36px이면 사파리에서 목록 글자가 카드 밖으로 넘침
+                            @media screen and (min-width:768px) and (max-width:1023px) {
+                                padding:24px; overflow-wrap:anywhere;
+                            }
                             @include media ("mobile") {
                                 width:100%; min-height:auto; flex-flow:column; align-items: flex-start; justify-content: flex-start;
                             }
@@ -1284,6 +1342,11 @@
                                 width:calc(50% - 20px);
                                 .title {margin-top:0;}
 
+                                // 태블릿: 반폭 안의 흐름도(.flow) 칸이 70px까지 좁아짐 → 한 줄에 한 카드
+                                @media screen and (min-width:768px) and (max-width:1023px) {
+                                    width:100%;
+                                }
+
                                 @include media ("mobile") {
                                     width:100%; flex-flow:column; align-items: flex-start; justify-content: flex-start;
                                 }
@@ -1319,7 +1382,7 @@
                                     }
 
                                     @include media ("mobile") {
-                                        width:calc(50% - 20px);
+                                        width:calc(50% - 20px); padding:16px 8px; /* 360px에서 'Connector'가 두 줄로 쪼개지던 문제 */
                                         &:last-of-type {
                                             width:100%;
                                         }
@@ -1393,7 +1456,11 @@
                             flex-flow:column; align-items: flex-start; gap:10px;
                         }
                         li {
-                            width:100%; padding:36px; border-radius:16px; background:rgba(233,233,233,0.15); min-height:257px;  backdrop-filter: blur(10px);
+                            width:100%; padding:36px; border-radius:16px; background:rgba(233,233,233,0.15); min-height:257px;  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+                            // 태블릿: 3칸 + 안쪽 여백 36px이면 사파리에서 글자가 카드 밖으로 넘침
+                            @media screen and (min-width:768px) and (max-width:1023px) {
+                                min-width:0; padding:24px; overflow-wrap:anywhere;
+                            }
 
                             @include media ("mobile") {
                                 padding:20px; min-height:auto;
@@ -1725,6 +1792,12 @@
             .inner {
                 padding: 140px 100px; background:#F4F5F7; border-radius:60px;
 
+                // 태블릿: 좌우 100px 안쪽 여백 때문에 카드 설명 칸이 90px까지 좁아짐
+                @media screen and (min-width:768px) and (max-width:1023px) {
+                    padding:80px 40px;
+                    > ul > li {padding:24px;}
+                }
+
                 @include media ("mobile") {
                     padding:50px 16px; border-radius:32px;
                 }
@@ -1801,7 +1874,7 @@
 
             &.type02 {
                 .inner {
-                    background: url(../../images/contents/wms_cont_bg.png)center center no-repeat;
+                    background: url(../../images/contents/wms_cont_bg.jpg)center center no-repeat;
 
                     > ul {
                         display:flex; flex-flow: row wrap; align-items: center; justify-content: flex-start; gap:20px 20px;
@@ -1912,7 +1985,7 @@
 
     .left {
         .smT {
-            font-size:20px; font-weight:700; line-height:150%; color:#ef4349;
+            font-size:20px; font-weight:700; line-height:150%; color:#0E88D3;
             @include media ("mobile") {
                 font-size:18px;
             }
@@ -2016,7 +2089,7 @@
 
         > .imgFrame {
             width:100%; height:400px; overflow:hidden; border-radius:40px;
-            background:url(../../images/contents/ref_cont01.png)center center no-repeat;
+            background:url(../../images/contents/ref_cont01.jpg)center center no-repeat;
 
             @include media ("mobile"){
                 height:200px; background-size:100%; border-radius:0;
@@ -2069,7 +2142,7 @@
         }
 
         .smT {
-            display:block; width:100%; font-size:20px; font-weight:700; line-height:150%; color:#ec1c24;
+            display:block; width:100%; font-size:20px; font-weight:700; line-height:150%; color:#0E88D3;
 
             @include media ("mobile"){
                 font-size:18px;
@@ -2206,7 +2279,7 @@
                             }
 
                             > span.yr {
-                                color:#EC1C24;
+                                color:#0E88D3;
                             }
                         }
                         
@@ -2232,12 +2305,16 @@
     .w1400 {
         width:100%; max-width:1400px; margin:0 auto;
 
+        @include minWidth("mobile") {
+            width:calc(100% - 40px); /* 1440px 이하 좌우 20px 여백 */
+        }
+
         @include media ("mobile") {
-            max-width:auto; padding: 0 16px;
+            max-width:none; padding: 0 16px;
         }
 
         > span.smT {
-            font-size:20px; font-weight:700; line-height:150%; color:#ec1c24;
+            font-size:20px; font-weight:700; line-height:150%; color:#0E88D3;
             @include media ("mobile") {
                 font-size:18px;
             }
@@ -2267,6 +2344,7 @@
 
         .mapFrame {
             border-radius:60px; overflow:hidden;
+            iframe {border:0;} /* 기존 인라인 style 이동 */
 
             @include media ("mobile") {
                 border-radius:0;
@@ -2276,14 +2354,20 @@
 
     .locInfo {
         display:flex; flex-flow : row nowrap; align-items:flex-start; justify-content: flex-start; gap:100px;
+        @include media ("pc") {
+            gap:40px;
+        }
         @include media ("mobile") {
             flex-flow:column; gap:20px;
         }
 
         > div {
             width:640px;
+            @include media ("pc") {
+                width:auto; flex:1 1 0; min-width:0;
+            }
             @include media ("mobile") {
-                width:100%;
+                width:100%; flex:none;
             }
 
             &.left {
@@ -2398,14 +2482,22 @@
         }
         > li {
             width:100%; display:flex; flex-flow: row nowrap; align-items: center ;justify-content: flex-start; gap:80px;
+            @include media ("pc") {
+                gap:40px;
+            }
             @include media ("mobile") {
                 flex-flow:column; align-items: flex-start; gap:50px;
             }
             > .thumb {
                 width:640px;
 
+                /* 1280px 이하: 이미지 고정폭(640px) 때문에 텍스트 칸이 찌그러지던 문제 → 비율 분할 */
+                @include media ("pc") {
+                    width:45%; flex:0 0 45%;
+                }
+
                 @include media ("mobile") {
-                    width:100%;
+                    width:100%; flex:none;
                 }
 
                 > img {
@@ -2419,8 +2511,12 @@
             > .txt {
                 width: calc(100% - 720px); display:flex; flex-flow:column; align-items: flex-start; justify-content: flex-start;
 
+                @include media ("pc") {
+                    width:auto; flex:1 1 0; min-width:0;
+                }
+
                 @include media ("mobile") {
-                    width:100%;
+                    width:100%; flex:none;
                 }
 
                 > p {

@@ -51,14 +51,14 @@ var href = function (p) { return url + locals.group + '/' + p.id + '.html'; };
 <% if (part === 'top') { %>
                 <div class="cptSubTop">
                     <div class="subTopArea">
-                        <dl class="subTopBox">
-                            <dt class="topHead">
+                        <div class="subTopBox">
+                            <div class="topHead">
                                 <h1 class="title"><%= g.name %><% if (hasSub) { %><span class="hidden"> - <%= cur.name %></span><% } %></h1>
-                            </dt>
-                            <dd class="topBody">
+                            </div>
+                            <p class="topBody">
                                 <%- g.desc %>
-                            </dd>
-                        </dl>
+                            </p>
+                        </div>
 
                         <nav class="breadCrumb" aria-label="현재 위치">
                             <ul>

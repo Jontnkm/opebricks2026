@@ -134,7 +134,7 @@
                         }
                     }
                     &:nth-child(3) {
-                        // background: url(../../images/contents/bg_main_03.png) center no-repeat; opacity: 0;
+                        // background: url(../../images/contents/bg_main_03.jpg) center no-repeat; opacity: 0;
                         .bg01 {
                             width: 2400px; height: 2400px; position: absolute; left: calc(50% - 1200px); top: calc(50% - 1200px);
                             overflow: hidden; mix-blend-mode: color-dodge; transition: all 0.8s; opacity: 0;
@@ -161,7 +161,9 @@
                     }
                 }
             }
-            &:has(.mainBn .bnItem:nth-child(1):hover){
+            // 5번째 카드는 전용 배경이 나오기 전까지 1번째 배경을 같이 사용 (2026.11.23 임시)
+            &:has(.mainBn .bnItem:nth-child(1):hover),
+            &:has(.mainBn .bnItem:nth-child(5):hover){
                 .backGroup .backItem:nth-child(1) {
                     // opacity: 1;
                     .bg01 {
@@ -253,6 +255,8 @@
             }
             .mainBnArea {
                 width: 100%; max-width: 1680px; height: 100%; padding: 0 40px; margin: 0 auto; overflow: hidden; align-content: center;
+                position: relative; /* 페이지네이션(absolute) 기준 박스 명시 — 사파리에서 점이 화면 아래로 밀려 메인이 스크롤되던 문제 */
+                display: flex; flex-direction: column; justify-content: center; /* 블록 align-content 미지원 브라우저(사파리 17.4 미만) 대비 */
 
                 /*2026.06.04 신규*/
 
@@ -298,7 +302,7 @@
                     &:first-child {margin-left: 0;}
                     width: 380px; min-width: 380px; height: 480px; padding: 40px 40px 130px 40px; border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.15); /* 간격은 swiper spaceBetween */
                     background: rgba(217, 217, 217, 0.1); box-shadow: 0px 40px 50px 10px rgba(0, 0, 0, 0.15); cursor: pointer; 
-                    transition: all 0.3s; position: relative; flex-shrink: 1; backdrop-filter: blur(3.5840001106262207px);
+                    transition: all 0.3s; position: relative; flex-shrink: 1; -webkit-backdrop-filter: blur(3.5840001106262207px); backdrop-filter: blur(3.5840001106262207px);
                     animation: startMainBn 0.8s cubic-bezier(0.4,0,0.2,1.2); animation-fill-mode: forwards; transform: translate(0, 700px); opacity: 0;
 
                     &:nth-child(1) {animation-delay: 0.3s; /*animation-delay: 5.6s;*/}
@@ -322,7 +326,7 @@
                                 margin-top: 4px; color: #FFF; font-size: 32px; font-style: normal; font-weight: 600; line-height: 130%; text-align: left; display: block; letter-spacing: -0.06em; /* 'DevOps 및 서비스 운영' 한 줄 유지 */
                             }
                             .titSub {
-                                margin-top: 20px; color: #EC1C24; font-size: 18px; font-style: normal; font-weight: 500; line-height: 150%; text-align: left; display: block;
+                                margin-top: 20px; color: #0E88D3; font-size: 18px; font-style: normal; font-weight: 500; line-height: 150%; text-align: left; display: block;
                             }
                         }
                         .bnCont { 
@@ -367,24 +371,22 @@
                             text-align: center; font-size: 40px;
                         }
                     }
+                    // 픽셀 고정 배치 대신 글자가 흐르는 배치 (글꼴·폭이 달라도 겹치거나 벌어지지 않음, 개발 반영 2026.11.23)
                     .dec {
-                        width: 254px; height: 104px;
+                        width: 100%; max-width: 280px; height: auto; padding: 0 16px; box-sizing: content-box; text-align: center; word-break: keep-all;
                         span {
-                            font-size: 16px;
-                            &:nth-child(1) {left: 59px; top: 0;}
-                            &:nth-child(2) {left: 23px; top: 25px;}
-                            &:nth-child(3) {left: 167px; top: 25px;}
-                            &:nth-child(4) {left: 37px; top: 50px;}
-                            &:nth-child(5) {left: 110px; top: 50px;}
-                            &:nth-child(6) {left: 54px; top: 77px;}
+                            position: relative; left: auto; top: 0; font-size: 16px; white-space: normal;
+                            &:nth-child(n) {left: auto; top: 0;}
+                            &:nth-child(1) {display: block;}
                         }
+                        // 위치 대신 원래 자리 기준으로 아래에서 올라오는 효과
                         @keyframes textViewDec01 {
-                            0% {top: 50px; opacity: 0;}
-                            100% {top: 25px; opacity: 1;}
+                            0% {top: 25px; opacity: 0;}
+                            100% {top: 0; opacity: 1;}
                         }
                         @keyframes textViewDec02 {
-                            0% {top: 75px; opacity: 0;}
-                            100% {top: 50px; opacity: 1;}
+                            0% {top: 25px; opacity: 0;}
+                            100% {top: 0; opacity: 1;}
                         }
                         @keyframes textViewDec03 {
                             0% {opacity: 0;}
@@ -432,6 +434,27 @@
                     }
                 }
             }
+        }
+    }
+
+    // 화면 높이가 낮은 PC(1366×768, 1280×720 등): 페이지네이션 점이 카드 위에 겹치고 제목이 GNB 밑에 붙던 문제
+    // → 점을 카드 아래 흐름 배치로 바꾸고, 높이에 따라 제목·카드 높이를 단계적으로 축소 (1920×1080 디자인 기준 화면은 변화 없음)
+    @media screen and (min-width: 768px) and (max-height: 940px) {
+        .sectGroup.scene02 .mainBnArea {
+            .introTextArea .mainTit {margin-bottom: 40px;}
+            .swiper-pagination-bullets {position: relative; bottom: auto; margin-top: 30px;}
+        }
+    }
+    @media screen and (min-width: 768px) and (max-height: 820px) {
+        .sectGroup.scene02 .mainBnArea {
+            .introTextArea .mainTit {font-size: 40px; line-height: 60px;}
+            .mainBn .bnItem {height: 420px; .bnGroup .bnTop {height: 200px;}}
+        }
+    }
+    @media screen and (min-width: 768px) and (max-height: 760px) {
+        .sectGroup.scene02 .mainBnArea {
+            .introTextArea {margin-top: 90px;}
+            .mainBn .bnItem {height: 400px; .bnGroup .bnTop {height: 184px;}}
         }
     }
 }
