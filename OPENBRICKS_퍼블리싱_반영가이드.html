@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OPENBRICKS 퍼블리싱 반영 가이드</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: 한 줄 문서 칼럼 + 상단 고정 바(기준 탭 + 목차), 3단계 반영 순서 → 경로별 페이지 표 → 주의사항 */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --fg:#1d2733; --muted:#5f6b7a; --line:#dde2e8;
+  --navy:#375579; --navy-soft:#e7edf5; --red:#d4141c; --red-soft:#fdeaea; --ok:#2f7a4f; --ok-soft:#e6f3eb; --warn:#9a6200; --warn-soft:#fff3dc;
+  --code:#eef1f5; --on-navy:#ffffff;
+  --f-body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11161d; --surface:#18202a; --fg:#e4e9ef; --muted:#9aa7b6; --line:#2b3542;
+  --navy:#8fb0d8; --navy-soft:#1f2c3c; --red:#ff7a7f; --red-soft:#3a1d20; --ok:#79cf9b; --ok-soft:#183024; --warn:#f0b65a; --warn-soft:#352816;
+  --code:#222c38; --on-navy:#11161d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11161d; --surface:#18202a; --fg:#e4e9ef; --muted:#9aa7b6; --line:#2b3542;
+  --navy:#8fb0d8; --navy-soft:#1f2c3c; --red:#ff7a7f; --red-soft:#3a1d20; --ok:#79cf9b; --ok-soft:#183024; --warn:#f0b65a; --warn-soft:#352816;
+  --code:#222c38; --on-navy:#11161d; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.65;word-break:keep-all;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 72px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+header.top{padding-block:40px 0;display:flex;flex-direction:column;gap:12px}
+.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--red);font-weight:700}
+h1{font-size:30px;line-height:1.3;margin:0;text-wrap:balance}
+h2{font-size:21px;margin:0;line-height:1.35;text-wrap:balance}
+h3{font-size:16px;margin:0}
+p{margin:0}
+a{color:var(--navy)}
+.lead{color:var(--muted);max-width:70ch}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted)}
+code,.mono{font-family:var(--f-mono);font-size:12.5px}
+code{background:var(--code);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+
+/* 상단 고정 바 */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:10px;display:flex;flex-direction:column;gap:10px}
+.basis{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.basis .lbl{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.04em}
+.tabs{display:inline-flex;border:1px solid var(--navy);border-radius:8px;overflow:hidden}
+.tabs button{font:inherit;font-size:14px;font-weight:700;border:0;background:var(--surface);color:var(--navy);padding:6px 16px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--navy);color:var(--on-navy)}
+.tabs button:focus-visible{outline:2px solid var(--red);outline-offset:-2px}
+.basis .hint{font-size:13px;color:var(--muted)}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px}
+nav.toc a{font-size:13px;color:var(--fg);text-decoration:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 12px}
+nav.toc a:hover,nav.toc a:focus-visible{border-color:var(--navy);outline:none}
+
+section{display:flex;flex-direction:column;gap:16px;scroll-margin-top:120px}
+.step{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;border-radius:8px;background:var(--navy);color:var(--on-navy);font-weight:700;font-size:14px;margin-right:10px}
+.h2row{display:flex;align-items:center}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.callout{border-left:4px solid var(--warn);background:var(--warn-soft);border-radius:0 8px 8px 0;padding:12px 16px;font-size:14px}
+.callout.red{border-left-color:var(--red);background:var(--red-soft)}
+.callout.ok{border-left-color:var(--ok);background:var(--ok-soft)}
+ul.list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:820px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-size:12px;color:var(--muted);font-weight:700;background:var(--navy-soft)}
+tr:last-child td{border-bottom:0}
+td ul{margin:0;padding-left:16px}
+.pill{display:inline-block;font-size:11.5px;font-weight:700;border-radius:4px;padding:1px 7px;white-space:nowrap}
+.pill.replace{background:var(--navy-soft);color:var(--navy)}
+.pill.new{background:var(--ok-soft);color:var(--ok)}
+.pill.hold{background:var(--warn-soft);color:var(--warn)}
+.pill.del{background:var(--red-soft);color:var(--red)}
+.route a{font-family:var(--f-mono);font-size:15px;font-weight:700;white-space:nowrap}
+.live{font-family:var(--f-mono);font-size:15px;font-weight:700;overflow-wrap:anywhere}
+.path{font-family:var(--f-mono);font-size:12px;color:var(--fg);overflow-wrap:anywhere;display:block}
+.fname{font-weight:700;font-size:13.5px;color:var(--red);background:var(--red-soft);border-radius:3px;padding:0 3px}
+.path + .path{margin-top:2px}
+.sub{font-size:12px;color:var(--muted)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+details summary{cursor:pointer;padding:14px 18px;font-weight:700;list-style:none;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px}
+details summary::-webkit-details-marker{display:none}
+details summary .path{font-weight:400;display:inline;color:var(--muted)}
+details .inner{padding:0 18px 16px;display:flex;flex-direction:column;gap:10px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.check{display:flex;gap:10px;align-items:flex-start}
+.check input{margin-top:5px;width:16px;height:16px;accent-color:var(--navy);flex-shrink:0}
+.check label{cursor:pointer}
+.progress{font-size:13px;color:var(--muted)}
+.only-src{display:none}
+body[data-basis="src"] .only-src{display:revert}
+body[data-basis="src"] .only-dist{display:none}
+pre{margin:0;background:var(--code);border-radius:8px;padding:12px 14px;overflow-x:auto;font-family:var(--f-mono);font-size:12.5px;line-height:1.6}
+@media (max-width:560px){h1{font-size:24px}.box{padding:14px}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="eyebrow">OPENBRICKS · LIVE 반영 안내</span>
+    <h1>퍼블리싱 수정분 반영 가이드</h1>
+    <p class="lead">2026-10-26에 전달한 퍼블리싱 소스에서 무엇이 바뀌었고, 실서비스 <a href="https://www.openbricks.kr" target="_blank" rel="noopener">openbricks.kr</a>의 어느 URL·파일에 무엇을 덮어씌우면 되는지 정리했습니다. 실서비스 URL은 운영 사이트의 앱 라우트와 정적 파일을 직접 조회해서 확인한 값입니다.</p>
+    <div class="meta">
+      <span>기준 소스: <code>오픈브릭스_홈페이지소스.zip</code> (<code>dist.zip</code> · <code>src.zip</code>) = Git 커밋 <code>92ac19c</code></span>
+      <span>실서비스 확인일: 2026-11-13</span>
+    </div>
+  </header>
+
+  <div class="bar">
+    <div class="basis">
+      <span class="lbl">파일 기준</span>
+      <div class="tabs" role="tablist" aria-label="파일 경로 기준">
+        <button type="button" role="tab" id="tab-dist" data-basis="dist" aria-selected="true">dist 기준</button>
+        <button type="button" role="tab" id="tab-src" data-basis="src" aria-selected="false">src 기준</button>
+      </div>
+      <span class="hint only-dist">빌드된 결과물(<code>dist.zip</code>)에서 바로 복사할 때</span>
+      <span class="hint only-src">원본 SCSS·EJS(<code>src.zip</code>)를 보고 직접 옮길 때</span>
+    </div>
+    <nav class="toc" aria-label="목차">
+      <a href="#summary">한눈에 보기</a>
+      <a href="#step1">1. 공통 파일</a>
+      <a href="#step2">2. 레이아웃</a>
+      <a href="#step3">3. 페이지별</a>
+      <a href="#paths">경로 변환</a>
+      <a href="#js">JS 연동</a>
+      <a href="#hold">반영 보류</a>
+      <a href="#checklist">체크리스트</a>
+    </nav>
+  </div>
+
+  <section id="summary">
+    <h2>한눈에 보기</h2>
+    <div class="grid2">
+      <div class="box">
+        <h3><span class="pill replace">교체</span> CSS → <span class="live">/css/style.css</span></h3>
+        <p class="only-dist"><code>dist/common/css/style.css</code>로 통째 교체합니다. <b>단, 폰트 경로 1곳은 치환이 필요합니다</b>(<a href="#paths">경로 변환</a>).</p>
+        <p class="only-src"><code>src/scss/</code>에서 10개 파일이 바뀌었습니다. 컴파일 결과(<code>style.css</code>)로 교체하는 것을 권장합니다.</p>
+      </div>
+      <div class="box">
+        <h3><span class="pill replace">교체</span> JS → <span class="live">/js/common.bundle.js</span></h3>
+        <p>실서비스는 swiper와 common을 묶은 번들을 씁니다. 새 <code>common.js</code>로 번들을 다시 만들어 주세요(<a href="#js">JS 연동</a>).</p>
+      </div>
+      <div class="box">
+        <h3><span class="pill new">추가</span> 아이콘 35개 → <span class="live">/images/common/</span></h3>
+        <p>실서비스에 없는 파일들입니다(예: <code>ic_20_chk_on.svg</code> 현재 404). 기존 파일은 바뀌지 않았습니다.</p>
+      </div>
+      <div class="box">
+        <h3><span class="pill replace">마크업</span> 레이아웃 + 14개 화면</h3>
+        <p>헤더, 서브 상단(브레드크럼·탭), 푸터와 각 페이지 본문입니다. 실서비스 URL별 대응표는 <a href="#step3">3단계</a>에 있습니다.</p>
+      </div>
+    </div>
+    <div class="callout red"><b>꼭 확인:</b> 실서비스의 <code>/css/style.css</code>나 번들 JS를 직접 고친 적이 있다면, 교체 전에 그 부분을 백업해 두세요. 퍼블리싱 파일로 덮으면 그 수정은 사라집니다. <code>/css/app.css</code>는 실서비스 전용 파일이라 건드리지 않습니다.</div>
+  </section>
+
+  <section id="step1">
+    <div class="h2row"><span class="step">1</span><h2>공통 파일 교체</h2></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:22%">실서비스 URL</th><th style="width:28%">퍼블리싱 파일</th><th style="width:11%">처리</th><th>무엇이 바뀌었나</th></tr></thead>
+        <tbody>
+          <tr><td class="live">/css/style.css</td>
+            <td><span class="path" data-dist="dist/common/css/style.css" data-src="src/scss/style.scss (컴파일 진입점)">dist/common/css/style.css</span>
+              <span class="only-src sub">변경된 partial:</span>
+              <span class="path only-src" data-src="_default.scss · _maxin.scss"></span>
+              <span class="path only-src" data-src="common/_comBtnGroup.scss"></span>
+              <span class="path only-src" data-src="component/_common.scss · _component.scss"></span>
+              <span class="path only-src" data-src="component/_cptGnb.scss · _cptMain.scss"></span>
+              <span class="path only-src" data-src="component/_cptSubTop.scss · _cptFooter.scss"></span>
+              <span class="path only-src" data-src="component/_cptContactUs.scss"></span></td>
+            <td><span class="pill replace">통째 교체</span><br><span class="sub">폰트 경로 치환</span></td><td>
+            <ul>
+              <li>GNB 드롭다운: 헤더와 함께 스크롤(absolute), 닫힘 상태 숨김, 테두리·그림자 피그마 값, 1depth와 열 위치 정렬, 빨간 점 위치 <span class="sub only-src">(_cptGnb)</span></li>
+              <li>1280px 이하에서 햄버거 → 모바일 전체메뉴, 메뉴가 퀵버튼보다 위, 메뉴 안 스크롤 <span class="sub only-src">(_cptGnb)</span></li>
+              <li>메인 카드 380×480(모바일 276×400), 페이지네이션 위치, 카드 hover 버튼색, 제목 자간 <span class="sub only-src">(_cptMain)</span></li>
+              <li>문의하기 흰 배경, 흰 헤더(<code>.cptGnb.white</code>), 체크박스 색(체크 시 빨강) <span class="sub only-src">(_cptContactUs, _cptGnb)</span></li>
+              <li>스텝 연결선이 아이콘 뒤로, 태블릿 이미지·박스 넘침, 1640px 이하 좌우 20px 여백, 레퍼런스 아코디언 정렬, 하단 배너 버튼 줄바꿈 <span class="sub only-src">(_common)</span></li>
+              <li>브레드크럼 고정폭 해제, 모바일 소개문 <code>&lt;br&gt;</code> 숨김 <span class="sub only-src">(_cptSubTop)</span></li>
+              <li>한글 단어 단위 줄바꿈, 마지막 줄 한 글자 방지, <code>.hidden</code>(스크린리더 전용), <code>label</code> 숨김 리셋 삭제, select 화살표 경로 수정 <span class="sub only-src">(_default)</span></li>
+              <li>TOP 버튼은 스크롤 300px 이후 표시, 모바일 퀵버튼 48px, 푸터 여백·터치 영역 <span class="sub only-src">(_cptGnb, _cptFooter)</span></li>
+            </ul></td></tr>
+          <tr><td class="live">/js/common.bundle.js<br><span class="sub">(번들 안의 common 부분)</span></td>
+            <td><span class="path" data-dist="dist/common/js/common.js" data-src="src/common/js/common.js">dist/common/js/common.js</span><span class="sub">dist와 src 내용 동일</span></td>
+            <td><span class="pill replace">번들 재생성</span></td><td>
+            <ul>
+              <li>GNB: 1depth 마우스오버 / 햄버거 클릭 모두 드롭다운, 영역을 벗어나면 닫힘, ESC·링크 클릭 시 닫힘, 모바일 메뉴 열림 시 배경 스크롤 잠금</li>
+              <li>메인 슬라이드: 5개 자동 슬라이드(4초, 끝나면 처음으로), 넓은 화면의 짧은 마지막 이동 정리</li>
+              <li>문의 폼 필수값 검사, 레퍼런스 아코디언·모바일 탭 <code>aria-expanded</code>, 요소 없는 페이지의 null 에러 방지</li>
+            </ul></td></tr>
+          <tr><td class="live">/images/common/</td>
+            <td><span class="path" data-dist="dist/images/common/*.svg (35개)" data-src="src/images/common/*.svg (35개)">dist/images/common/*.svg (35개)</span></td>
+            <td><span class="pill new">추가</span></td><td>CSS가 참조하는데 없던 아이콘(체크박스·라디오·페이징·팝업 닫기·다운로드·select 화살표 등). 예: <code>ic_20_chk_on.svg</code>, <code>ic_20_paging_next.svg</code>, <code>ic_20_down_arr.svg</code></td></tr>
+          <tr><td class="live">/images/contents/</td>
+            <td><span class="path" data-dist="dist/images/contents/" data-src="src/images/contents/">dist/images/contents/</span></td>
+            <td><span class="pill hold">변경 없음</span></td><td>이미지 파일은 그대로입니다. TMS 페이지는 마크업의 경로 오타(<code>tms_product .png</code>)만 고쳤고, 실서비스 <code>/images/contents/tms_product.png</code>는 정상 존재합니다.</td></tr>
+          <tr><td class="live">—</td>
+            <td><span class="path" data-dist="dist/html/sub/* · dist/html/login/* · dist/common/css/layout/layout.css 등" data-src="(src에는 원래 없던 파일)">dist/html/sub/* · dist/html/login/* · dist/common/css/layout/layout.css 등</span></td>
+            <td><span class="pill del">무시</span></td><td>쓰지 않던 예전 빌드 결과물을 정리한 것입니다. 실서비스에서 할 일은 없습니다.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="step2">
+    <div class="h2row"><span class="step">2</span><h2>레이아웃 컴포넌트 (모든 페이지 공통)</h2></div>
+    <p class="lead only-dist">dist에서는 아래 영역이 모든 페이지 HTML 안에 펼쳐져 있습니다. 아무 페이지(예: <code>dist/html/service/devops.html</code>)에서 해당 영역을 복사해 실서비스 레이아웃 컴포넌트에 반영해 주세요.</p>
+    <p class="lead only-src">src에서는 EJS include 파일로 분리돼 있습니다. 실서비스의 레이아웃·헤더·푸터 컴포넌트와 1:1로 대응됩니다.</p>
+
+    <details open>
+      <summary>헤더 / GNB · 퀵버튼 <span class="path" data-dist="dist/html/**/*.html 의 .cptGnb, .quick 영역" data-src="src/html/_ejs/gnb.ejs">dist/html/**/*.html 의 .cptGnb, .quick 영역</span></summary>
+      <div class="inner">
+        <ul class="list">
+          <li>햄버거 버튼: <code>&lt;button type="button" class="menuBtn" aria-label="전체 메뉴 열기" aria-expanded="false" aria-controls="allMenuPc allMenuMo"&gt;</code>. 안쪽 <code>span</code> 4개는 글자 없이 <code>aria-hidden="true"</code>(이전 "메/뉴/열/기" 글자 삭제).</li>
+          <li>전체메뉴 박스에 id 추가: <code>.allMenuBox.pc#allMenuPc</code>, <code>.allMenuBox.mo#allMenuMo</code></li>
+          <li>PC 드롭다운의 <code>.depth02</code> 열 순서는 1depth와 같아야 합니다(Services, Products, 빈 열, 빈 열, Company). JS가 같은 순번끼리 연결합니다.</li>
+          <li>문의하기 링크 3곳(상단 버튼, 모바일 메뉴 하단, 떠 있는 문의 버튼) → <span class="live">/contractUs</span></li>
+          <li>메뉴명 표기: <b>시스템구축 SI</b>, <b>Cloud 기반 최적화</b> (피그마 기준, 탭·브레드크럼·페이지 제목과 통일)</li>
+          <li>흰 배경 페이지용 헤더: <code>&lt;div class="cptGnb white"&gt;</code> (현재 문의하기 페이지만 사용)</li>
+          <li>떠 있는 문의 버튼(<code>.quick</code> 첫 번째 li)은 <b>문의 페이지에서는 출력하지 않음</b>. TOP 버튼은 <code>&lt;a href="#container" id="quickTop" aria-label="상단으로 이동"&gt;</code></li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>서브 상단 · 브레드크럼 · 탭 <span class="path" data-dist="dist/html/**/*.html 의 .cptSubTop, .comTab 영역" data-src="src/html/_ejs/sub_nav.ejs (신규)">dist/html/**/*.html 의 .cptSubTop, .comTab 영역</span></summary>
+      <div class="inner">
+        <p class="only-src">페이지마다 복사돼 있던 서브 상단과 탭을 메뉴 데이터 하나(<code>groups</code>)로 만들도록 바꿨습니다. 페이지에서는 <code>part: "top" | "tab"</code>, <code>group</code>, <code>current</code>만 넘깁니다.</p>
+        <ul class="list">
+          <li><code>&lt;h1 class="title"&gt;Services&lt;span class="hidden"&gt; - 현재 페이지명&lt;/span&gt;&lt;/h1&gt;</code>. 화면에는 그룹명만 보이고 페이지명은 스크린리더용 숨김 텍스트입니다.</li>
+          <li>브레드크럼은 <code>&lt;nav class="breadCrumb" aria-label="현재 위치"&gt;</code>. 홈 → 그룹 첫 페이지 → 현재 페이지(<code>class="present" aria-current="page"</code>)로 <b>실제 링크</b>를 겁니다(이전에는 모두 <code>href="/"</code>).</li>
+          <li>탭(<code>.comTab.pc</code> / <code>.comTab.mo</code>)은 <code>javascript:void(0)</code> 대신 각 페이지 URL로 링크합니다. 현재 탭에 <code>class="active" aria-current="page"</code>, 모바일 탭 버튼 글자는 현재 페이지명입니다.</li>
+          <li>소개 문구 <code>.topBody</code>의 <code>&lt;br&gt;</code>은 모바일에서 CSS로 숨기므로, <code>&lt;br&gt;</code> 앞에 공백이 있어야 합니다.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>푸터 <span class="path" data-dist="dist/html/**/*.html 의 .cptFooter 영역" data-src="src/html/_ejs/footer.ejs">dist/html/**/*.html 의 .cptFooter 영역</span></summary>
+      <div class="inner">
+        <ul class="list">
+          <li>저작권 표기 <code>ALL RIGHT RESERVED</code> → <code>ALL RIGHTS RESERVED</code></li>
+          <li>전화번호를 <code>&lt;a href="tel:025570130"&gt;02-557-0130&lt;/a&gt;</code>로 변경</li>
+          <li>회사소개서 다운로드: 실제 파일 링크 + <code>download</code> 속성. <b>경로는 실서비스 파일</b> <span class="live">/file/OPENBRICKS_260831.pdf</span>를 쓰세요.</li>
+          <li>문의하기 → <span class="live">/contractUs</span>, BLOG 링크에 <code>rel="noopener noreferrer" title="새 창 열림"</code></li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>&lt;head&gt; 공통 · 본문 영역 <span class="path" data-dist="dist/html/**/*.html 의 &lt;head&gt;, #container" data-src="src/html/_ejs/top.ejs">dist/html/**/*.html 의 &lt;head&gt;, #container</span></summary>
+      <div class="inner">
+        <ul class="list">
+          <li>페이지 제목 형식: <code>페이지명 | OPENBRICKS</code> (홈은 <code>OPENBRICKS | 운영 가능한 시스템을 만드는 SI 기업</code>). 페이지별 값은 3단계 표의 "title" 칸입니다. 실서비스는 지금 대부분 "Cloud Infra"로 고정돼 있습니다.</li>
+          <li>페이지별 <code>meta description</code>과 <code>og:type / og:site_name / og:title / og:description / og:image</code> 추가</li>
+          <li>본문 영역에 <code>tabindex="-1"</code>: <code>&lt;div class="layoutContainer" id="container" tabindex="-1"&gt;</code> ("본문바로가기" 클릭 시 본문으로 포커스 이동)</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <section id="step3">
+    <div class="h2row"><span class="step">3</span><h2>페이지별 반영 (실서비스 URL ↔ 퍼블리싱 파일)</h2></div>
+    <div class="callout"><b>모든 서브페이지 공통</b>: 2단계의 서브 상단·탭·브레드크럼 마크업, 섹션 대제목 <code>&lt;p class="bgTit"&gt;</code> → <code>&lt;h2 class="bgTit"&gt;</code>(CSS가 h2 기준), 하단 배너 "문의하기" 버튼 → <span class="live">/contractUs</span>, 텍스트 <code>&lt;br&gt;</code> 앞 공백 추가(모바일에서 단어가 붙지 않게). 표에는 그 외에 해당 페이지에만 있는 변경을 적었습니다.</div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:19%">실서비스 URL</th><th style="width:24%">퍼블리싱 파일</th><th style="width:16%">title</th><th>이 페이지에만 있는 변경</th></tr></thead>
+        <tbody>
+          <tr><td class="route"><a href="https://www.openbricks.kr/" target="_blank" rel="noopener">/</a></td><td><span class="path" data-dist="dist/html/index.html" data-src="src/html/index.html">dist/html/index.html</span></td><td>OPENBRICKS | 운영 가능한 시스템을 만드는 SI 기업</td><td><ul>
+            <li>메인 카피 <code>&lt;p class="mainTit"&gt;</code> → <code>&lt;h1 class="mainTit"&gt;</code></li>
+            <li>서비스 카드 5개(실서비스는 현재 4개 노출), 카드명 "시스템구축 SI", "Cloud 기반 최적화"</li>
+            <li>오탈자: 소프트위어 → 소프트웨어, SBM를 → SBM을</li>
+            <li>인트로 대체 문구 회사명 "아이웍스인터렉티브는" → "오픈브릭스는"</li></ul></td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/services/cloudInfra" target="_blank" rel="noopener">/services/cloudInfra</a></td><td><span class="path" data-dist="dist/html/service/cloud_infra.html" data-src="src/html/service/cloud_infra.html">dist/html/service/cloud_infra.html</span></td><td>Cloud 플랫폼 인프라 | OPENBRICKS</td><td>오탈자 "문제를 반복적으로 발생" → "문제가 반복적으로 발생"</td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/services/systemBuild" target="_blank" rel="noopener">/services/systemBuild</a></td><td><span class="path" data-dist="dist/html/service/system_build.html" data-src="src/html/service/system_build.html">dist/html/service/system_build.html</span></td><td>시스템구축 SI | OPENBRICKS</td><td>오탈자: 트랜드 → 트렌드, 표주화 → 표준화, 운영되어야합니다 → 운영되어야 합니다</td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/services/serviceSbm" target="_blank" rel="noopener">/services/serviceSbm</a></td><td><span class="path" data-dist="dist/html/service/serviceSbm.html" data-src="src/html/service/serviceSbm.html">dist/html/service/serviceSbm.html</span></td><td>서비스연계 SBM | OPENBRICKS</td><td>오탈자: MAS → MSA, SBM는 → SBM은, 스케쥴러 → 스케줄러, Adventages → Advantages, 서브리스 → 서버리스</td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/services/devops" target="_blank" rel="noopener">/services/devops</a></td><td><span class="path" data-dist="dist/html/service/devops.html" data-src="src/html/service/devops.html">dist/html/service/devops.html</span></td><td>DevOps 및 서비스 운영 | OPENBRICKS</td><td>공통 변경만 있음 (문구 대기 항목은 <a href="#hold">반영 보류</a>)</td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/services/cloudBase" target="_blank" rel="noopener">/services/cloudBase</a></td><td><span class="path" data-dist="dist/html/service/cloude_base.html" data-src="src/html/service/cloude_base.html">dist/html/service/cloude_base.html</span></td><td>Cloud 기반 최적화 | OPENBRICKS</td><td>오탈자: OPENBIRCS → OPENBRICKS, Rundbook → Runbook, 블랙 절차 → 롤백 절차. (파일명 <code>cloude_base</code>는 퍼블리싱 쪽 오타)</td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/products/sbm" target="_blank" rel="noopener">/products/sbm</a></td><td><span class="path" data-dist="dist/html/product/sbm.html" data-src="src/html/product/sbm.html">dist/html/product/sbm.html</span></td><td>i-SBM | OPENBRICKS</td><td><ul>
+            <li>깨진 태그: <code>분배/span&gt;</code> → <code>분배&lt;/span&gt;</code> (화면에 "/span&gt;" 노출)</li>
+            <li>오탈자: SBM는 → SBM은, 서브리스 → 서버리스</li>
+            <li>제목 "i-SBM"을 <code>&lt;span class="nowrap"&gt;</code>로 감쌈</li></ul></td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/products/wms" target="_blank" rel="noopener">/products/wms</a></td><td><span class="path" data-dist="dist/html/product/wms.html" data-src="src/html/product/wms.html">dist/html/product/wms.html</span></td><td>i-WMS | OPENBRICKS</td><td><ul>
+            <li>라벨 "Why i-SBM" → "Why i-WMS"</li>
+            <li>하단 효과 목록 번호 04, 04 → 04, <b>05</b></li></ul></td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/products/tms" target="_blank" rel="noopener">/products/tms</a></td><td><span class="path" data-dist="dist/html/product/tms.html" data-src="src/html/product/tms.html">dist/html/product/tms.html</span></td><td>i-TMS | OPENBRICKS</td><td><ul>
+            <li>이미지 경로 오타 <code>tms_product .png</code> → <code>tms_product.png</code></li>
+            <li>예전 제품명 "Test Insight는" → "i-TMS는"</li></ul></td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/ai" target="_blank" rel="noopener">/ai</a></td><td><span class="path" data-dist="dist/html/ai/ai.html" data-src="src/html/ai/ai.html">dist/html/ai/ai.html</span></td><td>AI Use Cases | OPENBRICKS</td><td>공통 변경만 있음</td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/references" target="_blank" rel="noopener">/references</a></td><td><span class="path" data-dist="dist/html/reference/reference.html" data-src="src/html/reference/reference.html">dist/html/reference/reference.html</span></td><td>References | OPENBRICKS</td><td><ul>
+            <li>아코디언 버튼에 <code>type="button"</code>, <code>aria-expanded</code>. 버튼 안 <code>&lt;p class="title"&gt;</code> → <code>&lt;span class="title"&gt;</code> (CSS가 <code>&gt; .title</code>, 연도는 <code>&gt; span.yr</code> 기준)</li>
+            <li>오탈자: 확인 해보세요 → 확인해 보세요</li></ul></td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/company/introduce" target="_blank" rel="noopener">/company/introduce</a></td><td><span class="path" data-dist="dist/html/company/introduce.html" data-src="src/html/company/introduce.html">dist/html/company/introduce.html</span></td><td>회사소개 | OPENBRICKS</td><td><ul>
+            <li>협력사 로고 28개에 회사명 alt (예: 현대자동차, 삼성SDS, SAMSUNG · JA Korea, 바로크레디트대부)</li>
+            <li>"회사소개서 · 문의하기 · 블로그" 링크 연결, 지도 iframe에 <code>title="오시는 길 지도"</code>, 잘못된 <code>allowfullscreen="false"</code> 삭제</li>
+            <li>주소 쉼표 삭제(푸터와 통일), TEL을 <code>tel:</code> 링크로</li>
+            <li>오탈자: 진행중 → 진행 중</li></ul></td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/company/orgStrength" target="_blank" rel="noopener">/company/orgStrength</a></td><td><span class="path" data-dist="dist/html/company/org_strength.html" data-src="src/html/company/org_strength.html">dist/html/company/org_strength.html</span></td><td>조직 및 보유역량 | OPENBRICKS</td><td>공통 변경만 있음 (모바일 탭 active 위치 오류는 공통 탭 변경으로 해결)</td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/contractUs" target="_blank" rel="noopener">/contractUs</a></td><td><span class="path" data-dist="dist/html/contact/contact_us.html" data-src="src/html/contact/contact_us.html">dist/html/contact/contact_us.html</span><span class="pill new">신규 위치</span></td><td>Contact Us | OPENBRICKS</td><td><ul>
+            <li><b>흰 배경 디자인</b>(피그마 수정요청 5): 헤더 <code>cptGnb white</code>, 떠 있는 문의 버튼 숨김</li>
+            <li>회사명 "아이웍스인터렉티브" → "<b>오픈브릭스</b>와 함께 하세요!" (피그마 문구)</li>
+            <li>폼: <code>&lt;form id="contactForm" novalidate&gt;</code>, 입력마다 <code>name</code>·<code>required</code>·<code>autocomplete</code>, 연락처 <code>type="tel"</code>, 이메일 <code>type="email"</code>, 문의사항 라벨 연결</li>
+            <li>개인정보 동의 <b>기본 미체크</b>, 필수값 + 동의 시 버튼 활성(<code>isDisabled</code> 해제)</li>
+            <li>실제 전송(action)은 비워 두었습니다. 기존 전송 로직을 연결해 주세요.</li></ul></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub">실서비스 앱에는 <code>/services/devOps</code>, <code>/service/contractUs</code> 경로 문자열도 있습니다. 같은 화면의 다른 주소로 보이며, 위 표는 메뉴에서 쓰는 주소 기준입니다.</p>
+  </section>
+
+  <section id="paths">
+    <h2>경로 변환</h2>
+    <p class="lead">퍼블리싱은 로컬에서 열 수 있게 상대경로를 씁니다. 실서비스로 옮길 때 아래 규칙을 적용하세요.</p>
+    <div class="callout red"><b>필수: CSS 폰트 경로.</b> 퍼블리싱 <code>style.css</code>는 폰트를 <code>../../common/webfont/</code>로 부릅니다. 실서비스 폰트는 <span class="live">/webfont/</span>에 있으므로, 그대로 올리면 <code>/common/webfont/…</code>를 찾다가 폰트가 깨집니다. 교체 전에 120곳을 한 번에 치환하세요.
+      <pre>../../common/webfont/   →   /webfont/</pre>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:38%">퍼블리싱 쪽 표기</th><th style="width:28%">실서비스</th><th>메모</th></tr></thead>
+        <tbody>
+          <tr><td><code>url(../../common/webfont/…)</code> (style.css)</td><td class="live">/webfont/…</td><td><b>치환 필수</b> (위 안내)</td></tr>
+          <tr><td><code>url(../../images/…)</code> (style.css)</td><td class="live">/images/…</td><td><code>/css/style.css</code> 위치에서 그대로 <code>/images/…</code>로 풀리므로 동작합니다. 기존 실서비스처럼 절대경로로 바꿔도 됩니다.</td></tr>
+          <tr><td><code>../../images/…</code> (HTML 마크업)</td><td class="live">/images/…</td><td>실서비스 컴포넌트는 이미 <code>/images/contents/…</code> 절대경로를 쓰고 있습니다.</td></tr>
+          <tr><td>페이지 링크 (<code>../service/cloud_infra.html</code> 등)</td><td class="live">3단계 표의 URL</td><td>탭·브레드크럼·GNB·메인 카드 "자세히 보기" 모두 해당</td></tr>
+          <tr><td>문의 링크 (<code>contact/contact_us.html</code>)</td><td class="live">/contractUs</td><td>기존 경로 유지</td></tr>
+          <tr><td>회사소개서 (<code>common/file/OPENBRICKS.pdf</code>)</td><td class="live">/file/OPENBRICKS_260831.pdf</td><td>실서비스에 존재하는 파일. 퍼블리싱 저장소에는 PDF가 없습니다.</td></tr>
+          <tr><td><code>common/css/swiper.css</code>, <code>common/js/swiper.js</code></td><td class="live">/css/swiper.css · 번들</td><td>변경 없음</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="js">
+    <h2>JS 연동 주의 (Blazor)</h2>
+    <p class="lead">실서비스는 <span class="live">/js/common.bundle.js</span> 하나로 swiper와 common을 함께 불러옵니다. 새 <code>common.js</code>로 번들을 다시 만들어 주세요. 퍼블리싱 JS는 정적 페이지 기준이라 <code>DOMContentLoaded</code>에서 한 번 초기화하는데, 실서비스처럼 렌더할 때마다 초기화 함수를 다시 부르면 클릭 리스너가 쌓입니다. QA에서 나온 "메뉴가 안 닫힘", "짝수 번째 이동 후 메뉴가 안 열림"의 원인입니다.</p>
+    <div class="grid2">
+      <div class="box">
+        <h3>레이아웃에서 최초 1회만</h3>
+        <p class="mono">allMenu() · mobileMenu() · quickTop()</p>
+        <p>헤더·퀵버튼처럼 페이지가 바뀌어도 남는 요소입니다. <code>MainLayout</code>의 <code>OnAfterRenderAsync(firstRender)</code>에서 firstRender일 때만 호출하세요.</p>
+      </div>
+      <div class="box">
+        <h3>각 페이지의 첫 렌더에서</h3>
+        <p class="mono">introView()(홈) · serviceSlider() · comTabMobile() · refAccordion() · logoRolling() · contactInput() · contactForm() · fixedTap()</p>
+        <p>요소가 없는 페이지에서는 그냥 빠져나가므로 에러는 나지 않습니다.</p>
+      </div>
+    </div>
+    <ul class="list">
+      <li>페이지 이동 시 메뉴 닫기: 퍼블리싱 JS는 메뉴 링크 클릭 때 닫지만, <code>NavigationManager.LocationChanged</code>에서도 닫아 주세요. 닫힌 상태는 <code>.cptGnb</code>, <code>.quickArea</code>, <code>.allMenuBox</code>에 <code>active</code>가 없고 <code>body</code>에 <code>noScrl</code>이 없는 상태입니다.</li>
+      <li><code>GNB_BREAKPOINT = '(max-width: 1280px)'</code>는 SCSS pc 브레이크포인트와 같은 값입니다. 한쪽만 바꾸지 마세요.</li>
+      <li>메인 슬라이드: <code>slidesPerView: "auto"</code>, <code>loop: false</code>, 자동재생 4초. 카드 폭은 CSS(380px / 모바일 276px)가 정합니다.</li>
+      <li>QA에서 지적된 F5/Ctrl+R 차단 스크립트와 서브페이지 주소로 직접 접속하거나 새로고침하면 서버가 404를 주는 문제(SPA 폴백 설정 필요)는 실서비스 쪽 이슈라 퍼블리싱 파일과 무관합니다.</li>
+    </ul>
+  </section>
+
+  <section id="hold">
+    <h2>반영 보류 (결정 대기)</h2>
+    <p class="lead">이번 파일에 포함되지 않았거나, 문구를 정해야 해서 원문 그대로 둔 항목입니다. 확정되면 따로 전달드리겠습니다.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:22%">페이지</th><th>내용</th><th style="width:16%">상태</th></tr></thead>
+        <tbody>
+          <tr><td class="route"><a href="https://www.openbricks.kr/services/devops" target="_blank" rel="noopener">/services/devops</a></td><td>"…더 빠르고 안정적인 SI 수행 구조를 만듭니다." 시스템구축 SI 페이지와 같은 문장</td><td><span class="pill hold">문구 확인 중</span></td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/products/tms" target="_blank" rel="noopener">/products/tms</a></td><td>"i-TMS 도입 효과" 제목이 대시보드 지표 영역과 다음 영역에 두 번 사용</td><td><span class="pill hold">문구 확인 중</span></td></tr>
+          <tr><td>여러 페이지</td><td>다른 페이지에서 복사된 것으로 보이는 문구 (Cloud 기반 최적화 섹션 설명, DevOps AI 항목 01·02 설명 중복, i-WMS 강점 부제, "유지보수 인사이트 1.0", i-TMS 핵심 기능 설명, AI 내재화 원칙 설명, "Why Cloud App Engineering")</td><td><span class="pill hold">기획 확인 중</span></td></tr>
+          <tr><td>모바일 이미지</td><td><code>*_mo.png</code> 일부가 표시 크기와 비슷한 해상도라 레티나에서 흐림. 2배 해상도로 같은 파일명 교체 예정</td><td><span class="pill hold">디자인 요청</span></td></tr>
+          <tr><td class="route"><a href="https://www.openbricks.kr/company/introduce" target="_blank" rel="noopener">/company/introduce</a></td><td>구글 지도 핀 이름이 예전 회사명으로 표시됨</td><td><span class="pill hold">임원 확인 중</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="checklist">
+    <h2>반영 체크리스트</h2>
+    <p class="progress" id="progress" aria-live="polite"></p>
+    <div class="box" id="checks">
+      <div class="check"><input type="checkbox" id="c1"><label for="c1">실서비스에서 직접 고친 <code>/css/style.css</code>·번들 JS가 있는지 확인하고 백업했다</label></div>
+      <div class="check"><input type="checkbox" id="c2"><label for="c2">새 <code>style.css</code>의 폰트 경로 <code>../../common/webfont/</code> → <code>/webfont/</code>를 치환했다</label></div>
+      <div class="check"><input type="checkbox" id="c3"><label for="c3"><code>/css/style.css</code>를 교체했다</label></div>
+      <div class="check"><input type="checkbox" id="c4"><label for="c4">새 <code>common.js</code>로 <code>/js/common.bundle.js</code>를 다시 만들었다</label></div>
+      <div class="check"><input type="checkbox" id="c5"><label for="c5"><code>/images/common/</code>에 아이콘 35개를 추가했다</label></div>
+      <div class="check"><input type="checkbox" id="c6"><label for="c6">헤더(GNB)·퀵버튼 마크업을 반영했다 (메뉴 버튼, 문의 링크, 흰 헤더, 메뉴명)</label></div>
+      <div class="check"><input type="checkbox" id="c7"><label for="c7">서브 상단·브레드크럼·탭을 실제 URL 링크로 바꿨다</label></div>
+      <div class="check"><input type="checkbox" id="c8"><label for="c8">푸터(전화 링크, 회사소개서 <code>/file/OPENBRICKS_260831.pdf</code>, 문의 링크)를 반영했다</label></div>
+      <div class="check"><input type="checkbox" id="c9"><label for="c9">페이지별 title과 meta를 넣었다</label></div>
+      <div class="check"><input type="checkbox" id="c10"><label for="c10">14개 화면의 본문 마크업을 반영했다 (3단계 표)</label></div>
+      <div class="check"><input type="checkbox" id="c11"><label for="c11">문의 페이지(<code>/contractUs</code>) 폼을 기존 전송 로직에 연결했다</label></div>
+      <div class="check"><input type="checkbox" id="c12"><label for="c12">JS 초기화를 레이아웃 1회 / 페이지 첫 렌더로 나눴다</label></div>
+      <div class="check"><input type="checkbox" id="c13"><label for="c13">PC 1920·1440, 태블릿 1024, 모바일 375에서 메뉴 열기/닫기·페이지 이동·폰트를 확인했다</label></div>
+    </div>
+    <p class="progress">체크 상태와 선택한 탭은 이 브라우저에만 저장됩니다.</p>
+  </section>
+</div>
+
+<script>
+(function(){
+  // dist / src 기준 전환: data-dist, data-src 값으로 경로 텍스트를 바꿈
+  var BKEY = 'obk-handoff-basis';
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs button'));
+  function setBasis(b){
+    document.body.setAttribute('data-basis', b);
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.getAttribute('data-basis') === b)); });
+    document.querySelectorAll('.path').forEach(function(el){
+      var v = el.getAttribute('data-' + b);
+      if (v === null) v = el.textContent;
+      // 경로 끝의 실제 .html 파일명 강조 (*.html 같은 묶음 표기는 제외)
+      var esc = v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      el.innerHTML = esc.replace(/(^|[\/\s])([A-Za-z0-9_\-]+\.html)(?![A-Za-z0-9])/g, '$1<span class="fname">$2</span>');
+    });
+    try { localStorage.setItem(BKEY, b); } catch (e) {}
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ setBasis(t.getAttribute('data-basis')); });
+    t.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+        n.focus(); setBasis(n.getAttribute('data-basis'));
+      }
+    });
+  });
+  var start = 'dist';
+  try { start = localStorage.getItem(BKEY) || 'dist'; } catch (e) {}
+  setBasis(start === 'src' ? 'src' : 'dist');
+
+  // 체크리스트
+  var KEY = 'obk-handoff-checks-v2';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('#checks input[type=checkbox]'));
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+  function update(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    document.getElementById('progress').textContent = done + ' / ' + boxes.length + ' 완료';
+  }
+  boxes.forEach(function(b){
+    if (saved[b.id]) b.checked = true;
+    b.addEventListener('change', function(){
+      saved[b.id] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      update();
+    });
+  });
+  update();
+})();
+</script>
+</body>
+</html>
